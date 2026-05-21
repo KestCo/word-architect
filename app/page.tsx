@@ -1,93 +1,60 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
-import Game from "./Game";
+import { useEffect, useState } from "react";
 import Intro from "./Intro";
+import Game from "./Game";
 
-function HomeComponent() {
-  const [user, setUser] = useState<any>(null);
+type UserProfile = {
+  name: string;
+  streak: number;
+  skills: Record<string, number>;
+};
+
+export default function Home() {
+  const [user, setUser] = useState<UserProfile | null>(null);
   const [started, setStarted] = useState(false);
-  const [ready, setReady] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("connections-user");
+    const savedUser = localStorage.getItem("wordArchitectUser");
 
-    if (saved) {
-      const parsed = JSON.parse(saved);
-
-      // ✅ Ensure backward compatibility
-      if (!parsed.skills) parsed.skills = {};
-
-      setUser(parsed);
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
     }
 
-    setReady(true);
+    setLoaded(true);
   }, []);
 
   const createUser = (name: string) => {
-    const newUser = {
+    const newUser: UserProfile = {
       name,
       streak: 1,
-      lastPlayed: new Date().toISOString(),
-      skills: {},
+      skills: {
+        abstraction: 0,
+        symbolic: 0,
+        linguistic: 0,
+      },
     };
 
-    localStorage.setItem("connections-user", JSON.stringify(newUser));
+    localStorage.setItem(
+      "wordArchitectUser",
+      JSON.stringify(newUser)
+    );
+
     setUser(newUser);
-    setStarted(true);
   };
 
-  if (!ready) return null;
+  if (!loaded) return null;
 
-  /* =========================
-     FIRST TIME USER
-  ========================= */
-
-  if (!user) {
-    return (
-      <main className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
-        <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border p-6 space-y-4 text-center">
-          <h1 className="text-lg font-semibold">Welcome</h1>
-
-          <input
-            placeholder="Enter your name"
-            className="border px-3 py-2 w-full rounded"
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                createUser((e.target as any).value);
-              }
-            }}
-          />
-        </div>
-      </main>
-    );
-  }
-
-  /* =========================
-     RETURNING USER
-  ========================= */
-
-  if (!started) {
+  if (!user || !started) {
     return (
       <Intro
         user={user}
+        onCreateUser={createUser}
         onStart={() => setStarted(true)}
       />
     );
   }
 
-  /* =========================
-     GAME VIEW
-  ========================= */
-
-  return (
-    <main className="min-h-screen bg-neutral-50 p-6 max-w-2xl mx-auto">
-      <Game />
-    </main>
-  );
+  return <Game />;
 }
-
-export default dynamic(() => Promise.resolve(HomeComponent), {
-  ssr: false,
-});
