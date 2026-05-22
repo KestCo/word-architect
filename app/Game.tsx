@@ -14,10 +14,7 @@ function distributeAndShuffle(groups: any[]) {
 
   for (let i = 0; i < 4; i++) {
     const row: string[] = [];
-
-    groups.forEach((group: any) => {
-      row.push(group.words[i]);
-    });
+    groups.forEach((group: any) => row.push(group.words[i]));
 
     for (let j = row.length - 1; j > 0; j--) {
       const k = Math.floor(Math.random() * (j + 1));
@@ -42,15 +39,17 @@ function DraggableCard({
   disabled,
   selected,
   onTap,
+  mobileTapMode,
 }: {
   id: string;
   disabled?: boolean;
   selected?: boolean;
   onTap?: () => void;
+  mobileTapMode?: boolean;
 }) {
   const { attributes, listeners, setNodeRef } = useDraggable({
     id,
-    disabled,
+    disabled: disabled || mobileTapMode,
   });
 
   return (
@@ -59,17 +58,17 @@ function DraggableCard({
       type="button"
       onClick={(e) => {
         e.stopPropagation();
-        onTap?.();
+        if (!disabled) onTap?.();
       }}
-      {...listeners}
-      {...attributes}
+      {...(!mobileTapMode ? listeners : {})}
+      {...(!mobileTapMode ? attributes : {})}
       className={`px-4 py-2 rounded-full text-sm border transition ${
         disabled
           ? "bg-green-200"
           : selected
           ? "bg-black text-white border-black scale-105"
-          : "bg-white shadow cursor-grab active:scale-95"
-      }`}
+          : "bg-white shadow active:scale-95"
+      } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
     >
       {id}
     </button>
@@ -87,10 +86,7 @@ function DroppableArea({
   disabled?: boolean;
   onTap?: () => void;
 }) {
-  const { setNodeRef, isOver } = useDroppable({
-    id,
-    disabled,
-  });
+  const { setNodeRef, isOver } = useDroppable({ id, disabled });
 
   return (
     <div
@@ -106,6 +102,17 @@ function DroppableArea({
 }
 
 export default function Game({ overrideGame }: { overrideGame?: any }) {
+  const [mobileTapMode, setMobileTapMode] = useState(false);
+
+  useEffect(() => {
+    const check = () =>
+      setMobileTapMode(window.matchMedia("(pointer: coarse)").matches);
+
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   const [selectedGame] = useState(() => {
     if (overrideGame) return overrideGame;
 
@@ -152,9 +159,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   );
 
   useEffect(() => {
-    const seenTutorial = localStorage.getItem("wordArchitectTutorialSeen");
-
-    if (!seenTutorial) {
+    if (!localStorage.getItem("wordArchitectTutorialSeen")) {
       setShowTutorial(true);
     }
   }, []);
@@ -166,7 +171,6 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
   const moveCardTo = (card: string, target: string) => {
     const targetStack = stacks.find((s: any) => s.id === target);
-
     if (targetStack?.locked) return;
 
     let newStacks = stacks.map((s: any) => ({
@@ -184,7 +188,6 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           if (s.cards.length >= 4) return s;
           return { ...s, cards: [...s.cards, card] };
         }
-
         return s;
       });
     }
@@ -210,10 +213,13 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   };
 
   const handleDragStart = (event: any) => {
+    if (mobileTapMode) return;
     setActiveId(event.active.id);
   };
 
   const handleDragEnd = (event: any) => {
+    if (mobileTapMode) return;
+
     const { active, over } = event;
 
     if (!over) {
@@ -344,15 +350,10 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         {showTutorial && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
             <div className="bg-white rounded-3xl shadow-xl max-w-sm w-full p-6 space-y-5 text-center">
-              <div className="space-y-2">
-                <p className="text-xs uppercase tracking-wide text-neutral-400">
-                  Quick guide
-                </p>
-
-                <h2 className="text-2xl font-semibold">
-                  How to play
-                </h2>
-              </div>
+              <p className="text-xs uppercase tracking-wide text-neutral-400">
+                Quick guide
+              </p>
+              <h2 className="text-2xl font-semibold">How to play</h2>
 
               <div className="space-y-3 text-sm text-neutral-700 text-left">
                 <p>1. Group four connected words.</p>
@@ -384,6 +385,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                 key={card}
                 id={card}
                 selected={selectedCard === card}
+                mobileTapMode={mobileTapMode}
                 onTap={() => handleCardTap(card)}
               />
             ))}
@@ -400,7 +402,6 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
             {stack.collapsed ? (
               <div className="flex justify-between items-center gap-3 text-sm">
                 <span>✓ Group {i + 1}</span>
-
                 <span className="text-gray-500">{stack.data.correct}</span>
 
                 <button
@@ -430,6 +431,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                       id={card}
                       disabled={stack.locked}
                       selected={selectedCard === card}
+                      mobileTapMode={mobileTapMode}
                       onTap={() => handleCardTap(card)}
                     />
                   ))}
@@ -454,7 +456,6 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                       return (
                         <button
                           key={opt}
-                          onPointerDown={(e) => e.stopPropagation()}
                           onClick={(e) => {
                             e.stopPropagation();
                             setStacks((prev: any[]) =>
@@ -500,28 +501,10 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                         <p>
                           <strong>{stack.data.insight.pattern}</strong>
                         </p>
-
                         <p>{stack.data.insight.explanation}</p>
-
                         <p className="text-gray-600">
                           {stack.data.insight.generalization}
                         </p>
-
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setStacks((prev: any[]) =>
-                              prev.map((s: any) =>
-                                s.id === stack.id
-                                  ? { ...s, collapsed: true, fading: false }
-                                  : s
-                              )
-                            );
-                          }}
-                          className="mt-2 text-sm text-blue-600"
-                        >
-                          Collapse
-                        </button>
                       </div>
                     )}
                   </div>
@@ -539,7 +522,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         </button>
 
         <DragOverlay>
-          {activeId && (
+          {activeId && !mobileTapMode && (
             <div className="px-4 py-2 bg-black text-white rounded">
               {activeId}
             </div>
