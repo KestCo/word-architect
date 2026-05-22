@@ -34,35 +34,17 @@ function formatTime(ms: number) {
   return `${m}m ${s}s`;
 }
 
-function DraggableCard({
-  id,
-  disabled,
-  selected,
-  onTap,
-  mobileTapMode,
-}: {
-  id: string;
-  disabled?: boolean;
-  selected?: boolean;
-  onTap?: () => void;
-  mobileTapMode?: boolean;
-}) {
-  const { attributes, listeners, setNodeRef } = useDraggable({
-    id,
-    disabled: disabled || mobileTapMode,
-  });
-
-  return (
-    <button
-      ref={setNodeRef}
-      type="button"
-      onClick={(e) => {
-        e.stopPropagation();
-        if (!disabled) onTap?.();
-      }}
-      {...(!mobileTapMode ? listeners : {})}
-      {...(!mobileTapMode ? attributes : {})}
-      className={`px-4 py-2 rounded-full text-sm border transition ${
+className={`min-w-0 w-full px-2 py-2 rounded-full border transition
+  font-semibold tracking-tight text-center
+  text-[11px] sm:text-sm
+  leading-tight whitespace-normal break-words
+  ${
+    disabled
+      ? "bg-green-200"
+      : selected
+      ? "bg-black text-white border-black scale-105"
+      : "bg-white shadow active:scale-95"
+  } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
         disabled
           ? "bg-green-200"
           : selected
@@ -379,7 +361,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         )}
 
         <DroppableArea id="available" onTap={() => handleAreaTap("available")}>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-4 gap-2 sm:gap-3">
             {availableCards.map((card: string) => (
               <DraggableCard
                 key={card}
