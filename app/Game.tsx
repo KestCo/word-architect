@@ -84,10 +84,10 @@ function DraggableCard({
         leading-tight whitespace-normal break-words
         ${
           disabled
-            ? "bg-green-200"
+            ? "bg-emerald-500 text-neutral-950 border-emerald-600"
             : selected
-            ? "bg-neutral-900 text-white border-neutral-900 scale-105"
-            : "bg-white shadow active:scale-95"
+            ? "bg-neutral-950 text-white border-neutral-950 ring-2 ring-amber-400 scale-105"
+            : "bg-amber-100 text-neutral-950 border-amber-300 shadow active:scale-95"
         } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
     >
       {id}
@@ -119,8 +119,8 @@ function DroppableArea({
     <div
       ref={setNodeRef}
       onClick={onTap}
-      className={`p-5 bg-white rounded-2xl shadow-sm space-y-4 ${
-        isOver && !disabled ? "ring-2 ring-green-400" : ""
+      className={`p-5 bg-white text-neutral-900 rounded-2xl border border-neutral-200 shadow-sm space-y-4 ${
+        isOver && !disabled ? "ring-2 ring-emerald-500" : ""
       } ${onTap && !disabled ? "cursor-pointer" : ""}`}
     >
       {children}
@@ -468,7 +468,7 @@ export default function Game({
   if (endTime) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-neutral-50">
-        <div className="bg-white p-8 rounded-2xl shadow text-center space-y-4">
+        <div className="bg-white border border-neutral-200 p-8 rounded-2xl shadow text-center space-y-4">
           <h1 className="text-2xl font-semibold">
             Complete!
           </h1>
@@ -499,11 +499,11 @@ export default function Game({
     >
       <div className="max-w-2xl mx-auto space-y-8 px-3 relative">
 
-        {/* TUTORIAL */}
+        {/* tutorial */}
         {showTutorial && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-            <div className="bg-white rounded-3xl shadow-xl max-w-sm w-full p-6 space-y-5 text-center">
-              <p className="text-xs uppercase tracking-wide text-neutral-400">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+            <div className="bg-white rounded-3xl border border-neutral-200 shadow-xl max-w-sm w-full p-6 space-y-5 text-center">
+              <p className="text-xs uppercase tracking-wide text-neutral-500">
                 Quick guide
               </p>
 
@@ -511,7 +511,7 @@ export default function Game({
                 How to play
               </h2>
 
-              <div className="space-y-3 text-sm text-neutral-700 text-left">
+              <div className="space-y-3 text-sm text-neutral-800 text-left">
                 <p>
                   1. Group four connected words.
                 </p>
@@ -527,7 +527,7 @@ export default function Game({
 
               <button
                 onClick={closeTutorial}
-                className="w-full bg-black text-white py-3 rounded-xl"
+                className="w-full bg-neutral-950 text-white py-3 rounded-xl font-medium"
               >
                 Start Puzzle
               </button>
@@ -535,18 +535,18 @@ export default function Game({
           </div>
         )}
 
-        {/* MOBILE HELP */}
+        {/* mobile helper */}
         {selectedCard && (
-          <p className="text-center text-sm text-neutral-500">
+          <p className="text-center text-sm text-neutral-700 bg-neutral-100 border border-neutral-200 rounded-xl px-3 py-2">
             Selected:{" "}
-            <span className="font-medium">
+            <span className="font-semibold">
               {selectedCard}
             </span>
             . Tap a group to place it.
           </p>
         )}
 
-        {/* AVAILABLE */}
+        {/* word bank */}
         <DroppableArea
           id="available"
           onTap={() =>
@@ -568,7 +568,7 @@ export default function Game({
           </div>
         </DroppableArea>
 
-        {/* GROUPS */}
+        {/* groups */}
         {stacks.map((stack: any, i: number) => (
           <DroppableArea
             key={stack.id}
@@ -580,11 +580,11 @@ export default function Game({
           >
             {stack.collapsed ? (
               <div className="flex justify-between items-center gap-3 text-sm">
-                <span>
+                <span className="font-medium">
                   ✓ Group {i + 1}
                 </span>
 
-                <span className="text-gray-500">
+                <span className="text-neutral-700">
                   {stack.data.correct}
                 </span>
 
@@ -604,14 +604,14 @@ export default function Game({
                       )
                     );
                   }}
-                  className="text-xs text-blue-600"
+                  className="text-sm text-blue-800 font-semibold underline"
                 >
                   View
                 </button>
               </div>
             ) : (
               <>
-                <p className="text-sm text-neutral-400">
+                <p className="text-sm text-neutral-500 font-medium">
                   Group {i + 1}
                 </p>
 
@@ -637,7 +637,7 @@ export default function Game({
                 </div>
 
                 {stack.feedback && (
-                  <p className="text-sm text-yellow-600">
+                  <p className="text-sm text-amber-900 bg-amber-100 border border-amber-300 px-3 py-2 rounded-lg">
                     {stack.feedback}
                   </p>
                 )}
@@ -650,7 +650,7 @@ export default function Game({
                         : "opacity-100"
                     }`}
                   >
-                    <p className="text-sm font-medium">
+                    <p className="text-sm font-semibold">
                       What connects these?
                     </p>
 
@@ -687,23 +687,23 @@ export default function Game({
                                   )
                               );
                             }}
-                            className={`w-full text-left px-3 py-2 border rounded
+                            className={`w-full text-left px-3 py-2 border rounded-lg text-sm transition
                               ${
                                 isSelected
-                                  ? "bg-blue-100"
-                                  : ""
+                                  ? "bg-neutral-950 text-white border-neutral-950"
+                                  : "bg-white text-neutral-900 border-neutral-300"
                               }
                               ${
                                 stack.showAnswer &&
                                 isCorrect
-                                  ? "bg-green-200"
+                                  ? "bg-emerald-600 text-white border-emerald-700"
                                   : ""
                               }
                               ${
                                 stack.showAnswer &&
                                 isSelected &&
                                 !isCorrect
-                                  ? "bg-red-200"
+                                  ? "bg-red-600 text-white border-red-700"
                                   : ""
                               }`}
                           >
@@ -723,7 +723,7 @@ export default function Game({
 
                           revealAnswer(stack.id);
                         }}
-                        className="bg-black text-white px-3 py-2 rounded"
+                        className="bg-neutral-950 text-white border border-neutral-950 px-4 py-2 rounded-lg font-medium"
                       >
                         Check Answer
                       </button>
@@ -731,7 +731,7 @@ export default function Game({
 
                     {stack.showAnswer &&
                       stack.data.insight && (
-                        <div className="bg-gray-100 p-3 rounded text-sm space-y-1">
+                        <div className="bg-neutral-100 border border-neutral-200 p-3 rounded-lg text-sm space-y-1">
                           <p>
                             <strong>
                               {
@@ -749,7 +749,7 @@ export default function Game({
                             }
                           </p>
 
-                          <p className="text-gray-600">
+                          <p className="text-neutral-700">
                             {
                               stack.data
                                 .insight
@@ -765,18 +765,18 @@ export default function Game({
           </DroppableArea>
         ))}
 
-        {/* CHECK */}
+        {/* check */}
         <button
           onClick={checkGroups}
-          className="bg-black text-white px-4 py-2 rounded"
+          className="bg-neutral-950 text-white border border-neutral-950 px-4 py-2 rounded-lg font-medium"
         >
           Check Groups
         </button>
 
-        {/* DRAG */}
+        {/* drag */}
         <DragOverlay>
           {activeId && !mobileTapMode && (
-            <div className="px-4 py-2 bg-black text-white rounded">
+            <div className="px-4 py-2 bg-neutral-950 text-white rounded-lg">
               {activeId}
             </div>
           )}
