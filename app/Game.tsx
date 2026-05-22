@@ -86,7 +86,7 @@ function DraggableCard({
           disabled
             ? "bg-green-200"
             : selected
-            ? "bg-black text-white border-black scale-105"
+            ? "bg-neutral-900 text-white border-neutral-900 scale-105"
             : "bg-white shadow active:scale-95"
         } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
     >
