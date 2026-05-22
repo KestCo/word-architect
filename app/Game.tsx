@@ -9,12 +9,19 @@ import {
   DragOverlay,
 } from "@dnd-kit/core";
 
+/* =========================
+   SHUFFLE
+========================= */
+
 function distributeAndShuffle(groups: any[]) {
   const rows: string[][] = [];
 
   for (let i = 0; i < 4; i++) {
     const row: string[] = [];
-    groups.forEach((group: any) => row.push(group.words[i]));
+
+    groups.forEach((group: any) => {
+      row.push(group.words[i]);
+    });
 
     for (let j = row.length - 1; j > 0; j--) {
       const k = Math.floor(Math.random() * (j + 1));
@@ -27,35 +34,70 @@ function distributeAndShuffle(groups: any[]) {
   return rows.flat();
 }
 
+/* =========================
+   UTILS
+========================= */
+
 function formatTime(ms: number) {
   const seconds = Math.floor(ms / 1000);
   const m = Math.floor(seconds / 60);
   const s = seconds % 60;
+
   return `${m}m ${s}s`;
 }
 
-className={`min-w-0 w-full px-2 py-2 rounded-full border transition
-  font-semibold tracking-tight text-center
-  text-[11px] sm:text-sm
-  leading-tight whitespace-normal break-words
-  ${
-    disabled
-      ? "bg-green-200"
-      : selected
-      ? "bg-black text-white border-black scale-105"
-      : "bg-white shadow active:scale-95"
-  } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
-        disabled
-          ? "bg-green-200"
-          : selected
-          ? "bg-black text-white border-black scale-105"
-          : "bg-white shadow active:scale-95"
-      } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
+/* =========================
+   CARD
+========================= */
+
+function DraggableCard({
+  id,
+  disabled,
+  selected,
+  onTap,
+  mobileTapMode,
+}: {
+  id: string;
+  disabled?: boolean;
+  selected?: boolean;
+  onTap?: () => void;
+  mobileTapMode?: boolean;
+}) {
+  const { attributes, listeners, setNodeRef } = useDraggable({
+    id,
+    disabled: disabled || mobileTapMode,
+  });
+
+  return (
+    <button
+      ref={setNodeRef}
+      type="button"
+      onClick={(e) => {
+        e.stopPropagation();
+        if (!disabled) onTap?.();
+      }}
+      {...(!mobileTapMode ? listeners : {})}
+      {...(!mobileTapMode ? attributes : {})}
+      className={`min-w-0 w-full px-2 py-2 rounded-full border transition
+        font-semibold tracking-tight text-center
+        text-[11px] sm:text-sm
+        leading-tight whitespace-normal break-words
+        ${
+          disabled
+            ? "bg-green-200"
+            : selected
+            ? "bg-black text-white border-black scale-105"
+            : "bg-white shadow active:scale-95"
+        } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
     >
       {id}
     </button>
   );
 }
+
+/* =========================
+   DROP AREA
+========================= */
 
 function DroppableArea({
   id,
@@ -68,7 +110,10 @@ function DroppableArea({
   disabled?: boolean;
   onTap?: () => void;
 }) {
-  const { setNodeRef, isOver } = useDroppable({ id, disabled });
+  const { setNodeRef, isOver } = useDroppable({
+    id,
+    disabled,
+  });
 
   return (
     <div
@@ -83,7 +128,15 @@ function DroppableArea({
   );
 }
 
-export default function Game({ overrideGame }: { overrideGame?: any }) {
+/* =========================
+   GAME
+========================= */
+
+export default function Game({
+  overrideGame,
+}: {
+  overrideGame?: any;
+}) {
   const [mobileTapMode, setMobileTapMode] = useState(false);
 
   useEffect(() => {
@@ -91,8 +144,11 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       setMobileTapMode(window.matchMedia("(pointer: coarse)").matches);
 
     check();
+
     window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+
+    return () =>
+      window.removeEventListener("resize", check);
   }, []);
 
   const [selectedGame] = useState(() => {
@@ -107,23 +163,34 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     );
 
     return (
-      matchingGames[Math.floor(Math.random() * matchingGames.length)] ||
-      GAMES[0]
+      matchingGames[
+        Math.floor(Math.random() * matchingGames.length)
+      ] || GAMES[0]
     );
   });
 
   const selectedGroups = selectedGame.groups;
 
-  const [availableCards, setAvailableCards] = useState<string[]>(() =>
-    distributeAndShuffle(selectedGroups)
+  const [availableCards, setAvailableCards] = useState<string[]>(
+    () => distributeAndShuffle(selectedGroups)
   );
 
   const [showTutorial, setShowTutorial] = useState(false);
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const [selectedCard, setSelectedCard] = useState<string | null>(null);
+
+  const [activeId, setActiveId] = useState<string | null>(
+    null
+  );
+
+  const [selectedCard, setSelectedCard] = useState<
+    string | null
+  >(null);
 
   const [startTime] = useState<number>(Date.now());
-  const [endTime, setEndTime] = useState<number | null>(null);
+
+  const [endTime, setEndTime] = useState<number | null>(
+    null
+  );
+
   const [mistakes, setMistakes] = useState<number>(0);
 
   const [stacks, setStacks] = useState<any[]>(
@@ -140,27 +207,53 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     }))
   );
 
+  /* =========================
+     TUTORIAL
+  ========================= */
+
   useEffect(() => {
-    if (!localStorage.getItem("wordArchitectTutorialSeen")) {
+    if (
+      !localStorage.getItem(
+        "wordArchitectTutorialSeen"
+      )
+    ) {
       setShowTutorial(true);
     }
   }, []);
 
   const closeTutorial = () => {
-    localStorage.setItem("wordArchitectTutorialSeen", "true");
+    localStorage.setItem(
+      "wordArchitectTutorialSeen",
+      "true"
+    );
+
     setShowTutorial(false);
   };
 
-  const moveCardTo = (card: string, target: string) => {
-    const targetStack = stacks.find((s: any) => s.id === target);
+  /* =========================
+     MOVE CARD
+  ========================= */
+
+  const moveCardTo = (
+    card: string,
+    target: string
+  ) => {
+    const targetStack = stacks.find(
+      (s: any) => s.id === target
+    );
+
     if (targetStack?.locked) return;
 
     let newStacks = stacks.map((s: any) => ({
       ...s,
-      cards: s.cards.filter((c: string) => c !== card),
+      cards: s.cards.filter(
+        (c: string) => c !== card
+      ),
     }));
 
-    let newAvailable = availableCards.filter((c: string) => c !== card);
+    let newAvailable = availableCards.filter(
+      (c: string) => c !== card
+    );
 
     if (target === "available") {
       newAvailable.push(card);
@@ -168,15 +261,22 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       newStacks = newStacks.map((s: any) => {
         if (s.id === target) {
           if (s.cards.length >= 4) return s;
-          return { ...s, cards: [...s.cards, card] };
+
+          return {
+            ...s,
+            cards: [...s.cards, card],
+          };
         }
+
         return s;
       });
     }
 
     const exists =
       newAvailable.includes(card) ||
-      newStacks.some((s: any) => s.cards.includes(card));
+      newStacks.some((s: any) =>
+        s.cards.includes(card)
+      );
 
     if (!exists) newAvailable.push(card);
 
@@ -185,17 +285,29 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     setSelectedCard(null);
   };
 
+  /* =========================
+     MOBILE TAP
+  ========================= */
+
   const handleCardTap = (card: string) => {
-    setSelectedCard((current) => (current === card ? null : card));
+    setSelectedCard((current) =>
+      current === card ? null : card
+    );
   };
 
   const handleAreaTap = (target: string) => {
     if (!selectedCard) return;
+
     moveCardTo(selectedCard, target);
   };
 
+  /* =========================
+     DRAG
+  ========================= */
+
   const handleDragStart = (event: any) => {
     if (mobileTapMode) return;
+
     setActiveId(event.active.id);
   };
 
@@ -210,8 +322,13 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     }
 
     moveCardTo(active.id, over.id);
+
     setActiveId(null);
   };
+
+  /* =========================
+     CHECK GROUPS
+  ========================= */
 
   const checkGroups = () => {
     setStacks((prev: any[]) => {
@@ -219,16 +336,23 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
       return prev.map((stack: any) => {
         const set = new Set(stack.cards);
+
         let matchedGroup = null;
 
-        for (let i = 0; i < selectedGroups.length; i++) {
+        for (
+          let i = 0;
+          i < selectedGroups.length;
+          i++
+        ) {
           if (usedGroups.has(i)) continue;
 
           const group = selectedGroups[i];
 
           const isMatch =
             stack.cards.length === 4 &&
-            group.words.every((w: string) => set.has(w));
+            group.words.every((w: string) =>
+              set.has(w)
+            );
 
           if (isMatch) {
             matchedGroup = group;
@@ -249,17 +373,19 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         let maxMatch = 0;
 
         selectedGroups.forEach((group: any) => {
-          const matchCount = group.words.filter((w: string) =>
-            set.has(w)
+          const matchCount = group.words.filter(
+            (w: string) => set.has(w)
           ).length;
 
-          if (matchCount > maxMatch) maxMatch = matchCount;
+          if (matchCount > maxMatch)
+            maxMatch = matchCount;
         });
 
         if (maxMatch >= 2) {
           return {
             ...stack,
-            feedback: "You’re close — some of these belong together.",
+            feedback:
+              "You’re close — some of these belong together.",
           };
         }
 
@@ -267,26 +393,39 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           setMistakes((m) => m + 1);
         }
 
-        return { ...stack, feedback: "" };
+        return {
+          ...stack,
+          feedback: "",
+        };
       });
     });
   };
 
+  /* =========================
+     ANSWERS
+  ========================= */
+
   const revealAnswer = (stackId: string) => {
     const isFinalAnswer =
       stacks.every((s: any) => s.locked) &&
-      stacks.filter((s: any) => s.locked && !s.showAnswer).length === 1;
+      stacks.filter(
+        (s: any) => s.locked && !s.showAnswer
+      ).length === 1;
 
     setStacks((prev: any[]) =>
       prev.map((s: any) =>
-        s.id === stackId ? { ...s, showAnswer: true } : s
+        s.id === stackId
+          ? { ...s, showAnswer: true }
+          : s
       )
     );
 
     setTimeout(() => {
       setStacks((prev: any[]) =>
         prev.map((s: any) =>
-          s.id === stackId ? { ...s, fading: true } : s
+          s.id === stackId
+            ? { ...s, fading: true }
+            : s
         )
       );
     }, 6500);
@@ -295,7 +434,11 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       setStacks((prev: any[]) =>
         prev.map((s: any) =>
           s.id === stackId
-            ? { ...s, collapsed: true, fading: false }
+            ? {
+                ...s,
+                collapsed: true,
+                fading: false,
+              }
             : s
         )
       );
@@ -306,41 +449,80 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     }, 7000);
   };
 
+  /* =========================
+     PERFORMANCE
+  ========================= */
+
   const getPerformance = () => {
     if (mistakes === 0) return "Excellent";
     if (mistakes <= 2) return "Strong";
     if (mistakes <= 4) return "Good";
+
     return "Keep practicing";
   };
+
+  /* =========================
+     COMPLETE
+  ========================= */
 
   if (endTime) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-neutral-50">
         <div className="bg-white p-8 rounded-2xl shadow text-center space-y-4">
-          <h1 className="text-2xl font-semibold">Complete!</h1>
-          <p>Time: {formatTime(endTime - startTime)}</p>
+          <h1 className="text-2xl font-semibold">
+            Complete!
+          </h1>
+
+          <p>
+            Time:{" "}
+            {formatTime(endTime - startTime)}
+          </p>
+
           <p>Mistakes: {mistakes}</p>
-          <p>Performance: {getPerformance()}</p>
+
+          <p>
+            Performance: {getPerformance()}
+          </p>
         </div>
       </div>
     );
   }
 
+  /* =========================
+     UI
+  ========================= */
+
   return (
-    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <DndContext
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+    >
       <div className="max-w-2xl mx-auto space-y-8 px-3 relative">
+
+        {/* TUTORIAL */}
         {showTutorial && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
             <div className="bg-white rounded-3xl shadow-xl max-w-sm w-full p-6 space-y-5 text-center">
               <p className="text-xs uppercase tracking-wide text-neutral-400">
                 Quick guide
               </p>
-              <h2 className="text-2xl font-semibold">How to play</h2>
+
+              <h2 className="text-2xl font-semibold">
+                How to play
+              </h2>
 
               <div className="space-y-3 text-sm text-neutral-700 text-left">
-                <p>1. Group four connected words.</p>
-                <p>2. Choose what connects them.</p>
-                <p>3. Read the insight behind the pattern.</p>
+                <p>
+                  1. Group four connected words.
+                </p>
+
+                <p>
+                  2. Choose what connects them.
+                </p>
+
+                <p>
+                  3. Read the insight behind the pattern.
+                </p>
               </div>
 
               <button
@@ -353,14 +535,24 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           </div>
         )}
 
+        {/* MOBILE HELP */}
         {selectedCard && (
           <p className="text-center text-sm text-neutral-500">
-            Selected: <span className="font-medium">{selectedCard}</span>. Tap a
-            group to place it.
+            Selected:{" "}
+            <span className="font-medium">
+              {selectedCard}
+            </span>
+            . Tap a group to place it.
           </p>
         )}
 
-        <DroppableArea id="available" onTap={() => handleAreaTap("available")}>
+        {/* AVAILABLE */}
+        <DroppableArea
+          id="available"
+          onTap={() =>
+            handleAreaTap("available")
+          }
+        >
           <div className="grid grid-cols-4 gap-2 sm:gap-3">
             {availableCards.map((card: string) => (
               <DraggableCard
@@ -368,31 +560,46 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                 id={card}
                 selected={selectedCard === card}
                 mobileTapMode={mobileTapMode}
-                onTap={() => handleCardTap(card)}
+                onTap={() =>
+                  handleCardTap(card)
+                }
               />
             ))}
           </div>
         </DroppableArea>
 
+        {/* GROUPS */}
         {stacks.map((stack: any, i: number) => (
           <DroppableArea
             key={stack.id}
             id={stack.id}
             disabled={stack.locked}
-            onTap={() => handleAreaTap(stack.id)}
+            onTap={() =>
+              handleAreaTap(stack.id)
+            }
           >
             {stack.collapsed ? (
               <div className="flex justify-between items-center gap-3 text-sm">
-                <span>✓ Group {i + 1}</span>
-                <span className="text-gray-500">{stack.data.correct}</span>
+                <span>
+                  ✓ Group {i + 1}
+                </span>
+
+                <span className="text-gray-500">
+                  {stack.data.correct}
+                </span>
 
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
+
                     setStacks((prev: any[]) =>
                       prev.map((s: any) =>
                         s.id === stack.id
-                          ? { ...s, collapsed: false, fading: false }
+                          ? {
+                              ...s,
+                              collapsed: false,
+                              fading: false,
+                            }
                           : s
                       )
                     );
@@ -404,72 +611,116 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
               </div>
             ) : (
               <>
-                <p className="text-sm text-neutral-400">Group {i + 1}</p>
+                <p className="text-sm text-neutral-400">
+                  Group {i + 1}
+                </p>
 
-                <div className="grid grid-cols-4 gap-3">
-                  {stack.cards.map((card: string) => (
-                    <DraggableCard
-                      key={card}
-                      id={card}
-                      disabled={stack.locked}
-                      selected={selectedCard === card}
-                      mobileTapMode={mobileTapMode}
-                      onTap={() => handleCardTap(card)}
-                    />
-                  ))}
+                <div className="grid grid-cols-4 gap-2 sm:gap-3">
+                  {stack.cards.map(
+                    (card: string) => (
+                      <DraggableCard
+                        key={card}
+                        id={card}
+                        disabled={stack.locked}
+                        selected={
+                          selectedCard === card
+                        }
+                        mobileTapMode={
+                          mobileTapMode
+                        }
+                        onTap={() =>
+                          handleCardTap(card)
+                        }
+                      />
+                    )
+                  )}
                 </div>
 
                 {stack.feedback && (
-                  <p className="text-sm text-yellow-600">{stack.feedback}</p>
+                  <p className="text-sm text-yellow-600">
+                    {stack.feedback}
+                  </p>
                 )}
 
                 {stack.locked && (
                   <div
                     className={`space-y-2 pt-3 transition-opacity duration-500 ${
-                      stack.fading ? "opacity-0" : "opacity-100"
+                      stack.fading
+                        ? "opacity-0"
+                        : "opacity-100"
                     }`}
                   >
-                    <p className="text-sm font-medium">What connects these?</p>
+                    <p className="text-sm font-medium">
+                      What connects these?
+                    </p>
 
-                    {stack.data.options.map((opt: string, idx: number) => {
-                      const isSelected = stack.selected === opt;
-                      const isCorrect = stack.data.correct === opt;
+                    {stack.data.options.map(
+                      (
+                        opt: string,
+                        idx: number
+                      ) => {
+                        const isSelected =
+                          stack.selected === opt;
 
-                      return (
-                        <button
-                          key={opt}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setStacks((prev: any[]) =>
-                              prev.map((s: any) =>
-                                s.id === stack.id
-                                  ? { ...s, selected: opt }
-                                  : s
-                              )
-                            );
-                          }}
-                          className={`w-full text-left px-3 py-2 border rounded
-                            ${isSelected ? "bg-blue-100" : ""}
-                            ${
-                              stack.showAnswer && isCorrect
-                                ? "bg-green-200"
-                                : ""
-                            }
-                            ${
-                              stack.showAnswer && isSelected && !isCorrect
-                                ? "bg-red-200"
-                                : ""
-                            }`}
-                        >
-                          {String.fromCharCode(65 + idx)}. {opt}
-                        </button>
-                      );
-                    })}
+                        const isCorrect =
+                          stack.data.correct ===
+                          opt;
+
+                        return (
+                          <button
+                            key={opt}
+                            onClick={(e) => {
+                              e.stopPropagation();
+
+                              setStacks(
+                                (prev: any[]) =>
+                                  prev.map(
+                                    (s: any) =>
+                                      s.id ===
+                                      stack.id
+                                        ? {
+                                            ...s,
+                                            selected:
+                                              opt,
+                                          }
+                                        : s
+                                  )
+                              );
+                            }}
+                            className={`w-full text-left px-3 py-2 border rounded
+                              ${
+                                isSelected
+                                  ? "bg-blue-100"
+                                  : ""
+                              }
+                              ${
+                                stack.showAnswer &&
+                                isCorrect
+                                  ? "bg-green-200"
+                                  : ""
+                              }
+                              ${
+                                stack.showAnswer &&
+                                isSelected &&
+                                !isCorrect
+                                  ? "bg-red-200"
+                                  : ""
+                              }`}
+                          >
+                            {String.fromCharCode(
+                              65 + idx
+                            )}
+                            . {opt}
+                          </button>
+                        );
+                      }
+                    )}
 
                     {!stack.showAnswer && (
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
+
                           revealAnswer(stack.id);
                         }}
                         className="bg-black text-white px-3 py-2 rounded"
@@ -478,17 +729,35 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                       </button>
                     )}
 
-                    {stack.showAnswer && stack.data.insight && (
-                      <div className="bg-gray-100 p-3 rounded text-sm space-y-1">
-                        <p>
-                          <strong>{stack.data.insight.pattern}</strong>
-                        </p>
-                        <p>{stack.data.insight.explanation}</p>
-                        <p className="text-gray-600">
-                          {stack.data.insight.generalization}
-                        </p>
-                      </div>
-                    )}
+                    {stack.showAnswer &&
+                      stack.data.insight && (
+                        <div className="bg-gray-100 p-3 rounded text-sm space-y-1">
+                          <p>
+                            <strong>
+                              {
+                                stack.data
+                                  .insight.pattern
+                              }
+                            </strong>
+                          </p>
+
+                          <p>
+                            {
+                              stack.data
+                                .insight
+                                .explanation
+                            }
+                          </p>
+
+                          <p className="text-gray-600">
+                            {
+                              stack.data
+                                .insight
+                                .generalization
+                            }
+                          </p>
+                        </div>
+                      )}
                   </div>
                 )}
               </>
@@ -496,6 +765,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           </DroppableArea>
         ))}
 
+        {/* CHECK */}
         <button
           onClick={checkGroups}
           className="bg-black text-white px-4 py-2 rounded"
@@ -503,6 +773,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           Check Groups
         </button>
 
+        {/* DRAG */}
         <DragOverlay>
           {activeId && !mobileTapMode && (
             <div className="px-4 py-2 bg-black text-white rounded">
@@ -510,6 +781,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
             </div>
           )}
         </DragOverlay>
+
       </div>
     </DndContext>
   );
