@@ -20,7 +20,7 @@ export default function Intro({ user, onStart, onCreateUser }: any) {
     setTimeout(() => {
       setEntered(true);
       setTransitioning(false);
-    }, 900);
+    }, 1200);
   };
 
   const dailyFocus = useMemo(() => {
@@ -60,12 +60,35 @@ export default function Intro({ user, onStart, onCreateUser }: any) {
 
   if (!entered) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-neutral-950 overflow-hidden px-4">
+      <main className="min-h-screen flex items-center justify-center bg-neutral-950 overflow-hidden px-4 relative">
+
+        {/* expanding doorway light */}
+        <div
+          className={`absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-1000 ${
+            transitioning ? "opacity-100 scale-[2.8]" : "opacity-0 scale-75"
+          }`}
+        >
+          <div className="w-40 h-72 rounded-t-full bg-white/80 blur-xl" />
+        </div>
+
+        {/* dark door panels opening */}
+        <div
+          className={`absolute left-0 top-0 h-full bg-neutral-950 transition-all duration-1000 ${
+            transitioning ? "w-0" : "w-1/2"
+          }`}
+        />
+
+        <div
+          className={`absolute right-0 top-0 h-full bg-neutral-950 transition-all duration-1000 ${
+            transitioning ? "w-0" : "w-1/2"
+          }`}
+        />
+
         <button
           onClick={enterWorld}
-          className={`flex flex-col items-center space-y-6 transition-all duration-700 ease-in-out ${
+          className={`relative z-10 flex flex-col items-center space-y-6 transition-all duration-1000 ease-in-out ${
             transitioning
-              ? "scale-[3.2] opacity-0 blur-sm"
+              ? "scale-[2.4] opacity-0 blur-sm"
               : "scale-100 opacity-100 hover:scale-105"
           }`}
         >

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GAMES } from "./data/games";
 import {
   DndContext,
@@ -129,6 +129,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     distributeAndShuffle(selectedGroups)
   );
 
+  const [showTutorial, setShowTutorial] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
 
@@ -149,6 +150,19 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       feedback: "",
     }))
   );
+
+  useEffect(() => {
+    const seenTutorial = localStorage.getItem("wordArchitectTutorialSeen");
+
+    if (!seenTutorial) {
+      setShowTutorial(true);
+    }
+  }, []);
+
+  const closeTutorial = () => {
+    localStorage.setItem("wordArchitectTutorialSeen", "true");
+    setShowTutorial(false);
+  };
 
   const moveCardTo = (card: string, target: string) => {
     const targetStack = stacks.find((s: any) => s.id === target);
@@ -326,7 +340,36 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="max-w-2xl mx-auto space-y-8 px-3">
+      <div className="max-w-2xl mx-auto space-y-8 px-3 relative">
+        {showTutorial && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+            <div className="bg-white rounded-3xl shadow-xl max-w-sm w-full p-6 space-y-5 text-center">
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-wide text-neutral-400">
+                  Quick guide
+                </p>
+
+                <h2 className="text-2xl font-semibold">
+                  How to play
+                </h2>
+              </div>
+
+              <div className="space-y-3 text-sm text-neutral-700 text-left">
+                <p>1. Group four connected words.</p>
+                <p>2. Choose what connects them.</p>
+                <p>3. Read the insight behind the pattern.</p>
+              </div>
+
+              <button
+                onClick={closeTutorial}
+                className="w-full bg-black text-white py-3 rounded-xl"
+              >
+                Start Puzzle
+              </button>
+            </div>
+          </div>
+        )}
+
         {selectedCard && (
           <p className="text-center text-sm text-neutral-500">
             Selected: <span className="font-medium">{selectedCard}</span>. Tap a
