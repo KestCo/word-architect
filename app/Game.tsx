@@ -9,19 +9,12 @@ import {
   DragOverlay,
 } from "@dnd-kit/core";
 
-/* =========================
-   SHUFFLE
-========================= */
-
 function distributeAndShuffle(groups: any[]) {
   const rows: string[][] = [];
 
   for (let i = 0; i < 4; i++) {
     const row: string[] = [];
-
-    groups.forEach((group: any) => {
-      row.push(group.words[i]);
-    });
+    groups.forEach((group: any) => row.push(group.words[i]));
 
     for (let j = row.length - 1; j > 0; j--) {
       const k = Math.floor(Math.random() * (j + 1));
@@ -34,21 +27,87 @@ function distributeAndShuffle(groups: any[]) {
   return rows.flat();
 }
 
-/* =========================
-   UTILS
-========================= */
-
 function formatTime(ms: number) {
   const seconds = Math.floor(ms / 1000);
   const m = Math.floor(seconds / 60);
   const s = seconds % 60;
-
   return `${m}m ${s}s`;
 }
 
-/* =========================
-   CARD
-========================= */
+function todayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function getDailyGame() {
+  const startDate = new Date("2026-01-01T00:00:00");
+  const today = new Date();
+
+  const start = new Date(
+    startDate.getFullYear(),
+    startDate.getMonth(),
+    startDate.getDate()
+  );
+
+  const current = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+
+  const dayNumber = Math.floor(
+    (current.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)
+  );
+
+  const safeIndex = ((dayNumber % GAMES.length) + GAMES.length) % GAMES.length;
+  return GAMES[safeIndex];
+}
+
+function getSkillLabel(skill: string) {
+  const labels: Record<string, string> = {
+    abstraction: "Abstraction",
+    symbolic: "Symbolic Thinking",
+    linguistic: "Language Structure",
+  };
+
+  return labels[skill] || skill;
+}
+
+function calculateStreak(results: any[]) {
+  const dates = new Set(results.map((r) => r.date));
+  let streak = 0;
+  const cursor = new Date();
+
+  while (true) {
+    const key = cursor.toISOString().slice(0, 10);
+    if (!dates.has(key)) break;
+
+    streak++;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+
+  return streak;
+}
+
+function bestAndWeakestSkill(results: any[]) {
+  const totals: Record<string, number> = {
+    abstraction: 0,
+    symbolic: 0,
+    linguistic: 0,
+  };
+
+  results.forEach((r) => {
+    Object.entries(r.skillMistakes || {}).forEach(([skill, count]: any) => {
+      totals[skill] += count;
+    });
+  });
+
+  const sorted = Object.entries(totals).sort((a, b) => a[1] - b[1]);
+
+  return {
+    best: sorted[0]?.[0] || "abstraction",
+    weakest: sorted[sorted.length - 1]?.[0] || "linguistic",
+  };
+}
 
 function DraggableCard({
   id,
@@ -79,8 +138,7 @@ function DraggableCard({
       {...(!mobileTapMode ? listeners : {})}
       {...(!mobileTapMode ? attributes : {})}
       className={`min-w-0 w-full px-2 py-2 rounded-full border transition
-        font-semibold tracking-tight text-center
-        text-[11px] sm:text-sm
+        font-semibold tracking-tight text-center text-[11px] sm:text-sm
         leading-tight whitespace-normal break-words
         ${
           disabled
@@ -95,10 +153,6 @@ function DraggableCard({
   );
 }
 
-/* =========================
-   DROP AREA
-========================= */
-
 function DroppableArea({
   id,
   children,
@@ -110,10 +164,7 @@ function DroppableArea({
   disabled?: boolean;
   onTap?: () => void;
 }) {
-  const { setNodeRef, isOver } = useDroppable({
-    id,
-    disabled,
-  });
+  const { setNodeRef, isOver } = useDroppable({ id, disabled });
 
   return (
     <div
@@ -128,15 +179,7 @@ function DroppableArea({
   );
 }
 
-/* =========================
-   GAME
-========================= */
-
-export default function Game({
-  overrideGame,
-}: {
-  overrideGame?: any;
-}) {
+export default function Game({ overrideGame }: { overrideGame?: any }) {
   const [mobileTapMode, setMobileTapMode] = useState(false);
 
   useEffect(() => {
@@ -144,54 +187,35 @@ export default function Game({
       setMobileTapMode(window.matchMedia("(pointer: coarse)").matches);
 
     check();
-
     window.addEventListener("resize", check);
-
-    return () =>
-      window.removeEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   const [selectedGame] = useState(() => {
     if (overrideGame) return overrideGame;
-
-    const today = new Date();
-    const day = today.getDay();
-    const difficulty = day === 0 ? 7 : day;
-
-    const matchingGames = GAMES.filter(
-      (g: any) => g.difficulty === difficulty
-    );
-
-    return (
-      matchingGames[
-        Math.floor(Math.random() * matchingGames.length)
-      ] || GAMES[0]
-    );
+    return getDailyGame();
   });
 
   const selectedGroups = selectedGame.groups;
 
-  const [availableCards, setAvailableCards] = useState<string[]>(
-    () => distributeAndShuffle(selectedGroups)
+  const [availableCards, setAvailableCards] = useState<string[]>(() =>
+    distributeAndShuffle(selectedGroups)
   );
 
   const [showTutorial, setShowTutorial] = useState(false);
-
-  const [activeId, setActiveId] = useState<string | null>(
-    null
-  );
-
-  const [selectedCard, setSelectedCard] = useState<
-    string | null
-  >(null);
-
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const [startTime] = useState<number>(Date.now());
-
-  const [endTime, setEndTime] = useState<number | null>(
-    null
-  );
-
+  const [endTime, setEndTime] = useState<number | null>(null);
   const [mistakes, setMistakes] = useState<number>(0);
+  const [history, setHistory] = useState<any[]>([]);
+  const [savedResult, setSavedResult] = useState(false);
+
+  const [skillMistakes, setSkillMistakes] = useState<Record<string, number>>({
+    abstraction: 0,
+    symbolic: 0,
+    linguistic: 0,
+  });
 
   const [stacks, setStacks] = useState<any[]>(
     selectedGroups.map((group: any, i: number) => ({
@@ -207,53 +231,52 @@ export default function Game({
     }))
   );
 
-  /* =========================
-     TUTORIAL
-  ========================= */
-
   useEffect(() => {
-    if (
-      !localStorage.getItem(
-        "wordArchitectTutorialSeen"
-      )
-    ) {
+    const saved = localStorage.getItem("wordArchitectResults");
+    if (saved) setHistory(JSON.parse(saved));
+
+    if (!localStorage.getItem("wordArchitectTutorialSeen")) {
       setShowTutorial(true);
     }
   }, []);
 
-  const closeTutorial = () => {
-    localStorage.setItem(
-      "wordArchitectTutorialSeen",
-      "true"
-    );
+  useEffect(() => {
+    if (!endTime || savedResult) return;
 
+    const result = {
+      date: todayKey(),
+      gameId: selectedGame.id,
+      week: selectedGame.week,
+      day: selectedGame.day,
+      difficulty: selectedGame.difficulty,
+      timeMs: endTime - startTime,
+      mistakes,
+      skillMistakes,
+    };
+
+    const withoutToday = history.filter((r) => r.date !== result.date);
+    const updated = [...withoutToday, result];
+
+    localStorage.setItem("wordArchitectResults", JSON.stringify(updated));
+    setHistory(updated);
+    setSavedResult(true);
+  }, [endTime, savedResult, history, mistakes, selectedGame, skillMistakes, startTime]);
+
+  const closeTutorial = () => {
+    localStorage.setItem("wordArchitectTutorialSeen", "true");
     setShowTutorial(false);
   };
 
-  /* =========================
-     MOVE CARD
-  ========================= */
-
-  const moveCardTo = (
-    card: string,
-    target: string
-  ) => {
-    const targetStack = stacks.find(
-      (s: any) => s.id === target
-    );
-
+  const moveCardTo = (card: string, target: string) => {
+    const targetStack = stacks.find((s: any) => s.id === target);
     if (targetStack?.locked) return;
 
     let newStacks = stacks.map((s: any) => ({
       ...s,
-      cards: s.cards.filter(
-        (c: string) => c !== card
-      ),
+      cards: s.cards.filter((c: string) => c !== card),
     }));
 
-    let newAvailable = availableCards.filter(
-      (c: string) => c !== card
-    );
+    let newAvailable = availableCards.filter((c: string) => c !== card);
 
     if (target === "available") {
       newAvailable.push(card);
@@ -261,11 +284,7 @@ export default function Game({
       newStacks = newStacks.map((s: any) => {
         if (s.id === target) {
           if (s.cards.length >= 4) return s;
-
-          return {
-            ...s,
-            cards: [...s.cards, card],
-          };
+          return { ...s, cards: [...s.cards, card] };
         }
 
         return s;
@@ -274,9 +293,7 @@ export default function Game({
 
     const exists =
       newAvailable.includes(card) ||
-      newStacks.some((s: any) =>
-        s.cards.includes(card)
-      );
+      newStacks.some((s: any) => s.cards.includes(card));
 
     if (!exists) newAvailable.push(card);
 
@@ -285,29 +302,17 @@ export default function Game({
     setSelectedCard(null);
   };
 
-  /* =========================
-     MOBILE TAP
-  ========================= */
-
   const handleCardTap = (card: string) => {
-    setSelectedCard((current) =>
-      current === card ? null : card
-    );
+    setSelectedCard((current) => (current === card ? null : card));
   };
 
   const handleAreaTap = (target: string) => {
     if (!selectedCard) return;
-
     moveCardTo(selectedCard, target);
   };
 
-  /* =========================
-     DRAG
-  ========================= */
-
   const handleDragStart = (event: any) => {
     if (mobileTapMode) return;
-
     setActiveId(event.active.id);
   };
 
@@ -322,13 +327,8 @@ export default function Game({
     }
 
     moveCardTo(active.id, over.id);
-
     setActiveId(null);
   };
-
-  /* =========================
-     CHECK GROUPS
-  ========================= */
 
   const checkGroups = () => {
     setStacks((prev: any[]) => {
@@ -336,23 +336,16 @@ export default function Game({
 
       return prev.map((stack: any) => {
         const set = new Set(stack.cards);
-
         let matchedGroup = null;
 
-        for (
-          let i = 0;
-          i < selectedGroups.length;
-          i++
-        ) {
+        for (let i = 0; i < selectedGroups.length; i++) {
           if (usedGroups.has(i)) continue;
 
           const group = selectedGroups[i];
 
           const isMatch =
             stack.cards.length === 4 &&
-            group.words.every((w: string) =>
-              set.has(w)
-            );
+            group.words.every((w: string) => set.has(w));
 
           if (isMatch) {
             matchedGroup = group;
@@ -371,61 +364,57 @@ export default function Game({
         }
 
         let maxMatch = 0;
+        let closestSkill = "";
 
         selectedGroups.forEach((group: any) => {
-          const matchCount = group.words.filter(
-            (w: string) => set.has(w)
+          const matchCount = group.words.filter((w: string) =>
+            set.has(w)
           ).length;
 
-          if (matchCount > maxMatch)
+          if (matchCount > maxMatch) {
             maxMatch = matchCount;
+            closestSkill = group.skill;
+          }
         });
+
+        if (stack.cards.length === 4) {
+          setMistakes((m) => m + 1);
+
+          if (closestSkill) {
+            setSkillMistakes((prev) => ({
+              ...prev,
+              [closestSkill]: (prev[closestSkill] || 0) + 1,
+            }));
+          }
+        }
 
         if (maxMatch >= 2) {
           return {
             ...stack,
-            feedback:
-              "You’re close — some of these belong together.",
+            feedback: "You’re close — some of these belong together.",
           };
         }
 
-        if (stack.cards.length === 4) {
-          setMistakes((m) => m + 1);
-        }
-
-        return {
-          ...stack,
-          feedback: "",
-        };
+        return { ...stack, feedback: "" };
       });
     });
   };
 
-  /* =========================
-     ANSWERS
-  ========================= */
-
   const revealAnswer = (stackId: string) => {
     const isFinalAnswer =
       stacks.every((s: any) => s.locked) &&
-      stacks.filter(
-        (s: any) => s.locked && !s.showAnswer
-      ).length === 1;
+      stacks.filter((s: any) => s.locked && !s.showAnswer).length === 1;
 
     setStacks((prev: any[]) =>
       prev.map((s: any) =>
-        s.id === stackId
-          ? { ...s, showAnswer: true }
-          : s
+        s.id === stackId ? { ...s, showAnswer: true } : s
       )
     );
 
     setTimeout(() => {
       setStacks((prev: any[]) =>
         prev.map((s: any) =>
-          s.id === stackId
-            ? { ...s, fading: true }
-            : s
+          s.id === stackId ? { ...s, fading: true } : s
         )
       );
     }, 6500);
@@ -434,97 +423,129 @@ export default function Game({
       setStacks((prev: any[]) =>
         prev.map((s: any) =>
           s.id === stackId
-            ? {
-                ...s,
-                collapsed: true,
-                fading: false,
-              }
+            ? { ...s, collapsed: true, fading: false }
             : s
         )
       );
 
-      if (isFinalAnswer) {
-        setEndTime(Date.now());
-      }
+      if (isFinalAnswer) setEndTime(Date.now());
     }, 7000);
   };
-
-  /* =========================
-     PERFORMANCE
-  ========================= */
 
   const getPerformance = () => {
     if (mistakes === 0) return "Excellent";
     if (mistakes <= 2) return "Strong";
     if (mistakes <= 4) return "Good";
-
     return "Keep practicing";
   };
 
-  /* =========================
-     COMPLETE
-  ========================= */
+  const currentHistory = endTime
+    ? [
+        ...history.filter((r) => r.date !== todayKey()),
+        {
+          date: todayKey(),
+          timeMs: endTime - startTime,
+          mistakes,
+          skillMistakes,
+        },
+      ]
+    : history;
+
+  const avgMistakes =
+    currentHistory.length > 0
+      ? (
+          currentHistory.reduce((sum, r) => sum + r.mistakes, 0) /
+          currentHistory.length
+        ).toFixed(1)
+      : "0";
+
+  const fastest =
+    currentHistory.length > 0
+      ? Math.min(...currentHistory.map((r) => r.timeMs))
+      : null;
+
+  const streak = calculateStreak(currentHistory);
+  const skillStats = bestAndWeakestSkill(currentHistory);
 
   if (endTime) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-neutral-50">
-        <div className="bg-white border border-neutral-200 p-8 rounded-2xl shadow text-center space-y-4">
-          <h1 className="text-2xl font-semibold">
-            Complete!
-          </h1>
+      <div className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
+        <div className="w-full max-w-md bg-white border border-neutral-200 p-6 rounded-3xl shadow space-y-6">
+          <div className="text-center space-y-1">
+            <p className="text-xs uppercase tracking-wide text-neutral-500">
+              Daily puzzle complete
+            </p>
+            <h1 className="text-3xl font-semibold">Complete!</h1>
+            <p className="text-sm text-neutral-600">
+              Week {selectedGame.week}, Day {selectedGame.day}
+            </p>
+          </div>
 
-          <p>
-            Time:{" "}
-            {formatTime(endTime - startTime)}
-          </p>
+          <div className="grid grid-cols-2 gap-3 text-center">
+            <div className="bg-amber-100 border border-amber-300 rounded-2xl p-4">
+              <p className="text-xs text-neutral-600">Today’s time</p>
+              <p className="text-xl font-semibold">
+                {formatTime(endTime - startTime)}
+              </p>
+            </div>
 
-          <p>Mistakes: {mistakes}</p>
+            <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+              <p className="text-xs text-neutral-600">Mistakes</p>
+              <p className="text-xl font-semibold">{mistakes}</p>
+            </div>
 
-          <p>
-            Performance: {getPerformance()}
-          </p>
+            <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+              <p className="text-xs text-neutral-600">Current streak</p>
+              <p className="text-xl font-semibold">{streak} days</p>
+            </div>
+
+            <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+              <p className="text-xs text-neutral-600">Performance</p>
+              <p className="text-xl font-semibold">{getPerformance()}</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-950 text-white rounded-2xl p-4 space-y-2">
+            <p className="text-sm font-semibold">Thinking profile</p>
+            <p className="text-sm">
+              Strongest area:{" "}
+              <span className="font-semibold">
+                {getSkillLabel(skillStats.best)}
+              </span>
+            </p>
+            <p className="text-sm">
+              Area to strengthen:{" "}
+              <span className="font-semibold">
+                {getSkillLabel(skillStats.weakest)}
+              </span>
+            </p>
+          </div>
+
+          <div className="text-sm text-neutral-700 space-y-1">
+            <p>Average mistakes: {avgMistakes}</p>
+            <p>Fastest time: {fastest ? formatTime(fastest) : "—"}</p>
+            <p>Total completed: {currentHistory.length}</p>
+          </div>
         </div>
       </div>
     );
   }
 
-  /* =========================
-     UI
-  ========================= */
-
   return (
-    <DndContext
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
-    >
+    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="max-w-2xl mx-auto space-y-8 px-3 relative">
-
-        {/* tutorial */}
         {showTutorial && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
             <div className="bg-white rounded-3xl border border-neutral-200 shadow-xl max-w-sm w-full p-6 space-y-5 text-center">
               <p className="text-xs uppercase tracking-wide text-neutral-500">
                 Quick guide
               </p>
-
-              <h2 className="text-2xl font-semibold">
-                How to play
-              </h2>
-
+              <h2 className="text-2xl font-semibold">How to play</h2>
               <div className="space-y-3 text-sm text-neutral-800 text-left">
-                <p>
-                  1. Group four connected words.
-                </p>
-
-                <p>
-                  2. Choose what connects them.
-                </p>
-
-                <p>
-                  3. Read the insight behind the pattern.
-                </p>
+                <p>1. Group four connected words.</p>
+                <p>2. Choose what connects them.</p>
+                <p>3. Read the insight behind the pattern.</p>
               </div>
-
               <button
                 onClick={closeTutorial}
                 className="w-full bg-neutral-950 text-white py-3 rounded-xl font-medium"
@@ -535,24 +556,14 @@ export default function Game({
           </div>
         )}
 
-        {/* mobile helper */}
         {selectedCard && (
           <p className="text-center text-sm text-neutral-700 bg-neutral-100 border border-neutral-200 rounded-xl px-3 py-2">
-            Selected:{" "}
-            <span className="font-semibold">
-              {selectedCard}
-            </span>
-            . Tap a group to place it.
+            Selected: <span className="font-semibold">{selectedCard}</span>.
+            Tap a group to place it.
           </p>
         )}
 
-        {/* word bank */}
-        <DroppableArea
-          id="available"
-          onTap={() =>
-            handleAreaTap("available")
-          }
-        >
+        <DroppableArea id="available" onTap={() => handleAreaTap("available")}>
           <div className="grid grid-cols-4 gap-2 sm:gap-3">
             {availableCards.map((card: string) => (
               <DraggableCard
@@ -560,46 +571,30 @@ export default function Game({
                 id={card}
                 selected={selectedCard === card}
                 mobileTapMode={mobileTapMode}
-                onTap={() =>
-                  handleCardTap(card)
-                }
+                onTap={() => handleCardTap(card)}
               />
             ))}
           </div>
         </DroppableArea>
 
-        {/* groups */}
         {stacks.map((stack: any, i: number) => (
           <DroppableArea
             key={stack.id}
             id={stack.id}
             disabled={stack.locked}
-            onTap={() =>
-              handleAreaTap(stack.id)
-            }
+            onTap={() => handleAreaTap(stack.id)}
           >
             {stack.collapsed ? (
               <div className="flex justify-between items-center gap-3 text-sm">
-                <span className="font-medium">
-                  ✓ Group {i + 1}
-                </span>
-
-                <span className="text-neutral-700">
-                  {stack.data.correct}
-                </span>
-
+                <span className="font-medium">✓ Group {i + 1}</span>
+                <span className="text-neutral-700">{stack.data.correct}</span>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-
                     setStacks((prev: any[]) =>
                       prev.map((s: any) =>
                         s.id === stack.id
-                          ? {
-                              ...s,
-                              collapsed: false,
-                              fading: false,
-                            }
+                          ? { ...s, collapsed: false, fading: false }
                           : s
                       )
                     );
@@ -616,24 +611,16 @@ export default function Game({
                 </p>
 
                 <div className="grid grid-cols-4 gap-2 sm:gap-3">
-                  {stack.cards.map(
-                    (card: string) => (
-                      <DraggableCard
-                        key={card}
-                        id={card}
-                        disabled={stack.locked}
-                        selected={
-                          selectedCard === card
-                        }
-                        mobileTapMode={
-                          mobileTapMode
-                        }
-                        onTap={() =>
-                          handleCardTap(card)
-                        }
-                      />
-                    )
-                  )}
+                  {stack.cards.map((card: string) => (
+                    <DraggableCard
+                      key={card}
+                      id={card}
+                      disabled={stack.locked}
+                      selected={selectedCard === card}
+                      mobileTapMode={mobileTapMode}
+                      onTap={() => handleCardTap(card)}
+                    />
+                  ))}
                 </div>
 
                 {stack.feedback && (
@@ -645,82 +632,56 @@ export default function Game({
                 {stack.locked && (
                   <div
                     className={`space-y-2 pt-3 transition-opacity duration-500 ${
-                      stack.fading
-                        ? "opacity-0"
-                        : "opacity-100"
+                      stack.fading ? "opacity-0" : "opacity-100"
                     }`}
                   >
                     <p className="text-sm font-semibold">
                       What connects these?
                     </p>
 
-                    {stack.data.options.map(
-                      (
-                        opt: string,
-                        idx: number
-                      ) => {
-                        const isSelected =
-                          stack.selected === opt;
+                    {stack.data.options.map((opt: string, idx: number) => {
+                      const isSelected = stack.selected === opt;
+                      const isCorrect = stack.data.correct === opt;
 
-                        const isCorrect =
-                          stack.data.correct ===
-                          opt;
-
-                        return (
-                          <button
-                            key={opt}
-                            onClick={(e) => {
-                              e.stopPropagation();
-
-                              setStacks(
-                                (prev: any[]) =>
-                                  prev.map(
-                                    (s: any) =>
-                                      s.id ===
-                                      stack.id
-                                        ? {
-                                            ...s,
-                                            selected:
-                                              opt,
-                                          }
-                                        : s
-                                  )
-                              );
-                            }}
-                            className={`w-full text-left px-3 py-2 border rounded-lg text-sm transition
-                              ${
-                                isSelected
-                                  ? "bg-neutral-950 text-white border-neutral-950"
-                                  : "bg-white text-neutral-900 border-neutral-300"
-                              }
-                              ${
-                                stack.showAnswer &&
-                                isCorrect
-                                  ? "bg-emerald-600 text-white border-emerald-700"
-                                  : ""
-                              }
-                              ${
-                                stack.showAnswer &&
-                                isSelected &&
-                                !isCorrect
-                                  ? "bg-red-600 text-white border-red-700"
-                                  : ""
-                              }`}
-                          >
-                            {String.fromCharCode(
-                              65 + idx
-                            )}
-                            . {opt}
-                          </button>
-                        );
-                      }
-                    )}
+                      return (
+                        <button
+                          key={opt}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setStacks((prev: any[]) =>
+                              prev.map((s: any) =>
+                                s.id === stack.id
+                                  ? { ...s, selected: opt }
+                                  : s
+                              )
+                            );
+                          }}
+                          className={`w-full text-left px-3 py-2 border rounded-lg text-sm transition
+                            ${
+                              isSelected
+                                ? "bg-neutral-950 text-white border-neutral-950"
+                                : "bg-white text-neutral-900 border-neutral-300"
+                            }
+                            ${
+                              stack.showAnswer && isCorrect
+                                ? "bg-emerald-600 text-white border-emerald-700"
+                                : ""
+                            }
+                            ${
+                              stack.showAnswer && isSelected && !isCorrect
+                                ? "bg-red-600 text-white border-red-700"
+                                : ""
+                            }`}
+                        >
+                          {String.fromCharCode(65 + idx)}. {opt}
+                        </button>
+                      );
+                    })}
 
                     {!stack.showAnswer && (
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-
                           revealAnswer(stack.id);
                         }}
                         className="bg-neutral-950 text-white border border-neutral-950 px-4 py-2 rounded-lg font-medium"
@@ -729,35 +690,17 @@ export default function Game({
                       </button>
                     )}
 
-                    {stack.showAnswer &&
-                      stack.data.insight && (
-                        <div className="bg-neutral-100 border border-neutral-200 p-3 rounded-lg text-sm space-y-1">
-                          <p>
-                            <strong>
-                              {
-                                stack.data
-                                  .insight.pattern
-                              }
-                            </strong>
-                          </p>
-
-                          <p>
-                            {
-                              stack.data
-                                .insight
-                                .explanation
-                            }
-                          </p>
-
-                          <p className="text-neutral-700">
-                            {
-                              stack.data
-                                .insight
-                                .generalization
-                            }
-                          </p>
-                        </div>
-                      )}
+                    {stack.showAnswer && stack.data.insight && (
+                      <div className="bg-neutral-100 border border-neutral-200 p-3 rounded-lg text-sm space-y-1">
+                        <p>
+                          <strong>{stack.data.insight.pattern}</strong>
+                        </p>
+                        <p>{stack.data.insight.explanation}</p>
+                        <p className="text-neutral-700">
+                          {stack.data.insight.generalization}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
               </>
@@ -765,7 +708,6 @@ export default function Game({
           </DroppableArea>
         ))}
 
-        {/* check */}
         <button
           onClick={checkGroups}
           className="bg-neutral-950 text-white border border-neutral-950 px-4 py-2 rounded-lg font-medium"
@@ -773,7 +715,6 @@ export default function Game({
           Check Groups
         </button>
 
-        {/* drag */}
         <DragOverlay>
           {activeId && !mobileTapMode && (
             <div className="px-4 py-2 bg-neutral-950 text-white rounded-lg">
@@ -781,7 +722,6 @@ export default function Game({
             </div>
           )}
         </DragOverlay>
-
       </div>
     </DndContext>
   );

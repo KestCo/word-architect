@@ -1054,4 +1054,550 @@ export const GAMES = [
       },
     ],
   },
+    // WEEK 3 GOES HERE
+{
+  id: 15,
+  difficulty: 1,
+  vocab: "common",
+  week: 3,
+  day: 1,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Bridge", "Tunnel", "Road", "Path"],
+      correct: "Ways of moving from one place to another",
+      options: [
+        "Transportation tools",
+        "Ways of moving from one place to another",
+        "Architectural designs",
+        "Travel locations",
+      ],
+      insight: {
+        pattern: "Connection systems",
+        explanation:
+          "These structures or routes help people move between locations.",
+        generalization:
+          "Humans constantly build systems that connect separated spaces.",
+        adaptive: {
+          correct: "You recognized the shared purpose.",
+          wrong: "Think about what these things allow people to do.",
+        },
+      },
+    },
+
+    {
+      skill: "symbolic",
+      words: ["Flame", "Beacon", "Torch", "Lantern"],
+      correct: "Symbols of guidance or illumination",
+      options: [
+        "Ancient tools",
+        "Symbols of guidance or illumination",
+        "Camping equipment",
+        "Danger signals",
+      ],
+      insight: {
+        pattern: "Illumination symbolism",
+        explanation:
+          "Light often symbolizes knowledge, hope, or direction.",
+        generalization:
+          "Human cultures frequently use light as a metaphor for understanding.",
+        adaptive: {
+          correct: "You recognized symbolic guidance.",
+          wrong: "Think about what light represents metaphorically.",
+        },
+      },
+    },
+
+    {
+      skill: "linguistic",
+      words: ["Bake", "Call", "Paint", "Watch"],
+      correct: "Words that are both nouns and verbs",
+      options: [
+        "Creative actions",
+        "Words that are both nouns and verbs",
+        "Daily routines",
+        "Household words",
+      ],
+      insight: {
+        pattern: "Flexible grammar",
+        explanation:
+          "These words can function as actions or objects depending on context.",
+        generalization:
+          "English often allows words to shift roles dynamically.",
+        adaptive: {
+          correct: "You recognized grammatical flexibility.",
+          wrong: "Think about how the word behaves in a sentence.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 16,
+  difficulty: 2,
+  vocab: "common",
+  week: 3,
+  day: 2,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Compass", "Map", "Star", "Guide"],
+      correct: "Things that help with direction",
+      options: [
+        "Travel items",
+        "Things that help with direction",
+        "Adventure tools",
+        "Ancient discoveries",
+      ],
+      insight: {
+        pattern: "Orientation systems",
+        explanation:
+          "These things help people navigate physically or mentally.",
+        generalization:
+          "Humans rely on frameworks to avoid becoming lost.",
+        adaptive: {
+          correct: "You saw the navigational pattern.",
+          wrong: "Think about what helps someone find their way.",
+        },
+      },
+    },
+
+    {
+      skill: "symbolic",
+      words: ["Seed", "Spring", "Dawn", "Bloom"],
+      correct: "Symbols of beginnings or renewal",
+      options: [
+        "Nature words",
+        "Symbols of beginnings or renewal",
+        "Gardening terms",
+        "Seasonal events",
+      ],
+      insight: {
+        pattern: "Renewal symbolism",
+        explanation:
+          "These words suggest growth, emergence, or rebirth.",
+        generalization:
+          "Natural cycles often become symbols for human transformation.",
+        adaptive: {
+          correct: "You recognized symbolic rebirth.",
+          wrong: "Think about growth and new beginnings.",
+        },
+      },
+    },
+
+    {
+      skill: "linguistic",
+      words: ["Cold", "Sharp", "Heavy", "Bright"],
+      correct: "Words with literal and metaphorical meanings",
+      options: [
+        "Scientific terms",
+        "Words with literal and metaphorical meanings",
+        "Weather words",
+        "Descriptive adjectives",
+      ],
+      insight: {
+        pattern: "Metaphorical extension",
+        explanation:
+          "These words describe both physical qualities and abstract ideas.",
+        generalization:
+          "Language extends physical experience into conceptual thinking.",
+        adaptive: {
+          correct: "You recognized metaphorical layering.",
+          wrong: "Think about emotional or abstract uses of these words.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 17,
+  difficulty: 3,
+  vocab: "mixed",
+  week: 3,
+  day: 3,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Blueprint", "Framework", "Prototype", "Charrette"],
+      correct: "Words related to collaborative design or planning",
+      options: [
+        "Architecture tools",
+        "Words related to collaborative design or planning",
+        "Construction stages",
+        "Engineering terms",
+      ],
+      insight: {
+        pattern: "Design systems",
+        explanation:
+          "These words relate to organizing or shaping ideas into structure.",
+        generalization:
+          "Complex creation often begins with collaborative planning.",
+        adaptive: {
+          correct: "You recognized systems of design.",
+          wrong: "Think about how ideas become organized structures.",
+        },
+      },
+    },
+
+    {
+      skill: "symbolic",
+      words: ["Threshold", "Gate", "Key", "Door"],
+      correct: "Symbols of transition or access",
+      options: [
+        "Household objects",
+        "Symbols of transition or access",
+        "Security systems",
+        "Architectural terms",
+      ],
+      insight: {
+        pattern: "Transition symbolism",
+        explanation:
+          "These objects symbolize entering a new phase or understanding.",
+        generalization:
+          "Crossing boundaries is one of humanity’s deepest symbolic themes.",
+        adaptive: {
+          correct: "You recognized symbolic transition.",
+          wrong: "Think about entering or unlocking something new.",
+        },
+      },
+    },
+
+    {
+      skill: "linguistic",
+      words: ["Lead", "Tear", "Wind", "Bass"],
+      correct: "Words with multiple pronunciations",
+      options: [
+        "Action words",
+        "Words with multiple pronunciations",
+        "Musical terms",
+        "Emotional words",
+      ],
+      insight: {
+        pattern: "Pronunciation ambiguity",
+        explanation:
+          "These spellings change meaning depending on pronunciation.",
+        generalization:
+          "Written language can conceal multiple spoken meanings.",
+        adaptive: {
+          correct: "You recognized hidden sound variation.",
+          wrong: "Try reading the words aloud differently.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 18,
+  difficulty: 4,
+  vocab: "mixed",
+  week: 3,
+  day: 4,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Gaia", "Atlas", "Nyx", "Chronos"],
+      correct: "Figures from Greek mythology",
+      options: [
+        "Ancient rulers",
+        "Figures from Greek mythology",
+        "Constellations",
+        "Philosophical ideas",
+      ],
+      insight: {
+        pattern: "Mythic systems",
+        explanation:
+          "These figures belong to ancient Greek systems of storytelling and meaning.",
+        generalization:
+          "Myths organize human fears, hopes, and natural forces into narrative form.",
+        adaptive: {
+          correct: "You recognized a mythological framework.",
+          wrong: "Think about ancient symbolic storytelling.",
+        },
+      },
+    },
+
+    {
+      skill: "symbolic",
+      words: ["Mirror", "Mask", "Shadow", "Veil"],
+      correct: "Symbols of hidden identity",
+      options: [
+        "Stage props",
+        "Symbols of hidden identity",
+        "Mystery themes",
+        "Religious imagery",
+      ],
+      insight: {
+        pattern: "Identity symbolism",
+        explanation:
+          "These images often suggest concealed truth or self-discovery.",
+        generalization:
+          "Symbolic systems frequently explore hidden aspects of identity.",
+        adaptive: {
+          correct: "You recognized symbolic psychology.",
+          wrong: "Think about concealment and self-perception.",
+        },
+      },
+    },
+
+    {
+      skill: "linguistic",
+      words: ["Literal", "Implicit", "Explicit", "Figurative"],
+      correct: "Words describing modes of meaning",
+      options: [
+        "Philosophy terms",
+        "Words describing modes of meaning",
+        "Grammar concepts",
+        "Academic categories",
+      ],
+      insight: {
+        pattern: "Communication structure",
+        explanation:
+          "These words describe different ways language conveys ideas.",
+        generalization:
+          "Meaning depends not only on words, but on interpretation.",
+        adaptive: {
+          correct: "You recognized conceptual language structure.",
+          wrong: "Think about how meaning itself is communicated.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 19,
+  difficulty: 5,
+  vocab: "advanced",
+  week: 3,
+  day: 5,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Relic", "Totem", "Effigy", "Artifact"],
+      correct: "Objects carrying symbolic significance",
+      options: [
+        "Museum objects",
+        "Objects carrying symbolic significance",
+        "Religious tools",
+        "Ancient decorations",
+      ],
+      insight: {
+        pattern: "Meaningful objects",
+        explanation:
+          "These objects gain importance because of the meaning people assign them.",
+        generalization:
+          "Symbolic value often outweighs practical utility.",
+        adaptive: {
+          correct: "You focused on significance rather than function.",
+          wrong: "Think about why humans preserve certain objects.",
+        },
+      },
+    },
+
+    {
+      skill: "symbolic",
+      words: ["Labyrinth", "Threshold", "Cipher", "Veil"],
+      correct: "Symbols of hidden understanding",
+      options: [
+        "Fantasy imagery",
+        "Symbols of hidden understanding",
+        "Architectural ideas",
+        "Mystery objects",
+      ],
+      insight: {
+        pattern: "Hidden meaning symbolism",
+        explanation:
+          "These symbols frequently appear in stories about discovery and transformation.",
+        generalization:
+          "Human beings use symbols to represent invisible inner experiences.",
+        adaptive: {
+          correct: "You recognized symbolic depth.",
+          wrong: "Think about mystery, discovery, and transformation.",
+        },
+      },
+    },
+
+    {
+      skill: "linguistic",
+      words: ["Syntax", "Lexicon", "Idiom", "Dialect"],
+      correct: "Words related to language systems",
+      options: [
+        "Writing styles",
+        "Words related to language systems",
+        "Academic disciplines",
+        "Ancient texts",
+      ],
+      insight: {
+        pattern: "Language structure",
+        explanation:
+          "These terms describe systems or behaviors inside language.",
+        generalization:
+          "Language itself can become an object of analysis and classification.",
+        adaptive: {
+          correct: "You recognized language as a structured system.",
+          wrong: "Think about how language is organized or studied.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 20,
+  difficulty: 6,
+  vocab: "advanced",
+  week: 3,
+  day: 6,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Palimpsest", "Vestige", "Relic", "Remnant"],
+      correct: "Words related to traces of the past",
+      options: [
+        "Ancient writing",
+        "Words related to traces of the past",
+        "Historical records",
+        "Museum collections",
+      ],
+      insight: {
+        pattern: "Residual meaning",
+        explanation:
+          "These words describe surviving fragments or echoes of earlier things.",
+        generalization:
+          "Human understanding often emerges through traces and memory.",
+        adaptive: {
+          correct: "You recognized the shared idea of remnants.",
+          wrong: "Think about things that survive from earlier times.",
+        },
+      },
+    },
+
+    {
+      skill: "symbolic",
+      words: ["Phoenix", "Dawn", "Seed", "Threshold"],
+      correct: "Symbols of becoming or renewal",
+      options: [
+        "Nature imagery",
+        "Symbols of becoming or renewal",
+        "Ancient myths",
+        "Religious symbols",
+      ],
+      insight: {
+        pattern: "Transformation symbolism",
+        explanation:
+          "These symbols suggest emergence, rebirth, or transformation.",
+        generalization:
+          "Many symbolic systems revolve around cycles of renewal.",
+        adaptive: {
+          correct: "You recognized symbolic transformation.",
+          wrong: "Think about beginnings, emergence, and change.",
+        },
+      },
+    },
+
+    {
+      skill: "linguistic",
+      words: ["Paradox", "Enigma", "Contradiction", "Riddle"],
+      correct: "Concepts involving unresolved meaning",
+      options: [
+        "Philosophy terms",
+        "Concepts involving unresolved meaning",
+        "Ancient puzzles",
+        "Logic systems",
+      ],
+      insight: {
+        pattern: "Cognitive tension",
+        explanation:
+          "These concepts challenge the mind by resisting simple resolution.",
+        generalization:
+          "Complex thinking often begins where certainty breaks down.",
+        adaptive: {
+          correct: "You recognized intellectual ambiguity.",
+          wrong: "Think about ideas that resist easy answers.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 21,
+  difficulty: 7,
+  vocab: "advanced",
+  week: 3,
+  day: 7,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Apotheosis", "Catharsis", "Transcendence", "Metamorphosis"],
+      correct: "Words related to profound transformation",
+      options: [
+        "Religious rituals",
+        "Words related to profound transformation",
+        "Ancient philosophies",
+        "Psychological states",
+      ],
+      insight: {
+        pattern: "Transformational concepts",
+        explanation:
+          "These words describe deep change, elevation, or emotional release.",
+        generalization:
+          "Human language develops rich vocabulary around transformation and growth.",
+        adaptive: {
+          correct: "You recognized conceptual transformation.",
+          wrong: "Think about major inner or outer change.",
+        },
+      },
+    },
+
+    {
+      skill: "symbolic",
+      words: ["Labyrinth", "Mirror", "Threshold", "Veil"],
+      correct: "Symbols of inner transformation",
+      options: [
+        "Architectural concepts",
+        "Symbols of inner transformation",
+        "Fantasy imagery",
+        "Ancient objects",
+      ],
+      insight: {
+        pattern: "Transformational symbolism",
+        explanation:
+          "These symbols often appear in stories about identity, growth, and hidden truth.",
+        generalization:
+          "Symbolic systems frequently map invisible inner experiences.",
+        adaptive: {
+          correct: "You recognized symbolic depth.",
+          wrong: "Think about inward journeys rather than physical objects.",
+        },
+      },
+    },
+
+    {
+      skill: "linguistic",
+      words: ["Histrionic", "Affected", "Melodramatic", "Theatrical"],
+      correct: "Words related to exaggerated performance or emotion",
+      options: [
+        "Personality disorders",
+        "Words related to exaggerated performance or emotion",
+        "Acting techniques",
+        "Emotional states",
+      ],
+      insight: {
+        pattern: "Performative expression",
+        explanation:
+          "These words describe exaggerated or highly performative behavior.",
+        generalization:
+          "Language often captures the boundary between authenticity and performance.",
+        adaptive: {
+          correct: "You recognized performative exaggeration.",
+          wrong: "Think about emotional expression that feels overly dramatic.",
+        },
+      },
+    },
+  ],
+},
 ];
