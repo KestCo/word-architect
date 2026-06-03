@@ -179,7 +179,114 @@ function DroppableArea({
   );
 }
 
+function ResultsDashboard({
+  selectedGame,
+  result,
+  history,
+}: {
+  selectedGame: any;
+  result: any;
+  history: any[];
+}) {
+  const currentHistory = [
+    ...history.filter((r) => r.date !== result.date),
+    result,
+  ];
+
+  const avgMistakes =
+    currentHistory.length > 0
+      ? (
+          currentHistory.reduce((sum, r) => sum + r.mistakes, 0) /
+          currentHistory.length
+        ).toFixed(1)
+      : "0";
+
+  const fastest =
+    currentHistory.length > 0
+      ? Math.min(...currentHistory.map((r) => r.timeMs))
+      : null;
+
+  const streak = calculateStreak(currentHistory);
+  const skillStats = bestAndWeakestSkill(currentHistory);
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
+      <div className="w-full max-w-md bg-white border border-neutral-200 p-6 rounded-3xl shadow space-y-6">
+        <div className="text-center space-y-1">
+          <p className="text-xs uppercase tracking-wide text-neutral-500">
+            Daily puzzle complete
+          </p>
+          <h1 className="text-3xl font-semibold">Complete!</h1>
+          <p className="text-sm text-neutral-600">
+            Week {selectedGame.week}, Day {selectedGame.day}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 text-center">
+          <div className="bg-amber-100 border border-amber-300 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Today’s time</p>
+            <p className="text-xl font-semibold">
+              {formatTime(result.timeMs)}
+            </p>
+          </div>
+
+          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Mistakes</p>
+            <p className="text-xl font-semibold">{result.mistakes}</p>
+          </div>
+
+          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Current streak</p>
+            <p className="text-xl font-semibold">{streak} days</p>
+          </div>
+
+          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Performance</p>
+            <p className="text-xl font-semibold">
+              {result.mistakes === 0
+                ? "Excellent"
+                : result.mistakes <= 2
+                ? "Strong"
+                : result.mistakes <= 4
+                ? "Good"
+                : "Keep practicing"}
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-neutral-950 text-white rounded-2xl p-4 space-y-2">
+          <p className="text-sm font-semibold">Thinking profile</p>
+          <p className="text-sm">
+            Strongest area:{" "}
+            <span className="font-semibold">
+              {getSkillLabel(skillStats.best)}
+            </span>
+          </p>
+          <p className="text-sm">
+            Area to strengthen:{" "}
+            <span className="font-semibold">
+              {getSkillLabel(skillStats.weakest)}
+            </span>
+          </p>
+        </div>
+
+        <div className="text-sm text-neutral-700 space-y-1">
+          <p>Average mistakes: {avgMistakes}</p>
+          <p>Fastest time: {fastest ? formatTime(fastest) : "—"}</p>
+          <p>Total completed: {currentHistory.length}</p>
+        </div>
+
+        <p className="text-center text-xs text-neutral-500">
+          Come back tomorrow for the next puzzle.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Game({ overrideGame }: { overrideGame?: any }) {
+  const isEditorPreview = Boolean(overrideGame);
+
   const [mobileTapMode, setMobileTapMode] = useState(false);
 
   useEffect(() => {
@@ -210,6 +317,8 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   const [mistakes, setMistakes] = useState<number>(0);
   const [history, setHistory] = useState<any[]>([]);
   const [savedResult, setSavedResult] = useState(false);
+  const [alreadyCompletedResult, setAlreadyCompletedResult] =
+    useState<any | null>(null);
 
   const [skillMistakes, setSkillMistakes] = useState<Record<string, number>>({
     abstraction: 0,
@@ -233,15 +342,27 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
   useEffect(() => {
     const saved = localStorage.getItem("wordArchitectResults");
-    if (saved) setHistory(JSON.parse(saved));
+    const parsed = saved ? JSON.parse(saved) : [];
+
+    setHistory(parsed);
+
+    if (!isEditorPreview) {
+      const todayResult = parsed.find(
+        (r: any) => r.date === todayKey() && r.gameId === selectedGame.id
+      );
+
+      if (todayResult) {
+        setAlreadyCompletedResult(todayResult);
+      }
+    }
 
     if (!localStorage.getItem("wordArchitectTutorialSeen")) {
       setShowTutorial(true);
     }
-  }, []);
+  }, [isEditorPreview, selectedGame.id]);
 
   useEffect(() => {
-    if (!endTime || savedResult) return;
+    if (!endTime || savedResult || isEditorPreview) return;
 
     const result = {
       date: todayKey(),
@@ -254,13 +375,26 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       skillMistakes,
     };
 
-    const withoutToday = history.filter((r) => r.date !== result.date);
+    const withoutToday = history.filter(
+      (r) => !(r.date === result.date && r.gameId === result.gameId)
+    );
+
     const updated = [...withoutToday, result];
 
     localStorage.setItem("wordArchitectResults", JSON.stringify(updated));
     setHistory(updated);
+    setAlreadyCompletedResult(result);
     setSavedResult(true);
-  }, [endTime, savedResult, history, mistakes, selectedGame, skillMistakes, startTime]);
+  }, [
+    endTime,
+    savedResult,
+    history,
+    mistakes,
+    selectedGame,
+    skillMistakes,
+    startTime,
+    isEditorPreview,
+  ]);
 
   const closeTutorial = () => {
     localStorage.setItem("wordArchitectTutorialSeen", "true");
@@ -432,102 +566,34 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     }, 7000);
   };
 
-  const getPerformance = () => {
-    if (mistakes === 0) return "Excellent";
-    if (mistakes <= 2) return "Strong";
-    if (mistakes <= 4) return "Good";
-    return "Keep practicing";
-  };
-
-  const currentHistory = endTime
-    ? [
-        ...history.filter((r) => r.date !== todayKey()),
-        {
-          date: todayKey(),
-          timeMs: endTime - startTime,
-          mistakes,
-          skillMistakes,
-        },
-      ]
-    : history;
-
-  const avgMistakes =
-    currentHistory.length > 0
-      ? (
-          currentHistory.reduce((sum, r) => sum + r.mistakes, 0) /
-          currentHistory.length
-        ).toFixed(1)
-      : "0";
-
-  const fastest =
-    currentHistory.length > 0
-      ? Math.min(...currentHistory.map((r) => r.timeMs))
-      : null;
-
-  const streak = calculateStreak(currentHistory);
-  const skillStats = bestAndWeakestSkill(currentHistory);
+  if (alreadyCompletedResult && !isEditorPreview) {
+    return (
+      <ResultsDashboard
+        selectedGame={selectedGame}
+        result={alreadyCompletedResult}
+        history={history}
+      />
+    );
+  }
 
   if (endTime) {
+    const result = {
+      date: todayKey(),
+      gameId: selectedGame.id,
+      week: selectedGame.week,
+      day: selectedGame.day,
+      difficulty: selectedGame.difficulty,
+      timeMs: endTime - startTime,
+      mistakes,
+      skillMistakes,
+    };
+
     return (
-      <div className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
-        <div className="w-full max-w-md bg-white border border-neutral-200 p-6 rounded-3xl shadow space-y-6">
-          <div className="text-center space-y-1">
-            <p className="text-xs uppercase tracking-wide text-neutral-500">
-              Daily puzzle complete
-            </p>
-            <h1 className="text-3xl font-semibold">Complete!</h1>
-            <p className="text-sm text-neutral-600">
-              Week {selectedGame.week}, Day {selectedGame.day}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 text-center">
-            <div className="bg-amber-100 border border-amber-300 rounded-2xl p-4">
-              <p className="text-xs text-neutral-600">Today’s time</p>
-              <p className="text-xl font-semibold">
-                {formatTime(endTime - startTime)}
-              </p>
-            </div>
-
-            <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
-              <p className="text-xs text-neutral-600">Mistakes</p>
-              <p className="text-xl font-semibold">{mistakes}</p>
-            </div>
-
-            <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
-              <p className="text-xs text-neutral-600">Current streak</p>
-              <p className="text-xl font-semibold">{streak} days</p>
-            </div>
-
-            <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
-              <p className="text-xs text-neutral-600">Performance</p>
-              <p className="text-xl font-semibold">{getPerformance()}</p>
-            </div>
-          </div>
-
-          <div className="bg-neutral-950 text-white rounded-2xl p-4 space-y-2">
-            <p className="text-sm font-semibold">Thinking profile</p>
-            <p className="text-sm">
-              Strongest area:{" "}
-              <span className="font-semibold">
-                {getSkillLabel(skillStats.best)}
-              </span>
-            </p>
-            <p className="text-sm">
-              Area to strengthen:{" "}
-              <span className="font-semibold">
-                {getSkillLabel(skillStats.weakest)}
-              </span>
-            </p>
-          </div>
-
-          <div className="text-sm text-neutral-700 space-y-1">
-            <p>Average mistakes: {avgMistakes}</p>
-            <p>Fastest time: {fastest ? formatTime(fastest) : "—"}</p>
-            <p>Total completed: {currentHistory.length}</p>
-          </div>
-        </div>
-      </div>
+      <ResultsDashboard
+        selectedGame={selectedGame}
+        result={result}
+        history={history}
+      />
     );
   }
 
