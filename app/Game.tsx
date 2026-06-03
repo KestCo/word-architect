@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { GAMES } from "./data/games";
+import { DEFINITIONS } from "./data/definitions";
 import {
   DndContext,
   useDraggable,
@@ -225,9 +226,7 @@ function ResultsDashboard({
         <div className="grid grid-cols-2 gap-3 text-center">
           <div className="bg-amber-100 border border-amber-300 rounded-2xl p-4">
             <p className="text-xs text-neutral-600">Today’s time</p>
-            <p className="text-xl font-semibold">
-              {formatTime(result.timeMs)}
-            </p>
+            <p className="text-xl font-semibold">{formatTime(result.timeMs)}</p>
           </div>
 
           <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
@@ -286,7 +285,6 @@ function ResultsDashboard({
 
 export default function Game({ overrideGame }: { overrideGame?: any }) {
   const isEditorPreview = Boolean(overrideGame);
-
   const [mobileTapMode, setMobileTapMode] = useState(false);
 
   useEffect(() => {
@@ -312,6 +310,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   const [showTutorial, setShowTutorial] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  const [lensWord, setLensWord] = useState<string | null>(null);
   const [startTime] = useState<number>(Date.now());
   const [endTime, setEndTime] = useState<number | null>(null);
   const [mistakes, setMistakes] = useState<number>(0);
@@ -597,6 +596,12 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     );
   }
 
+  const selectedDefinition =
+    selectedCard && DEFINITIONS[selectedCard] ? DEFINITIONS[selectedCard] : null;
+
+  const activeLensDefinition =
+    lensWord && DEFINITIONS[lensWord] ? DEFINITIONS[lensWord] : null;
+
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="max-w-2xl mx-auto space-y-8 px-3 relative">
@@ -622,11 +627,50 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           </div>
         )}
 
+        {activeLensDefinition && lensWord && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+            <div className="bg-white rounded-3xl border border-neutral-200 shadow-xl max-w-sm w-full p-6 space-y-5">
+              <div className="text-center space-y-1">
+                <p className="text-xs uppercase tracking-wide text-neutral-500">
+                  Word Lens
+                </p>
+                <h2 className="text-2xl font-semibold">{lensWord}</h2>
+              </div>
+
+              <div className="space-y-3 text-sm text-neutral-800">
+                <p className="font-medium">{activeLensDefinition.short}</p>
+                <p>{activeLensDefinition.extended}</p>
+              </div>
+
+              <button
+                onClick={() => setLensWord(null)}
+                className="w-full bg-neutral-950 text-white py-3 rounded-xl font-medium"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+
         {selectedCard && (
-          <p className="text-center text-sm text-neutral-700 bg-neutral-100 border border-neutral-200 rounded-xl px-3 py-2">
-            Selected: <span className="font-semibold">{selectedCard}</span>.
-            Tap a group to place it.
-          </p>
+          <div className="text-center text-sm text-neutral-700 bg-neutral-100 border border-neutral-200 rounded-xl px-3 py-3 space-y-2">
+            <p>
+              Selected: <span className="font-semibold">{selectedCard}</span>.
+              Tap a group to place it.
+            </p>
+
+            {selectedDefinition && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLensWord(selectedCard);
+                }}
+                className="inline-flex items-center justify-center rounded-full bg-neutral-950 text-white px-4 py-2 text-xs font-semibold"
+              >
+                Word Lens
+              </button>
+            )}
+          </div>
         )}
 
         <DroppableArea id="available" onTap={() => handleAreaTap("available")}>
