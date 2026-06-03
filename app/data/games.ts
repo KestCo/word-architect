@@ -1600,4 +1600,388 @@ export const GAMES = [
     },
   ],
 },
+{
+  id: 22,
+  difficulty: 1,
+  vocab: "common",
+  week: 4,
+  day: 1,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Footprint", "Fingerprint", "Stain", "Scratch"],
+      correct: "Marks left behind",
+      options: ["Marks left behind", "Things on paper", "Outdoor clues", "Accidents"],
+      insight: {
+        pattern: "Visible traces",
+        explanation: "Each word names evidence that something touched or affected a surface.",
+        generalization: "Sometimes we understand what happened by reading what remains.",
+        adaptive: {
+          correct: "You noticed evidence left behind.",
+          wrong: "Think about what these things leave on a surface.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Curtain", "Blind", "Hood", "Shroud"],
+      correct: "Things that conceal or cover",
+      options: ["Window items", "Things that conceal or cover", "Clothing words", "Theater objects"],
+      insight: {
+        pattern: "Concealment symbolism",
+        explanation: "These words all suggest hiding something from view.",
+        generalization: "Covering and revealing are basic patterns in symbolic thinking.",
+        adaptive: {
+          correct: "You saw the shared idea of concealment.",
+          wrong: "Think about what these objects do to visibility.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Mark", "Clue", "Hint", "Signal"],
+      correct: "Words for signs that point to meaning",
+      options: ["Mystery words", "Words for signs that point to meaning", "School words", "Warning words"],
+      insight: {
+        pattern: "Meaning cues",
+        explanation: "Each word suggests information that helps someone infer something.",
+        generalization: "Language often points indirectly rather than stating everything outright.",
+        adaptive: {
+          correct: "You recognized signs as meaning carriers.",
+          wrong: "Think about words that help someone figure something out.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 23,
+  difficulty: 2,
+  vocab: "common",
+  week: 4,
+  day: 2,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Delete", "Erase", "Remove", "Clear"],
+      correct: "Words meaning to take away",
+      options: ["Computer actions", "Words meaning to take away", "Cleaning words", "Editing tools"],
+      insight: {
+        pattern: "Removal actions",
+        explanation: "Each word describes making something no longer present.",
+        generalization: "Some patterns are built around absence instead of presence.",
+        adaptive: {
+          correct: "You recognized the shared action of removal.",
+          wrong: "Think about what happens after each action.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Curtain", "Cloak", "Screen", "Cover"],
+      correct: "Symbols of hiding or protection",
+      options: ["Fabric items", "Symbols of hiding or protection", "Stage objects", "Household things"],
+      insight: {
+        pattern: "Protective concealment",
+        explanation: "These objects can hide something or protect it from view.",
+        generalization: "Concealment can signal secrecy, safety, or control.",
+        adaptive: {
+          correct: "You saw the symbolic role of covering.",
+          wrong: "Think about what these things prevent people from seeing.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Edit", "Revise", "Amend", "Polish"],
+      correct: "Words related to improving text or ideas",
+      options: ["Writing improvements", "Legal terms", "Cleaning actions", "School tasks"],
+      insight: {
+        pattern: "Revision language",
+        explanation: "These words all describe improving or changing something already made.",
+        generalization: "Creation often continues through revision.",
+        adaptive: {
+          correct: "You recognized the revision pattern.",
+          wrong: "Think about what happens after a first draft.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 24,
+  difficulty: 3,
+  vocab: "mixed",
+  week: 4,
+  day: 3,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Archive", "Ledger", "Dossier", "Index"],
+      correct: "Systems for storing or organizing information",
+      options: ["Office supplies", "Systems for storing or organizing information", "Library rooms", "Historical objects"],
+      insight: {
+        pattern: "Information systems",
+        explanation: "These words describe ways information can be stored, tracked, or organized.",
+        generalization: "Knowledge becomes useful when it can be arranged and retrieved.",
+        adaptive: {
+          correct: "You recognized organization as the shared function.",
+          wrong: "Think about how information is kept and found.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Vault", "Seal", "Latch", "Hatch"],
+      correct: "Symbols of guarded access",
+      options: ["Storage objects", "Symbols of guarded access", "Metal objects", "Mechanical parts"],
+      insight: {
+        pattern: "Protected access",
+        explanation: "These words suggest something that can be closed, guarded, or opened only with permission.",
+        generalization: "Hidden knowledge often appears behind symbols of protection.",
+        adaptive: {
+          correct: "You saw access as the shared symbolic idea.",
+          wrong: "Think about what keeps something closed or protected.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Tone", "Voice", "Register", "Diction"],
+      correct: "Words related to style of expression",
+      options: ["Music terms", "Words related to style of expression", "Speech sounds", "Grammar rules"],
+      insight: {
+        pattern: "Expression style",
+        explanation: "These words describe how something is said, not just what is said.",
+        generalization: "Meaning changes when style changes.",
+        adaptive: {
+          correct: "You recognized language style.",
+          wrong: "Think about the manner of expression.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 25,
+  difficulty: 4,
+  vocab: "mixed",
+  week: 4,
+  day: 4,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Pentimento", "Afterimage", "Residue", "Imprint"],
+      correct: "Evidence of something that was there before",
+      options: ["Art techniques", "Evidence of something that was there before", "Visual mistakes", "Memory words"],
+      insight: {
+        pattern: "Hidden traces",
+        explanation: "These words suggest something remains visible after the original moment has passed.",
+        generalization: "The past often survives as a trace rather than a full presence.",
+        adaptive: {
+          correct: "You recognized the trace beneath the surface.",
+          wrong: "Think about what remains after something changes or disappears.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Facade", "Persona", "Disguise", "Costume"],
+      correct: "Ways of presenting or hiding identity",
+      options: ["Clothing words", "Ways of presenting or hiding identity", "Theater terms", "Social roles"],
+      insight: {
+        pattern: "Constructed identity",
+        explanation: "These words suggest an outer presentation that may hide something underneath.",
+        generalization: "Identity can be performed, protected, or disguised.",
+        adaptive: {
+          correct: "You saw identity as something constructed.",
+          wrong: "Think about how someone appears versus who they are.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Subtext", "Allusion", "Inference", "Implication"],
+      correct: "Words related to indirect meaning",
+      options: ["Literary devices", "Words related to indirect meaning", "Logic terms", "Hidden messages"],
+      insight: {
+        pattern: "Indirect meaning",
+        explanation: "These words point to meaning that is suggested rather than stated directly.",
+        generalization: "Much of communication happens beneath the surface of words.",
+        adaptive: {
+          correct: "You recognized meaning beneath the literal layer.",
+          wrong: "Think about ideas that are hinted rather than directly said.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 26,
+  difficulty: 5,
+  vocab: "advanced",
+  week: 4,
+  day: 5,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Efface", "Expunge", "Redact", "Excise"],
+      correct: "Words meaning to remove from a record or surface",
+      options: ["Editing marks", "Words meaning to remove from a record or surface", "Legal actions", "Medical procedures"],
+      insight: {
+        pattern: "Erasure language",
+        explanation: "These words describe removing, cutting away, or obscuring something.",
+        generalization: "What is removed can shape meaning as strongly as what remains.",
+        adaptive: {
+          correct: "You recognized the shared idea of erasure.",
+          wrong: "Think about words that make something disappear from view or record.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Fog", "Mist", "Haze", "Smoke"],
+      correct: "Symbols of obscured perception",
+      options: ["Weather conditions", "Symbols of obscured perception", "Airborne things", "Natural events"],
+      insight: {
+        pattern: "Obscured vision",
+        explanation: "These words all suggest difficulty seeing clearly.",
+        generalization: "Unclear vision often becomes a symbol for uncertainty or confusion.",
+        adaptive: {
+          correct: "You recognized the symbolism of obscurity.",
+          wrong: "Think about what these things do to perception.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Ambivalent", "Equivocal", "Opaque", "Oblique"],
+      correct: "Words describing unclear or indirect meaning",
+      options: ["Negative emotions", "Words describing unclear or indirect meaning", "Visual qualities", "Argument styles"],
+      insight: {
+        pattern: "Ambiguity vocabulary",
+        explanation: "These words describe meaning that is uncertain, indirect, or hard to see through.",
+        generalization: "Language has many ways to describe unclear meaning because ambiguity is common.",
+        adaptive: {
+          correct: "You recognized the shared uncertainty.",
+          wrong: "Think about language that resists direct interpretation.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 27,
+  difficulty: 6,
+  vocab: "advanced",
+  week: 4,
+  day: 6,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Hellion", "Firebrand", "Agitator", "Instigator"],
+      correct: "People who stir up disruption",
+      options: ["Political roles", "People who stir up disruption", "Youthful personalities", "Criminal labels"],
+      insight: {
+        pattern: "Disruptive roles",
+        explanation: "These words describe people who provoke disorder, rebellion, or conflict.",
+        generalization: "Every social order develops language for those who disturb it.",
+        adaptive: {
+          correct: "You recognized disruption as the shared role.",
+          wrong: "Think about people who stir things up.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Spark", "Fuse", "Rupture", "Quake"],
+      correct: "Symbols of sudden disruption",
+      options: ["Physical events", "Symbols of sudden disruption", "Danger signs", "Energy words"],
+      insight: {
+        pattern: "Disruption symbolism",
+        explanation: "These words suggest sudden change, breakage, or instability.",
+        generalization: "Small triggers can symbolize large transformations.",
+        adaptive: {
+          correct: "You recognized symbolic disruption.",
+          wrong: "Think about sudden breaks from stability.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Provocation", "Dissent", "Rebuke", "Defiance"],
+      correct: "Words related to resisting or challenging authority",
+      options: ["Debate terms", "Words related to resisting or challenging authority", "Legal actions", "Emotional reactions"],
+      insight: {
+        pattern: "Resistance vocabulary",
+        explanation: "These words describe ways people push back against power, rules, or expectations.",
+        generalization: "Language maps the tension between order and resistance.",
+        adaptive: {
+          correct: "You recognized resistance as the shared concept.",
+          wrong: "Think about acts of challenge or refusal.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 28,
+  difficulty: 7,
+  vocab: "advanced",
+  week: 4,
+  day: 7,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Parallax", "Refraction", "Distortion", "Mirage"],
+      correct: "Ways perception can shift or mislead",
+      options: ["Optical effects", "Ways perception can shift or mislead", "Scientific measurements", "Visual errors"],
+      insight: {
+        pattern: "Unstable perception",
+        explanation: "These words describe ways reality can appear altered depending on position, medium, or conditions.",
+        generalization: "What we perceive is shaped by how and where we look.",
+        adaptive: {
+          correct: "You recognized perception as unstable.",
+          wrong: "Think about how seeing can be changed or misled.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Marionette", "Scaffold", "Suture", "Seam"],
+      correct: "Symbols of visible construction or control",
+      options: ["Theater objects", "Symbols of visible construction or control", "Building materials", "Repair tools"],
+      insight: {
+        pattern: "Constructed reality",
+        explanation: "These words suggest that something has been assembled, controlled, or held together.",
+        generalization: "Sometimes the hidden structure becomes visible at the seams.",
+        adaptive: {
+          correct: "You recognized construction beneath appearance.",
+          wrong: "Think about what shows how something is made or controlled.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Ellipsis", "Aposiopesis", "Euphemism", "Circumlocution"],
+      correct: "Ways language hides, softens, or withholds meaning",
+      options: ["Grammar marks", "Ways language hides, softens, or withholds meaning", "Rhetorical mistakes", "Speech patterns"],
+      insight: {
+        pattern: "Withheld meaning",
+        explanation: "These words describe ways language can leave things unsaid, softened, or indirect.",
+        generalization: "Silence and indirection can carry as much meaning as direct speech.",
+        adaptive: {
+          correct: "You recognized hidden meaning in language.",
+          wrong: "Think about language that avoids saying something directly.",
+        },
+      },
+    },
+  ],
+},
 ];
