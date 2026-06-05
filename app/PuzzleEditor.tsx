@@ -423,34 +423,36 @@ export default function PuzzleEditor() {
       </section>
 
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
-        <button
-          onClick={preview}
-          className="bg-neutral-800 text-white py-3 rounded-xl"
-        >
-          Preview Draft
-        </button>
 
-        <button
-          onClick={playtest}
-          className="bg-amber-500 text-black py-3 rounded-xl font-medium"
-        >
-          Playtest Draft
-        </button>
+  <button
+    onClick={preview}
+    className="bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-800"
+  >
+    Preview Draft
+  </button>
 
-        <button
-          onClick={copyDraftJSON}
-          className="bg-neutral-600 text-white py-3 rounded-xl"
-        >
-          Copy Draft JSON
-        </button>
+  <button
+    onClick={playtest}
+    className="bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-800"
+  >
+    Playtest Draft
+  </button>
 
-        <button
-          onClick={submitFinal}
-          className="bg-emerald-600 text-white py-3 rounded-xl font-medium"
-        >
-          Submit Final
-        </button>
-      </div>
+  <button
+    onClick={copyDraftJSON}
+    className="bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-800"
+  >
+    Copy Draft JSON
+  </button>
+
+  <button
+    onClick={submitFinal}
+    className="bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-800"
+  >
+    Submit Final
+  </button>
+
+</div>
 
       {finalSubmitted && (
         <section className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 space-y-3">
