@@ -23,6 +23,9 @@ function emptyGroup() {
 }
 
 export default function PuzzleEditor() {
+  const [originalPuzzle, setOriginalPuzzle] = useState<any>(null);
+  const [finalSubmitted, setFinalSubmitted] = useState(false);
+
   const [title, setTitle] = useState("");
   const [difficulty, setDifficulty] = useState(1);
   const [vocab, setVocab] = useState("common");
@@ -42,10 +45,15 @@ export default function PuzzleEditor() {
   const [suggestedChanges, setSuggestedChanges] = useState("");
 
   const [previewGame, setPreviewGame] = useState<any>(null);
+  const [finalJSON, setFinalJSON] = useState("");
 
   const loadGame = (gameId: number) => {
     const game = GAMES.find((g) => g.id === gameId);
     if (!game) return;
+
+    setOriginalPuzzle(JSON.parse(JSON.stringify(game)));
+    setFinalSubmitted(false);
+    setFinalJSON("");
 
     setTitle(`Week ${game.week} Day ${game.day}`);
     setDifficulty(game.difficulty);
@@ -101,12 +109,14 @@ export default function PuzzleEditor() {
     setGroups(updated);
   };
 
-  const buildGameObject = () => {
+  const buildDraftObject = () => {
     return {
-      id: Date.now(),
+      id: originalPuzzle?.id || Date.now(),
       title,
       difficulty,
       vocab,
+      week: originalPuzzle?.week,
+      day: originalPuzzle?.day,
       status: "draft",
 
       editor: {
@@ -134,12 +144,21 @@ export default function PuzzleEditor() {
     };
   };
 
+  const buildFinalObject = () => {
+    return {
+      ...buildDraftObject(),
+      status: "final",
+      finalizedAt: new Date().toISOString(),
+      originalPuzzleId: originalPuzzle?.id || null,
+    };
+  };
+
   const preview = () => {
-    setPreviewGame(buildGameObject());
+    setPreviewGame(buildDraftObject());
   };
 
   const playtest = () => {
-    const game = buildGameObject();
+    const game = buildDraftObject();
 
     localStorage.setItem(
       "wordArchitectPlaytest",
@@ -149,14 +168,22 @@ export default function PuzzleEditor() {
     window.open("/", "_blank");
   };
 
-  const copyJSON = async () => {
-    const game = buildGameObject();
+  const copyDraftJSON = async () => {
+    const game = buildDraftObject();
+    await navigator.clipboard.writeText(JSON.stringify(game, null, 2));
+    alert("Draft JSON copied to clipboard.");
+  };
 
-    await navigator.clipboard.writeText(
-      JSON.stringify(game, null, 2)
-    );
+  const submitFinal = async () => {
+    const finalGame = buildFinalObject();
+    const json = JSON.stringify(finalGame, null, 2);
 
-    alert("Puzzle JSON copied to clipboard.");
+    setFinalJSON(json);
+    setFinalSubmitted(true);
+
+    await navigator.clipboard.writeText(json);
+
+    alert("Final puzzle JSON copied to clipboard.");
   };
 
   return (
@@ -167,12 +194,12 @@ export default function PuzzleEditor() {
         </h1>
 
         <p className="text-sm text-neutral-500">
-          Build, test, review, and polish puzzles before publishing.
+          Load an original puzzle, edit a working draft, playtest it, then submit a clean final version.
         </p>
       </div>
 
       <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
-        <h2 className="font-medium">Load Starter Puzzle</h2>
+        <h2 className="font-medium">Load Original Puzzle</h2>
 
         <select
           onChange={(e) => loadGame(Number(e.target.value))}
@@ -189,6 +216,16 @@ export default function PuzzleEditor() {
             </option>
           ))}
         </select>
+
+        {originalPuzzle && (
+          <div className="bg-neutral-100 border border-neutral-200 rounded-xl p-4 text-sm space-y-1">
+            <p className="font-medium">Original puzzle preserved</p>
+            <p>
+              Week {originalPuzzle.week}, Day {originalPuzzle.day} · Difficulty{" "}
+              {originalPuzzle.difficulty}
+            </p>
+          </div>
+        )}
       </section>
 
       <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
@@ -210,7 +247,7 @@ export default function PuzzleEditor() {
       </section>
 
       <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
-        <h2 className="font-medium">Puzzle Info</h2>
+        <h2 className="font-medium">Working Draft Info</h2>
 
         <input
           value={title}
@@ -342,7 +379,7 @@ export default function PuzzleEditor() {
       ))}
 
       <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
-        <h2 className="font-medium">Editor Review</h2>
+        <h2 className="font-medium">Editor Review Notes</h2>
 
         <p className="text-sm text-neutral-500 italic">
           Editor challenge: Can this puzzle become cleverer without becoming unfair?
@@ -385,32 +422,57 @@ export default function PuzzleEditor() {
         />
       </section>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
         <button
           onClick={preview}
           className="bg-neutral-800 text-white py-3 rounded-xl"
         >
-          Preview Puzzle
+          Preview Draft
         </button>
 
         <button
           onClick={playtest}
           className="bg-amber-500 text-black py-3 rounded-xl font-medium"
         >
-          Playtest Puzzle
+          Playtest Draft
         </button>
 
         <button
-          onClick={copyJSON}
-          className="bg-black text-white py-3 rounded-xl"
+          onClick={copyDraftJSON}
+          className="bg-neutral-600 text-white py-3 rounded-xl"
         >
-          Copy JSON
+          Copy Draft JSON
+        </button>
+
+        <button
+          onClick={submitFinal}
+          className="bg-emerald-600 text-white py-3 rounded-xl font-medium"
+        >
+          Submit Final
         </button>
       </div>
 
+      {finalSubmitted && (
+        <section className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 space-y-3">
+          <h2 className="font-medium text-emerald-900">
+            Final version submitted
+          </h2>
+
+          <p className="text-sm text-emerald-800">
+            The clean final puzzle JSON has been copied to your clipboard.
+          </p>
+
+          <textarea
+            value={finalJSON}
+            readOnly
+            className="w-full border rounded px-3 py-2 text-xs min-h-64 font-mono bg-white"
+          />
+        </section>
+      )}
+
       {previewGame && (
         <section className="border-t pt-8 space-y-4">
-          <h2 className="text-xl font-semibold">Live Preview</h2>
+          <h2 className="text-xl font-semibold">Draft Preview</h2>
           <Game overrideGame={previewGame} />
         </section>
       )}
