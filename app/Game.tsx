@@ -297,9 +297,17 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   }, []);
 
   const [selectedGame] = useState(() => {
-    if (overrideGame) return overrideGame;
-    return getDailyGame();
-  });
+  if (overrideGame) return overrideGame;
+
+  const playtest = localStorage.getItem("wordArchitectPlaytest");
+
+  if (playtest) {
+    localStorage.removeItem("wordArchitectPlaytest");
+    return JSON.parse(playtest);
+  }
+
+  return getDailyGame();
+});
 
   const selectedGroups = selectedGame.groups;
 

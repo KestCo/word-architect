@@ -27,6 +27,9 @@ export default function PuzzleEditor() {
   const [difficulty, setDifficulty] = useState(1);
   const [vocab, setVocab] = useState("common");
 
+  const [editorName, setEditorName] = useState("");
+  const [publication, setPublication] = useState("");
+
   const [groups, setGroups] = useState([
     emptyGroup(),
     emptyGroup(),
@@ -40,13 +43,8 @@ export default function PuzzleEditor() {
 
   const [previewGame, setPreviewGame] = useState<any>(null);
 
-  /* =========================
-     LOAD EXISTING GAME
-  ========================= */
-
   const loadGame = (gameId: number) => {
     const game = GAMES.find((g) => g.id === gameId);
-
     if (!game) return;
 
     setTitle(`Week ${game.week} Day ${game.day}`);
@@ -64,17 +62,10 @@ export default function PuzzleEditor() {
     setTooEasy(false);
     setTooObscure(false);
     setSuggestedChanges("");
+    setPreviewGame(null);
   };
 
-  /* =========================
-     GROUP UPDATES
-  ========================= */
-
-  const updateGroup = (
-    index: number,
-    field: string,
-    value: any
-  ) => {
+  const updateGroup = (index: number, field: string, value: any) => {
     const updated: any = [...groups];
     updated[index][field] = value;
     setGroups(updated);
@@ -110,10 +101,6 @@ export default function PuzzleEditor() {
     setGroups(updated);
   };
 
-  /* =========================
-     BUILD GAME
-  ========================= */
-
   const buildGameObject = () => {
     return {
       id: Date.now(),
@@ -121,12 +108,19 @@ export default function PuzzleEditor() {
       difficulty,
       vocab,
       status: "draft",
+
+      editor: {
+        name: editorName,
+        publication,
+      },
+
       review: {
         editorNotes,
         tooEasy,
         tooObscure,
         suggestedChanges,
       },
+
       groups: groups.map((g: any) => ({
         skill: g.skill,
         words: g.words
@@ -144,6 +138,17 @@ export default function PuzzleEditor() {
     setPreviewGame(buildGameObject());
   };
 
+  const playtest = () => {
+    const game = buildGameObject();
+
+    localStorage.setItem(
+      "wordArchitectPlaytest",
+      JSON.stringify(game)
+    );
+
+    window.open("/", "_blank");
+  };
+
   const copyJSON = async () => {
     const game = buildGameObject();
 
@@ -156,8 +161,6 @@ export default function PuzzleEditor() {
 
   return (
     <main className="min-h-screen bg-neutral-50 p-6 space-y-8 max-w-4xl mx-auto">
-
-      {/* HEADER */}
       <div className="space-y-2">
         <h1 className="text-2xl font-semibold">
           Puzzle Review Dashboard
@@ -168,12 +171,8 @@ export default function PuzzleEditor() {
         </p>
       </div>
 
-      {/* LOAD EXISTING */}
       <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
-
-        <h2 className="font-medium">
-          Load Starter Puzzle
-        </h2>
+        <h2 className="font-medium">Load Starter Puzzle</h2>
 
         <select
           onChange={(e) => loadGame(Number(e.target.value))}
@@ -190,12 +189,27 @@ export default function PuzzleEditor() {
             </option>
           ))}
         </select>
-
       </section>
 
-      {/* PUZZLE INFO */}
       <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
+        <h2 className="font-medium">Editor Information</h2>
 
+        <input
+          value={editorName}
+          onChange={(e) => setEditorName(e.target.value)}
+          placeholder="Editor name"
+          className="w-full border rounded px-3 py-2 text-sm"
+        />
+
+        <input
+          value={publication}
+          onChange={(e) => setPublication(e.target.value)}
+          placeholder="Publication"
+          className="w-full border rounded px-3 py-2 text-sm"
+        />
+      </section>
+
+      <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
         <h2 className="font-medium">Puzzle Info</h2>
 
         <input
@@ -206,15 +220,12 @@ export default function PuzzleEditor() {
         />
 
         <div className="grid grid-cols-2 gap-3">
-
           <label className="text-sm space-y-1">
             <span>Difficulty</span>
 
             <select
               value={difficulty}
-              onChange={(e) =>
-                setDifficulty(Number(e.target.value))
-              }
+              onChange={(e) => setDifficulty(Number(e.target.value))}
               className="w-full border rounded px-3 py-2"
             >
               {[1, 2, 3, 4, 5, 6, 7].map((n) => (
@@ -238,84 +249,57 @@ export default function PuzzleEditor() {
               <option value="advanced">Advanced</option>
             </select>
           </label>
-
         </div>
-
       </section>
 
-      {/* GROUPS */}
       {groups.map((group: any, i: number) => (
         <section
           key={i}
           className="bg-white p-5 rounded-2xl shadow-sm space-y-4"
         >
-
-          <h2 className="font-medium">
-            Group {i + 1}
-          </h2>
+          <h2 className="font-medium">Group {i + 1}</h2>
 
           <input
             value={group.skill}
-            onChange={(e) =>
-              updateGroup(i, "skill", e.target.value)
-            }
-            placeholder="Skill"
+            onChange={(e) => updateGroup(i, "skill", e.target.value)}
+            placeholder="Skill: abstraction, symbolic, linguistic"
             className="w-full border rounded px-3 py-2 text-sm"
           />
 
           <input
             value={group.words}
-            onChange={(e) =>
-              updateGroup(i, "words", e.target.value)
-            }
+            onChange={(e) => updateGroup(i, "words", e.target.value)}
             placeholder="Words, comma separated"
             className="w-full border rounded px-3 py-2 text-sm"
           />
 
           <input
             value={group.correct}
-            onChange={(e) =>
-              updateGroup(i, "correct", e.target.value)
-            }
+            onChange={(e) => updateGroup(i, "correct", e.target.value)}
             placeholder="Correct connection"
             className="w-full border rounded px-3 py-2 text-sm"
           />
 
-          {/* OPTIONS */}
           <div className="space-y-2">
-
-            <p className="text-sm font-medium">
-              Answer Options
-            </p>
+            <p className="text-sm font-medium">Answer Options</p>
 
             {group.options.map((opt: string, j: number) => (
               <input
                 key={j}
                 value={opt}
-                onChange={(e) =>
-                  updateOption(i, j, e.target.value)
-                }
-                placeholder={`Option ${String.fromCharCode(
-                  65 + j
-                )}`}
+                onChange={(e) => updateOption(i, j, e.target.value)}
+                placeholder={`Option ${String.fromCharCode(65 + j)}`}
                 className="w-full border rounded px-3 py-2 text-sm"
               />
             ))}
-
           </div>
 
-          {/* INSIGHT */}
           <div className="space-y-2">
-
-            <p className="text-sm font-medium">
-              Insight Layer
-            </p>
+            <p className="text-sm font-medium">Insight Layer</p>
 
             <input
               value={group.insight.pattern}
-              onChange={(e) =>
-                updateInsight(i, "pattern", e.target.value)
-              }
+              onChange={(e) => updateInsight(i, "pattern", e.target.value)}
               placeholder="Pattern name"
               className="w-full border rounded px-3 py-2 text-sm"
             />
@@ -323,11 +307,7 @@ export default function PuzzleEditor() {
             <textarea
               value={group.insight.explanation}
               onChange={(e) =>
-                updateInsight(
-                  i,
-                  "explanation",
-                  e.target.value
-                )
+                updateInsight(i, "explanation", e.target.value)
               }
               placeholder="Explanation"
               className="w-full border rounded px-3 py-2 text-sm min-h-20"
@@ -336,11 +316,7 @@ export default function PuzzleEditor() {
             <textarea
               value={group.insight.generalization}
               onChange={(e) =>
-                updateInsight(
-                  i,
-                  "generalization",
-                  e.target.value
-                )
+                updateInsight(i, "generalization", e.target.value)
               }
               placeholder="Generalization"
               className="w-full border rounded px-3 py-2 text-sm min-h-20"
@@ -357,39 +333,27 @@ export default function PuzzleEditor() {
 
             <input
               value={group.insight.adaptive.wrong}
-              onChange={(e) =>
-                updateAdaptive(i, "wrong", e.target.value)
-              }
+              onChange={(e) => updateAdaptive(i, "wrong", e.target.value)}
               placeholder="Wrong feedback"
               className="w-full border rounded px-3 py-2 text-sm"
             />
-
           </div>
-
         </section>
       ))}
 
-      {/* REVIEW */}
       <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
-
-        <h2 className="font-medium">
-          Editor Review
-        </h2>
+        <h2 className="font-medium">Editor Review</h2>
 
         <p className="text-sm text-neutral-500 italic">
-          Editor challenge: Can this puzzle become cleverer
-          without becoming unfair?
+          Editor challenge: Can this puzzle become cleverer without becoming unfair?
         </p>
 
         <div className="flex gap-4 text-sm">
-
           <label>
             <input
               type="checkbox"
               checked={tooEasy}
-              onChange={(e) =>
-                setTooEasy(e.target.checked)
-              }
+              onChange={(e) => setTooEasy(e.target.checked)}
               className="mr-2"
             />
             Too easy
@@ -399,68 +363,57 @@ export default function PuzzleEditor() {
             <input
               type="checkbox"
               checked={tooObscure}
-              onChange={(e) =>
-                setTooObscure(e.target.checked)
-              }
+              onChange={(e) => setTooObscure(e.target.checked)}
               className="mr-2"
             />
             Too obscure
           </label>
-
         </div>
 
         <textarea
           value={editorNotes}
-          onChange={(e) =>
-            setEditorNotes(e.target.value)
-          }
+          onChange={(e) => setEditorNotes(e.target.value)}
           placeholder="Editor notes"
           className="w-full border rounded px-3 py-2 text-sm min-h-24"
         />
 
         <textarea
           value={suggestedChanges}
-          onChange={(e) =>
-            setSuggestedChanges(e.target.value)
-          }
+          onChange={(e) => setSuggestedChanges(e.target.value)}
           placeholder="Suggested changes"
           className="w-full border rounded px-3 py-2 text-sm min-h-24"
         />
-
       </section>
 
-      {/* BUTTONS */}
-      <div className="flex gap-3">
-
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <button
           onClick={preview}
-          className="flex-1 bg-neutral-800 text-white py-3 rounded-xl"
+          className="bg-neutral-800 text-white py-3 rounded-xl"
         >
           Preview Puzzle
         </button>
 
         <button
+          onClick={playtest}
+          className="bg-amber-500 text-black py-3 rounded-xl font-medium"
+        >
+          Playtest Puzzle
+        </button>
+
+        <button
           onClick={copyJSON}
-          className="flex-1 bg-black text-white py-3 rounded-xl"
+          className="bg-black text-white py-3 rounded-xl"
         >
           Copy JSON
         </button>
-
       </div>
 
-      {/* LIVE PREVIEW */}
       {previewGame && (
         <section className="border-t pt-8 space-y-4">
-
-          <h2 className="text-xl font-semibold">
-            Live Preview
-          </h2>
-
+          <h2 className="text-xl font-semibold">Live Preview</h2>
           <Game overrideGame={previewGame} />
-
         </section>
       )}
-
     </main>
   );
 }
