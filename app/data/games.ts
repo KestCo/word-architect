@@ -1984,4 +1984,535 @@ export const GAMES = [
     },
   ],
 },
+{
+  id: 29,
+  difficulty: 1,
+  vocab: "mixed",
+  week: 5,
+  day: 1,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Adroit", "Skillful", "Nimble", "Dexterous"],
+      correct: "Words describing capable performance",
+      options: [
+        "Words describing capable performance",
+        "Words about speed",
+        "Words about intelligence",
+        "Words about movement",
+      ],
+      insight: {
+        pattern: "Human ability",
+        explanation:
+          "These words describe someone who acts with skill, grace, or clever control.",
+        generalization:
+          "Language often distinguishes simple effort from practiced ability.",
+        adaptive: {
+          correct: "You recognized words of skillful action.",
+          wrong: "Think about someone doing something with practiced ease.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Compass", "Guide", "Beacon", "North Star"],
+      correct: "Symbols of direction and guidance",
+      options: [
+        "Travel tools",
+        "Symbols of direction and guidance",
+        "Outdoor objects",
+        "Navigation mistakes",
+      ],
+      insight: {
+        pattern: "Guidance symbolism",
+        explanation:
+          "These words suggest orientation, direction, or help finding a path.",
+        generalization:
+          "Humans often use images of direction to describe wisdom and purpose.",
+        adaptive: {
+          correct: "You saw the shared idea of guidance.",
+          wrong: "Think about what helps someone find their way.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Teach", "Learn", "Study", "Practice"],
+      correct: "Words related to acquiring knowledge",
+      options: [
+        "School actions",
+        "Words related to acquiring knowledge",
+        "Words about memory",
+        "Words about performance",
+      ],
+      insight: {
+        pattern: "Learning process",
+        explanation:
+          "These words describe different parts of gaining knowledge or ability.",
+        generalization:
+          "Skill usually develops through repeated cycles of learning and practice.",
+        adaptive: {
+          correct: "You recognized the learning pattern.",
+          wrong: "Think about how ability is developed over time.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 30,
+  difficulty: 2,
+  vocab: "mixed",
+  week: 5,
+  day: 2,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Peccadillo", "Foible", "Quirk", "Idiosyncrasy"],
+      correct: "Minor flaws or unusual traits",
+      options: [
+        "Major failures",
+        "Minor flaws or unusual traits",
+        "Personality strengths",
+        "Social roles",
+      ],
+      insight: {
+        pattern: "Small imperfections",
+        explanation:
+          "These words describe little faults, habits, or unusual personal traits.",
+        generalization:
+          "Human identity is often shaped by small imperfections as much as virtues.",
+        adaptive: {
+          correct: "You recognized the shared idea of minor imperfection.",
+          wrong: "Think about flaws that are small rather than serious.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Crack", "Chip", "Scratch", "Dent"],
+      correct: "Signs of imperfection",
+      options: [
+        "Repair words",
+        "Signs of imperfection",
+        "Marks of ownership",
+        "Construction flaws",
+      ],
+      insight: {
+        pattern: "Visible imperfection",
+        explanation:
+          "These words name small marks that show something is not flawless.",
+        generalization:
+          "Imperfection often becomes visible through small surface changes.",
+        adaptive: {
+          correct: "You saw the shared mark of imperfection.",
+          wrong: "Think about small damage or visible flaws.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Oddity", "Peculiarity", "Eccentricity", "Trait"],
+      correct: "Words describing distinctive characteristics",
+      options: [
+        "Negative labels",
+        "Words describing distinctive characteristics",
+        "Medical terms",
+        "Hidden talents",
+      ],
+      insight: {
+        pattern: "Individual difference",
+        explanation:
+          "These words describe qualities that make a person or thing distinctive.",
+        generalization:
+          "Language helps us notice difference without always judging it harshly.",
+        adaptive: {
+          correct: "You recognized language of distinctiveness.",
+          wrong: "Think about what makes someone or something unusual.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 31,
+  difficulty: 3,
+  vocab: "mixed",
+  week: 5,
+  day: 3,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Indignant", "Aggrieved", "Resentful", "Outraged"],
+      correct: "Words related to perceived injustice",
+      options: [
+        "Words related to perceived injustice",
+        "Words related to sadness",
+        "Words related to confusion",
+        "Words related to surprise",
+      ],
+      insight: {
+        pattern: "Moral emotion",
+        explanation:
+          "These words describe anger or hurt that comes from feeling something is unfair.",
+        generalization:
+          "Some emotions are reactions not just to events, but to judgments about right and wrong.",
+        adaptive: {
+          correct: "You recognized emotion tied to unfairness.",
+          wrong: "Think about anger that comes from feeling wronged.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Torch", "Banner", "Whistle", "Megaphone"],
+      correct: "Symbols of public protest or speaking out",
+      options: [
+        "Crowd objects",
+        "Symbols of public protest or speaking out",
+        "Emergency tools",
+        "Performance props",
+      ],
+      insight: {
+        pattern: "Public response",
+        explanation:
+          "These objects can symbolize people making their voices heard.",
+        generalization:
+          "When people feel wronged, they often seek visible ways to protest or respond.",
+        adaptive: {
+          correct: "You connected outrage to public expression.",
+          wrong: "Think about objects used when people speak out together.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Fair", "Equal", "Just", "Impartial"],
+      correct: "Words related to fairness",
+      options: [
+        "Legal words only",
+        "Words related to fairness",
+        "Words about similarity",
+        "Words about politeness",
+      ],
+      insight: {
+        pattern: "Fairness vocabulary",
+        explanation:
+          "These words describe ideals of balanced or unbiased treatment.",
+        generalization:
+          "Human communities rely on shared language for fairness and justice.",
+        adaptive: {
+          correct: "You recognized fairness as the shared concept.",
+          wrong: "Think about words used when judging whether treatment is right.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 32,
+  difficulty: 4,
+  vocab: "mixed",
+  week: 5,
+  day: 4,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Arduous", "Grueling", "Laborious", "Strenuous"],
+      correct: "Words describing difficult effort",
+      options: [
+        "Words describing difficult effort",
+        "Words describing pain",
+        "Words describing speed",
+        "Words describing failure",
+      ],
+      insight: {
+        pattern: "Demanding effort",
+        explanation:
+          "These words describe tasks that require energy, endurance, or sustained work.",
+        generalization:
+          "Effort has its own vocabulary because difficulty can take many forms.",
+        adaptive: {
+          correct: "You recognized difficult effort.",
+          wrong: "Think about work that takes endurance.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Mountain", "Summit", "Climb", "Trail"],
+      correct: "Symbols of challenge and perseverance",
+      options: [
+        "Outdoor words",
+        "Symbols of challenge and perseverance",
+        "Travel locations",
+        "Nature features",
+      ],
+      insight: {
+        pattern: "Challenge symbolism",
+        explanation:
+          "These words often symbolize effort, progress, and overcoming difficulty.",
+        generalization:
+          "Physical journeys often become metaphors for inner effort.",
+        adaptive: {
+          correct: "You saw the metaphor of effort.",
+          wrong: "Think about images used to represent hard work or progress.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Persist", "Endure", "Strive", "Persevere"],
+      correct: "Words describing sustained effort",
+      options: [
+        "Words describing sustained effort",
+        "Words describing competition",
+        "Words describing waiting",
+        "Words describing success",
+      ],
+      insight: {
+        pattern: "Persistence language",
+        explanation:
+          "These words describe continuing despite difficulty.",
+        generalization:
+          "Human growth often depends less on ease than on sustained effort.",
+        adaptive: {
+          correct: "You recognized persistence.",
+          wrong: "Think about continuing when something is hard.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 33,
+  difficulty: 5,
+  vocab: "advanced",
+  week: 5,
+  day: 5,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Turncoat", "Defector", "Renegade", "Traitor"],
+      correct: "People who abandon a former allegiance",
+      options: [
+        "People who abandon a former allegiance",
+        "Military ranks",
+        "Political leaders",
+        "Independent thinkers",
+      ],
+      insight: {
+        pattern: "Broken allegiance",
+        explanation:
+          "These words describe people who leave, betray, or turn against a former side.",
+        generalization:
+          "Language around loyalty often reveals how strongly groups value belonging.",
+        adaptive: {
+          correct: "You recognized the shared break in allegiance.",
+          wrong: "Think about someone leaving or betraying a former side.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Banner", "Flag", "Standard", "Emblem"],
+      correct: "Symbols of group identity or allegiance",
+      options: [
+        "Decorative objects",
+        "Symbols of group identity or allegiance",
+        "Military equipment",
+        "National objects only",
+      ],
+      insight: {
+        pattern: "Belonging symbols",
+        explanation:
+          "These objects often represent loyalty to a group, cause, or identity.",
+        generalization:
+          "Groups use symbols to make belonging visible.",
+        adaptive: {
+          correct: "You recognized symbols of allegiance.",
+          wrong: "Think about objects people rally around.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Allegiance", "Loyalty", "Fealty", "Devotion"],
+      correct: "Words describing commitment to a cause or person",
+      options: [
+        "Words describing commitment to a cause or person",
+        "Words describing affection only",
+        "Religious words",
+        "Legal obligations",
+      ],
+      insight: {
+        pattern: "Commitment vocabulary",
+        explanation:
+          "These words describe attachment, duty, or faithfulness to someone or something.",
+        generalization:
+          "Commitment can be emotional, social, political, or moral.",
+        adaptive: {
+          correct: "You recognized the language of commitment.",
+          wrong: "Think about words for staying faithful to a person or cause.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 34,
+  difficulty: 6,
+  vocab: "advanced",
+  week: 5,
+  day: 6,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Enraptured", "Captivated", "Mesmerized", "Spellbound"],
+      correct: "States of intense fascination",
+      options: [
+        "States of intense fascination",
+        "States of confusion",
+        "States of fear",
+        "States of celebration",
+      ],
+      insight: {
+        pattern: "Absorbed attention",
+        explanation:
+          "These words describe being deeply held by wonder, beauty, or fascination.",
+        generalization:
+          "Attention can feel almost physical when something fully captures the mind.",
+        adaptive: {
+          correct: "You recognized intense fascination.",
+          wrong: "Think about being completely absorbed by something.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Aurora", "Comet", "Eclipse", "Constellation"],
+      correct: "Natural phenomena that inspire wonder",
+      options: [
+        "Astronomy terms",
+        "Natural phenomena that inspire wonder",
+        "Night sky objects only",
+        "Ancient omens",
+      ],
+      insight: {
+        pattern: "Wonder imagery",
+        explanation:
+          "These sights often create awe because they feel rare, vast, or mysterious.",
+        generalization:
+          "Human wonder often begins when ordinary perception meets something vast.",
+        adaptive: {
+          correct: "You recognized images of wonder.",
+          wrong: "Think about sights that make people stop and stare.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Awe", "Wonder", "Marvel", "Astonishment"],
+      correct: "Words describing amazement",
+      options: [
+        "Words describing amazement",
+        "Words describing happiness",
+        "Words describing fear",
+        "Words describing beauty",
+      ],
+      insight: {
+        pattern: "Amazement vocabulary",
+        explanation:
+          "These words describe reactions to something surprising, beautiful, or extraordinary.",
+        generalization:
+          "Language gives us many ways to name moments that exceed expectation.",
+        adaptive: {
+          correct: "You recognized amazement.",
+          wrong: "Think about the feeling of being deeply surprised or impressed.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 35,
+  difficulty: 7,
+  vocab: "advanced",
+  week: 5,
+  day: 7,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Destiny", "Providence", "Fortune", "Fate"],
+      correct: "Concepts related to predetermined outcomes",
+      options: [
+        "Concepts related to predetermined outcomes",
+        "Words about luck only",
+        "Religious ideas only",
+        "Words about success",
+      ],
+      insight: {
+        pattern: "Fate concepts",
+        explanation:
+          "These words describe forces or ideas that suggest life may be shaped beyond personal control.",
+        generalization:
+          "Human beings have long used language to debate chance, choice, and destiny.",
+        adaptive: {
+          correct: "You recognized the language of fate.",
+          wrong: "Think about words for what seems meant to happen.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Thread", "Shears", "Loom", "Spindle"],
+      correct: "Symbols associated with The Fates",
+      options: [
+        "Textile tools",
+        "Symbols associated with The Fates",
+        "Household objects",
+        "Ancient inventions",
+      ],
+      insight: {
+        pattern: "Fate symbolism",
+        explanation:
+          "In myth, life is often imagined as a thread that can be spun, measured, and cut.",
+        generalization:
+          "Symbols make abstract ideas like mortality and destiny easier to grasp.",
+        adaptive: {
+          correct: "You recognized the mythic symbolism of fate.",
+          wrong: "Think about life imagined as something woven or cut.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Inevitable", "Foreordained", "Predestined", "Inescapable"],
+      correct: "Words describing unavoidable outcomes",
+      options: [
+        "Words describing unavoidable outcomes",
+        "Words describing punishment",
+        "Words describing planning",
+        "Words describing certainty in science",
+      ],
+      insight: {
+        pattern: "Unavoidability language",
+        explanation:
+          "These words describe events or outcomes that seem impossible to avoid.",
+        generalization:
+          "The tension between freedom and inevitability is one of humanity’s oldest questions.",
+        adaptive: {
+          correct: "You recognized unavoidable outcomes.",
+          wrong: "Think about events that cannot be escaped or changed.",
+        },
+      },
+    },
+  ],
+},
 ];
