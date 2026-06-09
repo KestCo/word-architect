@@ -288,6 +288,54 @@ function ResultsDashboard({
   );
 }
 
+function PlaytestCompletion({
+  selectedGame,
+  timeMs,
+  mistakes,
+}: {
+  selectedGame: any;
+  timeMs: number;
+  mistakes: number;
+}) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
+      <div className="w-full max-w-md bg-white border border-neutral-200 p-6 rounded-3xl shadow space-y-6">
+        <div className="text-center space-y-1">
+          <p className="text-xs uppercase tracking-wide text-neutral-500">
+            Playtest complete
+          </p>
+
+          <h1 className="text-3xl font-semibold">Complete!</h1>
+
+          {selectedGame.week && selectedGame.day ? (
+            <p className="text-sm text-neutral-600">
+              Week {selectedGame.week}, Day {selectedGame.day}
+            </p>
+          ) : (
+            <p className="text-sm text-neutral-600">Draft puzzle</p>
+          )}
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 text-center">
+          <div className="bg-amber-100 border border-amber-300 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Time</p>
+            <p className="text-xl font-semibold">{formatTime(timeMs)}</p>
+          </div>
+
+          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Mistakes</p>
+            <p className="text-xl font-semibold">{mistakes}</p>
+          </div>
+        </div>
+
+        <p className="text-center text-xs text-neutral-500">
+          This playtest run was not saved.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Game({ overrideGame }: { overrideGame?: any }) {
   const isEditorPreview = Boolean(overrideGame);
   const [mobileTapMode, setMobileTapMode] = useState(false);
@@ -302,17 +350,22 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  const [selectedGame] = useState(() => {
-    if (overrideGame) return overrideGame;
+  const [{ selectedGame, isPlaytestMode }] = useState(() => {
+    if (overrideGame) {
+      return { selectedGame: overrideGame, isPlaytestMode: false };
+    }
 
     const playtest = localStorage.getItem("wordArchitectPlaytest");
 
     if (playtest) {
       localStorage.removeItem("wordArchitectPlaytest");
-      return JSON.parse(playtest);
+      return {
+        selectedGame: JSON.parse(playtest),
+        isPlaytestMode: true,
+      };
     }
 
-    return getDailyGame();
+    return { selectedGame: getDailyGame(), isPlaytestMode: false };
   });
 
   const selectedGroups = selectedGame.groups;
@@ -361,7 +414,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
     setHistory(parsed);
 
-    if (!isEditorPreview) {
+    if (!isEditorPreview && !isPlaytestMode) {
       const todayResult = parsed.find(
         (r: any) => r.date === todayKey() && r.gameId === selectedGame.id
       );
@@ -374,10 +427,10 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     if (!localStorage.getItem("wordArchitectTutorialSeen")) {
       setShowTutorial(true);
     }
-  }, [isEditorPreview, selectedGame.id]);
+  }, [isEditorPreview, isPlaytestMode, selectedGame.id]);
 
   useEffect(() => {
-    if (!endTime || savedResult || isEditorPreview) return;
+    if (!endTime || savedResult || isEditorPreview || isPlaytestMode) return;
 
     const result = {
       date: todayKey(),
@@ -409,6 +462,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     skillMistakes,
     startTime,
     isEditorPreview,
+    isPlaytestMode,
   ]);
 
   const closeTutorial = () => {
@@ -634,7 +688,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     );
   };
 
-  if (alreadyCompletedResult && !isEditorPreview) {
+  if (alreadyCompletedResult && !isEditorPreview && !isPlaytestMode) {
     return (
       <ResultsDashboard
         selectedGame={selectedGame}
@@ -645,6 +699,16 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   }
 
   if (endTime) {
+    if (isPlaytestMode) {
+      return (
+        <PlaytestCompletion
+          selectedGame={selectedGame}
+          timeMs={endTime - startTime}
+          mistakes={mistakes}
+        />
+      );
+    }
+
     const result = {
       date: todayKey(),
       gameId: selectedGame.id,
