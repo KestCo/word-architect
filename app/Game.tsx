@@ -40,6 +40,7 @@ function todayKey() {
 }
 
 function getDailyGame() {
+  // CHANGE TO 2026-06-15 BEFORE LAUNCH
   const startDate = new Date("2026-01-01T00:00:00");
   const today = new Date();
 
@@ -171,7 +172,7 @@ function DroppableArea({
     <div
       ref={setNodeRef}
       onClick={onTap}
-      className={`p-5 bg-white text-neutral-900 rounded-2xl border border-neutral-200 shadow-sm space-y-4 ${
+      className={`p-6 bg-white text-neutral-900 rounded-2xl border border-neutral-200 shadow-sm space-y-4 ${
         isOver && !disabled ? "ring-2 ring-emerald-500" : ""
       } ${onTap && !disabled ? "cursor-pointer" : ""}`}
     >
@@ -217,7 +218,9 @@ function ResultsDashboard({
           <p className="text-xs uppercase tracking-wide text-neutral-500">
             Daily puzzle complete
           </p>
+
           <h1 className="text-3xl font-semibold">Complete!</h1>
+
           <p className="text-sm text-neutral-600">
             Week {selectedGame.week}, Day {selectedGame.day}
           </p>
@@ -255,12 +258,14 @@ function ResultsDashboard({
 
         <div className="bg-neutral-950 text-white rounded-2xl p-4 space-y-2">
           <p className="text-sm font-semibold">Thinking profile</p>
+
           <p className="text-sm">
             Strongest area:{" "}
             <span className="font-semibold">
               {getSkillLabel(skillStats.best)}
             </span>
           </p>
+
           <p className="text-sm">
             Area to strengthen:{" "}
             <span className="font-semibold">
@@ -293,21 +298,22 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
     check();
     window.addEventListener("resize", check);
+
     return () => window.removeEventListener("resize", check);
   }, []);
 
   const [selectedGame] = useState(() => {
-  if (overrideGame) return overrideGame;
+    if (overrideGame) return overrideGame;
 
-  const playtest = localStorage.getItem("wordArchitectPlaytest");
+    const playtest = localStorage.getItem("wordArchitectPlaytest");
 
-  if (playtest) {
-    localStorage.removeItem("wordArchitectPlaytest");
-    return JSON.parse(playtest);
-  }
+    if (playtest) {
+      localStorage.removeItem("wordArchitectPlaytest");
+      return JSON.parse(playtest);
+    }
 
-  return getDailyGame();
-});
+    return getDailyGame();
+  });
 
   const selectedGroups = selectedGame.groups;
 
@@ -425,7 +431,11 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       newStacks = newStacks.map((s: any) => {
         if (s.id === target) {
           if (s.cards.length >= 4) return s;
-          return { ...s, cards: [...s.cards, card] };
+
+          return {
+            ...s,
+            cards: [...s.cards, card],
+          };
         }
 
         return s;
@@ -619,12 +629,15 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
               <p className="text-xs uppercase tracking-wide text-neutral-500">
                 Quick guide
               </p>
+
               <h2 className="text-2xl font-semibold">How to play</h2>
+
               <div className="space-y-3 text-sm text-neutral-800 text-left">
                 <p>1. Group four connected words.</p>
                 <p>2. Choose what connects them.</p>
                 <p>3. Read the insight behind the pattern.</p>
               </div>
+
               <button
                 onClick={closeTutorial}
                 className="w-full bg-neutral-950 text-white py-3 rounded-xl font-medium"
@@ -642,6 +655,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                 <p className="text-xs uppercase tracking-wide text-neutral-500">
                   Word Lens
                 </p>
+
                 <h2 className="text-2xl font-semibold">{lensWord}</h2>
               </div>
 
@@ -661,10 +675,15 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         )}
 
         {selectedCard && (
-          <div className="text-center text-sm text-neutral-700 bg-neutral-100 border border-neutral-200 rounded-xl px-3 py-3 space-y-2">
-            <p>
-              Selected: <span className="font-semibold">{selectedCard}</span>.
-              Tap a group to place it.
+          <div className="bg-neutral-950 text-white rounded-2xl p-4 text-center space-y-3">
+            <p className="text-xs uppercase tracking-wide opacity-70">
+              Selected Word
+            </p>
+
+            <p className="text-xl font-semibold">{selectedCard}</p>
+
+            <p className="text-sm opacity-80">
+              Tap a group below to place this word.
             </p>
 
             {selectedDefinition && (
@@ -673,7 +692,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                   e.stopPropagation();
                   setLensWord(selectedCard);
                 }}
-                className="inline-flex items-center justify-center rounded-full bg-neutral-950 text-white px-4 py-2 text-xs font-semibold"
+                className="bg-white text-neutral-950 px-4 py-2 rounded-full text-sm font-medium"
               >
                 Word Lens
               </button>
@@ -705,10 +724,13 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
             {stack.collapsed ? (
               <div className="flex justify-between items-center gap-3 text-sm">
                 <span className="font-medium">✓ Group {i + 1}</span>
+
                 <span className="text-neutral-700">{stack.data.correct}</span>
+
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
+
                     setStacks((prev: any[]) =>
                       prev.map((s: any) =>
                         s.id === stack.id
@@ -724,9 +746,17 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
               </div>
             ) : (
               <>
-                <p className="text-sm text-neutral-500 font-medium">
-                  Group {i + 1}
-                </p>
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-sm text-neutral-500 font-medium">
+                    Group {i + 1}
+                  </p>
+
+                  {selectedCard && !stack.locked && stack.cards.length < 4 && (
+                    <span className="text-xs bg-amber-100 border border-amber-300 px-2 py-1 rounded-full">
+                      Tap here to place
+                    </span>
+                  )}
+                </div>
 
                 <div className="grid grid-cols-4 gap-2 sm:gap-3">
                   {stack.cards.map((card: string) => (
@@ -740,6 +770,12 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                     />
                   ))}
                 </div>
+
+                {selectedCard && !stack.locked && stack.cards.length < 4 && (
+                  <div className="text-center text-sm bg-amber-50 border border-amber-200 rounded-xl px-3 py-3 text-amber-900 font-medium">
+                    Place {selectedCard} here
+                  </div>
+                )}
 
                 {stack.feedback && (
                   <p className="text-sm text-amber-900 bg-amber-100 border border-amber-300 px-3 py-2 rounded-lg">
@@ -766,6 +802,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                           key={opt}
                           onClick={(e) => {
                             e.stopPropagation();
+
                             setStacks((prev: any[]) =>
                               prev.map((s: any) =>
                                 s.id === stack.id
@@ -813,7 +850,9 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                         <p>
                           <strong>{stack.data.insight.pattern}</strong>
                         </p>
+
                         <p>{stack.data.insight.explanation}</p>
+
                         <p className="text-neutral-700">
                           {stack.data.insight.generalization}
                         </p>
