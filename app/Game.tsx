@@ -347,6 +347,8 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       data: group,
       selected: "",
       showAnswer: false,
+      wrongSelection: "",
+      answerFeedback: "",
       collapsed: false,
       fading: false,
       feedback: "",
@@ -510,6 +512,10 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
             ...stack,
             locked: true,
             data: matchedGroup,
+            selected: "",
+            showAnswer: false,
+            wrongSelection: "",
+            answerFeedback: "",
             feedback: "",
           };
         }
@@ -551,14 +557,22 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     });
   };
 
-  const revealAnswer = (stackId: string) => {
+  const unlockAnswer = (stackId: string, selectedAnswer?: string) => {
     const isFinalAnswer =
       stacks.every((s: any) => s.locked) &&
       stacks.filter((s: any) => s.locked && !s.showAnswer).length === 1;
 
     setStacks((prev: any[]) =>
       prev.map((s: any) =>
-        s.id === stackId ? { ...s, showAnswer: true } : s
+        s.id === stackId
+          ? {
+              ...s,
+              selected: selectedAnswer || s.data.correct,
+              showAnswer: true,
+              wrongSelection: "",
+              answerFeedback: selectedAnswer ? "Correct." : "",
+            }
+          : s
       )
     );
 
@@ -581,6 +595,43 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
       if (isFinalAnswer) setEndTime(Date.now());
     }, 7000);
+  };
+
+  const checkAnswer = (stackId: string) => {
+    const stack = stacks.find((s: any) => s.id === stackId);
+    if (!stack || stack.showAnswer) return;
+
+    if (!stack.selected) {
+      setStacks((prev: any[]) =>
+        prev.map((s: any) =>
+          s.id === stackId
+            ? {
+                ...s,
+                wrongSelection: "",
+                answerFeedback: "Choose an answer first.",
+              }
+            : s
+        )
+      );
+      return;
+    }
+
+    if (stack.selected === stack.data.correct) {
+      unlockAnswer(stackId, stack.selected);
+      return;
+    }
+
+    setStacks((prev: any[]) =>
+      prev.map((s: any) =>
+        s.id === stackId
+          ? {
+              ...s,
+              wrongSelection: stack.selected,
+              answerFeedback: "Not quite. Try again.",
+            }
+          : s
+      )
+    );
   };
 
   if (alreadyCompletedResult && !isEditorPreview) {
@@ -796,53 +847,81 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                     {stack.data.options.map((opt: string, idx: number) => {
                       const isSelected = stack.selected === opt;
                       const isCorrect = stack.data.correct === opt;
+                      const isWrongSelection = stack.wrongSelection === opt;
+                      const optionStateClass =
+                        stack.showAnswer && isCorrect
+                          ? "bg-emerald-600 text-white border-emerald-700"
+                          : isWrongSelection
+                          ? "bg-red-600 text-white border-red-700"
+                          : isSelected
+                          ? "bg-neutral-950 text-white border-neutral-950"
+                          : "bg-white text-neutral-900 border-neutral-300";
 
                       return (
                         <button
                           key={opt}
+                          disabled={stack.showAnswer}
                           onClick={(e) => {
                             e.stopPropagation();
 
                             setStacks((prev: any[]) =>
                               prev.map((s: any) =>
                                 s.id === stack.id
-                                  ? { ...s, selected: opt }
+                                  ? {
+                                      ...s,
+                                      selected: opt,
+                                      wrongSelection: "",
+                                      answerFeedback: "",
+                                    }
                                   : s
                               )
                             );
                           }}
                           className={`w-full text-left px-3 py-2 border rounded-lg text-sm transition
-                            ${
-                              isSelected
-                                ? "bg-neutral-950 text-white border-neutral-950"
-                                : "bg-white text-neutral-900 border-neutral-300"
-                            }
-                            ${
-                              stack.showAnswer && isCorrect
-                                ? "bg-emerald-600 text-white border-emerald-700"
-                                : ""
-                            }
-                            ${
-                              stack.showAnswer && isSelected && !isCorrect
-                                ? "bg-red-600 text-white border-red-700"
-                                : ""
-                            }`}
+                            ${optionStateClass}
+                            ${stack.showAnswer ? "cursor-default" : ""}`}
                         >
                           {String.fromCharCode(65 + idx)}. {opt}
                         </button>
                       );
                     })}
 
-                    {!stack.showAnswer && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          revealAnswer(stack.id);
-                        }}
-                        className="bg-neutral-950 text-white border border-neutral-950 px-4 py-2 rounded-lg font-medium"
+                    {stack.answerFeedback && (
+                      <p
+                        className={`text-sm px-3 py-2 rounded-lg border ${
+                          stack.showAnswer
+                            ? "bg-emerald-50 border-emerald-200 text-emerald-900"
+                            : stack.wrongSelection
+                            ? "bg-red-50 border-red-200 text-red-800"
+                            : "bg-amber-50 border-amber-200 text-amber-900"
+                        }`}
                       >
-                        Check Answer
-                      </button>
+                        {stack.answerFeedback}
+                      </p>
+                    )}
+
+                    {!stack.showAnswer && (
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            checkAnswer(stack.id);
+                          }}
+                          className="bg-neutral-950 text-white border border-neutral-950 px-4 py-2 rounded-lg font-medium"
+                        >
+                          Check Answer
+                        </button>
+
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            unlockAnswer(stack.id);
+                          }}
+                          className="bg-white text-neutral-950 border border-neutral-300 px-4 py-2 rounded-lg font-medium"
+                        >
+                          Reveal Answer
+                        </button>
+                      </div>
                     )}
 
                     {stack.showAnswer && stack.data.insight && (
