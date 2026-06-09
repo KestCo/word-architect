@@ -220,4 +220,80 @@ export const DEFINITIONS: Record<
     extended:
       "An enigma invites investigation because its meaning is unclear.",
   },
+  Peccadillo: {
+  short:
+    "A small, relatively unimportant fault, mistake, or minor sin.",
+  extended:
+    "A peccadillo is usually viewed as a forgivable flaw rather than a serious wrongdoing.",
+},
+
+Adroit: {
+  short:
+    "Cleverly skillful, resourceful, or ingenious.",
+  extended:
+    "An adroit person performs tasks with confidence, precision, and ease.",
+},
+
+Turncoat: {
+  short:
+    "A disloyal person who abandons a former cause, belief, or allegiance.",
+  extended:
+    "The term originally referred to someone who literally changed the coat they wore to show loyalty to a new side.",
+},
+
+Indignant: {
+  short:
+    "Feeling anger or annoyance because something seems unfair or unjust.",
+  extended:
+    "Indignation is often tied to moral judgment rather than personal frustration alone.",
+},
+
+Arduous: {
+  short:
+    "Requiring great effort, energy, or endurance.",
+  extended:
+    "An arduous task is difficult not because it is impossible, but because it demands sustained work.",
+},
+
+Enraptured: {
+  short:
+    "Filled with intense delight, fascination, or wonder.",
+  extended:
+    "Someone who is enraptured is completely absorbed by what they are experiencing.",
+},
+
+Providence: {
+  short:
+    "Protective guidance or influence believed to come from a higher power.",
+  extended:
+    "The word is often used when events seem guided by purpose rather than chance.",
+},
+
+Fealty: {
+  short:
+    "A formal pledge of loyalty or faithfulness.",
+  extended:
+    "Historically associated with relationships between lords and vassals in medieval society.",
+},
+
+Idiosyncrasy: {
+  short:
+    "A distinctive habit, behavior, or characteristic unique to an individual.",
+  extended:
+    "Idiosyncrasies often make people memorable because they are unusual or highly personal.",
+},
+
+Aggrieved: {
+  short:
+    "Feeling wronged, unfairly treated, or injured by a situation.",
+  extended:
+    "An aggrieved person believes they have suffered an injustice.",
+},
+
+Dexterous: {
+  short:
+    "Skillful and quick in movement, especially with the hands.",
+  extended:
+    "The word can also describe mental agility and clever problem-solving.",
+},
 };
