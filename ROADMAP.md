@@ -35,3 +35,8 @@ Theme: Time
 ### Platform
 - Additional games
 - Shared games hub
+### Editor
+
+- Convert Preview Draft into Review Draft
+- Show puzzle structure without gameplay
+- Show all connections and insights at once
