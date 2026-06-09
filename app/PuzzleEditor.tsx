@@ -1,8 +1,60 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type SyntheticEvent } from "react";
 import Game from "./Game";
 import { GAMES } from "./data/games";
+
+const EDITOR_ACTION_BUTTONS = {
+  preview: {
+    background: "#3f3f46",
+    hover: "#27272a",
+  },
+  playtest: {
+    background: "#2563eb",
+    hover: "#1d4ed8",
+  },
+  copy: {
+    background: "#6b7280",
+    hover: "#4b5563",
+  },
+  submit: {
+    background: "#059669",
+    hover: "#047857",
+  },
+};
+
+function editorActionButtonProps(
+  variant: keyof typeof EDITOR_ACTION_BUTTONS
+) {
+  const colors = EDITOR_ACTION_BUTTONS[variant];
+  const setBackground = (
+    event: SyntheticEvent<HTMLButtonElement>,
+    backgroundColor: string
+  ) => {
+    event.currentTarget.style.backgroundColor = backgroundColor;
+  };
+
+  return {
+    className: "py-3 rounded-xl font-medium transition",
+    style: {
+      backgroundColor: colors.background,
+      color: "#ffffff",
+      boxShadow: "0 10px 18px rgb(23 23 23 / 0.12)",
+    },
+    onMouseEnter: (event: SyntheticEvent<HTMLButtonElement>) =>
+      setBackground(event, colors.hover),
+    onMouseLeave: (event: SyntheticEvent<HTMLButtonElement>) =>
+      setBackground(event, colors.background),
+    onPointerEnter: (event: SyntheticEvent<HTMLButtonElement>) =>
+      setBackground(event, colors.hover),
+    onPointerLeave: (event: SyntheticEvent<HTMLButtonElement>) =>
+      setBackground(event, colors.background),
+    onFocus: (event: SyntheticEvent<HTMLButtonElement>) =>
+      setBackground(event, colors.hover),
+    onBlur: (event: SyntheticEvent<HTMLButtonElement>) =>
+      setBackground(event, colors.background),
+  };
+}
 
 function emptyGroup() {
   return {
@@ -426,28 +478,28 @@ export default function PuzzleEditor() {
 
   <button
     onClick={preview}
-    className="bg-neutral-800 text-white py-3 rounded-xl font-medium hover:bg-neutral-700 transition"
+    {...editorActionButtonProps("preview")}
   >
     Preview Draft
   </button>
 
   <button
     onClick={playtest}
-    className="bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition"
+    {...editorActionButtonProps("playtest")}
   >
     Playtest Draft
   </button>
 
   <button
     onClick={copyDraftJSON}
-    className="bg-neutral-500 text-white py-3 rounded-xl font-medium hover:bg-neutral-600 transition"
+    {...editorActionButtonProps("copy")}
   >
     Copy Draft JSON
   </button>
 
   <button
     onClick={submitFinal}
-    className="bg-emerald-600 text-white py-3 rounded-xl font-medium hover:bg-emerald-700 transition"
+    {...editorActionButtonProps("submit")}
   >
     Submit Final
   </button>
