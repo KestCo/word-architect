@@ -34,11 +34,14 @@ body {
   color: #171717;
 }
 
-button,
 input,
 textarea,
 select {
   color: #171717;
   background-color: white;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
   -webkit-tap-highlight-color: transparent;
 }
