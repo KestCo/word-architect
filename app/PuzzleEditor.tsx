@@ -426,28 +426,28 @@ export default function PuzzleEditor() {
 
   <button
     onClick={preview}
-    className="bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-800"
+    className="bg-neutral-800 text-white py-3 rounded-xl font-medium hover:bg-neutral-700 transition"
   >
     Preview Draft
   </button>
 
   <button
     onClick={playtest}
-    className="bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-800"
+    className="bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition"
   >
     Playtest Draft
   </button>
 
   <button
     onClick={copyDraftJSON}
-    className="bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-800"
+    className="bg-neutral-500 text-white py-3 rounded-xl font-medium hover:bg-neutral-600 transition"
   >
     Copy Draft JSON
   </button>
 
   <button
     onClick={submitFinal}
-    className="bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-800"
+    className="bg-emerald-600 text-white py-3 rounded-xl font-medium hover:bg-emerald-700 transition"
   >
     Submit Final
   </button>
