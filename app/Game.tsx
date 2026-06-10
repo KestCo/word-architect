@@ -742,6 +742,18 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     isPlaytestMode,
   ]);
 
+  useEffect(() => {
+    if (endTime || stacks.length === 0) return;
+
+    const puzzleComplete = stacks.every(
+      (stack: any) => stack.locked && stack.showAnswer && stack.collapsed
+    );
+
+    if (puzzleComplete) {
+      setEndTime(Date.now());
+    }
+  }, [endTime, stacks]);
+
   const closeTutorial = () => {
     localStorage.setItem("wordArchitectTutorialSeen", "true");
     setShowTutorial(false);
