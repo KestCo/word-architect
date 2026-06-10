@@ -165,12 +165,14 @@ function DraggableCard({
   id,
   disabled,
   selected,
+  hasDefinition,
   onTap,
   mobileTapMode,
 }: {
   id: string;
   disabled?: boolean;
   selected?: boolean;
+  hasDefinition?: boolean;
   onTap?: () => void;
   mobileTapMode?: boolean;
 }) {
@@ -187,9 +189,10 @@ function DraggableCard({
         e.stopPropagation();
         if (!disabled) onTap?.();
       }}
+      title={hasDefinition ? `${id} has Word Lens` : id}
       {...(!mobileTapMode ? listeners : {})}
       {...(!mobileTapMode ? attributes : {})}
-      className={`min-w-0 w-full px-2 py-2 rounded-full border transition
+      className={`relative min-w-0 w-full px-2 py-2 rounded-full border transition
         font-semibold tracking-tight text-center text-[11px] sm:text-sm
         leading-tight whitespace-normal break-words
         ${
@@ -201,6 +204,13 @@ function DraggableCard({
         } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
     >
       {id}
+
+      {hasDefinition && (
+        <span
+          aria-hidden="true"
+          className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-blue-600 ring-2 ring-white"
+        />
+      )}
     </button>
   );
 }
@@ -1045,6 +1055,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                 <p>1. Group four connected words.</p>
                 <p>2. Choose what connects them.</p>
                 <p>3. Read the insight behind the pattern.</p>
+                <p>4. A blue dot means Word Lens can define that word.</p>
               </div>
 
               <button
@@ -1122,6 +1133,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                 key={card}
                 id={card}
                 selected={selectedCard === card}
+                hasDefinition={Boolean(DEFINITIONS[card])}
                 mobileTapMode={mobileTapMode}
                 onTap={() => handleCardTap(card)}
               />
@@ -1180,6 +1192,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                       id={card}
                       disabled={stack.locked}
                       selected={selectedCard === card}
+                      hasDefinition={!stack.locked && Boolean(DEFINITIONS[card])}
                       mobileTapMode={mobileTapMode}
                       onTap={() => handleCardTap(card)}
                     />
@@ -1289,17 +1302,36 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                     )}
 
                     {stack.showAnswer && stack.data.insight && (
-                      <div className="bg-neutral-100 border border-neutral-200 p-3 rounded-lg text-sm space-y-1">
-                        <p>
-                          <strong>{stack.data.insight.pattern}</strong>
-                        </p>
+                      <>
+                        <div className="bg-neutral-100 border border-neutral-200 p-3 rounded-lg text-sm space-y-1">
+                          <p>
+                            <strong>{stack.data.insight.pattern}</strong>
+                          </p>
 
-                        <p>{stack.data.insight.explanation}</p>
+                          <p>{stack.data.insight.explanation}</p>
 
-                        <p className="text-neutral-700">
-                          {stack.data.insight.generalization}
-                        </p>
-                      </div>
+                          <p className="text-neutral-700">
+                            {stack.data.insight.generalization}
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+
+                            setStacks((prev: any[]) =>
+                              prev.map((s: any) =>
+                                s.id === stack.id
+                                  ? { ...s, collapsed: true, fading: false }
+                                  : s
+                              )
+                            );
+                          }}
+                          className="bg-white text-neutral-950 border border-neutral-300 px-4 py-2 rounded-lg font-medium"
+                        >
+                          Collapse
+                        </button>
+                      </>
                     )}
                   </div>
                 )}
