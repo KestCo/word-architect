@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Intro from "./Intro";
 import Game from "./Game";
+import { getDailyGame } from "./data/dailyGame";
 
 type UserProfile = {
   name: string;
@@ -14,6 +15,7 @@ export default function Home() {
   const [user, setUser] = useState<UserProfile | null>(null);
   const [started, setStarted] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const todayGame = getDailyGame();
 
   useEffect(() => {
     const savedUser = localStorage.getItem("wordArchitectUser");
@@ -50,6 +52,7 @@ export default function Home() {
     return (
       <Intro
         user={user}
+        todayGame={todayGame}
         onCreateUser={createUser}
         onStart={() => setStarted(true)}
       />

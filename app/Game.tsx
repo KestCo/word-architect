@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { GAMES } from "./data/games";
+import { getDailyGame } from "./data/dailyGame";
 import { DEFINITIONS } from "./data/definitions";
 import {
   DndContext,
@@ -40,30 +40,6 @@ function formatTime(ms: number) {
 
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
-}
-
-function getDailyGame() {
-  const startDate = new Date("2026-06-15T00:00:00");
-  const today = new Date();
-
-  const start = new Date(
-    startDate.getFullYear(),
-    startDate.getMonth(),
-    startDate.getDate()
-  );
-
-  const current = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate()
-  );
-
-  const dayNumber = Math.floor(
-    (current.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)
-  );
-
-  const safeIndex = ((dayNumber % GAMES.length) + GAMES.length) % GAMES.length;
-  return GAMES[safeIndex];
 }
 
 function getSkillLabel(skill: string) {

@@ -9,10 +9,11 @@ const SKILL_LABELS: any = {
   linguistic: "Language Structure",
 };
 
-export default function Intro({ user, onStart, onCreateUser }: any) {
+export default function Intro({ user, todayGame, onStart, onCreateUser }: any) {
   const [entered, setEntered] = useState(false);
   const [transitioning, setTransitioning] = useState(false);
   const [nameInput, setNameInput] = useState("");
+  const editorName = todayGame?.editor?.name?.trim();
 
   const enterWorld = () => {
     setTransitioning(true);
@@ -186,6 +187,12 @@ export default function Intro({ user, onStart, onCreateUser }: any) {
           <p className="text-sm text-neutral-500">
             {user.name}, ready to think a little differently today?
           </p>
+
+          <div className="pt-1 text-xs text-neutral-500 space-y-1">
+            <p>Created By Brad J Kester</p>
+
+            {editorName && <p>Edited by {editorName}</p>}
+          </div>
         </div>
 
         <div className="flex justify-center gap-6 text-sm text-neutral-600">
