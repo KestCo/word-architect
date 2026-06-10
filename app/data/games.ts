@@ -469,13 +469,13 @@ export const GAMES = [
       },
       {
         skill: "symbolic",
-        words: ["Labyrinth", "Mirror", "Mask", "Threshold"],
+        words: ["Maze", "Reflection", "Mask", "Crossroads"],
         correct: "Symbols of identity or transformation",
         options: [
-          "Household objects",
+          "Visual objects",
           "Symbols of identity or transformation",
           "Stage props",
-          "Ancient architecture",
+          "Places and props",
         ],
         insight: {
           pattern: "Transformational symbolism",
@@ -1008,18 +1008,18 @@ export const GAMES = [
       },
       {
         skill: "symbolic",
-        words: ["Labyrinth", "Mirror", "Veil", "Threshold"],
+        words: ["Warren", "Double", "Scrim", "Limen"],
         correct: "Symbols of transformation or hidden understanding",
         options: [
-          "Architectural terms",
+          "Theater terms",
           "Symbols of transformation or hidden understanding",
-          "Fantasy imagery",
-          "Religious rituals",
+          "Animal homes",
+          "Boundary images",
         ],
         insight: {
           pattern: "Transformational symbolism",
           explanation:
-            "These symbols often appear in stories about discovery, identity, or change.",
+            "These symbols suggest concealed paths, doubled selves, hidden layers, and crossing points.",
           generalization:
             "Symbolic systems frequently map internal human experiences.",
           adaptive: {
@@ -1188,12 +1188,12 @@ export const GAMES = [
 
     {
       skill: "linguistic",
-      words: ["Cold", "Sharp", "Heavy", "Bright"],
+      words: ["Deep", "Flat", "Warm", "Sweet"],
       correct: "Words with literal and metaphorical meanings",
       options: [
-        "Scientific terms",
+        "Taste words",
         "Words with literal and metaphorical meanings",
-        "Weather words",
+        "Spatial descriptions",
         "Descriptive adjectives",
       ],
       insight: {
@@ -1243,10 +1243,10 @@ export const GAMES = [
 
     {
       skill: "symbolic",
-      words: ["Threshold", "Gate", "Key", "Door"],
+      words: ["Portal", "Causeway", "Passage", "Turnstile"],
       correct: "Symbols of transition or access",
       options: [
-        "Household objects",
+        "Transit objects",
         "Symbols of transition or access",
         "Security systems",
         "Architectural terms",
@@ -1254,12 +1254,12 @@ export const GAMES = [
       insight: {
         pattern: "Transition symbolism",
         explanation:
-          "These objects symbolize entering a new phase or understanding.",
+          "These objects and structures suggest crossing from one state or place into another.",
         generalization:
           "Crossing boundaries is one of humanity’s deepest symbolic themes.",
         adaptive: {
           correct: "You recognized symbolic transition.",
-          wrong: "Think about entering or unlocking something new.",
+          wrong: "Think about crossing, entering, or moving through.",
         },
       },
     },
@@ -1344,23 +1344,23 @@ export const GAMES = [
 
     {
       skill: "linguistic",
-      words: ["Literal", "Implicit", "Explicit", "Figurative"],
-      correct: "Words describing modes of meaning",
+      words: ["Denotation", "Connotation", "Nuance", "Ambiguity"],
+      correct: "Words describing layers of meaning",
       options: [
-        "Philosophy terms",
-        "Words describing modes of meaning",
-        "Grammar concepts",
-        "Academic categories",
+        "Dictionary features",
+        "Words describing layers of meaning",
+        "Grammar rules",
+        "Debate techniques",
       ],
       insight: {
-        pattern: "Communication structure",
+        pattern: "Meaning layers",
         explanation:
-          "These words describe different ways language conveys ideas.",
+          "These words describe how meaning can be direct, suggested, subtle, or uncertain.",
         generalization:
-          "Meaning depends not only on words, but on interpretation.",
+          "Meaning depends not only on words, but on the layers readers bring to them.",
         adaptive: {
-          correct: "You recognized conceptual language structure.",
-          wrong: "Think about how meaning itself is communicated.",
+          correct: "You recognized layered meaning.",
+          wrong: "Think about how words can carry more than one kind of meaning.",
         },
       },
     },
@@ -1399,18 +1399,18 @@ export const GAMES = [
 
     {
       skill: "symbolic",
-      words: ["Labyrinth", "Threshold", "Cipher", "Veil"],
+      words: ["Puzzle Box", "Keyhole", "Cipher", "Scrim"],
       correct: "Symbols of hidden understanding",
       options: [
-        "Fantasy imagery",
+        "Puzzle objects",
         "Symbols of hidden understanding",
-        "Architectural ideas",
-        "Mystery objects",
+        "Security objects",
+        "Theater objects",
       ],
       insight: {
         pattern: "Hidden meaning symbolism",
         explanation:
-          "These symbols frequently appear in stories about discovery and transformation.",
+          "These symbols suggest hidden information, obscured views, or clues waiting to be unlocked.",
         generalization:
           "Human beings use symbols to represent invisible inner experiences.",
         adaptive: {
@@ -1422,18 +1422,18 @@ export const GAMES = [
 
     {
       skill: "linguistic",
-      words: ["Syntax", "Lexicon", "Idiom", "Dialect"],
+      words: ["Phoneme", "Morpheme", "Semantics", "Pragmatics"],
       correct: "Words related to language systems",
       options: [
-        "Writing styles",
+        "Speech sounds only",
         "Words related to language systems",
         "Academic disciplines",
-        "Ancient texts",
+        "Writing tools",
       ],
       insight: {
         pattern: "Language structure",
         explanation:
-          "These terms describe systems or behaviors inside language.",
+          "These terms describe units and systems that shape how language works.",
         generalization:
           "Language itself can become an object of analysis and classification.",
         adaptive: {
@@ -1477,41 +1477,41 @@ export const GAMES = [
 
     {
       skill: "symbolic",
-      words: ["Phoenix", "Dawn", "Seed", "Threshold"],
-      correct: "Symbols of becoming or renewal",
+      words: ["Bud", "Sprout", "Sapling", "Chrysalis"],
+      correct: "Images of growth or transformation",
       options: [
         "Nature imagery",
-        "Symbols of becoming or renewal",
-        "Ancient myths",
-        "Religious symbols",
+        "Images of growth or transformation",
+        "Gardening stages",
+        "Seasonal symbols",
       ],
       insight: {
         pattern: "Transformation symbolism",
         explanation:
-          "These symbols suggest emergence, rebirth, or transformation.",
+          "These images suggest emergence, development, and change from one state into another.",
         generalization:
           "Many symbolic systems revolve around cycles of renewal.",
         adaptive: {
-          correct: "You recognized symbolic transformation.",
-          wrong: "Think about beginnings, emergence, and change.",
+          correct: "You recognized growth as transformation.",
+          wrong: "Think about development from an early form into something changed.",
         },
       },
     },
 
     {
       skill: "linguistic",
-      words: ["Paradox", "Enigma", "Contradiction", "Riddle"],
+      words: ["Conundrum", "Aporia", "Koan", "Quandary"],
       correct: "Concepts involving unresolved meaning",
       options: [
         "Philosophy terms",
         "Concepts involving unresolved meaning",
-        "Ancient puzzles",
-        "Logic systems",
+        "Meditation practices",
+        "Difficult choices",
       ],
       insight: {
         pattern: "Cognitive tension",
         explanation:
-          "These concepts challenge the mind by resisting simple resolution.",
+          "These concepts challenge the mind because they resist quick or simple resolution.",
         generalization:
           "Complex thinking often begins where certainty breaks down.",
         adaptive: {
@@ -1555,18 +1555,18 @@ export const GAMES = [
 
     {
       skill: "symbolic",
-      words: ["Labyrinth", "Mirror", "Threshold", "Veil"],
+      words: ["Cocoon", "Crucible", "Pilgrimage", "Rite"],
       correct: "Symbols of inner transformation",
       options: [
-        "Architectural concepts",
+        "Religious rituals only",
         "Symbols of inner transformation",
-        "Fantasy imagery",
-        "Ancient objects",
+        "Travel experiences",
+        "Protective containers",
       ],
       insight: {
         pattern: "Transformational symbolism",
         explanation:
-          "These symbols often appear in stories about identity, growth, and hidden truth.",
+          "These images suggest testing, passage, and the reshaping of identity.",
         generalization:
           "Symbolic systems frequently map invisible inner experiences.",
         adaptive: {
@@ -1696,7 +1696,7 @@ export const GAMES = [
       skill: "linguistic",
       words: ["Edit", "Revise", "Amend", "Polish"],
       correct: "Words related to improving text or ideas",
-      options: ["Writing improvements", "Legal terms", "Cleaning actions", "School tasks"],
+      options: ["Words related to improving text or ideas", "Legal terms", "Cleaning actions", "School tasks"],
       insight: {
         pattern: "Revision language",
         explanation: "These words all describe improving or changing something already made.",

@@ -32,6 +32,12 @@ html,
 body {
   background: #f5f5f4;
   color: #171717;
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: contain;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 input,
@@ -44,4 +50,15 @@ select {
 
 button {
   -webkit-tap-highlight-color: transparent;
+}
+
+.game-scroll-guard {
+  overscroll-behavior: contain;
+  touch-action: pan-y pinch-zoom;
+}
+
+@supports (overflow: clip) {
+  body {
+    overflow-x: clip;
+  }
 }

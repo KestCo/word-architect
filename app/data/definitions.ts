@@ -296,4 +296,613 @@ Dexterous: {
   extended:
     "The word can also describe mental agility and clever problem-solving.",
 },
+
+Limen: {
+  short:
+    "A threshold, boundary, or point of transition.",
+  extended:
+    "The word is often used for the edge between one state of awareness, identity, or experience and another.",
+},
+
+Scrim: {
+  short:
+    "A thin screen or fabric that can partly hide or reveal what is behind it.",
+  extended:
+    "In symbolic language, a scrim can suggest partial concealment, staged reality, or hidden layers.",
+},
+
+Conundrum: {
+  short:
+    "A confusing or difficult problem.",
+  extended:
+    "A conundrum resists an easy answer and often forces careful reasoning.",
+},
+
+Aporia: {
+  short:
+    "A state of puzzlement or unresolved doubt.",
+  extended:
+    "In philosophy and rhetoric, aporia often marks a moment where certainty breaks down.",
+},
+
+Koan: {
+  short:
+    "A paradoxical saying or question used for contemplation.",
+  extended:
+    "Koans are associated with Zen practice and are meant to disrupt ordinary patterns of thought.",
+},
+
+Quandary: {
+  short:
+    "A state of uncertainty about what to do.",
+  extended:
+    "A quandary often involves a difficult choice where no answer feels simple.",
+},
+
+Denotation: {
+  short:
+    "The direct or literal meaning of a word.",
+  extended:
+    "Denotation is the meaning a word points to most plainly, before emotional or cultural associations are added.",
+},
+
+Connotation: {
+  short:
+    "The associations or feelings a word carries beyond its literal meaning.",
+  extended:
+    "Connotation helps explain why two words with similar meanings can feel very different.",
+},
+
+Nuance: {
+  short:
+    "A subtle difference in meaning, tone, or feeling.",
+  extended:
+    "Nuance matters when a word or idea cannot be captured by a simple label.",
+},
+
+Ambiguity: {
+  short:
+    "The quality of having more than one possible meaning.",
+  extended:
+    "Ambiguity can create confusion, richness, tension, or deliberate openness in language.",
+},
+
+Phoneme: {
+  short:
+    "A basic sound unit that can distinguish meaning in a language.",
+  extended:
+    "Changing one phoneme can change one word into another, such as bat into pat.",
+},
+
+Morpheme: {
+  short:
+    "The smallest meaningful unit in a word.",
+  extended:
+    "Prefixes, suffixes, and roots can all be morphemes because they contribute meaning.",
+},
+
+Semantics: {
+  short:
+    "The study of meaning in language.",
+  extended:
+    "Semantics focuses on what words, phrases, and sentences mean.",
+},
+
+Pragmatics: {
+  short:
+    "The study of how context shapes meaning.",
+  extended:
+    "Pragmatics explains how tone, situation, speaker intention, and shared knowledge affect communication.",
+},
+
+Chrysalis: {
+  short:
+    "The protective stage in which a butterfly or moth transforms.",
+  extended:
+    "Symbolically, a chrysalis often represents hidden growth before visible change.",
+},
+
+Crucible: {
+  short:
+    "A severe test or transforming experience.",
+  extended:
+    "The word originally names a container for intense heat, and now often suggests pressure that reshapes a person.",
+},
+
+Pilgrimage: {
+  short:
+    "A meaningful journey, often to a sacred or important place.",
+  extended:
+    "It can also describe an inward journey toward change, understanding, or devotion.",
+},
+
+Rite: {
+  short:
+    "A formal ritual or ceremony.",
+  extended:
+    "Rites often mark important transitions, such as belonging, maturity, loss, or renewal.",
+},
+
+Affected: {
+  short:
+    "Artificial or exaggerated in a way that does not feel natural.",
+  extended:
+    "An affected manner can seem performed, as if someone is trying too hard to appear a certain way.",
+},
+
+Afterimage: {
+  short:
+    "A visual impression that remains after the original image is gone.",
+  extended:
+    "The word can also suggest a memory, trace, or echo that lingers after an experience.",
+},
+
+Allegiance: {
+  short:
+    "Loyalty or commitment to a person, group, country, or cause.",
+  extended:
+    "Allegiance often implies a chosen bond or duty, especially in political or symbolic contexts.",
+},
+
+Allusion: {
+  short:
+    "An indirect reference to another story, event, person, or idea.",
+  extended:
+    "Allusions depend on shared knowledge; the writer hints instead of explaining directly.",
+},
+
+Ambivalent: {
+  short:
+    "Having mixed or conflicting feelings about something.",
+  extended:
+    "Ambivalence often means a person can see reasons for more than one response or choice.",
+},
+
+Archive: {
+  short:
+    "A collection of records, documents, or preserved materials.",
+  extended:
+    "An archive keeps traces of the past so they can be studied, remembered, or used later.",
+},
+
+Artifact: {
+  short:
+    "An object made or shaped by people, often from the past.",
+  extended:
+    "Artifacts can reveal the habits, values, or history of the people who made or used them.",
+},
+
+Atlas: {
+  short:
+    "A collection of maps, or a mythic figure who carries the sky.",
+  extended:
+    "In symbolism, Atlas often suggests burden, endurance, mapping, or the weight of responsibility.",
+},
+
+Aurora: {
+  short:
+    "A natural display of colored light in the sky near the poles.",
+  extended:
+    "Aurora is also the Roman goddess of dawn, so the word can suggest wonder or beginning.",
+},
+
+Causeway: {
+  short:
+    "A raised road or path across low, wet, or difficult ground.",
+  extended:
+    "As an image, a causeway can suggest passage through a difficult or uncertain space.",
+},
+
+Chronos: {
+  short:
+    "A Greek personification of time.",
+  extended:
+    "Chronos is often used symbolically for time as a force that shapes, limits, or consumes life.",
+},
+
+Cocoon: {
+  short:
+    "A protective covering around an insect during transformation.",
+  extended:
+    "Symbolically, a cocoon suggests hidden change, shelter, and preparation before emergence.",
+},
+
+Constellation: {
+  short:
+    "A group of stars that forms a recognized pattern.",
+  extended:
+    "The word can also describe a connected pattern of ideas, events, or relationships.",
+},
+
+Defector: {
+  short:
+    "Someone who leaves one side, party, or country to join another.",
+  extended:
+    "A defector breaks allegiance, often because of belief, pressure, survival, or protest.",
+},
+
+Defiance: {
+  short:
+    "Open resistance or refusal to obey.",
+  extended:
+    "Defiance can be rebellious, courageous, stubborn, or provocative depending on the situation.",
+},
+
+Dialect: {
+  short:
+    "A form of a language used by a particular region or group.",
+  extended:
+    "Dialects can differ in pronunciation, vocabulary, grammar, and social meaning.",
+},
+
+Diction: {
+  short:
+    "A speaker or writer's choice and use of words.",
+  extended:
+    "Diction shapes tone, style, and how formal, plain, sharp, or poetic language feels.",
+},
+
+Dossier: {
+  short:
+    "A file or collection of documents about a person, event, or topic.",
+  extended:
+    "A dossier usually suggests gathered evidence, records, or background information.",
+},
+
+Dissent: {
+  short:
+    "Disagreement with an official view, decision, or majority opinion.",
+  extended:
+    "Dissent can be private disagreement or public resistance to authority.",
+},
+
+Effigy: {
+  short:
+    "A figure or model representing a person.",
+  extended:
+    "Effigies are often used symbolically, especially in rituals, protest, or remembrance.",
+},
+
+Ellipsis: {
+  short:
+    "A mark of three dots showing omission, pause, or trailing thought.",
+  extended:
+    "In writing, an ellipsis can create suspense, hesitation, or a sense that something is unsaid.",
+},
+
+Equivocal: {
+  short:
+    "Unclear, uncertain, or open to more than one interpretation.",
+  extended:
+    "An equivocal answer avoids settling the issue and can feel deliberately ambiguous.",
+},
+
+Euphemism: {
+  short:
+    "A gentler or less direct word used for something unpleasant or sensitive.",
+  extended:
+    "Euphemisms soften language, but they can also hide or blur uncomfortable realities.",
+},
+
+Excise: {
+  short:
+    "To cut out or remove something.",
+  extended:
+    "Excise often suggests removing a piece carefully, whether from writing, law, or the body.",
+},
+
+Expunge: {
+  short:
+    "To erase, remove, or wipe out completely.",
+  extended:
+    "The word is often used for removing records, evidence, or unwanted traces.",
+},
+
+Facade: {
+  short:
+    "The front of a building, or a false outward appearance.",
+  extended:
+    "A facade can hide what is really happening behind a polished surface.",
+},
+
+Firebrand: {
+  short:
+    "A person who stirs up strong action, protest, or conflict.",
+  extended:
+    "The word suggests someone whose energy can ignite a group or situation.",
+},
+
+Foible: {
+  short:
+    "A minor weakness, flaw, or odd habit.",
+  extended:
+    "Foible usually sounds gentler than serious fault; it points to human imperfection.",
+},
+
+Foreordained: {
+  short:
+    "Decided or destined in advance.",
+  extended:
+    "Foreordained suggests that an outcome was set before people could choose or change it.",
+},
+
+Gavel: {
+  short:
+    "A small hammer used by a judge or leader to call for order.",
+  extended:
+    "As a symbol, a gavel often represents authority, judgment, or formal decision.",
+},
+
+Heretic: {
+  short:
+    "Someone who rejects or challenges accepted beliefs.",
+  extended:
+    "The word began in religious contexts, but it can also describe any bold challenger of orthodoxy.",
+},
+
+Idiom: {
+  short:
+    "A phrase whose meaning is not obvious from the individual words.",
+  extended:
+    "For example, an idiom like 'spill the beans' means reveal a secret, not drop beans.",
+},
+
+Implication: {
+  short:
+    "A meaning, result, or suggestion that follows indirectly.",
+  extended:
+    "Implications are not always stated, but they shape what an idea seems to mean.",
+},
+
+Implicit: {
+  short:
+    "Suggested or understood without being directly stated.",
+  extended:
+    "An implicit meaning depends on context, inference, or shared assumptions.",
+},
+
+Inference: {
+  short:
+    "A conclusion reached from evidence and reasoning.",
+  extended:
+    "Inference fills in what is not directly said by using clues that are present.",
+},
+
+Instigator: {
+  short:
+    "Someone who starts or provokes an action, conflict, or change.",
+  extended:
+    "An instigator pushes events into motion, often by stirring people up.",
+},
+
+Labyrinth: {
+  short:
+    "A complicated maze or winding structure.",
+  extended:
+    "Symbolically, a labyrinth often represents confusion, inner searching, or a difficult path toward truth.",
+},
+
+Lexicon: {
+  short:
+    "The vocabulary of a language, field, person, or group.",
+  extended:
+    "A lexicon is more than a word list; it reflects how a community names and organizes experience.",
+},
+
+Loom: {
+  short:
+    "A machine or frame used for weaving thread into cloth.",
+  extended:
+    "Because it joins threads into patterns, a loom often symbolizes fate, making, or interconnection.",
+},
+
+Marionette: {
+  short:
+    "A puppet controlled by strings.",
+  extended:
+    "The word can suggest someone being controlled by hidden forces or another person's will.",
+},
+
+Maverick: {
+  short:
+    "An independent person who does not follow the usual rules or group view.",
+  extended:
+    "Mavericks can be creative, disruptive, difficult, or visionary depending on the context.",
+},
+
+Melodramatic: {
+  short:
+    "Overly emotional or exaggerated in a theatrical way.",
+  extended:
+    "Melodrama heightens feeling and conflict, sometimes more than the situation deserves.",
+},
+
+Mesmerized: {
+  short:
+    "So fascinated or absorbed that attention feels captured.",
+  extended:
+    "The word suggests being held by wonder, intensity, beauty, or power.",
+},
+
+Mirage: {
+  short:
+    "Something that appears real but is caused by illusion or distortion.",
+  extended:
+    "A mirage can be literal, like heat shimmer, or symbolic, like a false hope.",
+},
+
+Nyx: {
+  short:
+    "The Greek goddess or personification of night.",
+  extended:
+    "Nyx often carries associations of darkness, mystery, origin, and hidden power.",
+},
+
+Oblique: {
+  short:
+    "Indirect, slanted, or not straightforward.",
+  extended:
+    "An oblique comment hints at something instead of saying it plainly.",
+},
+
+Omen: {
+  short:
+    "A sign believed to predict a future event.",
+  extended:
+    "Omens can feel hopeful or threatening depending on what people think they announce.",
+},
+
+Opaque: {
+  short:
+    "Not transparent, or difficult to understand.",
+  extended:
+    "Opaque language or behavior blocks clear interpretation, as if meaning cannot pass through it.",
+},
+
+Paradox: {
+  short:
+    "A statement or situation that seems contradictory but may reveal a truth.",
+  extended:
+    "Paradoxes make the mind slow down because ordinary logic does not resolve them easily.",
+},
+
+Peculiarity: {
+  short:
+    "An unusual feature, habit, or quality.",
+  extended:
+    "A peculiarity makes something distinctive, sometimes charmingly odd and sometimes puzzling.",
+},
+
+Persona: {
+  short:
+    "A public identity, role, or version of oneself.",
+  extended:
+    "A persona can be sincere, strategic, protective, or performed for a particular audience.",
+},
+
+Phoenix: {
+  short:
+    "A mythical bird that is reborn from its own ashes.",
+  extended:
+    "The phoenix is a strong symbol of renewal, survival, and transformation after destruction.",
+},
+
+Provocation: {
+  short:
+    "An action or statement meant to stir a reaction.",
+  extended:
+    "Provocation can challenge, anger, awaken, or push people into response.",
+},
+
+Redact: {
+  short:
+    "To edit by removing or hiding sensitive information.",
+  extended:
+    "Redaction often leaves visible blanks or black bars where text has been concealed.",
+},
+
+Refraction: {
+  short:
+    "The bending of light as it passes from one material into another.",
+  extended:
+    "As an image, refraction suggests altered perception or a truth seen through distortion.",
+},
+
+Register: {
+  short:
+    "A level or style of language suited to a situation.",
+  extended:
+    "Register explains why speech may sound formal, casual, technical, playful, or ceremonial.",
+},
+
+Renegade: {
+  short:
+    "Someone who rejects a group, belief, or expected loyalty.",
+  extended:
+    "A renegade can be seen as rebellious, independent, disloyal, or brave.",
+},
+
+Residue: {
+  short:
+    "A small amount left behind after something else is gone.",
+  extended:
+    "Residue can be physical, emotional, or symbolic evidence of what used to be present.",
+},
+
+Scepter: {
+  short:
+    "A decorated staff carried as a symbol of royal power.",
+  extended:
+    "A scepter represents authority, rule, and the visible signs of leadership.",
+},
+
+Scythe: {
+  short:
+    "A long curved blade used for cutting crops or grass.",
+  extended:
+    "Because of its link to the Grim Reaper, a scythe often symbolizes death or time.",
+},
+
+Shroud: {
+  short:
+    "A cloth covering, especially one used to wrap a body for burial.",
+  extended:
+    "The word can also suggest concealment, darkness, mystery, or mourning.",
+},
+
+Spindle: {
+  short:
+    "A rod or tool used for spinning fibers into thread.",
+  extended:
+    "In myths and fairy tales, spindles often connect to fate, craft, and transformation.",
+},
+
+Subtext: {
+  short:
+    "The meaning beneath what is directly said.",
+  extended:
+    "Subtext is what a scene, sentence, or conversation implies without spelling it out.",
+},
+
+Suture: {
+  short:
+    "A stitch used to close a wound, or the act of joining parts together.",
+  extended:
+    "Symbolically, suture suggests repair, connection, and the mark left by healing.",
+},
+
+Syntax: {
+  short:
+    "The arrangement of words and phrases in a sentence.",
+  extended:
+    "Syntax shapes how language works by controlling order, structure, and relationships between words.",
+},
+
+Threshold: {
+  short:
+    "A doorway, boundary, or point where something begins to change.",
+  extended:
+    "Thresholds often symbolize transition from one state, place, or identity into another.",
+},
+
+Transcendence: {
+  short:
+    "The act of rising beyond ordinary limits or experience.",
+  extended:
+    "Transcendence can suggest spiritual elevation, personal growth, or surpassing what seemed fixed.",
+},
+
+Veil: {
+  short:
+    "A covering that hides, softens, or partially conceals what is behind it.",
+  extended:
+    "As a symbol, a veil suggests mystery, separation, hidden truth, or partial revelation.",
+},
+
+Warren: {
+  short:
+    "A network of connected passages or crowded rooms.",
+  extended:
+    "The word originally referred to rabbit burrows, but it can describe any maze-like set of paths.",
+},
 };

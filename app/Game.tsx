@@ -8,6 +8,9 @@ import {
   useDraggable,
   useDroppable,
   DragOverlay,
+  PointerSensor,
+  useSensor,
+  useSensors,
 } from "@dnd-kit/core";
 
 function distributeAndShuffle(groups: any[]) {
@@ -339,6 +342,13 @@ function PlaytestCompletion({
 export default function Game({ overrideGame }: { overrideGame?: any }) {
   const isEditorPreview = Boolean(overrideGame);
   const [mobileTapMode, setMobileTapMode] = useState(false);
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    })
+  );
 
   useEffect(() => {
     const check = () =>
@@ -736,8 +746,12 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     lensWord && DEFINITIONS[lensWord] ? DEFINITIONS[lensWord] : null;
 
   return (
-    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="max-w-2xl mx-auto space-y-8 px-3 relative">
+    <DndContext
+      sensors={sensors}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+    >
+      <div className="game-scroll-guard max-w-2xl mx-auto space-y-8 px-3 relative">
         {showTutorial && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
             <div className="bg-white rounded-3xl border border-neutral-200 shadow-xl max-w-sm w-full p-6 space-y-5 text-center">
