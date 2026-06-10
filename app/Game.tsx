@@ -43,8 +43,7 @@ function todayKey() {
 }
 
 function getDailyGame() {
-  // CHANGE TO 2026-06-15 BEFORE LAUNCH
-  const startDate = new Date("2026-01-01T00:00:00");
+  const startDate = new Date("2026-06-15T00:00:00");
   const today = new Date();
 
   const start = new Date(
