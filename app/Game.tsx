@@ -161,6 +161,16 @@ function getWeeklyTimeMessage(weekResults: any[]) {
   return "Your pace is holding steady as the week changes.";
 }
 
+function getCardWordSizeClass(word: string) {
+  const compactLength = word.replace(/\s+/g, "").length;
+
+  if (compactLength >= 14) return "text-[8px] sm:text-[10.5px]";
+  if (compactLength >= 12) return "text-[8.5px] sm:text-[11px]";
+  if (compactLength >= 10) return "text-[9.5px] sm:text-xs";
+
+  return "text-[11px] sm:text-sm";
+}
+
 function DraggableCard({
   id,
   disabled,
@@ -192,9 +202,8 @@ function DraggableCard({
       title={hasDefinition ? `${id} has Word Lens` : id}
       {...(!mobileTapMode ? listeners : {})}
       {...(!mobileTapMode ? attributes : {})}
-      className={`relative min-w-0 w-full px-2 py-2 rounded-full border transition
-        font-semibold tracking-tight text-center text-[11px] sm:text-sm
-        leading-tight whitespace-normal break-words
+      className={`relative min-w-0 w-full px-1.5 sm:px-2 py-2 rounded-full border transition
+        text-center
         ${
           disabled
             ? "bg-emerald-500 text-neutral-950 border-emerald-600"
@@ -203,12 +212,23 @@ function DraggableCard({
             : "bg-amber-100 text-neutral-950 border-amber-300 shadow active:scale-95"
         } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
     >
-      {id}
+      <span
+        className={`block w-full whitespace-nowrap text-center font-bold leading-none tracking-normal ${getCardWordSizeClass(
+          id
+        )}`}
+        style={{
+          fontFamily:
+            '"Arial Narrow", "Aptos Narrow", "Roboto Condensed", "Helvetica Neue", Arial, sans-serif',
+          fontStretch: "condensed",
+        }}
+      >
+        {id}
+      </span>
 
       {hasDefinition && (
         <span
           aria-hidden="true"
-          className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-blue-600 ring-2 ring-white"
+          className="pointer-events-none absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-blue-600 ring-2 ring-white shadow-sm"
         />
       )}
     </button>
