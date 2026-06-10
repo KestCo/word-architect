@@ -113,6 +113,78 @@ function bestAndWeakestSkill(results: any[]) {
   };
 }
 
+const SKILL_ORDER = ["abstraction", "symbolic", "linguistic"];
+
+function getTodaySkillStats(skillMistakes: Record<string, number> = {}) {
+  const sorted = SKILL_ORDER.map((skill) => ({
+    skill,
+    mistakes: skillMistakes[skill] || 0,
+  })).sort(
+    (a, b) =>
+      a.mistakes - b.mistakes ||
+      SKILL_ORDER.indexOf(a.skill) - SKILL_ORDER.indexOf(b.skill)
+  );
+
+  return {
+    best: sorted[0]?.skill || "abstraction",
+    weakest: sorted[sorted.length - 1]?.skill || "linguistic",
+  };
+}
+
+function getThinkingStyle(result: any, bestSkill: string) {
+  const lensWords = result.lensWords || [];
+
+  if (lensWords.length >= 2) return "Curious Builder";
+  if (result.mistakes === 0 && result.timeMs <= 180000) return "Fast Connector";
+  if (result.mistakes === 0) return "Clean Architect";
+  if (bestSkill === "symbolic") return "Symbol Reader";
+  if (bestSkill === "linguistic") return "Word Mechanic";
+  if (result.mistakes <= 2) return "Pattern Finder";
+  return "Persistent Architect";
+}
+
+function getThinkingReflection(result: any, bestSkill: string) {
+  const lensWords = result.lensWords || [];
+
+  if (lensWords.length >= 2) {
+    return "You used curiosity as part of the solve, then brought the pattern back together.";
+  }
+
+  if (result.mistakes === 0) {
+    return "You moved through today's structure with clean precision.";
+  }
+
+  if (bestSkill === "symbolic") {
+    return "You were strongest at reading images, symbols, and hidden associations.";
+  }
+
+  if (bestSkill === "linguistic") {
+    return "You were strongest at noticing how language itself is built.";
+  }
+
+  return "You were strongest at finding the shared structure underneath the surface.";
+}
+
+function getWeeklyTimeMessage(weekResults: any[]) {
+  if (weekResults.length < 2) {
+    return "Your weekly rhythm will build here as you complete more days.";
+  }
+
+  const first = weekResults[0];
+  const latest = weekResults[weekResults.length - 1];
+  const difference = latest.timeMs - first.timeMs;
+
+  if (difference > 60000) {
+    return "You are giving the harder puzzles more room as the week climbs.";
+  }
+
+  if (difference < -30000) {
+    return "You are moving through the week faster than where you started.";
+  }
+
+  return "Your pace is holding steady as the week changes.";
+}
+
 function DraggableCard({
   id,
   disabled,
@@ -290,6 +362,223 @@ function ResultsDashboard({
   );
 }
 
+function RichResultsDashboard({
+  selectedGame,
+  result,
+  history,
+}: {
+  selectedGame: any;
+  result: any;
+  history: any[];
+}) {
+  const currentHistory = [
+    ...history.filter((r) => r.date !== result.date),
+    result,
+  ];
+
+  const avgMistakes =
+    currentHistory.length > 0
+      ? (
+          currentHistory.reduce((sum, r) => sum + r.mistakes, 0) /
+          currentHistory.length
+        ).toFixed(1)
+      : "0";
+
+  const fastest =
+    currentHistory.length > 0
+      ? Math.min(...currentHistory.map((r) => r.timeMs))
+      : null;
+
+  const streak = calculateStreak(currentHistory);
+  const skillStats = bestAndWeakestSkill(currentHistory);
+  const todaySkillStats = getTodaySkillStats(result.skillMistakes);
+  const thinkingStyle = getThinkingStyle(result, todaySkillStats.best);
+  const thinkingReflection = getThinkingReflection(
+    result,
+    todaySkillStats.best
+  );
+  const lensWords = Array.isArray(result.lensWords)
+    ? Array.from(new Set<string>(result.lensWords))
+    : [];
+  const weekResults = currentHistory
+    .filter(
+      (r) =>
+        r.week === result.week &&
+        typeof r.day === "number" &&
+        typeof r.timeMs === "number"
+    )
+    .sort((a, b) => a.day - b.day);
+  const resultsByDay = new Map(weekResults.map((r) => [r.day, r]));
+  const maxWeekTime = Math.max(1, ...weekResults.map((r) => r.timeMs || 0));
+  const weekSlots = Array.from({ length: 7 }, (_, i) => {
+    const day = i + 1;
+    return {
+      day,
+      result: resultsByDay.get(day),
+    };
+  });
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-neutral-50 px-4 py-8">
+      <div className="w-full max-w-xl bg-white border border-neutral-200 p-6 rounded-3xl shadow space-y-6">
+        <div className="text-center space-y-1">
+          <p className="text-xs uppercase tracking-wide text-neutral-500">
+            Daily puzzle complete
+          </p>
+
+          <h1 className="text-3xl font-semibold">You built it.</h1>
+
+          <p className="text-sm text-neutral-600">
+            Week {selectedGame.week}, Day {selectedGame.day}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 text-center">
+          <div className="bg-amber-100 border border-amber-300 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Today's time</p>
+            <p className="text-xl font-semibold">{formatTime(result.timeMs)}</p>
+          </div>
+
+          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Mistakes</p>
+            <p className="text-xl font-semibold">{result.mistakes}</p>
+          </div>
+
+          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Current streak</p>
+            <p className="text-xl font-semibold">{streak} days</p>
+          </div>
+
+          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
+            <p className="text-xs text-neutral-600">Thinking style</p>
+            <p className="text-xl font-semibold">{thinkingStyle}</p>
+          </div>
+        </div>
+
+        <div className="bg-neutral-950 text-white rounded-2xl p-4 space-y-2">
+          <p className="text-xs uppercase tracking-wide text-white/60">
+            Today's thinking style
+          </p>
+
+          <p className="text-2xl font-semibold">{thinkingStyle}</p>
+
+          <p className="text-sm text-white/80">{thinkingReflection}</p>
+
+          <p className="text-sm">
+            Strongest skill today:{" "}
+            <span className="font-semibold">
+              {getSkillLabel(todaySkillStats.best)}
+            </span>
+          </p>
+        </div>
+
+        <div className="border border-neutral-200 rounded-2xl p-4 space-y-4">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-sm font-semibold">Time spent this week</p>
+              <p className="text-xs text-neutral-500">
+                {getWeeklyTimeMessage(weekResults)}
+              </p>
+            </div>
+
+            <p className="text-xs text-neutral-500 whitespace-nowrap">
+              Week {selectedGame.week}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-7 gap-2 items-end h-28">
+            {weekSlots.map((slot) => {
+              const height = slot.result
+                ? Math.max(
+                    18,
+                    Math.round((slot.result.timeMs / maxWeekTime) * 92)
+                  )
+                : 12;
+
+              return (
+                <div
+                  key={slot.day}
+                  className="h-full flex flex-col items-center justify-end gap-1"
+                >
+                  <div
+                    className={`w-full rounded-t-lg ${
+                      slot.result ? "bg-blue-600" : "bg-neutral-200"
+                    }`}
+                    style={{ height: `${height}px` }}
+                    aria-label={
+                      slot.result
+                        ? `Day ${slot.day}: ${formatTime(slot.result.timeMs)}`
+                        : `Day ${slot.day}: not completed`
+                    }
+                  />
+
+                  <p className="text-[10px] text-neutral-500">D{slot.day}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="border border-neutral-200 rounded-2xl p-4 space-y-3">
+          <p className="text-sm font-semibold">What you built today</p>
+
+          <div className="space-y-3">
+            {selectedGame.groups.map((group: any, index: number) => (
+              <div key={`${group.correct}-${index}`} className="space-y-1">
+                <p className="text-sm font-semibold text-neutral-900">
+                  {group.correct}
+                </p>
+
+                <p className="text-xs text-neutral-500">
+                  {group.words.join(" / ")}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="border border-neutral-200 rounded-2xl p-4 space-y-2">
+          <p className="text-sm font-semibold">Word Lens finds</p>
+
+          {lensWords.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {lensWords.map((word) => (
+                <span
+                  key={word}
+                  className="bg-amber-100 border border-amber-300 text-amber-950 rounded-full px-3 py-1 text-xs font-medium"
+                >
+                  {word}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <p className="text-sm text-neutral-600">
+              No Word Lens words explored today.
+            </p>
+          )}
+        </div>
+
+        <div className="text-sm text-neutral-700 grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <p>Average mistakes: {avgMistakes}</p>
+          <p>Fastest time: {fastest ? formatTime(fastest) : "-"}</p>
+          <p>Total completed: {currentHistory.length}</p>
+        </div>
+
+        <div className="text-xs text-neutral-500 space-y-1">
+          <p>Long-term strongest area: {getSkillLabel(skillStats.best)}</p>
+          <p>
+            Area to strengthen over time: {getSkillLabel(skillStats.weakest)}
+          </p>
+        </div>
+
+        <p className="text-center text-xs text-neutral-500">
+          Come back tomorrow for the next puzzle.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function PlaytestCompletion({
   selectedGame,
   timeMs,
@@ -387,6 +676,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const [lensWord, setLensWord] = useState<string | null>(null);
+  const [exploredLensWords, setExploredLensWords] = useState<string[]>([]);
   const [startTime] = useState<number>(Date.now());
   const [endTime, setEndTime] = useState<number | null>(null);
   const [mistakes, setMistakes] = useState<number>(0);
@@ -450,6 +740,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       timeMs: endTime - startTime,
       mistakes,
       skillMistakes,
+      lensWords: exploredLensWords,
     };
 
     const withoutToday = history.filter(
@@ -469,6 +760,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     mistakes,
     selectedGame,
     skillMistakes,
+    exploredLensWords,
     startTime,
     isEditorPreview,
     isPlaytestMode,
@@ -699,7 +991,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
   if (alreadyCompletedResult && !isEditorPreview && !isPlaytestMode) {
     return (
-      <ResultsDashboard
+      <RichResultsDashboard
         selectedGame={selectedGame}
         result={alreadyCompletedResult}
         history={history}
@@ -727,10 +1019,11 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       timeMs: endTime - startTime,
       mistakes,
       skillMistakes,
+      lensWords: exploredLensWords,
     };
 
     return (
-      <ResultsDashboard
+      <RichResultsDashboard
         selectedGame={selectedGame}
         result={result}
         history={history}
@@ -818,7 +1111,13 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setLensWord(selectedCard);
+                  if (!selectedCard) return;
+
+                  const word = selectedCard;
+                  setExploredLensWords((prev) =>
+                    prev.includes(word) ? prev : [...prev, word]
+                  );
+                  setLensWord(word);
                 }}
                 className="bg-white text-neutral-950 px-4 py-2 rounded-full text-sm font-medium"
               >
