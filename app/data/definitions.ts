@@ -955,11 +955,32 @@ Dignity: {
     "Dignity can describe how someone carries themselves or the respect every person deserves.",
 },
 
+Conscience: {
+  short:
+    "An inner sense of right and wrong.",
+  extended:
+    "Conscience is the part of a person's judgment that can warn, guide, or trouble them about moral choices.",
+},
+
 "Plumb Line": {
   short:
     "A weighted line used to show whether something is perfectly vertical.",
   extended:
     "Symbolically, a plumb line can suggest uprightness, alignment, and a reliable standard of truth.",
+},
+
+Civility: {
+  short:
+    "Polite, respectful behavior toward other people.",
+  extended:
+    "Civility suggests restraint, courtesy, and the willingness to treat others decently even during disagreement.",
+},
+
+Decorum: {
+  short:
+    "Proper, respectful behavior suited to a situation.",
+  extended:
+    "Decorum is about conduct that fits the setting, especially when dignity, formality, or respect matters.",
 },
 
 Traduce: {

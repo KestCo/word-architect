@@ -2754,10 +2754,10 @@ export const GAMES = [
   groups: [
     {
       skill: "abstraction",
-      words: ["Scrupulous", "Dignity", "Integrity", "Honor"],
-      correct: "Words related to moral character",
+      words: ["Scrupulous", "Integrity", "Honor", "Conscience"],
+      correct: "Words related to inner moral standards",
       options: [
-        "Words related to moral character",
+        "Words related to inner moral standards",
         "Words about social popularity",
         "Legal punishments",
         "Forms of public praise",
@@ -2765,22 +2765,22 @@ export const GAMES = [
       insight: {
         pattern: "Character vocabulary",
         explanation:
-          "These words point to honesty, worth, careful conduct, and a sense of what is right.",
+          "These words point to honesty, careful conduct, and an inner sense of what is right.",
         generalization:
           "Character is often measured by what people preserve when pressure rises.",
         adaptive: {
-          correct: "You recognized the moral-character thread.",
-          wrong: "Think about words for inner standards and honorable conduct.",
+          correct: "You recognized the inner-standards thread.",
+          wrong: "Think about words for conscience, honesty, and honorable conduct.",
         },
       },
     },
     {
       skill: "symbolic",
       words: ["Pillar", "Foundation", "Keystone", "Plumb Line"],
-      correct: "Images of moral support and stability",
+      correct: "Images of structural soundness and alignment",
       options: [
         "Construction materials only",
-        "Images of moral support and stability",
+        "Images of structural soundness and alignment",
         "Decorative architecture",
         "Objects that hide weakness",
       ],
@@ -2798,23 +2798,23 @@ export const GAMES = [
     },
     {
       skill: "linguistic",
-      words: ["Ethical", "Virtuous", "Principled", "Honorable"],
-      correct: "Words describing moral conduct",
+      words: ["Courtesy", "Civility", "Tact", "Decorum"],
+      correct: "Words for considerate social conduct",
       options: [
-        "Words describing moral conduct",
+        "Words for considerate social conduct",
         "Words describing clever tricks",
         "Words about physical strength",
         "Words for public attention",
       ],
       insight: {
-        pattern: "Moral adjectives",
+        pattern: "Social grace vocabulary",
         explanation:
-          "These adjectives describe behavior guided by values, duty, or a strong ethical standard.",
+          "These words describe respectful, careful, or socially appropriate behavior toward others.",
         generalization:
-          "Language separates what is merely effective from what is right.",
+          "Character is not only what someone believes; it also appears in how they treat people.",
         adaptive: {
-          correct: "You recognized moral conduct.",
-          wrong: "Think about adjectives for acting according to values.",
+          correct: "You recognized considerate conduct.",
+          wrong: "Think about words for polite, respectful, socially careful behavior.",
         },
       },
     },

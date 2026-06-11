@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getDailyGame } from "./data/dailyGame";
 import { DEFINITIONS } from "./data/definitions";
 import {
@@ -690,6 +690,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   const [savedResult, setSavedResult] = useState(false);
   const [alreadyCompletedResult, setAlreadyCompletedResult] =
     useState<any | null>(null);
+  const completionTimerRef = useRef<number | null>(null);
 
   const [skillMistakes, setSkillMistakes] = useState<Record<string, number>>({
     abstraction: 0,
@@ -773,16 +774,27 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   ]);
 
   useEffect(() => {
-    if (endTime || stacks.length === 0) return;
+    if (endTime || stacks.length === 0 || completionTimerRef.current) return;
 
-    const puzzleComplete = stacks.every(
-      (stack: any) => stack.locked && stack.showAnswer && stack.collapsed
+    const puzzleAnswered = stacks.every(
+      (stack: any) => stack.locked && stack.showAnswer
     );
 
-    if (puzzleComplete) {
-      setEndTime(Date.now());
-    }
+    if (!puzzleAnswered) return;
+
+    completionTimerRef.current = window.setTimeout(() => {
+      completionTimerRef.current = null;
+      setEndTime((current) => current || Date.now());
+    }, 7000);
   }, [endTime, stacks]);
+
+  useEffect(() => {
+    return () => {
+      if (completionTimerRef.current) {
+        window.clearTimeout(completionTimerRef.current);
+      }
+    };
+  }, []);
 
   const closeTutorial = () => {
     localStorage.setItem("wordArchitectTutorialSeen", "true");
@@ -966,7 +978,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         )
       );
 
-      if (isFinalAnswer) setEndTime(Date.now());
+      if (isFinalAnswer) setEndTime((current) => current || Date.now());
     }, 7000);
   };
 
