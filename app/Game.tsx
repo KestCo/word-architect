@@ -714,9 +714,33 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     }))
   );
 
+  const completePuzzle = () => {
+    if (completionTimerRef.current) {
+      window.clearTimeout(completionTimerRef.current);
+      completionTimerRef.current = null;
+    }
+
+    setEndTime((current) => current || Date.now());
+  };
+
+  const scheduleCompletion = () => {
+    if (endTime || completionTimerRef.current) return;
+
+    completionTimerRef.current = window.setTimeout(() => {
+      completePuzzle();
+    }, 7000);
+  };
+
   useEffect(() => {
     const saved = localStorage.getItem("wordArchitectResults");
-    const parsed = saved ? JSON.parse(saved) : [];
+    let parsed: any[] = [];
+
+    try {
+      const value = saved ? JSON.parse(saved) : [];
+      parsed = Array.isArray(value) ? value : [];
+    } catch {
+      parsed = [];
+    }
 
     setHistory(parsed);
 
@@ -780,12 +804,9 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       (stack: any) => stack.locked && stack.showAnswer
     );
 
-    if (!puzzleAnswered) return;
-
-    completionTimerRef.current = window.setTimeout(() => {
-      completionTimerRef.current = null;
-      setEndTime((current) => current || Date.now());
-    }, 7000);
+    if (puzzleAnswered) {
+      scheduleCompletion();
+    }
   }, [endTime, stacks]);
 
   useEffect(() => {
@@ -947,8 +968,8 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       stacks.every((s: any) => s.locked) &&
       stacks.filter((s: any) => s.locked && !s.showAnswer).length === 1;
 
-    setStacks((prev: any[]) =>
-      prev.map((s: any) =>
+    setStacks((prev: any[]) => {
+      const next = prev.map((s: any) =>
         s.id === stackId
           ? {
               ...s,
@@ -958,8 +979,18 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
               answerFeedback: selectedAnswer ? "Correct." : "",
             }
           : s
-      )
-    );
+      );
+
+      const puzzleAnswered = next.every(
+        (s: any) => s.locked && s.showAnswer
+      );
+
+      if (puzzleAnswered) {
+        scheduleCompletion();
+      }
+
+      return next;
+    });
 
     setTimeout(() => {
       setStacks((prev: any[]) =>
@@ -978,7 +1009,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         )
       );
 
-      if (isFinalAnswer) setEndTime((current) => current || Date.now());
+      if (isFinalAnswer) completePuzzle();
     }, 7000);
   };
 
@@ -1066,6 +1097,10 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
   const activeLensDefinition =
     lensWord && DEFINITIONS[lensWord] ? DEFINITIONS[lensWord] : null;
+
+  const allAnswersRevealed =
+    stacks.length > 0 &&
+    stacks.every((stack: any) => stack.locked && stack.showAnswer);
 
   return (
     <DndContext
@@ -1371,6 +1406,19 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
             )}
           </DroppableArea>
         ))}
+
+        {allAnswersRevealed && (
+          <div className="bg-neutral-950 text-white rounded-2xl p-4 text-center space-y-3">
+            <p className="text-sm opacity-80">All insights are unlocked.</p>
+
+            <button
+              onClick={completePuzzle}
+              className="bg-white text-neutral-950 px-4 py-2 rounded-full text-sm font-semibold"
+            >
+              View Results
+            </button>
+          </div>
+        )}
 
         <button
           onClick={checkGroups}
