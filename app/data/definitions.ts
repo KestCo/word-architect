@@ -905,4 +905,165 @@ Warren: {
   extended:
     "The word originally referred to rabbit burrows, but it can describe any maze-like set of paths.",
 },
+
+Assertion: {
+  short:
+    "A confident statement that something is true.",
+  extended:
+    "An assertion may be supported by evidence, but the word emphasizes the act of stating a position firmly.",
+},
+
+Unfazed: {
+  short:
+    "Not disturbed, worried, or thrown off by something difficult.",
+  extended:
+    "Someone who is unfazed stays steady even when pressure, surprise, or criticism might unsettle them.",
+},
+
+Ballast: {
+  short:
+    "Weight used to keep a ship, vehicle, or structure stable.",
+  extended:
+    "As a metaphor, ballast suggests the grounding force that keeps someone steady under pressure.",
+},
+
+Misconstrue: {
+  short:
+    "To understand or interpret something incorrectly.",
+  extended:
+    "Misconstrue often means reading the wrong intention or meaning into words, actions, or situations.",
+},
+
+Askance: {
+  short:
+    "With suspicion, doubt, or sideways disapproval.",
+  extended:
+    "To look askance at something is to regard it warily, skeptically, or with quiet distrust.",
+},
+
+Scrupulous: {
+  short:
+    "Very careful about doing what is right, honest, or proper.",
+  extended:
+    "A scrupulous person pays close attention to moral standards, details, and fairness.",
+},
+
+Dignity: {
+  short:
+    "A sense of worth, seriousness, and self-respect.",
+  extended:
+    "Dignity can describe how someone carries themselves or the respect every person deserves.",
+},
+
+"Plumb Line": {
+  short:
+    "A weighted line used to show whether something is perfectly vertical.",
+  extended:
+    "Symbolically, a plumb line can suggest uprightness, alignment, and a reliable standard of truth.",
+},
+
+Traduce: {
+  short:
+    "To speak badly and falsely about someone in order to damage their reputation.",
+  extended:
+    "Traduce is stronger than ordinary criticism because it suggests public misrepresentation or slander.",
+},
+
+Acerbic: {
+  short:
+    "Sharp, bitter, or severe in tone.",
+  extended:
+    "Acerbic usually describes criticism, wit, or speech that feels biting and intentionally pointed.",
+},
+
+Vicious: {
+  short:
+    "Cruel, violent, or deliberately harmful.",
+  extended:
+    "Vicious can describe actions, words, cycles, or attacks that feel severe and intentionally damaging.",
+},
+
+Caustic: {
+  short:
+    "Biting, harsh, or sharply critical in tone.",
+  extended:
+    "Caustic originally relates to burning or corroding, which is why it works well for cutting language.",
+},
+
+Scathing: {
+  short:
+    "Severely critical in a way that feels harsh or wounding.",
+  extended:
+    "A scathing comment or review does more than disagree; it attacks with force.",
+},
+
+Quiver: {
+  short:
+    "To shake or tremble slightly.",
+  extended:
+    "Quiver can describe a physical tremble from fear, cold, emotion, or held-back intensity.",
+},
+
+Cascade: {
+  short:
+    "A sequence that falls, flows, or spreads rapidly from one thing to the next.",
+  extended:
+    "The word can describe waterfalls, chains of events, or problems that multiply once they begin.",
+},
+
+Despair: {
+  short:
+    "A deep loss of hope.",
+  extended:
+    "Despair describes the feeling that a situation cannot improve or that no rescue is possible.",
+},
+
+Fortitude: {
+  short:
+    "Courage and strength during pain, difficulty, or pressure.",
+  extended:
+    "Fortitude is endurance with moral backbone: the ability to keep going when circumstances are hard.",
+},
+
+Vigor: {
+  short:
+    "Physical, mental, or emotional energy and strength.",
+  extended:
+    "Vigor suggests liveliness, force, and the power to act with energy.",
+},
+
+Salvation: {
+  short:
+    "Rescue or deliverance from danger, harm, or ruin.",
+  extended:
+    "The word can be religious, emotional, or practical, but it always carries the idea of being saved.",
+},
+
+Redemption: {
+  short:
+    "The act of being saved, restored, or freed from blame or failure.",
+  extended:
+    "Redemption often suggests recovery after loss, wrongdoing, danger, or a difficult fall.",
+},
+
+Reprieve: {
+  short:
+    "A temporary rescue, delay, or relief from something difficult or harmful.",
+  extended:
+    "A reprieve may not solve everything forever, but it gives needed space from danger, punishment, or pressure.",
+},
+
+Myriad: {
+  short:
+    "A very large number or countless amount.",
+  extended:
+    "Myriad can be used as a noun or adjective to suggest abundance that feels too large to count easily.",
+},
+
+Multitudinous: {
+  short:
+    "Very numerous, or existing in great quantity.",
+  extended:
+    "Multitudinous suggests a crowd, collection, or amount so large it feels abundant and difficult to count.",
+},
 };

@@ -2515,4 +2515,537 @@ export const GAMES = [
     },
   ],
 },
+
+// WEEK 6
+{
+  id: 36,
+  difficulty: 1,
+  vocab: "common",
+  week: 6,
+  day: 1,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Boast", "Assertion", "Claim", "Declaration"],
+      correct: "Confident statements of position",
+      options: [
+        "Confident statements of position",
+        "Private doubts",
+        "Legal documents",
+        "Questions that invite debate",
+      ],
+      insight: {
+        pattern: "Assertive expression",
+        explanation:
+          "These words describe statements or acts of saying something with confidence.",
+        generalization:
+          "Confidence often shows up first in how directly someone states a position.",
+        adaptive: {
+          correct: "You recognized confident expression.",
+          wrong: "Think about words for putting a position forward.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Trumpet", "Spotlight", "Podium", "Marquee"],
+      correct: "Images of public attention",
+      options: [
+        "Performance equipment",
+        "Images of public attention",
+        "Theater architecture",
+        "Objects used in ceremonies",
+      ],
+      insight: {
+        pattern: "Attention symbolism",
+        explanation:
+          "These images suggest being seen, heard, announced, or placed before an audience.",
+        generalization:
+          "Public symbols can turn private confidence into shared attention.",
+        adaptive: {
+          correct: "You saw the public-attention pattern.",
+          wrong: "Think about what draws an audience's focus.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["State", "Announce", "Declare", "Proclaim"],
+      correct: "Verbs for making something known",
+      options: [
+        "Verbs for making something known",
+        "Ways to whisper",
+        "Words about hiding information",
+        "Verbs for changing your mind",
+      ],
+      insight: {
+        pattern: "Announcement verbs",
+        explanation:
+          "These verbs all describe putting information, belief, or intention into words.",
+        generalization:
+          "Language gives different levels of force to the act of saying something openly.",
+        adaptive: {
+          correct: "You noticed the shared act of announcing.",
+          wrong: "Think about verbs for saying something publicly or clearly.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 37,
+  difficulty: 2,
+  vocab: "common",
+  week: 6,
+  day: 2,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Unfazed", "Calm", "Composed", "Steady"],
+      correct: "Remaining unaffected under pressure",
+      options: [
+        "Remaining unaffected under pressure",
+        "Moving quickly",
+        "Feeling uncertain",
+        "Avoiding responsibility",
+      ],
+      insight: {
+        pattern: "Composure under pressure",
+        explanation:
+          "These words describe staying even, settled, or emotionally steady when things intensify.",
+        generalization:
+          "Composure is not the absence of pressure; it is a response to pressure.",
+        adaptive: {
+          correct: "You recognized steadiness under strain.",
+          wrong: "Think about words for not being thrown off.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Harbor", "Lighthouse", "Breakwater", "Ballast"],
+      correct: "Images of steadiness under pressure",
+      options: [
+        "Coastal vacation places",
+        "Images of steadiness under pressure",
+        "Navigation tools only",
+        "Objects that create speed",
+      ],
+      insight: {
+        pattern: "Stability imagery",
+        explanation:
+          "These images suggest shelter, balance, guidance, or protection when conditions are rough.",
+        generalization:
+          "Symbols of stability often come from things that hold firm against force.",
+        adaptive: {
+          correct: "You recognized stability imagery.",
+          wrong: "Think about what stays useful when conditions get rough.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Poise", "Control", "Balance", "Restraint"],
+      correct: "Terms for self-command",
+      options: [
+        "Terms for self-command",
+        "Words about physical size",
+        "Financial measurements",
+        "Types of movement",
+      ],
+      insight: {
+        pattern: "Self-command vocabulary",
+        explanation:
+          "These words describe managing yourself instead of being pulled around by the moment.",
+        generalization:
+          "Self-control often looks quiet, but it can be one of the strongest responses.",
+        adaptive: {
+          correct: "You found the self-command connection.",
+          wrong: "Think about words for keeping yourself steady.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 38,
+  difficulty: 3,
+  vocab: "intermediate",
+  week: 6,
+  day: 3,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Misconstrue", "Misread", "Misinterpret", "Misjudge"],
+      correct: "Forms of misunderstanding",
+      options: [
+        "Forms of misunderstanding",
+        "Ways to memorize",
+        "Forms of agreement",
+        "Methods of translation",
+      ],
+      insight: {
+        pattern: "Misreading meaning",
+        explanation:
+          "Each word describes getting the meaning, intention, or situation wrong.",
+        generalization:
+          "Misunderstanding often begins when a signal is real but the interpretation is off.",
+        adaptive: {
+          correct: "You recognized the misunderstanding pattern.",
+          wrong: "Look for the shared prefix and the mistaken reading behind it.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Echo", "Static", "Smudge", "Prism"],
+      correct: "Signals that distort or blur perception",
+      options: [
+        "Art supplies",
+        "Signals that distort or blur perception",
+        "Sounds only",
+        "Objects that clarify meaning",
+      ],
+      insight: {
+        pattern: "Distortion imagery",
+        explanation:
+          "These images suggest a message or image that changes as it travels or is seen.",
+        generalization:
+          "When perception is distorted, even accurate signals can become hard to trust.",
+        adaptive: {
+          correct: "You saw the distortion pattern.",
+          wrong: "Think about what changes a signal before it reaches you.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Ambiguous", "Vague", "Obscure", "Unclear"],
+      correct: "Words describing uncertain meaning",
+      options: [
+        "Words describing uncertain meaning",
+        "Words describing loud sound",
+        "Words describing exact proof",
+        "Words for strong emotion",
+      ],
+      insight: {
+        pattern: "Unclear meaning",
+        explanation:
+          "These words describe language or meaning that is difficult to pin down.",
+        generalization:
+          "Unclear language increases the space where misunderstanding can grow.",
+        adaptive: {
+          correct: "You recognized uncertainty in meaning.",
+          wrong: "Think about words that make meaning less definite.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 39,
+  difficulty: 4,
+  vocab: "intermediate",
+  week: 6,
+  day: 4,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Scrupulous", "Dignity", "Integrity", "Honor"],
+      correct: "Words related to moral character",
+      options: [
+        "Words related to moral character",
+        "Words about social popularity",
+        "Legal punishments",
+        "Forms of public praise",
+      ],
+      insight: {
+        pattern: "Character vocabulary",
+        explanation:
+          "These words point to honesty, worth, careful conduct, and a sense of what is right.",
+        generalization:
+          "Character is often measured by what people preserve when pressure rises.",
+        adaptive: {
+          correct: "You recognized the moral-character thread.",
+          wrong: "Think about words for inner standards and honorable conduct.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Pillar", "Foundation", "Keystone", "Plumb Line"],
+      correct: "Images of moral support and stability",
+      options: [
+        "Construction materials only",
+        "Images of moral support and stability",
+        "Decorative architecture",
+        "Objects that hide weakness",
+      ],
+      insight: {
+        pattern: "Structural principle imagery",
+        explanation:
+          "These images suggest uprightness, support, alignment, and the parts that hold a structure together.",
+        generalization:
+          "We often borrow building images to describe the invisible structure of values.",
+        adaptive: {
+          correct: "You saw the structural metaphor for character.",
+          wrong: "Think about what helps something stand true and hold together.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Ethical", "Virtuous", "Principled", "Honorable"],
+      correct: "Words describing moral conduct",
+      options: [
+        "Words describing moral conduct",
+        "Words describing clever tricks",
+        "Words about physical strength",
+        "Words for public attention",
+      ],
+      insight: {
+        pattern: "Moral adjectives",
+        explanation:
+          "These adjectives describe behavior guided by values, duty, or a strong ethical standard.",
+        generalization:
+          "Language separates what is merely effective from what is right.",
+        adaptive: {
+          correct: "You recognized moral conduct.",
+          wrong: "Think about adjectives for acting according to values.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 40,
+  difficulty: 5,
+  vocab: "advanced",
+  week: 6,
+  day: 5,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Traduce", "Slander", "Defame", "Vilify"],
+      correct: "Words meaning to damage someone's reputation",
+      options: [
+        "Words meaning to damage someone's reputation",
+        "Words meaning to forgive someone",
+        "Ways to praise publicly",
+        "Forms of private disagreement",
+      ],
+      insight: {
+        pattern: "Reputation attack",
+        explanation:
+          "These words describe attacking, lowering, or damaging how someone is seen by others.",
+        generalization:
+          "Judgment can become harmful when it shifts from evaluating actions to destroying reputation.",
+        adaptive: {
+          correct: "You recognized reputation-damaging language.",
+          wrong: "Think about words for harming how others see someone.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Poison", "Whisper", "Venom", "Rumor"],
+      correct: "Images of subtle harm spread through words",
+      options: [
+        "Images of subtle harm spread through words",
+        "Medical treatments",
+        "Objects used in celebrations",
+        "Signs of honest debate",
+      ],
+      insight: {
+        pattern: "Hidden injury imagery",
+        explanation:
+          "These images suggest harm that moves quietly through speech, suggestion, or reputation.",
+        generalization:
+          "Some forms of harm spread quietly because words can carry damage from person to person.",
+        adaptive: {
+          correct: "You saw the subtle-harm symbolism.",
+          wrong: "Think about harm that travels through speech or reputation.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Acerbic", "Caustic", "Scathing", "Barbed"],
+      correct: "Words describing harsh criticism",
+      options: [
+        "Words describing harsh criticism",
+        "Words describing careful kindness",
+        "Words about physical speed",
+        "Words for uncertain meaning",
+      ],
+      insight: {
+        pattern: "Cutting language",
+        explanation:
+          "These words describe criticism or speech that feels sharp, severe, or intentionally cutting.",
+        generalization:
+          "Language can carry force even when nothing physical happens.",
+        adaptive: {
+          correct: "You recognized harsh criticism.",
+          wrong: "Think about words that describe sharp or cutting criticism.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 41,
+  difficulty: 6,
+  vocab: "advanced",
+  week: 6,
+  day: 6,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Quiver", "Tremble", "Shudder", "Shake"],
+      correct: "Physical reactions to fear or intensity",
+      options: [
+        "Physical reactions to fear or intensity",
+        "Ways to speak clearly",
+        "Forms of careful planning",
+        "Actions that create silence",
+      ],
+      insight: {
+        pattern: "Body under pressure",
+        explanation:
+          "These words describe small or visible movements caused by fear, cold, emotion, or force.",
+        generalization:
+          "Pressure often appears in the body before it becomes a clear thought.",
+        adaptive: {
+          correct: "You recognized the bodily reaction pattern.",
+          wrong: "Think about what the body does under fear or strain.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Stampede", "Avalanche", "Wildfire", "Deluge"],
+      correct: "Overwhelming forces that spread beyond control",
+      options: [
+        "Weather events only",
+        "Overwhelming forces that spread beyond control",
+        "Quiet natural cycles",
+        "Tools for stopping movement",
+      ],
+      insight: {
+        pattern: "Escalation imagery",
+        explanation:
+          "Each image suggests motion or force that grows dangerous once it begins spreading.",
+        generalization:
+          "Escalation becomes dangerous when momentum outruns control.",
+        adaptive: {
+          correct: "You recognized runaway escalation.",
+          wrong: "Think about forces that become overwhelming as they spread.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Panic", "Alarm", "Dread", "Terror"],
+      correct: "Words related to fear responses",
+      options: [
+        "Words related to fear responses",
+        "Words describing confidence",
+        "Words about moral standards",
+        "Words for public announcements",
+      ],
+      insight: {
+        pattern: "Fear vocabulary",
+        explanation:
+          "These words describe fear as it rises from warning to intense distress.",
+        generalization:
+          "Escalation is not only external; emotions can intensify in stages too.",
+        adaptive: {
+          correct: "You recognized the fear-response thread.",
+          wrong: "Think about feelings that grow when danger seems near.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 42,
+  difficulty: 7,
+  vocab: "advanced",
+  week: 6,
+  day: 7,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Salvation", "Redemption", "Deliverance", "Reprieve"],
+      correct: "Forms of rescue or release from danger",
+      options: [
+        "Forms of rescue or release from danger",
+        "Words about public attention",
+        "Forms of legal judgment",
+        "Words about unclear meaning",
+      ],
+      insight: {
+        pattern: "Rescue vocabulary",
+        explanation:
+          "These words describe being saved, released, restored, or spared from danger or ruin.",
+        generalization:
+          "Endurance often depends on the moment when danger gives way to the possibility of rescue.",
+        adaptive: {
+          correct: "You recognized rescue and release.",
+          wrong: "Think about words for being saved from danger or ruin.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Lifeline", "Foothold", "Ascent", "Clearing"],
+      correct: "Images of gaining ground after difficulty",
+      options: [
+        "Images of gaining ground after difficulty",
+        "Objects used for public speaking",
+        "Signs of reputation damage",
+        "Forms of distorted perception",
+      ],
+      insight: {
+        pattern: "Recovery imagery",
+        explanation:
+          "These images suggest a way through: support, purchase, upward movement, or space after being trapped.",
+        generalization:
+          "Symbols of recovery often show a person finding just enough ground to continue.",
+        adaptive: {
+          correct: "You recognized images of recovery.",
+          wrong: "Think about images that suggest getting through difficulty.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Myriad", "Countless", "Innumerable", "Multitudinous"],
+      correct: "Words meaning too many to count",
+      options: [
+        "Words meaning too many to count",
+        "Words describing exact measurement",
+        "Words for small mistakes",
+        "Words about moral conduct",
+      ],
+      insight: {
+        pattern: "Abundance vocabulary",
+        explanation:
+          "These words describe quantities so large they feel impossible or impractical to count.",
+        generalization:
+          "Language stretches when ordinary counting cannot capture the scale of what is present.",
+        adaptive: {
+          correct: "You recognized countless abundance.",
+          wrong: "Think about words for quantities too large to count.",
+        },
+      },
+    },
+  ],
+},
 ];
