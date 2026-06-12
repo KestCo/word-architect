@@ -38,8 +38,20 @@ function formatTime(ms: number) {
   return `${m}m ${s}s`;
 }
 
-function todayKey() {
-  return new Date().toISOString().slice(0, 10);
+function todayKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function legacyUtcTodayKey(date = new Date()) {
+  return date.toISOString().slice(0, 10);
+}
+
+function todayResultKeys(date = new Date()) {
+  return new Set([todayKey(date), legacyUtcTodayKey(date)]);
 }
 
 function getSkillLabel(skill: string) {
@@ -684,13 +696,13 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   const [lensWord, setLensWord] = useState<string | null>(null);
   const [exploredLensWords, setExploredLensWords] = useState<string[]>([]);
   const [startTime] = useState<number>(Date.now());
-  const [endTime, setEndTime] = useState<number | null>(null);
+  const [completedResult, setCompletedResult] = useState<any | null>(null);
   const [mistakes, setMistakes] = useState<number>(0);
   const [history, setHistory] = useState<any[]>([]);
-  const [savedResult, setSavedResult] = useState(false);
   const [alreadyCompletedResult, setAlreadyCompletedResult] =
     useState<any | null>(null);
   const completionTimerRef = useRef<number | null>(null);
+  const completedRef = useRef(false);
 
   const [skillMistakes, setSkillMistakes] = useState<Record<string, number>>({
     abstraction: 0,
@@ -714,17 +726,61 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     }))
   );
 
+  const buildResult = (finishedAt: number) => ({
+    date: todayKey(),
+    gameId: selectedGame.id,
+    week: selectedGame.week,
+    day: selectedGame.day,
+    difficulty: selectedGame.difficulty,
+    timeMs: finishedAt - startTime,
+    mistakes,
+    skillMistakes,
+    lensWords: exploredLensWords,
+  });
+
+  const readSavedResults = () => {
+    try {
+      const saved = localStorage.getItem("wordArchitectResults");
+      const parsed = saved ? JSON.parse(saved) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  };
+
   const completePuzzle = () => {
+    if (completedRef.current) return;
+    completedRef.current = true;
+
     if (completionTimerRef.current) {
       window.clearTimeout(completionTimerRef.current);
       completionTimerRef.current = null;
     }
 
-    setEndTime((current) => current || Date.now());
+    const result = buildResult(Date.now());
+    setCompletedResult(result);
+
+    if (isEditorPreview || isPlaytestMode) return;
+
+    const resultKeys = todayResultKeys();
+    const savedHistory = readSavedResults();
+    const withoutToday = savedHistory.filter(
+      (r) => !(resultKeys.has(r.date) && r.gameId === result.gameId)
+    );
+    const updated = [...withoutToday, result];
+
+    try {
+      localStorage.setItem("wordArchitectResults", JSON.stringify(updated));
+    } catch {
+      // The dashboard should still appear even if local storage is unavailable.
+    }
+
+    setHistory(updated);
+    setAlreadyCompletedResult(result);
   };
 
   const scheduleCompletion = () => {
-    if (endTime || completionTimerRef.current) return;
+    if (completedRef.current || completionTimerRef.current) return;
 
     completionTimerRef.current = window.setTimeout(() => {
       completePuzzle();
@@ -732,21 +788,14 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem("wordArchitectResults");
-    let parsed: any[] = [];
-
-    try {
-      const value = saved ? JSON.parse(saved) : [];
-      parsed = Array.isArray(value) ? value : [];
-    } catch {
-      parsed = [];
-    }
+    const parsed = readSavedResults();
 
     setHistory(parsed);
 
     if (!isEditorPreview && !isPlaytestMode) {
+      const resultKeys = todayResultKeys();
       const todayResult = parsed.find(
-        (r: any) => r.date === todayKey() && r.gameId === selectedGame.id
+        (r: any) => resultKeys.has(r.date) && r.gameId === selectedGame.id
       );
 
       if (todayResult) {
@@ -760,45 +809,8 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   }, [isEditorPreview, isPlaytestMode, selectedGame.id]);
 
   useEffect(() => {
-    if (!endTime || savedResult || isEditorPreview || isPlaytestMode) return;
-
-    const result = {
-      date: todayKey(),
-      gameId: selectedGame.id,
-      week: selectedGame.week,
-      day: selectedGame.day,
-      difficulty: selectedGame.difficulty,
-      timeMs: endTime - startTime,
-      mistakes,
-      skillMistakes,
-      lensWords: exploredLensWords,
-    };
-
-    const withoutToday = history.filter(
-      (r) => !(r.date === result.date && r.gameId === result.gameId)
-    );
-
-    const updated = [...withoutToday, result];
-
-    localStorage.setItem("wordArchitectResults", JSON.stringify(updated));
-    setHistory(updated);
-    setAlreadyCompletedResult(result);
-    setSavedResult(true);
-  }, [
-    endTime,
-    savedResult,
-    history,
-    mistakes,
-    selectedGame,
-    skillMistakes,
-    exploredLensWords,
-    startTime,
-    isEditorPreview,
-    isPlaytestMode,
-  ]);
-
-  useEffect(() => {
-    if (endTime || stacks.length === 0 || completionTimerRef.current) return;
+    if (completedResult || stacks.length === 0 || completionTimerRef.current)
+      return;
 
     const puzzleAnswered = stacks.every(
       (stack: any) => stack.locked && stack.showAnswer
@@ -807,7 +819,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     if (puzzleAnswered) {
       scheduleCompletion();
     }
-  }, [endTime, stacks]);
+  }, [completedResult, stacks]);
 
   useEffect(() => {
     return () => {
@@ -968,8 +980,8 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       stacks.every((s: any) => s.locked) &&
       stacks.filter((s: any) => s.locked && !s.showAnswer).length === 1;
 
-    setStacks((prev: any[]) => {
-      const next = prev.map((s: any) =>
+    setStacks((prev: any[]) =>
+      prev.map((s: any) =>
         s.id === stackId
           ? {
               ...s,
@@ -979,18 +991,8 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
               answerFeedback: selectedAnswer ? "Correct." : "",
             }
           : s
-      );
-
-      const puzzleAnswered = next.every(
-        (s: any) => s.locked && s.showAnswer
-      );
-
-      if (puzzleAnswered) {
-        scheduleCompletion();
-      }
-
-      return next;
-    });
+      )
+    );
 
     setTimeout(() => {
       setStacks((prev: any[]) =>
@@ -1060,33 +1062,21 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     );
   }
 
-  if (endTime) {
+  if (completedResult) {
     if (isPlaytestMode) {
       return (
         <PlaytestCompletion
           selectedGame={selectedGame}
-          timeMs={endTime - startTime}
+          timeMs={completedResult.timeMs}
           mistakes={mistakes}
         />
       );
     }
 
-    const result = {
-      date: todayKey(),
-      gameId: selectedGame.id,
-      week: selectedGame.week,
-      day: selectedGame.day,
-      difficulty: selectedGame.difficulty,
-      timeMs: endTime - startTime,
-      mistakes,
-      skillMistakes,
-      lensWords: exploredLensWords,
-    };
-
     return (
       <RichResultsDashboard
         selectedGame={selectedGame}
-        result={result}
+        result={completedResult}
         history={history}
       />
     );
