@@ -21,6 +21,10 @@ export function getDailyGame(date = new Date()) {
     (current.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)
   );
 
+  if (dayNumber < 0) {
+    return GAMES[0];
+  }
+
   const safeIndex = ((dayNumber % GAMES.length) + GAMES.length) % GAMES.length;
   return GAMES[safeIndex];
 }

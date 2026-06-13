@@ -701,8 +701,10 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   const [history, setHistory] = useState<any[]>([]);
   const [alreadyCompletedResult, setAlreadyCompletedResult] =
     useState<any | null>(null);
+  const [resultsReady, setResultsReady] = useState(false);
   const completionTimerRef = useRef<number | null>(null);
-  const completedRef = useRef(false);
+  const preparedResultRef = useRef<any | null>(null);
+  const dashboardShownRef = useRef(false);
 
   const [skillMistakes, setSkillMistakes] = useState<Record<string, number>>({
     abstraction: 0,
@@ -748,19 +750,14 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     }
   };
 
-  const completePuzzle = () => {
-    if (completedRef.current) return;
-    completedRef.current = true;
-
-    if (completionTimerRef.current) {
-      window.clearTimeout(completionTimerRef.current);
-      completionTimerRef.current = null;
-    }
+  const prepareCompletedResult = () => {
+    if (preparedResultRef.current) return preparedResultRef.current;
 
     const result = buildResult(Date.now());
-    setCompletedResult(result);
+    preparedResultRef.current = result;
+    setResultsReady(true);
 
-    if (isEditorPreview || isPlaytestMode) return;
+    if (isEditorPreview || isPlaytestMode) return result;
 
     const resultKeys = todayResultKeys();
     const savedHistory = readSavedResults();
@@ -776,11 +773,30 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     }
 
     setHistory(updated);
-    setAlreadyCompletedResult(result);
+
+    return result;
+  };
+
+  const completePuzzle = () => {
+    if (dashboardShownRef.current) {
+      if (preparedResultRef.current) {
+        setCompletedResult(preparedResultRef.current);
+      }
+      return;
+    }
+
+    dashboardShownRef.current = true;
+
+    if (completionTimerRef.current) {
+      window.clearTimeout(completionTimerRef.current);
+      completionTimerRef.current = null;
+    }
+
+    setCompletedResult(prepareCompletedResult());
   };
 
   const scheduleCompletion = () => {
-    if (completedRef.current || completionTimerRef.current) return;
+    if (dashboardShownRef.current || completionTimerRef.current) return;
 
     completionTimerRef.current = window.setTimeout(() => {
       completePuzzle();
@@ -817,6 +833,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     );
 
     if (puzzleAnswered) {
+      prepareCompletedResult();
       scheduleCompletion();
     }
   }, [completedResult, stacks]);
@@ -1052,16 +1069,6 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     );
   };
 
-  if (alreadyCompletedResult && !isEditorPreview && !isPlaytestMode) {
-    return (
-      <RichResultsDashboard
-        selectedGame={selectedGame}
-        result={alreadyCompletedResult}
-        history={history}
-      />
-    );
-  }
-
   if (completedResult) {
     if (isPlaytestMode) {
       return (
@@ -1082,6 +1089,16 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     );
   }
 
+  if (alreadyCompletedResult && !isEditorPreview && !isPlaytestMode) {
+    return (
+      <RichResultsDashboard
+        selectedGame={selectedGame}
+        result={alreadyCompletedResult}
+        history={history}
+      />
+    );
+  }
+
   const selectedDefinition =
     selectedCard && DEFINITIONS[selectedCard] ? DEFINITIONS[selectedCard] : null;
 
@@ -1091,6 +1108,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   const allAnswersRevealed =
     stacks.length > 0 &&
     stacks.every((stack: any) => stack.locked && stack.showAnswer);
+  const canViewResults = resultsReady || allAnswersRevealed;
 
   return (
     <DndContext
@@ -1397,7 +1415,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           </DroppableArea>
         ))}
 
-        {allAnswersRevealed && (
+        {canViewResults && (
           <div className="bg-neutral-950 text-white rounded-2xl p-4 text-center space-y-3">
             <p className="text-sm opacity-80">All insights are unlocked.</p>
 
@@ -1408,6 +1426,15 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
               View Results
             </button>
           </div>
+        )}
+
+        {canViewResults && (
+          <button
+            onClick={completePuzzle}
+            className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 bg-neutral-950 text-white px-5 py-3 rounded-full text-sm font-semibold shadow-lg border border-white/20"
+          >
+            View Results
+          </button>
         )}
 
         <button
