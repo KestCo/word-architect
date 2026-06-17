@@ -77,6 +77,7 @@ function emptyGroup() {
 export default function PuzzleEditor() {
   const [originalPuzzle, setOriginalPuzzle] = useState<any>(null);
   const [finalSubmitted, setFinalSubmitted] = useState(false);
+  const [workflowGuideOpen, setWorkflowGuideOpen] = useState(false);
 
   const [title, setTitle] = useState("");
   const [difficulty, setDifficulty] = useState(1);
@@ -240,14 +241,58 @@ export default function PuzzleEditor() {
 
   return (
     <main className="min-h-screen bg-neutral-50 p-6 space-y-8 max-w-4xl mx-auto">
-      <div className="space-y-2">
-        <h1 className="text-2xl font-semibold">
-          Puzzle Review Dashboard
-        </h1>
+      <div className="space-y-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+          <div className="space-y-2">
+            <h1 className="text-2xl font-semibold">
+              Puzzle Review Dashboard
+            </h1>
 
-        <p className="text-sm text-neutral-500">
-          Load an original puzzle, edit a working draft, playtest it, then submit a clean final version.
-        </p>
+            <p className="text-sm text-neutral-500">
+              Load an original puzzle, edit a working draft, playtest it, then submit a clean final version.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setWorkflowGuideOpen((isOpen) => !isOpen)}
+            aria-controls="editor-workflow-guide"
+            aria-expanded={workflowGuideOpen}
+            className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Workflow Guide
+          </button>
+        </div>
+
+        {workflowGuideOpen && (
+          <section
+            id="editor-workflow-guide"
+            className="rounded-2xl border border-blue-100 bg-blue-50 p-5 text-sm text-blue-950 shadow-sm"
+          >
+            <h2 className="font-semibold">Editor Workflow</h2>
+
+            <ol className="mt-3 grid gap-2 pl-5 list-decimal">
+              <li>
+                <strong>Load the puzzle.</strong> Choose the week and day you want to review.
+              </li>
+              <li>
+                <strong>Add editor details.</strong> Enter your name and publication so the welcome page can credit the edit.
+              </li>
+              <li>
+                <strong>Shape the draft.</strong> Adjust the words, answer choices, connections, and insight text.
+              </li>
+              <li>
+                <strong>Leave review notes.</strong> Flag anything too easy, too obscure, or worth improving.
+              </li>
+              <li>
+                <strong>Preview or playtest.</strong> Preview shows the draft on this page. Playtest opens it like a real game.
+              </li>
+              <li>
+                <strong>Submit final.</strong> Submit Final copies the clean final puzzle JSON so it can be added to the live game.
+              </li>
+            </ol>
+          </section>
+        )}
       </div>
 
       <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
