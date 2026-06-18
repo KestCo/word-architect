@@ -3048,4 +3048,537 @@ export const GAMES = [
     },
   ],
 },
+
+// WEEK 7
+{
+  id: 43,
+  difficulty: 1,
+  vocab: "mixed",
+  week: 7,
+  day: 1,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Valley", "Canyon", "Ravine", "Coulee"],
+      correct: "Low landforms shaped by flowing water",
+      options: [
+        "Low landforms shaped by flowing water",
+        "Things that help someone move upward",
+        "Words for joyful moods",
+        "Ways to measure trends",
+      ],
+      insight: {
+        pattern: "Landform category",
+        explanation:
+          "Valleys, canyons, ravines, and coulees are low places or channels shaped by water and erosion.",
+        generalization:
+          "An unfamiliar word can become clearer when it sits beside easier examples from the same category.",
+        adaptive: {
+          correct: "You used the familiar landforms to unlock the new one.",
+          wrong: "Think about terrain, channels, and the movement of water.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Ladder", "Staircase", "Ramp", "Elevator"],
+      correct: "Things that help someone move upward",
+      options: [
+        "Tools for measuring depth",
+        "Things that help someone move upward",
+        "Quiet places in nature",
+        "Words for personal preference",
+      ],
+      insight: {
+        pattern: "Upward movement aids",
+        explanation:
+          "Each item helps a person go higher or reach a higher level.",
+        generalization:
+          "Physical objects often make an abstract idea, like progress or ascent, easier to see.",
+        adaptive: {
+          correct: "You recognized the upward movement pattern.",
+          wrong: "Think about what these objects help someone do.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Ascend", "Mount", "Rise", "Soar"],
+      correct: "Verbs for moving upward",
+      options: [
+        "Verbs for moving upward",
+        "Words meaning to speak too long",
+        "Ways to show resistance",
+        "Terms for written references",
+      ],
+      insight: {
+        pattern: "Directional verbs",
+        explanation:
+          "These verbs all describe upward motion, either literally or figuratively.",
+        generalization:
+          "Language often borrows physical movement to describe growth, improvement, or hope.",
+        adaptive: {
+          correct: "You found the shared upward action.",
+          wrong: "Think about direction and motion.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 44,
+  difficulty: 2,
+  vocab: "mixed",
+  week: 7,
+  day: 2,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Joyous", "Blissful", "Radiant", "Beatific"],
+      correct: "Words for deep happiness or serenity",
+      options: [
+        "Words for deep happiness or serenity",
+        "Words for stubborn refusal",
+        "Landforms shaped by water",
+        "Things that signal a trend",
+      ],
+      insight: {
+        pattern: "Happiness vocabulary",
+        explanation:
+          "These words describe happiness, peace, or a glowing sense of delight.",
+        generalization:
+          "Emotional vocabulary can differ by intensity, from simple happiness to almost serene joy.",
+        adaptive: {
+          correct: "You recognized the shared feeling of deep gladness.",
+          wrong: "Think about words that describe a bright or peaceful happiness.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Garland", "Music", "Feast", "Dance"],
+      correct: "Images of celebration",
+      options: [
+        "Images of celebration",
+        "Parts of a measuring display",
+        "Ways to shorten writing",
+        "Signs of blocked access",
+      ],
+      insight: {
+        pattern: "Celebration imagery",
+        explanation:
+          "Garlands, music, feasts, and dancing often appear when people celebrate together.",
+        generalization:
+          "Some objects and actions become shorthand for a shared emotional setting.",
+        adaptive: {
+          correct: "You saw the celebration pattern.",
+          wrong: "Think about what might appear at a joyful gathering.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Idyllic", "Serene", "Pastoral", "Picturesque"],
+      correct: "Words for peaceful, beautiful scenes",
+      options: [
+        "Words for peaceful, beautiful scenes",
+        "Words for harsh criticism",
+        "Verbs for choosing",
+        "Things used to mislead people",
+      ],
+      insight: {
+        pattern: "Scenic description",
+        explanation:
+          "These words describe places or scenes that feel peaceful, beautiful, rural, or visually pleasing.",
+        generalization:
+          "A setting can carry emotional meaning through the kind of language used to describe it.",
+        adaptive: {
+          correct: "You recognized the peaceful scene vocabulary.",
+          wrong: "Think about words used to describe a beautiful quiet place.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 45,
+  difficulty: 3,
+  vocab: "mixed",
+  week: 7,
+  day: 3,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Penchant", "Preference", "Inclination", "Taste"],
+      correct: "A personal liking or leaning",
+      options: [
+        "A personal liking or leaning",
+        "A public warning sign",
+        "A piece of added text",
+        "A type of landform",
+      ],
+      insight: {
+        pattern: "Preference vocabulary",
+        explanation:
+          "These words describe what someone tends to like, choose, or be drawn toward.",
+        generalization:
+          "A person's choices often reveal an underlying leaning before they explain it directly.",
+        adaptive: {
+          correct: "You recognized the language of personal liking.",
+          wrong: "Think about words for what someone naturally favors.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Magnet", "Lure", "Bait", "Siren"],
+      correct: "Things that attract or draw attention",
+      options: [
+        "Things that attract or draw attention",
+        "Objects used for climbing",
+        "Words that mean brief",
+        "Ways to refuse pressure",
+      ],
+      insight: {
+        pattern: "Attraction imagery",
+        explanation:
+          "Each word suggests something that pulls attention, interest, or movement toward it.",
+        generalization:
+          "Images of attraction can help explain why some choices feel almost automatic.",
+        adaptive: {
+          correct: "You found the pull behind the images.",
+          wrong: "Think about what these things do to attention or desire.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Prefer", "Favor", "Choose", "Select"],
+      correct: "Verbs for choosing one thing over others",
+      options: [
+        "Verbs for choosing one thing over others",
+        "Verbs for hiding meaning",
+        "Words for scenic beauty",
+        "Words for sudden trend changes",
+      ],
+      insight: {
+        pattern: "Choice verbs",
+        explanation:
+          "These verbs describe selecting, liking, or choosing one option instead of another.",
+        generalization:
+          "Preference becomes visible when a person repeatedly chooses one thing over another.",
+        adaptive: {
+          correct: "You recognized the choice pattern.",
+          wrong: "Think about actions that show preference.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 46,
+  difficulty: 4,
+  vocab: "mixed",
+  week: 7,
+  day: 4,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Bellwether", "Indicator", "Barometer", "Gauge"],
+      correct: "Things that signal a broader trend",
+      options: [
+        "Things that signal a broader trend",
+        "Words for peaceful happiness",
+        "Objects that block entry",
+        "Extra text added to a document",
+      ],
+      insight: {
+        pattern: "Trend signal vocabulary",
+        explanation:
+          "These words can describe something used to read, predict, or measure a larger trend.",
+        generalization:
+          "One clear signal can help us understand a wider pattern that is still unfolding.",
+        adaptive: {
+          correct: "You recognized the broader-trend signal.",
+          wrong: "Think about words for things that reveal a larger pattern.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Needle", "Dial", "Meter", "Readout"],
+      correct: "Parts or displays that show a measurement",
+      options: [
+        "Things used to celebrate",
+        "Parts or displays that show a measurement",
+        "Hard-to-catch qualities",
+        "Words for indirect references",
+      ],
+      insight: {
+        pattern: "Measurement display",
+        explanation:
+          "Needles, dials, meters, and readouts help show a level, amount, or change.",
+        generalization:
+          "Signals become useful when they can be read clearly.",
+        adaptive: {
+          correct: "You saw the measurement-display pattern.",
+          wrong: "Think about where a person would look to read a measurement.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Spike", "Dip", "Surge", "Slump"],
+      correct: "Words for sharp movement in a trend",
+      options: [
+        "Words for sharp movement in a trend",
+        "Verbs for moving upward only",
+        "Words meaning too many to count",
+        "Landforms carved by water",
+      ],
+      insight: {
+        pattern: "Trend movement",
+        explanation:
+          "These words describe noticeable upward or downward movement in a value, pattern, or trend.",
+        generalization:
+          "Trend language turns change into a shape we can understand.",
+        adaptive: {
+          correct: "You recognized the trend movement vocabulary.",
+          wrong: "Think about words used for noticeable changes in charts, numbers, or patterns.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 47,
+  difficulty: 5,
+  vocab: "advanced",
+  week: 7,
+  day: 5,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Prolix", "Wordy", "Rambling", "Long-winded"],
+      correct: "Using more words than needed",
+      options: [
+        "Using more words than needed",
+        "Speaking in a very brief way",
+        "Pointing indirectly to another text",
+        "Refusing to change under pressure",
+      ],
+      insight: {
+        pattern: "Overlong expression",
+        explanation:
+          "These words describe speech or writing that uses too many words or wanders too long.",
+        generalization:
+          "More words do not always create more meaning; sometimes length makes thought harder to follow.",
+        adaptive: {
+          correct: "You recognized the overlong-expression pattern.",
+          wrong: "Think about writing that keeps going after the point is clear.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Footnote", "Appendix", "Addendum", "Endnote"],
+      correct: "Supplementary text added to a main work",
+      options: [
+        "Supplementary text added to a main work",
+        "Objects that attract attention",
+        "Ways to measure a trend",
+        "Images of celebration",
+      ],
+      insight: {
+        pattern: "Added text",
+        explanation:
+          "Footnotes, appendices, addenda, and endnotes add extra information around a main text.",
+        generalization:
+          "Some writing expands by adding supporting material rather than changing the main line.",
+        adaptive: {
+          correct: "You recognized the added-text category.",
+          wrong: "Think about text that sits beside or after the main piece.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Concise", "Terse", "Brief", "Succinct"],
+      correct: "Short and to the point",
+      options: [
+        "Short and to the point",
+        "Hard to catch or locate",
+        "Deeply joyful or serene",
+        "Personal likings or leanings",
+      ],
+      insight: {
+        pattern: "Economy of expression",
+        explanation:
+          "These words describe language that is short, efficient, and direct.",
+        generalization:
+          "A precise thought can become stronger when unnecessary words are removed.",
+        adaptive: {
+          correct: "You recognized the concise-language pattern.",
+          wrong: "Think about words for speech or writing that gets to the point quickly.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 48,
+  difficulty: 6,
+  vocab: "advanced",
+  week: 7,
+  day: 6,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Obdurate", "Stubborn", "Unyielding", "Inflexible"],
+      correct: "Refusing to change or give way",
+      options: [
+        "Refusing to change or give way",
+        "Words for peaceful scenery",
+        "Things that reveal measurement",
+        "Ways to write briefly",
+      ],
+      insight: {
+        pattern: "Stubborn stance",
+        explanation:
+          "These words describe someone or something that resists change, persuasion, or pressure.",
+        generalization:
+          "A stance can become a pattern when refusal hardens into habit.",
+        adaptive: {
+          correct: "You recognized the refusal-to-yield pattern.",
+          wrong: "Think about words for someone who will not bend or change.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Wall", "Lock", "Barricade", "Deadbolt"],
+      correct: "Images of blocked access or resistance",
+      options: [
+        "Images of blocked access or resistance",
+        "Images of peaceful celebration",
+        "Ways to point indirectly",
+        "Tools for reading a trend",
+      ],
+      insight: {
+        pattern: "Resistance imagery",
+        explanation:
+          "Walls, locks, barricades, and deadbolts suggest blocked movement or refusal to open.",
+        generalization:
+          "Physical barriers often become symbols for emotional or intellectual resistance.",
+        adaptive: {
+          correct: "You saw the blocked-access imagery.",
+          wrong: "Think about objects that keep something from passing through.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Resist", "Refuse", "Withstand", "Oppose"],
+      correct: "Verbs for standing against pressure",
+      options: [
+        "Verbs for standing against pressure",
+        "Verbs for choosing a favorite",
+        "Words for scenic beauty",
+        "Words meaning overly long",
+      ],
+      insight: {
+        pattern: "Resistance verbs",
+        explanation:
+          "These verbs describe pushing back, not accepting, or standing firm under pressure.",
+        generalization:
+          "Resistance can be an action, not only a personality trait.",
+        adaptive: {
+          correct: "You recognized the action of resisting.",
+          wrong: "Think about actions that stand against force or pressure.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 49,
+  difficulty: 7,
+  vocab: "advanced",
+  week: 7,
+  day: 7,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Allusive", "Referential", "Evocative", "Hinting"],
+      correct: "Meaning that points indirectly to something else",
+      options: [
+        "Meaning that points indirectly to something else",
+        "Hard to catch, hold, or pin down",
+        "Ways to draw attention away from the truth",
+        "Text added after a main work",
+      ],
+      insight: {
+        pattern: "Indirect reference",
+        explanation:
+          "These words describe meaning that suggests, recalls, or points toward something without stating it plainly.",
+        generalization:
+          "Indirect meaning rewards careful reading because the connection is implied rather than announced.",
+        adaptive: {
+          correct: "You recognized the indirect-reference pattern.",
+          wrong: "Think about words for meaning that hints rather than states.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Elusive", "Evasive", "Fleeting", "Slippery"],
+      correct: "Hard to catch, hold, or pin down",
+      options: [
+        "Hard to catch, hold, or pin down",
+        "Deeply joyful or serene",
+        "Things that show a measurement",
+        "Words for personal taste",
+      ],
+      insight: {
+        pattern: "Hard-to-grasp qualities",
+        explanation:
+          "These words describe things that are difficult to catch, hold, define, or settle.",
+        generalization:
+          "Similar-looking words can point in very different directions, so careful reading matters.",
+        adaptive: {
+          correct: "You separated elusive from allusive.",
+          wrong: "Think about what is difficult to catch or pin down.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Decoy", "Feint", "Ruse", "Misdirection"],
+      correct: "Ways to draw attention away from the truth",
+      options: [
+        "Ways to draw attention away from the truth",
+        "Verbs for upward motion",
+        "Low landforms shaped by water",
+        "Words meaning short and direct",
+      ],
+      insight: {
+        pattern: "Misdirection vocabulary",
+        explanation:
+          "These words describe tricks, false moves, or misleading signals that pull attention away from what matters.",
+        generalization:
+          "A difficult puzzle often depends on noticing which clue is signal and which clue is distraction.",
+        adaptive: {
+          correct: "You recognized the misdirection pattern.",
+          wrong: "Think about words for tricks or false signals.",
+        },
+      },
+    },
+  ],
+},
 ];

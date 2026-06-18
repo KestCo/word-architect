@@ -3,6 +3,7 @@
 import { useState, type SyntheticEvent } from "react";
 import Game from "./Game";
 import { GAMES } from "./data/games";
+import { DEFINITIONS } from "./data/definitions";
 
 const EDITOR_ACTION_BUTTONS = {
   preview: {
@@ -74,10 +75,121 @@ function emptyGroup() {
   };
 }
 
+function normalizeWordLensKey(word: string) {
+  return word.trim().replace(/\s+/g, " ").toLowerCase();
+}
+
+function parseEditorWords(words: string) {
+  return words
+    .split(",")
+    .map((word) => word.trim())
+    .filter(Boolean);
+}
+
+const WORD_LENS_LOOKUP = new Map(
+  Object.keys(DEFINITIONS).map((word) => [normalizeWordLensKey(word), word])
+);
+
+function getWordLensWords(words: string) {
+  const matches = parseEditorWords(words)
+    .map((word) => WORD_LENS_LOOKUP.get(normalizeWordLensKey(word)))
+    .filter((word): word is string => Boolean(word));
+
+  return Array.from(new Set(matches));
+}
+
+function getActiveWordLensCandidates(groups: any[], candidates: string[]) {
+  const currentWordKeys = new Set(
+    groups.flatMap((group) => parseEditorWords(group.words)).map(normalizeWordLensKey)
+  );
+
+  return candidates.filter((word) =>
+    currentWordKeys.has(normalizeWordLensKey(word))
+  );
+}
+
+function WordLensMarkers({
+  words,
+  candidates,
+  onAddCandidate,
+  onRemoveCandidate,
+}: {
+  words: string;
+  candidates: string[];
+  onAddCandidate: (word: string) => void;
+  onRemoveCandidate: (word: string) => void;
+}) {
+  const editorWords = parseEditorWords(words);
+  const lensWords = getWordLensWords(words);
+  const regularWords = Array.from(new Set(editorWords.filter(
+    (word) => !WORD_LENS_LOOKUP.has(normalizeWordLensKey(word))
+  )));
+  const candidateKeys = new Set(candidates.map(normalizeWordLensKey));
+
+  if (lensWords.length === 0 && regularWords.length === 0) return null;
+
+  return (
+    <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-950">
+      {lensWords.length > 0 && (
+        <div>
+          <p className="font-semibold">Word Lens definitions in this group</p>
+
+          <div className="mt-2 grid gap-2">
+            {lensWords.map((word) => (
+              <div
+                key={word}
+                className="rounded-lg bg-white px-3 py-2 text-amber-950 shadow-sm"
+              >
+                <p className="font-semibold">{word}</p>
+                <p className="mt-1">{DEFINITIONS[word].short}</p>
+                <p className="mt-1 text-amber-800">
+                  {DEFINITIONS[word].extended}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {regularWords.length > 0 && (
+        <div className={lensWords.length > 0 ? "mt-3 border-t border-amber-200 pt-3" : ""}>
+          <p className="font-semibold">New Word Lens candidates</p>
+
+          <div className="mt-2 flex flex-wrap gap-2">
+            {regularWords.map((word) => {
+              const isCandidate = candidateKeys.has(normalizeWordLensKey(word));
+
+              return (
+                <button
+                  key={word}
+                  type="button"
+                  onClick={() =>
+                    isCandidate
+                      ? onRemoveCandidate(word)
+                      : onAddCandidate(word)
+                  }
+                  className={
+                    isCandidate
+                      ? "rounded-full bg-amber-600 px-3 py-1 font-semibold text-white transition hover:bg-amber-700"
+                      : "rounded-full bg-white px-3 py-1 font-medium text-amber-900 shadow-sm transition hover:bg-amber-100"
+                  }
+                >
+                  {isCandidate ? `${word} marked` : `Mark ${word}`}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function PuzzleEditor() {
   const [originalPuzzle, setOriginalPuzzle] = useState<any>(null);
   const [finalSubmitted, setFinalSubmitted] = useState(false);
   const [workflowGuideOpen, setWorkflowGuideOpen] = useState(false);
+  const [wordLensCandidates, setWordLensCandidates] = useState<string[]>([]);
 
   const [title, setTitle] = useState("");
   const [difficulty, setDifficulty] = useState(1);
@@ -123,6 +235,7 @@ export default function PuzzleEditor() {
     setTooEasy(false);
     setTooObscure(false);
     setSuggestedChanges("");
+    setWordLensCandidates([]);
     setPreviewGame(null);
   };
 
@@ -162,6 +275,35 @@ export default function PuzzleEditor() {
     setGroups(updated);
   };
 
+  const activeWordLensCandidates = getActiveWordLensCandidates(
+    groups,
+    wordLensCandidates
+  );
+
+  const addWordLensCandidate = (word: string) => {
+    setWordLensCandidates((current) => {
+      if (
+        current.some(
+          (candidate) =>
+            normalizeWordLensKey(candidate) === normalizeWordLensKey(word)
+        )
+      ) {
+        return current;
+      }
+
+      return [...current, word.trim()];
+    });
+  };
+
+  const removeWordLensCandidate = (word: string) => {
+    setWordLensCandidates((current) =>
+      current.filter(
+        (candidate) =>
+          normalizeWordLensKey(candidate) !== normalizeWordLensKey(word)
+      )
+    );
+  };
+
   const buildDraftObject = () => {
     return {
       id: originalPuzzle?.id || Date.now(),
@@ -182,6 +324,7 @@ export default function PuzzleEditor() {
         tooEasy,
         tooObscure,
         suggestedChanges,
+        wordLensCandidates: activeWordLensCandidates,
       },
 
       groups: groups.map((g: any) => ({
@@ -280,6 +423,9 @@ export default function PuzzleEditor() {
               </li>
               <li>
                 <strong>Shape the draft.</strong> Adjust the words, answer choices, connections, and insight text.
+              </li>
+              <li>
+                <strong>Review Word Lens.</strong> Existing Word Lens words show definitions. Mark any new word that should become a Word Lens candidate.
               </li>
               <li>
                 <strong>Leave review notes.</strong> Flag anything too easy, too obscure, or worth improving.
@@ -407,6 +553,13 @@ export default function PuzzleEditor() {
             className="w-full border rounded px-3 py-2 text-sm"
           />
 
+          <WordLensMarkers
+            words={group.words}
+            candidates={activeWordLensCandidates}
+            onAddCandidate={addWordLensCandidate}
+            onRemoveCandidate={removeWordLensCandidate}
+          />
+
           <input
             value={group.correct}
             onChange={(e) => updateGroup(i, "correct", e.target.value)}
@@ -517,6 +670,25 @@ export default function PuzzleEditor() {
           placeholder="Suggested changes"
           className="w-full border rounded px-3 py-2 text-sm min-h-24"
         />
+
+        {activeWordLensCandidates.length > 0 && (
+          <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-950">
+            <p className="font-medium">Suggested new Word Lens words</p>
+
+            <div className="mt-2 flex flex-wrap gap-2">
+              {activeWordLensCandidates.map((word) => (
+                <button
+                  key={word}
+                  type="button"
+                  onClick={() => removeWordLensCandidate(word)}
+                  className="rounded-full bg-amber-600 px-3 py-1 text-xs font-semibold text-white transition hover:bg-amber-700"
+                >
+                  {word} marked
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">

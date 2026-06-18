@@ -1087,4 +1087,109 @@ Multitudinous: {
   extended:
     "Multitudinous suggests a crowd, collection, or amount so large it feels abundant and difficult to count.",
 },
+
+Coulee: {
+  short:
+    "A deep ravine, valley, or channel, often shaped by flowing water.",
+  extended:
+    "The word is common in parts of North America and often describes a dry or seasonal watercourse cut into the land.",
+},
+
+Beatific: {
+  short:
+    "Showing peaceful, radiant happiness.",
+  extended:
+    "Beatific often suggests a serene joy that looks almost blessed, calm, or spiritually content.",
+},
+
+Idyllic: {
+  short:
+    "Extremely peaceful, beautiful, or pleasing, especially in a simple natural setting.",
+  extended:
+    "An idyllic scene feels almost ideal: calm, picturesque, and untouched by ordinary trouble.",
+},
+
+Pastoral: {
+  short:
+    "Related to the countryside, rural life, or shepherds.",
+  extended:
+    "Pastoral language often presents rural life as peaceful, simple, and beautiful.",
+},
+
+Penchant: {
+  short:
+    "A strong liking, preference, or tendency toward something.",
+  extended:
+    "A penchant is not just a casual choice; it suggests a noticeable habit of being drawn to something.",
+},
+
+Bellwether: {
+  short:
+    "Something that leads, indicates, or signals a broader trend.",
+  extended:
+    "The word originally referred to a lead sheep wearing a bell, and now often means an early sign of where a group or trend is heading.",
+},
+
+Prolix: {
+  short:
+    "Using too many words; overly long or wordy.",
+  extended:
+    "Prolix speech or writing keeps expanding after the point is clear, which can make meaning harder to follow.",
+},
+
+Addendum: {
+  short:
+    "An extra section added to the end of a document or book.",
+  extended:
+    "An addendum usually adds information, correction, or clarification after the main text is complete.",
+},
+
+Obdurate: {
+  short:
+    "Stubbornly refusing to change, soften, or be persuaded.",
+  extended:
+    "Obdurate suggests a hardened resistance that does not easily yield to reason, pressure, or appeal.",
+},
+
+Allusive: {
+  short:
+    "Hinting at or indirectly referring to something else.",
+  extended:
+    "Allusive language depends on suggestion and shared knowledge; it points without explaining everything directly.",
+},
+
+Referential: {
+  short:
+    "Pointing to, mentioning, or depending on another source, idea, or thing.",
+  extended:
+    "Referential language gets part of its meaning from what it directs the reader or listener to remember.",
+},
+
+Evocative: {
+  short:
+    "Bringing a feeling, memory, image, or idea strongly to mind.",
+  extended:
+    "Evocative words do not only define; they call up associations and atmosphere.",
+},
+
+Elusive: {
+  short:
+    "Difficult to find, catch, describe, or understand.",
+  extended:
+    "Elusive is easy to confuse with allusive, but it means hard to grasp rather than indirectly referential.",
+},
+
+Feint: {
+  short:
+    "A deceptive move meant to distract from the real action.",
+  extended:
+    "A feint appears in fighting, sports, strategy, and argument whenever a false move pulls attention away from the true one.",
+},
+
+Ruse: {
+  short:
+    "A trick or clever plan used to deceive someone.",
+  extended:
+    "A ruse works by making someone believe the wrong thing or look in the wrong direction.",
+},
 };
