@@ -102,7 +102,13 @@ type DraftRecord = {
   week?: number;
   day?: number;
   title: string;
-  status: "draft" | "needs_revision" | "submitted" | "approved";
+  status:
+    | "draft"
+    | "needs_revision"
+    | "submitted"
+    | "publication_ready"
+    | "published"
+    | "approved";
   editorName: string;
   publication: string;
   updatedAt: string;
@@ -112,6 +118,8 @@ type DraftRecord = {
 
 function getDraftStatusLabel(status: DraftRecord["status"]) {
   if (status === "submitted") return "Submitted for review";
+  if (status === "publication_ready") return "Publication ready";
+  if (status === "published") return "Published";
   if (status === "needs_revision") return "Corrections needed";
   if (status === "approved") return "Approved";
   return "Draft saved";
