@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type SyntheticEvent } from "react";
+import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import { trackStudioEvent } from "./analytics";
 import Game from "./Game";
 import { GAMES } from "./data/games";
@@ -91,6 +91,54 @@ const WORD_LENS_LOOKUP = new Map(
   Object.keys(DEFINITIONS).map((word) => [normalizeWordLensKey(word), word])
 );
 
+const DRAFT_STORAGE_KEY = "wordArchitectEditorDraftBranches";
+const STUDIO_SUPABASE_URL = "https://cquxlcmqfxcnefbmlmzi.supabase.co";
+const STUDIO_SUPABASE_ANON_KEY =
+  "sb_publishable_ovRwn4OCOTuZ4xjkusC-0g_NpTJGxoZ";
+
+type DraftRecord = {
+  draftId: string;
+  sourceGameId: string;
+  week?: number;
+  day?: number;
+  title: string;
+  status: "draft" | "submitted";
+  editorName: string;
+  publication: string;
+  updatedAt: string;
+  submittedAt?: string;
+  draft: any;
+};
+
+function getWordArchitectDraftConfig() {
+  return {
+    url: STUDIO_SUPABASE_URL,
+    anonKey: STUDIO_SUPABASE_ANON_KEY,
+  };
+}
+
+function readDraftBranches(): Record<string, DraftRecord> {
+  if (typeof window === "undefined") return {};
+
+  try {
+    const saved = localStorage.getItem(DRAFT_STORAGE_KEY);
+    const parsed = saved ? JSON.parse(saved) : {};
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function writeDraftBranches(branches: Record<string, DraftRecord>) {
+  if (typeof window === "undefined") return;
+
+  try {
+    localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(branches));
+  } catch (error) {
+    console.warn("Word Architect could not save draft branches locally.", error);
+  }
+}
+
 function getWordLensWords(words: string) {
   const matches = parseEditorWords(words)
     .map((word) => WORD_LENS_LOOKUP.get(normalizeWordLensKey(word)))
@@ -107,6 +155,128 @@ function getActiveWordLensCandidates(groups: any[], candidates: string[]) {
   return candidates.filter((word) =>
     currentWordKeys.has(normalizeWordLensKey(word))
   );
+}
+
+function composePuzzleDraft({
+  originalPuzzle,
+  title,
+  difficulty,
+  vocab,
+  editorName,
+  publication,
+  groups,
+  editorNotes,
+  tooEasy,
+  tooObscure,
+  suggestedChanges,
+  wordLensCandidates,
+}: {
+  originalPuzzle: any;
+  title: string;
+  difficulty: number;
+  vocab: string;
+  editorName: string;
+  publication: string;
+  groups: any[];
+  editorNotes: string;
+  tooEasy: boolean;
+  tooObscure: boolean;
+  suggestedChanges: string;
+  wordLensCandidates: string[];
+}) {
+  const activeWordLensCandidates = getActiveWordLensCandidates(
+    groups,
+    wordLensCandidates
+  );
+
+  return {
+    id: originalPuzzle?.id || Date.now(),
+    sourceGameId: originalPuzzle?.id || null,
+    title,
+    difficulty,
+    vocab,
+    week: originalPuzzle?.week,
+    day: originalPuzzle?.day,
+    status: "draft",
+
+    editor: {
+      name: editorName,
+      publication,
+    },
+
+    review: {
+      editorNotes,
+      tooEasy,
+      tooObscure,
+      suggestedChanges,
+      wordLensCandidates: activeWordLensCandidates,
+    },
+
+    groups: groups.map((g: any) => ({
+      skill: g.skill,
+      words: String(g.words || "")
+        .split(",")
+        .map((w: string) => w.trim())
+        .filter(Boolean),
+      correct: g.correct,
+      options: g.options,
+      insight: g.insight,
+    })),
+  };
+}
+
+async function saveDraftRecordToSupabase(record: DraftRecord) {
+  const config = getWordArchitectDraftConfig();
+  const payload = {
+    draft_id: record.draftId,
+    source_game_id: record.sourceGameId,
+    week: record.week,
+    day: record.day,
+    title: record.title,
+    status: record.status,
+    editor_name: record.editorName,
+    publication: record.publication,
+    updated_at: record.updatedAt,
+    submitted_at: record.submittedAt || null,
+    draft: record.draft,
+  };
+
+  const response = await fetch(
+    `${config.url}/rest/v1/word_architect_drafts?on_conflict=draft_id`,
+    {
+      method: "POST",
+      headers: {
+        apikey: config.anonKey,
+        Authorization: `Bearer ${config.anonKey}`,
+        "Content-Type": "application/json",
+        Prefer: "resolution=merge-duplicates",
+      },
+      body: JSON.stringify(payload),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`Draft save failed with status ${response.status}`);
+  }
+}
+
+async function fetchDraftRecordsFromSupabase() {
+  const config = getWordArchitectDraftConfig();
+  const response = await fetch(
+    `${config.url}/rest/v1/word_architect_drafts?select=*&order=updated_at.desc`,
+    {
+      headers: {
+        apikey: config.anonKey,
+        Authorization: `Bearer ${config.anonKey}`,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`Draft load failed with status ${response.status}`);
+  }
+
+  return response.json();
 }
 
 function WordLensMarkers({
@@ -216,32 +386,87 @@ export default function PuzzleEditor() {
 
   const [previewGame, setPreviewGame] = useState<any>(null);
   const [finalJSON, setFinalJSON] = useState("");
+  const [draftBranches, setDraftBranches] = useState<Record<string, DraftRecord>>(
+    {}
+  );
+  const [draftReviewOpen, setDraftReviewOpen] = useState(false);
+  const [sharedDraftStatus, setSharedDraftStatus] = useState(
+    "Shared saving is connected. Load a puzzle to start a draft branch."
+  );
+  const [isSavingDraft, setIsSavingDraft] = useState(false);
+  const autosaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastSavedDraftSignatureRef = useRef("");
 
   const loadGame = (gameId: number) => {
     const game = GAMES.find((g) => g.id === gameId);
     if (!game) return;
+    const savedRecord = draftBranches[String(game.id)];
+    const editorGame = savedRecord?.draft || game;
+    const review = editorGame.review || {};
+    const nextGroups = editorGame.groups.map((g: any) => ({
+      ...g,
+      words: Array.isArray(g.words) ? g.words.join(", ") : g.words || "",
+    }));
+    const nextTitle = editorGame.title || `Week ${game.week} Day ${game.day}`;
+    const nextDifficulty = editorGame.difficulty;
+    const nextVocab = editorGame.vocab;
+    const nextEditorName = editorGame.editor?.name || "";
+    const nextPublication =
+      editorGame.editor?.publication || editorGame.editor?.newsOrganization || "";
+    const nextEditorNotes = review.editorNotes || "";
+    const nextTooEasy = Boolean(review.tooEasy);
+    const nextTooObscure = Boolean(review.tooObscure);
+    const nextSuggestedChanges = review.suggestedChanges || "";
+    const nextWordLensCandidates = Array.isArray(review.wordLensCandidates)
+      ? review.wordLensCandidates
+      : [];
 
     setOriginalPuzzle(JSON.parse(JSON.stringify(game)));
     setFinalSubmitted(false);
     setFinalJSON("");
 
-    setTitle(`Week ${game.week} Day ${game.day}`);
-    setDifficulty(game.difficulty);
-    setVocab(game.vocab);
+    setTitle(nextTitle);
+    setDifficulty(nextDifficulty);
+    setVocab(nextVocab);
+    setEditorName(nextEditorName);
+    setPublication(nextPublication);
 
-    setGroups(
-      game.groups.map((g: any) => ({
-        ...g,
-        words: g.words.join(", "),
-      }))
-    );
+    setGroups(nextGroups);
 
-    setEditorNotes("");
-    setTooEasy(false);
-    setTooObscure(false);
-    setSuggestedChanges("");
-    setWordLensCandidates([]);
+    setEditorNotes(nextEditorNotes);
+    setTooEasy(nextTooEasy);
+    setTooObscure(nextTooObscure);
+    setSuggestedChanges(nextSuggestedChanges);
+    setWordLensCandidates(nextWordLensCandidates);
     setPreviewGame(null);
+    setSharedDraftStatus(
+      savedRecord
+        ? `Opened saved draft. Last saved ${new Date(
+            savedRecord.updatedAt
+          ).toLocaleString([], {
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+          })}.`
+        : "Original puzzle loaded. Editing will autosave a shared draft branch."
+    );
+    lastSavedDraftSignatureRef.current = JSON.stringify(
+      composePuzzleDraft({
+        originalPuzzle: game,
+        title: nextTitle,
+        difficulty: nextDifficulty,
+        vocab: nextVocab,
+        editorName: nextEditorName,
+        publication: nextPublication,
+        groups: nextGroups,
+        editorNotes: nextEditorNotes,
+        tooEasy: nextTooEasy,
+        tooObscure: nextTooObscure,
+        suggestedChanges: nextSuggestedChanges,
+        wordLensCandidates: nextWordLensCandidates,
+      })
+    );
   };
 
   const updateGroup = (index: number, field: string, value: any) => {
@@ -310,39 +535,20 @@ export default function PuzzleEditor() {
   };
 
   const buildDraftObject = () => {
-    return {
-      id: originalPuzzle?.id || Date.now(),
+    return composePuzzleDraft({
+      originalPuzzle,
       title,
       difficulty,
       vocab,
-      week: originalPuzzle?.week,
-      day: originalPuzzle?.day,
-      status: "draft",
-
-      editor: {
-        name: editorName,
-        publication,
-      },
-
-      review: {
-        editorNotes,
-        tooEasy,
-        tooObscure,
-        suggestedChanges,
-        wordLensCandidates: activeWordLensCandidates,
-      },
-
-      groups: groups.map((g: any) => ({
-        skill: g.skill,
-        words: g.words
-          .split(",")
-          .map((w: string) => w.trim())
-          .filter(Boolean),
-        correct: g.correct,
-        options: g.options,
-        insight: g.insight,
-      })),
-    };
+      editorName,
+      publication,
+      groups,
+      editorNotes,
+      tooEasy,
+      tooObscure,
+      suggestedChanges,
+      wordLensCandidates,
+    });
   };
 
   const buildFinalObject = () => {
@@ -354,12 +560,191 @@ export default function PuzzleEditor() {
     };
   };
 
+  const buildDraftRecord = (
+    status: DraftRecord["status"] = "draft",
+    draftOverride?: any
+  ): DraftRecord | null => {
+    if (!originalPuzzle) return null;
+
+    const now = new Date().toISOString();
+    const sourceGameId = String(originalPuzzle.id);
+    const draft = draftOverride || buildDraftObject();
+    draft.sourceGameId = originalPuzzle.id;
+    draft.draftId = `word-architect-${sourceGameId}-editor-draft`;
+    draft.draftStatus = status;
+    draft.draftUpdatedAt = now;
+
+    if (status === "submitted") {
+      draft.submittedAt = now;
+    }
+
+    return {
+      draftId: draft.draftId,
+      sourceGameId,
+      week: draft.week,
+      day: draft.day,
+      title: draft.title || `Week ${draft.week} Day ${draft.day}`,
+      status,
+      editorName: draft.editor?.name || "",
+      publication: draft.editor?.publication || "",
+      updatedAt: now,
+      submittedAt: status === "submitted" ? now : draft.submittedAt || "",
+      draft,
+    };
+  };
+
+  const saveDraftBranch = async (
+    status: DraftRecord["status"] = "draft",
+    message = "Saved draft",
+    draftOverride?: any
+  ) => {
+    const record = buildDraftRecord(status, draftOverride);
+
+    if (!record) {
+      setSharedDraftStatus("Load a puzzle before saving a draft.");
+      return null;
+    }
+
+    const nextBranches = {
+      ...draftBranches,
+      [record.sourceGameId]: record,
+    };
+
+    setDraftBranches(nextBranches);
+    writeDraftBranches(nextBranches);
+    lastSavedDraftSignatureRef.current = JSON.stringify(record.draft);
+    setSharedDraftStatus(`${message}. Saving shared draft...`);
+    setIsSavingDraft(true);
+
+    try {
+      await saveDraftRecordToSupabase(record);
+      setSharedDraftStatus(
+        `${message}. Shared save complete ${new Date(
+          record.updatedAt
+        ).toLocaleString([], {
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+        })}.`
+      );
+    } catch (error) {
+      console.warn("Word Architect shared draft save failed.", error);
+      setSharedDraftStatus(
+        `${message} on this device. Shared save failed, so Copy Draft JSON is the backup.`
+      );
+    } finally {
+      setIsSavingDraft(false);
+    }
+
+    return record;
+  };
+
+  const syncRemoteDraftBranches = async () => {
+    setSharedDraftStatus("Loading shared drafts...");
+
+    try {
+      const rows = await fetchDraftRecordsFromSupabase();
+      const realGameIds = new Set(GAMES.map((game) => String(game.id)));
+      const remoteBranches: Record<string, DraftRecord> = {};
+
+      rows.forEach((row: any) => {
+        if (!row.source_game_id || !row.draft) return;
+        if (!realGameIds.has(String(row.source_game_id))) return;
+
+        remoteBranches[String(row.source_game_id)] = {
+          draftId: row.draft_id,
+          sourceGameId: String(row.source_game_id),
+          week: row.week,
+          day: row.day,
+          title: row.title || `Week ${row.week} Day ${row.day}`,
+          status: row.status || "draft",
+          editorName: row.editor_name || "",
+          publication: row.publication || "",
+          updatedAt: row.updated_at,
+          submittedAt: row.submitted_at || "",
+          draft: row.draft,
+        };
+      });
+
+      setDraftBranches((current) => {
+        const merged = {
+          ...current,
+          ...remoteBranches,
+        };
+        writeDraftBranches(merged);
+        return merged;
+      });
+      setSharedDraftStatus(
+        Object.keys(remoteBranches).length
+          ? "Shared drafts loaded."
+          : "Shared saving is connected. No saved drafts yet."
+      );
+    } catch (error) {
+      console.warn("Word Architect could not load shared drafts.", error);
+      setSharedDraftStatus(
+        "Shared drafts could not load. Local draft saving still works."
+      );
+    }
+  };
+
+  useEffect(() => {
+    const localBranches = readDraftBranches();
+    setDraftBranches(localBranches);
+    void syncRemoteDraftBranches();
+
+    return () => {
+      if (autosaveTimerRef.current) {
+        clearTimeout(autosaveTimerRef.current);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!originalPuzzle) return;
+
+    const signature = JSON.stringify(buildDraftObject());
+    if (signature === lastSavedDraftSignatureRef.current) return;
+
+    if (autosaveTimerRef.current) {
+      clearTimeout(autosaveTimerRef.current);
+    }
+
+    autosaveTimerRef.current = setTimeout(() => {
+      void saveDraftBranch("draft", "Autosaved draft");
+    }, 1000);
+
+    return () => {
+      if (autosaveTimerRef.current) {
+        clearTimeout(autosaveTimerRef.current);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    title,
+    difficulty,
+    vocab,
+    editorName,
+    publication,
+    groups,
+    editorNotes,
+    tooEasy,
+    tooObscure,
+    suggestedChanges,
+    wordLensCandidates,
+    originalPuzzle,
+  ]);
+
   const preview = () => {
-    setPreviewGame(buildDraftObject());
+    const game = buildDraftObject();
+    setPreviewGame(game);
+    void saveDraftBranch("draft", "Saved draft for preview", game);
   };
 
   const playtest = () => {
     const game = buildDraftObject();
+    void saveDraftBranch("draft", "Saved draft for playtest", game);
 
     localStorage.setItem(
       "wordArchitectPlaytest",
@@ -371,6 +756,7 @@ export default function PuzzleEditor() {
 
   const copyDraftJSON = async () => {
     const game = buildDraftObject();
+    void saveDraftBranch("draft", "Saved draft before export", game);
     await navigator.clipboard.writeText(JSON.stringify(game, null, 2));
     alert("Draft JSON copied to clipboard.");
   };
@@ -383,9 +769,20 @@ export default function PuzzleEditor() {
     setFinalSubmitted(true);
 
     await navigator.clipboard.writeText(json);
+    await saveDraftBranch(
+      "submitted",
+      "Submitted final draft for review",
+      finalGame
+    );
 
     alert("Final puzzle JSON copied to clipboard.");
   };
+
+  const savedDraftRecords = Object.values(draftBranches)
+    .filter((record) =>
+      GAMES.some((game) => String(game.id) === record.sourceGameId)
+    )
+    .sort((a, b) => (a.week || 0) - (b.week || 0) || (a.day || 0) - (b.day || 0));
 
   return (
     <main className="min-h-screen bg-neutral-50 p-6 space-y-8 max-w-4xl mx-auto">
@@ -427,7 +824,7 @@ export default function PuzzleEditor() {
                 <strong>Add editor details.</strong> Enter your name and publication so the welcome page can credit the edit.
               </li>
               <li>
-                <strong>Shape the draft.</strong> Adjust the words, answer choices, connections, and insight text.
+                <strong>Shape the draft.</strong> Adjust the words, answer choices, connections, and insight text. Your draft branch autosaves as you work.
               </li>
               <li>
                 <strong>Review Word Lens.</strong> Existing Word Lens words show definitions. Mark any new word that should become a Word Lens candidate.
@@ -436,10 +833,10 @@ export default function PuzzleEditor() {
                 <strong>Leave review notes.</strong> Flag anything too easy, too obscure, or worth improving.
               </li>
               <li>
-                <strong>Preview or playtest.</strong> Preview shows the draft on this page. Playtest opens it like a real game.
+                <strong>Preview or playtest.</strong> Preview shows the draft on this page. Playtest opens it like a real game and keeps the draft saved.
               </li>
               <li>
-                <strong>Submit final.</strong> Submit Final copies the clean final puzzle JSON so it can be added to the live game.
+                <strong>Submit final.</strong> Submit Final marks the branch ready for review and still copies the clean JSON as a backup.
               </li>
             </ol>
           </section>
@@ -472,6 +869,86 @@ export default function PuzzleEditor() {
               Week {originalPuzzle.week}, Day {originalPuzzle.day} · Difficulty{" "}
               {originalPuzzle.difficulty}
             </p>
+          </div>
+        )}
+      </section>
+
+      <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h2 className="font-medium">Draft Branch</h2>
+            <p className="mt-1 text-sm text-neutral-500">
+              {sharedDraftStatus}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <button
+              type="button"
+              onClick={() => void saveDraftBranch("draft", "Saved draft")}
+              disabled={!originalPuzzle || isSavingDraft}
+              className="rounded-xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:bg-neutral-300"
+            >
+              {isSavingDraft ? "Saving..." : "Save Draft"}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setDraftReviewOpen((isOpen) => !isOpen);
+                void syncRemoteDraftBranches();
+              }}
+              className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
+            >
+              Review Saved Drafts
+            </button>
+          </div>
+        </div>
+
+        {draftReviewOpen && (
+          <div className="space-y-3 rounded-xl border border-neutral-200 bg-neutral-50 p-4">
+            {savedDraftRecords.length === 0 ? (
+              <p className="text-sm text-neutral-500">
+                No saved draft branches yet.
+              </p>
+            ) : (
+              savedDraftRecords.map((record) => (
+                <div
+                  key={record.draftId}
+                  className="flex flex-col gap-3 rounded-xl bg-white p-3 text-sm shadow-sm sm:flex-row sm:items-center sm:justify-between"
+                >
+                  <div>
+                    <p className="font-semibold">
+                      Week {record.week}, Day {record.day}
+                    </p>
+                    <p className="text-neutral-500">
+                      {record.status === "submitted"
+                        ? "Submitted for review"
+                        : "Draft saved"}{" "}
+                      by {record.editorName || "No editor name"}{" "}
+                      {record.publication ? `for ${record.publication}` : ""}
+                    </p>
+                    <p className="text-neutral-400">
+                      Last saved{" "}
+                      {new Date(record.updatedAt).toLocaleString([], {
+                        month: "short",
+                        day: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                      })}
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => loadGame(Number(record.sourceGameId))}
+                    className="rounded-xl border border-neutral-300 px-4 py-2 font-semibold text-neutral-800 transition hover:bg-neutral-100"
+                  >
+                    Open Draft
+                  </button>
+                </div>
+              ))
+            )}
           </div>
         )}
       </section>

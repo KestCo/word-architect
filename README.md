@@ -43,3 +43,9 @@ Word Architect sends privacy-light gameplay events to the shared KestCo Game Stu
 - `NEXT_PUBLIC_STUDIO_SUPABASE_ANON_KEY`
 
 Events include game starts, completions, Word Lens opens, answer reveals, and insight answer outcomes.
+
+## Editor Drafts
+
+The editor can save draft branches locally and to the shared Studio Supabase project. Run the `word_architect_drafts` section in the Game Studio `supabase-schema.sql` before using shared draft saving live.
+
+Copy Draft JSON remains as a backup export path.
