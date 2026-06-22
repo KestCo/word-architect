@@ -102,13 +102,20 @@ type DraftRecord = {
   week?: number;
   day?: number;
   title: string;
-  status: "draft" | "submitted";
+  status: "draft" | "needs_revision" | "submitted" | "approved";
   editorName: string;
   publication: string;
   updatedAt: string;
   submittedAt?: string;
   draft: any;
 };
+
+function getDraftStatusLabel(status: DraftRecord["status"]) {
+  if (status === "submitted") return "Submitted for review";
+  if (status === "needs_revision") return "Corrections needed";
+  if (status === "approved") return "Approved";
+  return "Draft saved";
+}
 
 function getWordArchitectDraftConfig() {
   return {
@@ -448,7 +455,7 @@ export default function PuzzleEditor() {
             day: "numeric",
             hour: "numeric",
             minute: "2-digit",
-          })}.`
+          })}. ${getDraftStatusLabel(savedRecord.status)}.`
         : "Original puzzle loaded. Editing will autosave a shared draft branch."
     );
     lastSavedDraftSignatureRef.current = JSON.stringify(
@@ -922,9 +929,7 @@ export default function PuzzleEditor() {
                       Week {record.week}, Day {record.day}
                     </p>
                     <p className="text-neutral-500">
-                      {record.status === "submitted"
-                        ? "Submitted for review"
-                        : "Draft saved"}{" "}
+                      {getDraftStatusLabel(record.status)}{" "}
                       by {record.editorName || "No editor name"}{" "}
                       {record.publication ? `for ${record.publication}` : ""}
                     </p>
