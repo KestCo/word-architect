@@ -1,8 +1,16 @@
 "use client";
 
 const GAME_ID = "word-architect";
-const supabaseUrl = process.env.NEXT_PUBLIC_STUDIO_SUPABASE_URL?.replace(/\/$/, "") || "";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_STUDIO_SUPABASE_ANON_KEY || "";
+const PUBLIC_STUDIO_SUPABASE_URL = "https://cquxlcmqfxcnefbmlmzi.supabase.co";
+const PUBLIC_STUDIO_SUPABASE_ANON_KEY =
+  "sb_publishable_ovRwn4OCOTuZ4xjkusC-0g_NpTJGxoZ";
+
+const supabaseUrl =
+  process.env.NEXT_PUBLIC_STUDIO_SUPABASE_URL?.replace(/\/$/, "") ||
+  PUBLIC_STUDIO_SUPABASE_URL;
+const supabaseAnonKey =
+  process.env.NEXT_PUBLIC_STUDIO_SUPABASE_ANON_KEY ||
+  PUBLIC_STUDIO_SUPABASE_ANON_KEY;
 
 function sessionId() {
   if (typeof window === "undefined") return "";
