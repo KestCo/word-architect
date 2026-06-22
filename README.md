@@ -34,3 +34,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Studio Analytics
+
+Word Architect sends privacy-light gameplay events to the shared KestCo Game Studio dashboard when these public environment variables are set:
+
+- `NEXT_PUBLIC_STUDIO_SUPABASE_URL`
+- `NEXT_PUBLIC_STUDIO_SUPABASE_ANON_KEY`
+
+Events include game starts, completions, Word Lens opens, answer reveals, and insight answer outcomes.

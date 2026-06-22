@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { trackStudioEvent } from "./analytics";
 import { getDailyGame } from "./data/dailyGame";
 import { DEFINITIONS } from "./data/definitions";
 import {
@@ -705,6 +706,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   const completionTimerRef = useRef<number | null>(null);
   const preparedResultRef = useRef<any | null>(null);
   const dashboardShownRef = useRef(false);
+  const startTrackedRef = useRef(false);
 
   const [skillMistakes, setSkillMistakes] = useState<Record<string, number>>({
     abstraction: 0,
@@ -756,6 +758,22 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     const result = buildResult(Date.now());
     preparedResultRef.current = result;
     setResultsReady(true);
+    trackStudioEvent(
+      isEditorPreview
+        ? "editor_preview_completed"
+        : isPlaytestMode
+        ? "playtest_completed"
+        : "puzzle_completed",
+      {
+        game_id: result.gameId,
+        week: result.week,
+        day: result.day,
+        difficulty: result.difficulty,
+        mistakes: result.mistakes,
+        time_ms: result.timeMs,
+        lens_count: result.lensWords.length,
+      }
+    );
 
     if (isEditorPreview || isPlaytestMode) return result;
 
@@ -807,6 +825,22 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     const parsed = readSavedResults();
 
     setHistory(parsed);
+    if (!startTrackedRef.current) {
+      startTrackedRef.current = true;
+      trackStudioEvent(
+        isEditorPreview
+          ? "editor_preview_started"
+          : isPlaytestMode
+          ? "playtest_started"
+          : "game_started",
+        {
+          game_id: selectedGame.id,
+          week: selectedGame.week,
+          day: selectedGame.day,
+          difficulty: selectedGame.difficulty,
+        }
+      );
+    }
 
     if (!isEditorPreview && !isPlaytestMode) {
       const resultKeys = todayResultKeys();
@@ -816,6 +850,11 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
       if (todayResult) {
         setAlreadyCompletedResult(todayResult);
+        trackStudioEvent("already_completed_viewed", {
+          game_id: selectedGame.id,
+          week: selectedGame.week,
+          day: selectedGame.day,
+        });
       }
     }
 
@@ -993,9 +1032,19 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   };
 
   const unlockAnswer = (stackId: string, selectedAnswer?: string) => {
+    const stack = stacks.find((s: any) => s.id === stackId);
     const isFinalAnswer =
       stacks.every((s: any) => s.locked) &&
       stacks.filter((s: any) => s.locked && !s.showAnswer).length === 1;
+
+    trackStudioEvent(selectedAnswer ? "answer_correct" : "answer_revealed", {
+      game_id: selectedGame.id,
+      week: selectedGame.week,
+      day: selectedGame.day,
+      difficulty: selectedGame.difficulty,
+      skill: stack?.data?.skill || "",
+      final_answer: isFinalAnswer,
+    });
 
     setStacks((prev: any[]) =>
       prev.map((s: any) =>
@@ -1055,6 +1104,14 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       unlockAnswer(stackId, stack.selected);
       return;
     }
+
+    trackStudioEvent("answer_wrong", {
+      game_id: selectedGame.id,
+      week: selectedGame.week,
+      day: selectedGame.day,
+      difficulty: selectedGame.difficulty,
+      skill: stack.data.skill,
+    });
 
     setStacks((prev: any[]) =>
       prev.map((s: any) =>
@@ -1191,6 +1248,13 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                   setExploredLensWords((prev) =>
                     prev.includes(word) ? prev : [...prev, word]
                   );
+                  trackStudioEvent("word_lens_opened", {
+                    game_id: selectedGame.id,
+                    week: selectedGame.week,
+                    day: selectedGame.day,
+                    difficulty: selectedGame.difficulty,
+                    word,
+                  });
                   setLensWord(word);
                 }}
                 className="bg-white text-neutral-950 px-4 py-2 rounded-full text-sm font-medium"

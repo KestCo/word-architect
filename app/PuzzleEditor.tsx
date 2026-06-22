@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type SyntheticEvent } from "react";
+import { useEffect, useState, type SyntheticEvent } from "react";
+import { trackStudioEvent } from "./analytics";
 import Game from "./Game";
 import { GAMES } from "./data/games";
 import { DEFINITIONS } from "./data/definitions";
@@ -186,6 +187,10 @@ function WordLensMarkers({
 }
 
 export default function PuzzleEditor() {
+  useEffect(() => {
+    trackStudioEvent("editor_opened");
+  }, []);
+
   const [originalPuzzle, setOriginalPuzzle] = useState<any>(null);
   const [finalSubmitted, setFinalSubmitted] = useState(false);
   const [workflowGuideOpen, setWorkflowGuideOpen] = useState(false);
