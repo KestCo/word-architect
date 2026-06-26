@@ -1263,6 +1263,13 @@ Cairn: {
     "Cairns often mark trails, summits, graves, or meaningful places, especially in open landscapes.",
 },
 
+Laurel: {
+  short:
+    "A wreath or branch used as a symbol of victory, honor, or achievement.",
+  extended:
+    "Laurel comes from ancient traditions of crowning winners or honored people, so it often points to praise, reputation, or lasting recognition.",
+},
+
 Yoke: {
   short:
     "A frame used to join animals for pulling; also a burden, restraint, or pressure.",

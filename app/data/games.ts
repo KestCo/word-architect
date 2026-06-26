@@ -4092,7 +4092,7 @@ export const GAMES = [
     },
     {
       skill: "linguistic",
-      words: ["Continue", "Last", "Survive", "Abide"],
+      words: ["Continue", "Last", "Survive", "Remain"],
       correct: "Verbs for remaining over time",
       options: [
         "Verbs for remaining over time",
@@ -4103,12 +4103,12 @@ export const GAMES = [
       insight: {
         pattern: "Continuance verbs",
         explanation:
-          "These verbs describe staying, enduring, or remaining after time, pressure, or change passes.",
+          "These verbs describe continuing, lasting, surviving, or remaining after time, pressure, or change passes.",
         generalization:
           "To go beyond is not always to rise above something; sometimes it is simply to remain.",
         adaptive: {
           correct: "You recognized the continuing-over-time pattern.",
-          wrong: "Think about verbs for staying or enduring after change.",
+          wrong: "Think about verbs for staying or continuing after change.",
         },
       },
     },
