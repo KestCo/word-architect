@@ -1263,6 +1263,13 @@ Cairn: {
     "Cairns often mark trails, summits, graves, or meaningful places, especially in open landscapes.",
 },
 
+Yoke: {
+  short:
+    "A frame used to join animals for pulling; also a burden, restraint, or pressure.",
+  extended:
+    "Yoke can be literal, like a wooden harness, or symbolic, meaning something that weighs on someone or limits freedom.",
+},
+
 Baritone: {
   short:
     "A male singing voice between tenor and bass.",
