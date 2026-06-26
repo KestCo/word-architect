@@ -3584,11 +3584,87 @@ export const GAMES = [
 
 // WEEK 8
 {
-  id: 50,
+  id: 55,
   difficulty: 1,
   vocab: "mixed",
   week: 8,
   day: 1,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Pilfer", "Filch", "Steal", "Swipe"],
+      correct: "To take something dishonestly",
+      options: [
+        "To take something dishonestly",
+        "To wrap something gently",
+        "To speak with precision",
+        "To outlast ordinary limits",
+      ],
+      insight: {
+        pattern: "Theft vocabulary",
+        explanation:
+          "These verbs all describe taking something that does not belong to you, often with speed or secrecy.",
+        generalization:
+          "Near-synonyms can differ in tone: pilfer and filch often suggest smaller or sneakier thefts than steal.",
+        adaptive: {
+          correct: "You recognized the theft vocabulary.",
+          wrong: "Think about verbs for taking what is not yours.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Safe", "Padlock", "Tripwire", "Strongbox"],
+      correct: "Objects used to guard valuables",
+      options: [
+        "Objects used to guard valuables",
+        "Objects used to guide travelers",
+        "Objects that hold a speaker's notes",
+        "Objects that mark lasting fame",
+      ],
+      insight: {
+        pattern: "Protection imagery",
+        explanation:
+          "Safes, padlocks, tripwires, and strongboxes are meant to protect valuables or warn against intrusion.",
+        generalization:
+          "The idea of theft becomes sharper when paired with the things people use to prevent it.",
+        adaptive: {
+          correct: "You saw the guarded-valuables pattern.",
+          wrong: "Think about objects that keep valuable things protected.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Protect", "Guard", "Defend", "Secure"],
+      correct: "Verbs for keeping something safe",
+      options: [
+        "Verbs for keeping something safe",
+        "Verbs for wrapping around gently",
+        "Verbs for surviving over time",
+        "Verbs for taking something quickly",
+      ],
+      insight: {
+        pattern: "Protection verbs",
+        explanation:
+          "Protect, guard, defend, and secure describe actions that keep something safe from harm, loss, or intrusion.",
+        generalization:
+          "This puzzle turns from threat to response: after theft vocabulary, these words name actions that resist loss.",
+        adaptive: {
+          correct: "You recognized the protective action words.",
+          wrong: "Think about verbs used when someone keeps a person, place, or object safe.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 50,
+  difficulty: 2,
+  vocab: "mixed",
+  week: 8,
+  day: 2,
   groups: [
     {
       skill: "abstraction",
@@ -3661,10 +3737,10 @@ export const GAMES = [
 
 {
   id: 51,
-  difficulty: 2,
+  difficulty: 3,
   vocab: "mixed",
   week: 8,
-  day: 2,
+  day: 3,
   groups: [
     {
       skill: "abstraction",
@@ -3737,10 +3813,10 @@ export const GAMES = [
 
 {
   id: 52,
-  difficulty: 3,
+  difficulty: 4,
   vocab: "mixed",
   week: 8,
-  day: 3,
+  day: 4,
   groups: [
     {
       skill: "abstraction",
@@ -3813,10 +3889,10 @@ export const GAMES = [
 
 {
   id: 53,
-  difficulty: 4,
+  difficulty: 5,
   vocab: "mixed",
   week: 8,
-  day: 4,
+  day: 5,
   groups: [
     {
       skill: "abstraction",
@@ -3889,10 +3965,10 @@ export const GAMES = [
 
 {
   id: 54,
-  difficulty: 5,
+  difficulty: 6,
   vocab: "advanced",
   week: 8,
-  day: 5,
+  day: 6,
   groups: [
     {
       skill: "abstraction",
@@ -3957,82 +4033,6 @@ export const GAMES = [
         adaptive: {
           correct: "You recognized the action of taking on pressure.",
           wrong: "Think about verbs used when someone accepts or carries a hard thing.",
-        },
-      },
-    },
-  ],
-},
-
-{
-  id: 55,
-  difficulty: 6,
-  vocab: "advanced",
-  week: 8,
-  day: 6,
-  groups: [
-    {
-      skill: "abstraction",
-      words: ["Pilfer", "Filch", "Steal", "Swipe"],
-      correct: "To take something dishonestly",
-      options: [
-        "To take something dishonestly",
-        "To wrap something gently",
-        "To speak with precision",
-        "To outlast ordinary limits",
-      ],
-      insight: {
-        pattern: "Theft vocabulary",
-        explanation:
-          "These verbs all describe taking something that does not belong to you, often with speed or secrecy.",
-        generalization:
-          "Near-synonyms can differ in tone: pilfer and filch often suggest smaller or sneakier thefts than steal.",
-        adaptive: {
-          correct: "You recognized the theft vocabulary.",
-          wrong: "Think about verbs for taking what is not yours.",
-        },
-      },
-    },
-    {
-      skill: "symbolic",
-      words: ["Safe", "Padlock", "Tripwire", "Strongbox"],
-      correct: "Objects used to guard valuables",
-      options: [
-        "Objects used to guard valuables",
-        "Objects used to guide travelers",
-        "Objects that hold a speaker's notes",
-        "Objects that mark lasting fame",
-      ],
-      insight: {
-        pattern: "Protection imagery",
-        explanation:
-          "Safes, padlocks, tripwires, and strongboxes are meant to protect valuables or warn against intrusion.",
-        generalization:
-          "The idea of theft becomes sharper when paired with the things people use to prevent it.",
-        adaptive: {
-          correct: "You saw the guarded-valuables pattern.",
-          wrong: "Think about objects that keep valuable things protected.",
-        },
-      },
-    },
-    {
-      skill: "linguistic",
-      words: ["Protect", "Guard", "Defend", "Secure"],
-      correct: "Verbs for keeping something safe",
-      options: [
-        "Verbs for keeping something safe",
-        "Verbs for wrapping around gently",
-        "Verbs for surviving over time",
-        "Verbs for taking something quickly",
-      ],
-      insight: {
-        pattern: "Protection verbs",
-        explanation:
-          "Protect, guard, defend, and secure describe actions that keep something safe from harm, loss, or intrusion.",
-        generalization:
-          "This puzzle turns from threat to response: after theft vocabulary, these words name actions that resist loss.",
-        adaptive: {
-          correct: "You recognized the protective action words.",
-          wrong: "Think about verbs used when someone keeps a person, place, or object safe.",
         },
       },
     },
@@ -4113,4 +4113,6 @@ export const GAMES = [
       },
     },
   ],
-},];
+},
+
+];
