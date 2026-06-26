@@ -412,10 +412,10 @@ export default function PuzzleEditor() {
   const autosaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastSavedDraftSignatureRef = useRef("");
 
-  const loadGame = (gameId: number) => {
+  const loadGame = (gameId: number, options: { forceOriginal?: boolean } = {}) => {
     const game = GAMES.find((g) => g.id === gameId);
     if (!game) return;
-    const savedRecord = draftBranches[String(game.id)];
+    const savedRecord = options.forceOriginal ? undefined : draftBranches[String(game.id)];
     const editorGame = savedRecord?.draft || game;
     const review = editorGame.review || {};
     const nextGroups = editorGame.groups.map((g: any) => ({
@@ -655,6 +655,26 @@ export default function PuzzleEditor() {
     return record;
   };
 
+
+  const resetCurrentDraftToOriginal = () => {
+    if (!originalPuzzle) {
+      setSharedDraftStatus("Load a puzzle before resetting a draft.");
+      return;
+    }
+
+    const sourceGame = GAMES.find((game) => game.id === originalPuzzle.id);
+    if (!sourceGame) {
+      setSharedDraftStatus("Original puzzle could not be found.");
+      return;
+    }
+
+    loadGame(sourceGame.id, { forceOriginal: true });
+    void saveDraftBranch(
+      "draft",
+      "Reset draft to original puzzle",
+      JSON.parse(JSON.stringify(sourceGame))
+    );
+  };
   const syncRemoteDraftBranches = async () => {
     setSharedDraftStatus("Loading shared drafts...");
 
@@ -905,6 +925,15 @@ export default function PuzzleEditor() {
               className="rounded-xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:bg-neutral-300"
             >
               {isSavingDraft ? "Saving..." : "Save Draft"}
+            </button>
+
+            <button
+              type="button"
+              onClick={resetCurrentDraftToOriginal}
+              disabled={!originalPuzzle || isSavingDraft}
+              className="rounded-xl bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-700 disabled:cursor-not-allowed disabled:bg-neutral-300"
+            >
+              Reset to Original
             </button>
 
             <button
