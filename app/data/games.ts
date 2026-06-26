@@ -3581,4 +3581,536 @@ export const GAMES = [
     },
   ],
 },
-];
+
+// WEEK 8
+{
+  id: 50,
+  difficulty: 1,
+  vocab: "mixed",
+  week: 8,
+  day: 1,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Pariah", "Outcast", "Misfit", "Castoff"],
+      correct: "People outside a group or sense of belonging",
+      options: [
+        "People outside a group or sense of belonging",
+        "Things found at the center of a place",
+        "Words for careful speech",
+        "Objects used to protect valuables",
+      ],
+      insight: {
+        pattern: "Outside belonging",
+        explanation:
+          "A pariah, outcast, misfit, or castoff is someone outside a group, circle, or expected way of belonging.",
+        generalization:
+          "Words about belonging often become clearer when you notice who is inside a group and who has been placed outside it.",
+        adaptive: {
+          correct: "You recognized the outside-belonging pattern.",
+          wrong: "Think about people who have been excluded or rejected.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Fence", "Border", "Margin", "Perimeter"],
+      correct: "Edges that mark inside from outside",
+      options: [
+        "Tools for making a voice louder",
+        "Edges that mark inside from outside",
+        "Places where travelers rest",
+        "Images of lasting memory",
+      ],
+      insight: {
+        pattern: "Boundary imagery",
+        explanation:
+          "Fences, borders, margins, and perimeters all mark an edge between one space and another.",
+        generalization:
+          "A boundary can be physical, social, or emotional, but it always changes who or what is included.",
+        adaptive: {
+          correct: "You saw the boundary pattern.",
+          wrong: "Think about lines or edges that separate spaces.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Exclude", "Banish", "Oust", "Shun"],
+      correct: "Verbs for pushing someone away",
+      options: [
+        "Verbs for speaking clearly",
+        "Verbs for pushing someone away",
+        "Verbs for carrying a burden",
+        "Verbs for continuing over time",
+      ],
+      insight: {
+        pattern: "Exclusion verbs",
+        explanation:
+          "These verbs describe removing, rejecting, or keeping someone outside a group or place.",
+        generalization:
+          "Actions of exclusion often reveal power: who gets to decide where someone belongs.",
+        adaptive: {
+          correct: "You found the action behind exclusion.",
+          wrong: "Think about verbs used when someone is forced out or rejected.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 51,
+  difficulty: 2,
+  vocab: "mixed",
+  week: 8,
+  day: 2,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Enfold", "Wrap", "Envelop", "Cradle"],
+      correct: "To surround or hold closely",
+      options: [
+        "To surround or hold closely",
+        "To steal in a small or quiet way",
+        "To travel with a purpose",
+        "To last beyond ordinary limits",
+      ],
+      insight: {
+        pattern: "Containing action",
+        explanation:
+          "To enfold, wrap, envelop, or cradle something is to hold it within or around a surrounding shape.",
+        generalization:
+          "Containment can feel protective, restrictive, or tender depending on the words around it.",
+        adaptive: {
+          correct: "You recognized the surrounding or holding action.",
+          wrong: "Think about actions that bring something inside or hold it close.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Nest", "Haven", "Refuge", "Sanctum"],
+      correct: "Protective inner places",
+      options: [
+        "Signals that point down a road",
+        "Protective inner places",
+        "Parts of a singing range",
+        "Objects used to mark a public honor",
+      ],
+      insight: {
+        pattern: "Sheltering places",
+        explanation:
+          "Nests, havens, refuges, and sanctums suggest protected places where someone or something can withdraw inside.",
+        generalization:
+          "Inside spaces often carry emotional meaning: safety, privacy, retreat, or sacredness.",
+        adaptive: {
+          correct: "You saw the sheltering-place connection.",
+          wrong: "Think about places that protect or shelter what is inside.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Interior", "Center", "Middle", "Core"],
+      correct: "Words for an inner part",
+      options: [
+        "Words for an inner part",
+        "Words for people outside a group",
+        "Words for difficult labor",
+        "Words for quick theft",
+      ],
+      insight: {
+        pattern: "Inner-location vocabulary",
+        explanation:
+          "Interior, center, middle, and core all point toward the inside or central part of something.",
+        generalization:
+          "The inside of something can be a location, a structure, or the most important part of an idea.",
+        adaptive: {
+          correct: "You recognized the inside-location pattern.",
+          wrong: "Think about words that point inward rather than outward.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 52,
+  difficulty: 3,
+  vocab: "mixed",
+  week: 8,
+  day: 3,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Pilgrim", "Seeker", "Traveler", "Wayfarer"],
+      correct: "People on a journey or search",
+      options: [
+        "People on a journey or search",
+        "People rejected by a community",
+        "People who speak in a low range",
+        "People guarding hidden valuables",
+      ],
+      insight: {
+        pattern: "Journey identity",
+        explanation:
+          "A pilgrim, seeker, traveler, or wayfarer is defined by movement, searching, or passage from one place to another.",
+        generalization:
+          "Some words name a person by what they are pursuing, not just where they are standing.",
+        adaptive: {
+          correct: "You recognized the journey-person pattern.",
+          wrong: "Think about people whose identity comes from traveling or searching.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Cairn", "Milestone", "Signpost", "Waymark"],
+      correct: "Markers that guide a journey",
+      options: [
+        "Markers that guide a journey",
+        "Objects that cover or hold something",
+        "Symbols of being excluded",
+        "Tools for broadcasting speech",
+      ],
+      insight: {
+        pattern: "Journey markers",
+        explanation:
+          "Cairns, milestones, signposts, and waymarks can guide travelers or mark progress along a route.",
+        generalization:
+          "A difficult path becomes easier when there are signs that help you read where you are.",
+        adaptive: {
+          correct: "You found the journey-marker pattern.",
+          wrong: "Think about what a traveler might use to stay oriented or measure progress.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Quest", "Voyage", "Trek", "Odyssey"],
+      correct: "Long journeys or searches",
+      options: [
+        "Long journeys or searches",
+        "Short acts of stealing",
+        "Forms of public speaking",
+        "Kinds of permanent memory",
+      ],
+      insight: {
+        pattern: "Journey nouns",
+        explanation:
+          "These words describe journeys that feel purposeful, difficult, extended, or meaningful.",
+        generalization:
+          "A journey can be physical, mental, moral, or emotional depending on the story around it.",
+        adaptive: {
+          correct: "You recognized the long-journey vocabulary.",
+          wrong: "Think about nouns for a meaningful trip or search.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 53,
+  difficulty: 4,
+  vocab: "mixed",
+  week: 8,
+  day: 4,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Alto", "Soprano", "Tenor", "Baritone"],
+      correct: "Vocal ranges",
+      options: [
+        "Vocal ranges",
+        "People on a journey",
+        "Protected inner places",
+        "Verbs for taking something quickly",
+      ],
+      insight: {
+        pattern: "Voice range category",
+        explanation:
+          "Alto, soprano, tenor, and baritone name vocal ranges used in singing and choral music.",
+        generalization:
+          "A voice can be understood not only by what it says, but by its range, tone, and place in a larger harmony.",
+        adaptive: {
+          correct: "You recognized the vocal-range set.",
+          wrong: "Think about music, singing, and where a voice sits in pitch.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Microphone", "Lectern", "Airwaves", "Headset"],
+      correct: "Tools or channels that carry a voice",
+      options: [
+        "Places for quiet shelter",
+        "Tools or channels that carry a voice",
+        "Objects that mark a boundary",
+        "Symbols of lasting honor",
+      ],
+      insight: {
+        pattern: "Voice projection imagery",
+        explanation:
+          "Microphones, lecterns, airwaves, and headsets help a voice be heard, delivered, or transmitted.",
+        generalization:
+          "A voice becomes public when it has a channel that can carry it beyond the speaker.",
+        adaptive: {
+          correct: "You found the voice-carrying connection.",
+          wrong: "Think about objects or channels that help speech reach an audience.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Articulate", "Express", "Phrase", "Enunciate"],
+      correct: "Verbs for making thought clear in words",
+      options: [
+        "Verbs for making thought clear in words",
+        "Verbs for wrapping something inside",
+        "Verbs for refusing entry",
+        "Verbs for continuing forever",
+      ],
+      insight: {
+        pattern: "Clear expression verbs",
+        explanation:
+          "These verbs describe putting thought into language or making speech clear enough to understand.",
+        generalization:
+          "Expression is not just having an idea; it is shaping the idea so someone else can receive it.",
+        adaptive: {
+          correct: "You recognized the language of clear expression.",
+          wrong: "Think about verbs connected to speaking or wording something clearly.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 54,
+  difficulty: 5,
+  vocab: "advanced",
+  week: 8,
+  day: 5,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Onerous", "Demanding", "Taxing", "Burdensome"],
+      correct: "Difficult or heavy to carry out",
+      options: [
+        "Difficult or heavy to carry out",
+        "Peaceful places of retreat",
+        "People separated from a group",
+        "Words for clear public speech",
+      ],
+      insight: {
+        pattern: "Burden vocabulary",
+        explanation:
+          "These words describe tasks, duties, or situations that require effort and feel heavy to carry.",
+        generalization:
+          "Difficulty can be described as weight: something the mind, body, or spirit has to bear.",
+        adaptive: {
+          correct: "You recognized the burden-and-effort pattern.",
+          wrong: "Think about words for work or responsibility that feels heavy.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Yoke", "Load", "Millstone", "Weight"],
+      correct: "Images of burden or pressure",
+      options: [
+        "Images of burden or pressure",
+        "Markers on a journey",
+        "Parts of a musical voice range",
+        "Things that protect valuables",
+      ],
+      insight: {
+        pattern: "Burden imagery",
+        explanation:
+          "Yokes, loads, millstones, and weights suggest something heavy that must be carried, endured, or overcome.",
+        generalization:
+          "Concrete images of weight can make abstract pressure feel visible.",
+        adaptive: {
+          correct: "You saw the burden imagery.",
+          wrong: "Think about objects that feel heavy physically or symbolically.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Bear", "Shoulder", "Carry", "Absorb"],
+      correct: "Verbs for taking on difficulty",
+      options: [
+        "Verbs for taking on difficulty",
+        "Verbs for stealing quietly",
+        "Verbs for sending someone away",
+        "Verbs for singing in a range",
+      ],
+      insight: {
+        pattern: "Enduring verbs",
+        explanation:
+          "These verbs can describe accepting, carrying, or absorbing pressure, pain, or responsibility.",
+        generalization:
+          "Language often turns difficulty into something a person must physically carry.",
+        adaptive: {
+          correct: "You recognized the action of taking on pressure.",
+          wrong: "Think about verbs used when someone accepts or carries a hard thing.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 55,
+  difficulty: 6,
+  vocab: "advanced",
+  week: 8,
+  day: 6,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Pilfer", "Filch", "Steal", "Swipe"],
+      correct: "To take something dishonestly",
+      options: [
+        "To take something dishonestly",
+        "To protect something sacred",
+        "To speak with precision",
+        "To move beyond death",
+      ],
+      insight: {
+        pattern: "Theft vocabulary",
+        explanation:
+          "These verbs all describe taking something that does not belong to you, often with speed or secrecy.",
+        generalization:
+          "Near-synonyms can differ in tone: pilfer and filch often suggest smaller or sneakier thefts than steal.",
+        adaptive: {
+          correct: "You recognized the theft vocabulary.",
+          wrong: "Think about verbs for taking what is not yours.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Safe", "Padlock", "Tripwire", "Strongbox"],
+      correct: "Objects used to guard valuables",
+      options: [
+        "Objects used to guard valuables",
+        "Objects used to guide travelers",
+        "Objects that hold a speaker's notes",
+        "Objects that mark lasting fame",
+      ],
+      insight: {
+        pattern: "Protection imagery",
+        explanation:
+          "Safes, padlocks, tripwires, and strongboxes are meant to protect valuables or warn against intrusion.",
+        generalization:
+          "The idea of theft becomes sharper when paired with the things people use to prevent it.",
+        adaptive: {
+          correct: "You saw the guarded-valuables pattern.",
+          wrong: "Think about objects that keep valuable things protected.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Snatch", "Seize", "Pocket", "Lift"],
+      correct: "Verbs for quick or sneaky taking",
+      options: [
+        "Verbs for quick or sneaky taking",
+        "Verbs for wrapping around gently",
+        "Verbs for surviving over time",
+        "Verbs for setting a boundary",
+      ],
+      insight: {
+        pattern: "Quick-taking verbs",
+        explanation:
+          "These verbs can describe taking something quickly, forcefully, or in the case of pocket and lift, sneakily.",
+        generalization:
+          "A puzzle can get harder when an ordinary word, like lift, uses a less obvious meaning.",
+        adaptive: {
+          correct: "You caught the quick-taking meaning.",
+          wrong: "Think about less obvious meanings connected to taking something.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 56,
+  difficulty: 7,
+  vocab: "advanced",
+  week: 8,
+  day: 7,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Immortal", "Eternal", "Undying", "Deathless"],
+      correct: "Lasting forever or beyond death",
+      options: [
+        "Lasting forever or beyond death",
+        "Rejected by a community",
+        "Hidden inside a protected place",
+        "Difficult to express clearly",
+      ],
+      insight: {
+        pattern: "Beyond mortality vocabulary",
+        explanation:
+          "These words describe life, memory, or meaning that does not end in the ordinary way.",
+        generalization:
+          "Beyond-language often stretches literal time into ideas of memory, myth, legacy, or spirit.",
+        adaptive: {
+          correct: "You recognized the beyond-mortality pattern.",
+          wrong: "Think about words for what does not die, end, or fade away.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Memorial", "Monument", "Laurel", "Statue"],
+      correct: "Symbols of lasting remembrance or honor",
+      options: [
+        "Symbols of lasting remembrance or honor",
+        "Tools for quiet theft",
+        "Markers that guide a journey",
+        "Edges between inside and outside",
+      ],
+      insight: {
+        pattern: "Lasting honor imagery",
+        explanation:
+          "Memorials, monuments, laurels, and statues can preserve memory, honor, or reputation beyond the present moment.",
+        generalization:
+          "Cultures turn memory into objects and symbols so a person or action can last longer than a lifetime.",
+        adaptive: {
+          correct: "You saw the lasting-remembrance imagery.",
+          wrong: "Think about things used to preserve honor or memory over time.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Continue", "Last", "Survive", "Abide"],
+      correct: "Verbs for remaining over time",
+      options: [
+        "Verbs for remaining over time",
+        "Verbs for forcing someone out",
+        "Verbs for wording a thought clearly",
+        "Verbs for stealing in plain sight",
+      ],
+      insight: {
+        pattern: "Continuance verbs",
+        explanation:
+          "These verbs describe staying, enduring, or remaining after time, pressure, or change passes.",
+        generalization:
+          "To go beyond is not always to rise above something; sometimes it is simply to remain.",
+        adaptive: {
+          correct: "You recognized the continuing-over-time pattern.",
+          wrong: "Think about verbs for staying or enduring after change.",
+        },
+      },
+    },
+  ],
+},];

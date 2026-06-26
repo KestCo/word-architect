@@ -1192,4 +1192,81 @@ Ruse: {
   extended:
     "A ruse works by making someone believe the wrong thing or look in the wrong direction.",
 },
+
+Pariah: {
+  short:
+    "A person who is rejected, avoided, or treated as an outsider.",
+  extended:
+    "Pariah suggests more than being alone; it means being socially cast out or shunned by a group.",
+},
+
+Pilfer: {
+  short:
+    "To steal, especially in small amounts or in a sneaky way.",
+  extended:
+    "Pilfer often suggests quiet, repeated, or petty theft rather than a large dramatic robbery.",
+},
+
+Immortal: {
+  short:
+    "Living or lasting forever; not subject to death or ordinary ending.",
+  extended:
+    "Immortal can describe a being that cannot die, or a memory, work, or reputation that seems to last forever.",
+},
+
+Enfold: {
+  short:
+    "To wrap around, surround, or hold closely.",
+  extended:
+    "Enfold often has a gentle feeling, as if something is being gathered into protection, closeness, or care.",
+},
+
+Onerous: {
+  short:
+    "Difficult, demanding, or burdensome.",
+  extended:
+    "An onerous task feels heavy because it requires serious effort, responsibility, or persistence.",
+},
+
+Alto: {
+  short:
+    "A lower singing voice or vocal part, often below soprano.",
+  extended:
+    "In choral music, alto usually names a lower vocal range that helps fill out the harmony beneath higher voices.",
+},
+
+Articulate: {
+  short:
+    "To express an idea clearly in words; also, able to speak clearly.",
+  extended:
+    "Articulate can describe the act of putting a thought into clear language or a person who does that well.",
+},
+
+Wayfarer: {
+  short:
+    "A traveler, especially someone journeying on foot.",
+  extended:
+    "Wayfarer has an old-fashioned, literary feel and often suggests a person moving through a long or uncertain path.",
+},
+
+Sanctum: {
+  short:
+    "A private, protected, or sacred inner place.",
+  extended:
+    "A sanctum can be a literal inner room or a personal space set apart from ordinary noise and intrusion.",
+},
+
+Cairn: {
+  short:
+    "A pile of stones used as a marker, memorial, or guide.",
+  extended:
+    "Cairns often mark trails, summits, graves, or meaningful places, especially in open landscapes.",
+},
+
+Baritone: {
+  short:
+    "A male singing voice between tenor and bass.",
+  extended:
+    "Baritone sits in the middle-lower vocal range and often carries warmth and depth in choral or solo music.",
+},
 };
