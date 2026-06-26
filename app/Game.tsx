@@ -607,6 +607,14 @@ function PlaytestCompletion({
   timeMs: number;
   mistakes: number;
 }) {
+  useEffect(() => {
+    const returnTimer = window.setTimeout(() => {
+      window.location.href = "/editor";
+    }, 2500);
+
+    return () => window.clearTimeout(returnTimer);
+  }, []);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
       <div className="w-full max-w-md bg-white border border-neutral-200 p-6 rounded-3xl shadow space-y-6">
@@ -638,9 +646,21 @@ function PlaytestCompletion({
           </div>
         </div>
 
-        <p className="text-center text-xs text-neutral-500">
-          This playtest run was not saved.
-        </p>
+        <div className="space-y-3 text-center">
+          <p className="text-xs text-neutral-500">
+            This playtest run was not saved. Returning to the editor...
+          </p>
+
+          <button
+            type="button"
+            onClick={() => {
+              window.location.href = "/editor";
+            }}
+            className="w-full rounded-2xl bg-neutral-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700"
+          >
+            Return to Editor
+          </button>
+        </div>
       </div>
     </div>
   );
