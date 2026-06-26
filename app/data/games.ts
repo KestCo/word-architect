@@ -3976,9 +3976,9 @@ export const GAMES = [
       correct: "To take something dishonestly",
       options: [
         "To take something dishonestly",
-        "To protect something sacred",
+        "To wrap something gently",
         "To speak with precision",
-        "To move beyond death",
+        "To outlast ordinary limits",
       ],
       insight: {
         pattern: "Theft vocabulary",
@@ -4016,23 +4016,23 @@ export const GAMES = [
     },
     {
       skill: "linguistic",
-      words: ["Snatch", "Seize", "Pocket", "Lift"],
-      correct: "Verbs for quick or sneaky taking",
+      words: ["Protect", "Guard", "Defend", "Secure"],
+      correct: "Verbs for keeping something safe",
       options: [
-        "Verbs for quick or sneaky taking",
+        "Verbs for keeping something safe",
         "Verbs for wrapping around gently",
         "Verbs for surviving over time",
-        "Verbs for setting a boundary",
+        "Verbs for taking something quickly",
       ],
       insight: {
-        pattern: "Quick-taking verbs",
+        pattern: "Protection verbs",
         explanation:
-          "These verbs can describe taking something quickly, forcefully, or in the case of pocket and lift, sneakily.",
+          "Protect, guard, defend, and secure describe actions that keep something safe from harm, loss, or intrusion.",
         generalization:
-          "A puzzle can get harder when an ordinary word, like lift, uses a less obvious meaning.",
+          "This puzzle turns from threat to response: after theft vocabulary, these words name actions that resist loss.",
         adaptive: {
-          correct: "You caught the quick-taking meaning.",
-          wrong: "Think about less obvious meanings connected to taking something.",
+          correct: "You recognized the protective action words.",
+          wrong: "Think about verbs used when someone keeps a person, place, or object safe.",
         },
       },
     },
