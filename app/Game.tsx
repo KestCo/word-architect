@@ -241,7 +241,7 @@ function DraggableCard({
       title={hasDefinition ? `${id} has Word Lens` : id}
       {...(!mobileTapMode ? listeners : {})}
       {...(!mobileTapMode ? attributes : {})}
-      className={`relative min-w-0 w-full px-1.5 sm:px-2 py-2 rounded-full border transition
+      className={`relative min-w-0 w-full px-1.5 sm:px-2 py-1.5 sm:py-2 rounded-full border transition
         text-center
         ${
           disabled
@@ -291,7 +291,7 @@ function DroppableArea({
     <div
       ref={setNodeRef}
       onClick={onTap}
-      className={`p-6 bg-white text-neutral-900 rounded-2xl border border-neutral-200 shadow-sm space-y-4 ${
+      className={`p-4 sm:p-6 bg-white text-neutral-900 rounded-xl sm:rounded-2xl border border-neutral-200 shadow-sm space-y-3 sm:space-y-4 ${
         isOver && !disabled ? "ring-2 ring-emerald-500" : ""
       } ${onTap && !disabled ? "cursor-pointer" : ""}`}
     >
@@ -705,7 +705,10 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
   useEffect(() => {
     const check = () =>
-      setMobileTapMode(window.matchMedia("(pointer: coarse)").matches);
+      setMobileTapMode(
+        window.matchMedia("(pointer: coarse)").matches ||
+          window.matchMedia("(max-width: 767px)").matches
+      );
 
     check();
     window.addEventListener("resize", check);
@@ -1223,7 +1226,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
     >
-      <div className="game-scroll-guard max-w-2xl mx-auto space-y-8 px-3 relative">
+      <div className="game-scroll-guard max-w-2xl mx-auto space-y-5 sm:space-y-8 px-2 sm:px-3 pb-32 sm:pb-24 relative">
         {showTutorial && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
             <div className="bg-white rounded-3xl border border-neutral-200 shadow-xl max-w-sm w-full p-6 space-y-5 text-center">
@@ -1277,41 +1280,54 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         )}
 
         {selectedCard && (
-          <div className="bg-neutral-950 text-white rounded-2xl p-4 text-center space-y-3">
-            <p className="text-xs uppercase tracking-wide opacity-70">
-              Selected Word
-            </p>
+          <div
+            className="fixed bottom-3 left-1/2 z-50 w-[calc(100%-1rem)] max-w-md -translate-x-1/2 rounded-xl sm:rounded-2xl border border-white/15 bg-neutral-950 px-3 py-2.5 sm:px-4 sm:py-3 text-white shadow-xl"
+            style={{ bottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
+          >
+            <div className="flex items-center justify-between gap-2 sm:gap-3">
+              <div className="min-w-0">
+                <p className="text-[10px] uppercase tracking-wide opacity-70">
+                  Selected Word
+                </p>
 
-            <p className="text-xl font-semibold">{selectedCard}</p>
+                <p className="truncate text-lg font-semibold">{selectedCard}</p>
+                <p className="text-xs text-white/70">Tap a group to place it.</p>
+              </div>
 
-            <p className="text-sm opacity-80">
-              Tap a group below to place this word.
-            </p>
+              <div className="flex shrink-0 items-center gap-2">
+                {selectedDefinition && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (!selectedCard) return;
 
-            {selectedDefinition && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (!selectedCard) return;
+                      const word = selectedCard;
+                      setExploredLensWords((prev) =>
+                        prev.includes(word) ? prev : [...prev, word]
+                      );
+                      trackStudioEvent("word_lens_opened", {
+                        game_id: selectedGame.id,
+                        week: selectedGame.week,
+                        day: selectedGame.day,
+                        difficulty: selectedGame.difficulty,
+                        word,
+                      });
+                      setLensWord(word);
+                    }}
+                    className="rounded-full bg-white px-2.5 py-2 sm:px-3 text-xs font-semibold text-neutral-950"
+                  >
+                    Word Lens
+                  </button>
+                )}
 
-                  const word = selectedCard;
-                  setExploredLensWords((prev) =>
-                    prev.includes(word) ? prev : [...prev, word]
-                  );
-                  trackStudioEvent("word_lens_opened", {
-                    game_id: selectedGame.id,
-                    week: selectedGame.week,
-                    day: selectedGame.day,
-                    difficulty: selectedGame.difficulty,
-                    word,
-                  });
-                  setLensWord(word);
-                }}
-                className="bg-white text-neutral-950 px-4 py-2 rounded-full text-sm font-medium"
-              >
-                Word Lens
-              </button>
-            )}
+                <button
+                  onClick={() => setSelectedCard(null)}
+                  className="rounded-full border border-white/30 px-2.5 py-2 sm:px-3 text-xs font-semibold text-white"
+                >
+                  Clear
+                </button>
+              </div>
+            </div>
           </div>
         )}
 
@@ -1368,7 +1384,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                   </p>
 
                   {selectedCard && !stack.locked && stack.cards.length < 4 && (
-                    <span className="text-xs bg-amber-100 border border-amber-300 px-2 py-1 rounded-full">
+                    <span className="hidden sm:inline-flex text-xs bg-amber-100 border border-amber-300 px-2 py-1 rounded-full">
                       Tap here to place
                     </span>
                   )}
@@ -1387,12 +1403,6 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                     />
                   ))}
                 </div>
-
-                {selectedCard && !stack.locked && stack.cards.length < 4 && (
-                  <div className="text-center text-sm bg-amber-50 border border-amber-200 rounded-xl px-3 py-3 text-amber-900 font-medium">
-                    Place {selectedCard} here
-                  </div>
-                )}
 
                 {stack.feedback && (
                   <p className="text-sm text-amber-900 bg-amber-100 border border-amber-300 px-3 py-2 rounded-lg">
@@ -1551,12 +1561,14 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           </button>
         )}
 
-        <button
-          onClick={checkGroups}
-          className="bg-neutral-950 text-white border border-neutral-950 px-4 py-2 rounded-lg font-medium"
-        >
-          Check Groups
-        </button>
+        {!selectedCard && (
+          <button
+            onClick={checkGroups}
+            className="bg-neutral-950 text-white border border-neutral-950 px-4 py-2 rounded-lg font-medium"
+          >
+            Check Groups
+          </button>
+        )}
 
         <DragOverlay>
           {activeId && !mobileTapMode && (
