@@ -1008,8 +1008,11 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       const usedGroups = new Set();
 
       return prev.map((stack: any) => {
+        if (stack.locked) return stack;
+
         const set = new Set(stack.cards);
         let matchedGroup = null;
+        let matchedGroupIndex = -1;
 
         for (let i = 0; i < selectedGroups.length; i++) {
           if (usedGroups.has(i)) continue;
@@ -1022,6 +1025,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
           if (isMatch) {
             matchedGroup = group;
+            matchedGroupIndex = i;
             usedGroups.add(i);
             break;
           }
@@ -1031,7 +1035,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           return {
             ...stack,
             locked: true,
-            data: matchedGroup,
+            data: prepareAnswerOptions(matchedGroup, matchedGroupIndex, selectedGame),
             selected: "",
             showAnswer: false,
             wrongSelection: "",
