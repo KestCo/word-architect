@@ -4115,4 +4115,536 @@ export const GAMES = [
   ],
 },
 
+{
+  id: 57,
+  difficulty: 1,
+  vocab: "mixed",
+  week: 9,
+  day: 1,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Lilt", "Cadence", "Rhythm", "Melody"],
+      correct: "Patterns of musical movement in sound or speech",
+      options: [
+        "Patterns of musical movement in sound or speech",
+        "People with casual knowledge of a subject",
+        "Signs of hidden danger",
+        "Practical ways to solve a problem",
+      ],
+      insight: {
+        pattern: "Sound movement",
+        explanation:
+          "Lilt, cadence, rhythm, and melody all describe patterned movement in sound, especially the rise and fall of a voice or music.",
+        generalization:
+          "A voice can carry meaning not only through words, but through movement, tone, and pattern.",
+        adaptive: {
+          correct: "You recognized the sound-movement pattern.",
+          wrong: "Think about words for how sound rises, falls, or moves.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Chime", "Bell", "Harp", "Flute"],
+      correct: "Sources of clear or musical sound",
+      options: [
+        "Sources of clear or musical sound",
+        "Objects used for secret watching",
+        "Images of beginning to appear",
+        "Tools for practical planning",
+      ],
+      insight: {
+        pattern: "Musical imagery",
+        explanation:
+          "Chimes, bells, harps, and flutes are objects associated with clear, ringing, or musical sound.",
+        generalization:
+          "Symbols of sound often point to mood before they point to meaning.",
+        adaptive: {
+          correct: "You found the musical-sound set.",
+          wrong: "Think about objects that make clear or musical sounds.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Sing", "Hum", "Chant", "Murmur"],
+      correct: "Ways a voice can make sound",
+      options: [
+        "Ways a voice can make sound",
+        "Ways to return a favor",
+        "Ways to hide a plan",
+        "Ways to doubt a claim",
+      ],
+      insight: {
+        pattern: "Voice actions",
+        explanation:
+          "Singing, humming, chanting, and murmuring are all ways a voice can produce sound.",
+        generalization:
+          "The same voice can become music, ritual, comfort, or secrecy depending on how it is used.",
+        adaptive: {
+          correct: "You recognized the voice-action set.",
+          wrong: "Think about actions a person can do with their voice.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 58,
+  difficulty: 2,
+  vocab: "mixed",
+  week: 9,
+  day: 2,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Innocuous", "Harmless", "Benign", "Mild"],
+      correct: "Not harmful or threatening",
+      options: [
+        "Not harmful or threatening",
+        "Beginning to appear or develop",
+        "Secret plans made by a group",
+        "Difficult to believe",
+      ],
+      insight: {
+        pattern: "Harmlessness vocabulary",
+        explanation:
+          "Innocuous, harmless, benign, and mild describe something that does not seem dangerous, severe, or threatening.",
+        generalization:
+          "Judgment often begins with threat level: we first ask whether something can hurt us.",
+        adaptive: {
+          correct: "You recognized the harmlessness pattern.",
+          wrong: "Think about words that make something feel safe or low-risk.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Cushion", "Bandage", "Pillow", "Blanket"],
+      correct: "Soft or protective comfort objects",
+      options: [
+        "Secret tools of surveillance",
+        "Soft or protective comfort objects",
+        "Images of public performance",
+        "Objects used to make music",
+      ],
+      insight: {
+        pattern: "Comfort imagery",
+        explanation:
+          "Cushions, bandages, pillows, and blankets can suggest softness, protection, comfort, or reduced harm.",
+        generalization:
+          "Objects can signal safety by softening impact, covering wounds, or creating rest.",
+        adaptive: {
+          correct: "You saw the comfort-and-protection imagery.",
+          wrong: "Think about objects that soften, protect, or comfort.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Soothe", "Settle", "Ease", "Reassure"],
+      correct: "Verbs for making worry or pain less intense",
+      options: [
+        "Verbs for making worry or pain less intense",
+        "Verbs for plotting in secret",
+        "Verbs for appearing suddenly",
+        "Verbs for refusing to believe",
+      ],
+      insight: {
+        pattern: "Reducing distress",
+        explanation:
+          "These verbs describe lowering fear, tension, pain, or worry so a situation feels less intense.",
+        generalization:
+          "Comfort is often an action: someone changes the emotional temperature of a moment.",
+        adaptive: {
+          correct: "You found the calming-action connection.",
+          wrong: "Think about actions that make someone feel less worried or hurt.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 59,
+  difficulty: 3,
+  vocab: "advanced",
+  week: 9,
+  day: 3,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Emergent", "Nascent", "Budding", "Developing"],
+      correct: "Beginning to appear or take shape",
+      options: [
+        "Beginning to appear or take shape",
+        "Focused on what works in practice",
+        "Unable or unwilling to believe",
+        "Harmless and low-risk",
+      ],
+      insight: {
+        pattern: "Becoming visible",
+        explanation:
+          "Emergent, nascent, budding, and developing all describe something that is starting to form, appear, or grow.",
+        generalization:
+          "Some patterns are easiest to understand while they are still becoming, before they are fully formed.",
+        adaptive: {
+          correct: "You recognized the becoming-visible pattern.",
+          wrong: "Think about words for something new beginning to form.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Telescope", "Microscope", "Binoculars", "Magnifier"],
+      correct: "Tools for closer observation",
+      options: [
+        "Images of first appearance or beginning",
+        "Tools for closer observation",
+        "Objects used for carrying burdens",
+        "Symbols of anxious suspicion",
+      ],
+      insight: {
+        pattern: "Closer observation",
+        explanation:
+          "Telescopes, microscopes, binoculars, and magnifiers all help people see details that are distant, small, or easy to miss.",
+        generalization:
+          "Some understanding comes from looking more closely, not from finding something new.",
+        adaptive: {
+          correct: "You saw the closer-looking connection.",
+          wrong: "Think about tools that sharpen or extend sight.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Gather", "Compile", "Assemble", "Collect"],
+      correct: "Verbs for bringing pieces together",
+      options: [
+        "Verbs for coming into view or existence",
+        "Verbs for bringing pieces together",
+        "Verbs for giving back in kind",
+        "Verbs for refusing to believe",
+      ],
+      insight: {
+        pattern: "Building from parts",
+        explanation:
+          "Gather, compile, assemble, and collect all describe bringing separate pieces into one place or form.",
+        generalization:
+          "Ideas often become clearer when scattered pieces are brought together.",
+        adaptive: {
+          correct: "You recognized the bringing-together verbs.",
+          wrong: "Think about actions that turn separate pieces into a set.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 60,
+  difficulty: 4,
+  vocab: "advanced",
+  week: 9,
+  day: 4,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Reciprocate", "Reimburse", "Repay", "Refund"],
+      correct: "To give or pay back",
+      options: [
+        "To give or pay back",
+        "To fasten separate pieces together",
+        "To talk through an issue",
+        "To begin forming or developing",
+      ],
+      insight: {
+        pattern: "Giving back",
+        explanation:
+          "Reciprocate, reimburse, repay, and refund all describe giving something back, often as an answer to what someone else gave, did, or spent.",
+        generalization:
+          "Exchange becomes clearer when we notice what moves back in the other direction.",
+        adaptive: {
+          correct: "You recognized the give-back pattern.",
+          wrong: "Think about words for returning money, effort, or treatment.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Link", "Knot", "Clasp", "Stitch"],
+      correct: "Things that join or hold pieces together",
+      options: [
+        "Things that join or hold pieces together",
+        "Things used for secret watching",
+        "Things that make musical sound",
+        "Things connected to repayment",
+      ],
+      insight: {
+        pattern: "Joining imagery",
+        explanation:
+          "Links, knots, clasps, and stitches can all join, fasten, or hold separate pieces together.",
+        generalization:
+          "Connection often begins as a physical image: separate pieces held in relation.",
+        adaptive: {
+          correct: "You saw the joining-and-holding imagery.",
+          wrong: "Think about things that connect or fasten separate pieces.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Discuss", "Debate", "Confer", "Consult"],
+      correct: "Verbs for talking through an issue",
+      options: [
+        "Verbs for paying someone back",
+        "Verbs for talking through an issue",
+        "Verbs for fastening pieces together",
+        "Verbs for looking closely",
+      ],
+      insight: {
+        pattern: "Deliberation verbs",
+        explanation:
+          "Discuss, debate, confer, and consult all describe talking with others to consider, test, or work through an issue.",
+        generalization:
+          "Conversation can become a tool for thinking when people use it to examine choices together.",
+        adaptive: {
+          correct: "You found the talking-through group.",
+          wrong: "Think about verbs for considering something with other people.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 61,
+  difficulty: 5,
+  vocab: "advanced",
+  week: 9,
+  day: 5,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Dilettante", "Amateur", "Dabbler", "Beginner"],
+      correct: "People with casual or limited expertise",
+      options: [
+        "People with casual or limited expertise",
+        "People who secretly plan together",
+        "People who refuse to believe evidence",
+        "People who make sound with their voices",
+      ],
+      insight: {
+        pattern: "Limited expertise",
+        explanation:
+          "A dilettante, amateur, dabbler, and beginner all suggest someone who is not deeply trained or expert in a field.",
+        generalization:
+          "Expertise has depth, and language often marks whether someone is exploring lightly or working seriously.",
+        adaptive: {
+          correct: "You recognized the casual-expertise group.",
+          wrong: "Think about people who are new to something or only lightly involved.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Toolkit", "Flowchart", "Checklist", "Budget"],
+      correct: "Practical tools for planning or solving problems",
+      options: [
+        "Practical tools for planning or solving problems",
+        "Objects that make musical sound",
+        "Objects connected to hidden watching",
+        "Symbols of supernatural power",
+      ],
+      insight: {
+        pattern: "Practical planning imagery",
+        explanation:
+          "Toolkits, flowcharts, checklists, and budgets help people plan, organize, and solve real problems.",
+        generalization:
+          "Practical thinking often turns a messy problem into steps, tools, limits, and choices.",
+        adaptive: {
+          correct: "You saw the practical-planning imagery.",
+          wrong: "Think about things used to make a problem more workable.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Pragmatic", "Practical", "Realistic", "Workable"],
+      correct: "Focused on what works in real situations",
+      options: [
+        "Focused on what works in real situations",
+        "Focused on hidden supernatural forces",
+        "Focused on casual artistic interest",
+        "Focused on anxious suspicion",
+      ],
+      insight: {
+        pattern: "Practical judgment",
+        explanation:
+          "Pragmatic, practical, realistic, and workable describe approaches that care about what can actually succeed.",
+        generalization:
+          "A pragmatic mind asks not only what is ideal, but what can be done.",
+        adaptive: {
+          correct: "You recognized the practical-judgment set.",
+          wrong: "Think about words for what works in real life.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 62,
+  difficulty: 6,
+  vocab: "advanced",
+  week: 9,
+  day: 6,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Dread", "Unease", "Apprehension", "Foreboding"],
+      correct: "States of anxious unease or threat",
+      options: [
+        "States of anxious unease or threat",
+        "States of harmless calm",
+        "States of practical focus",
+        "States of musical movement",
+      ],
+      insight: {
+        pattern: "Anxious threat vocabulary",
+        explanation:
+          "Dread, unease, apprehension, and foreboding all describe anxious states where danger, trouble, or threat feels possible.",
+        generalization:
+          "Anxiety often turns uncertainty into a feeling that something bad may be coming.",
+        adaptive: {
+          correct: "You recognized the anxious-threat pattern.",
+          wrong: "Think about words for feeling that trouble or danger may be near.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Peephole", "Wiretap", "Redaction", "Blackout"],
+      correct: "Images of secrecy, watching, or hidden information",
+      options: [
+        "Images of secrecy, watching, or hidden information",
+        "Images of musical performance",
+        "Images of giving back in kind",
+        "Images of practical planning",
+      ],
+      insight: {
+        pattern: "Secrecy imagery",
+        explanation:
+          "Peepholes, wiretaps, redactions, and blackouts suggest watching, concealment, missing information, or secrecy.",
+        generalization:
+          "Suspicion often grows where information is partial, hidden, or watched from a distance.",
+        adaptive: {
+          correct: "You saw the secrecy-and-surveillance imagery.",
+          wrong: "Think about objects or situations connected to hidden information.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Incredulous", "Skeptical", "Doubtful", "Unconvinced"],
+      correct: "Not ready to believe something",
+      options: [
+        "Not ready to believe something",
+        "Ready to return a favor",
+        "Ready to begin growing",
+        "Ready to make music",
+      ],
+      insight: {
+        pattern: "Disbelief language",
+        explanation:
+          "Incredulous, skeptical, doubtful, and unconvinced all describe a mind that is not ready to accept something as true.",
+        generalization:
+          "Belief is not automatic; the mind often pauses until a claim feels supported.",
+        adaptive: {
+          correct: "You recognized the disbelief-language set.",
+          wrong: "Think about words for not quite believing a claim.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 63,
+  difficulty: 7,
+  vocab: "advanced",
+  week: 9,
+  day: 7,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Conspiracy", "Plot", "Scheme", "Cabal"],
+      correct: "Secret plans or groups working together",
+      options: [
+        "Secret plans or groups working together",
+        "Harmless signs with no danger",
+        "Ways to give back in kind",
+        "Patterns of musical sound",
+      ],
+      insight: {
+        pattern: "Secret coordination",
+        explanation:
+          "Conspiracy, plot, scheme, and cabal all point toward hidden coordination, planning, or groups working in secret.",
+        generalization:
+          "When people imagine hidden causes, they often look for secret plans behind public events.",
+        adaptive: {
+          correct: "You recognized the secret-planning group.",
+          wrong: "Think about hidden plans or groups working out of sight.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Ghost", "Apparition", "Phantom", "Specter"],
+      correct: "Ghostly figures or presences",
+      options: [
+        "Ghostly figures or presences",
+        "Words associated with witchcraft",
+        "Images of secret planning",
+        "Images of practical safety",
+      ],
+      insight: {
+        pattern: "Ghostly presences",
+        explanation:
+          "Ghost, apparition, phantom, and specter all name ghostly figures or presences.",
+        generalization:
+          "Ghost stories often turn absence into a presence the imagination can almost see.",
+        adaptive: {
+          correct: "You recognized the ghostly-presence group.",
+          wrong: "Think about words for ghostlike figures or presences.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Spell", "Hex", "Charm", "Potion"],
+      correct: "Words associated with witchcraft",
+      options: [
+        "Words associated with witchcraft",
+        "Ghostly figures or presences",
+        "Based on practical real-world limits",
+        "Not harmful or threatening",
+      ],
+      insight: {
+        pattern: "Witchcraft vocabulary",
+        explanation:
+          "Spell, hex, charm, and potion are all words associated with witchcraft or magic.",
+        generalization:
+          "Witchy language often makes power feel secret, ritualized, and just a little dangerous.",
+        adaptive: {
+          correct: "You recognized the witchcraft vocabulary.",
+          wrong: "Think about words connected to magic, curses, or potions.",
+        },
+      },
+    },
+  ],
+},
+
 ];

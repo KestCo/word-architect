@@ -95,6 +95,25 @@ const DRAFT_STORAGE_KEY = "wordArchitectEditorDraftBranches";
 const STUDIO_SUPABASE_URL = "https://cquxlcmqfxcnefbmlmzi.supabase.co";
 const STUDIO_SUPABASE_ANON_KEY =
   "sb_publishable_ovRwn4OCOTuZ4xjkusC-0g_NpTJGxoZ";
+const COMMAND_CENTER_URL = "https://game-studio-kappa.vercel.app/";
+const DAY_NAMES = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+const WEEK_OPTIONS = Array.from(new Set(GAMES.map((game) => game.week))).sort(
+  (a, b) => a - b
+);
+const LATEST_WEEK = WEEK_OPTIONS[WEEK_OPTIONS.length - 1] || 1;
+
+function getDayName(day?: number) {
+  if (!day) return "";
+  return DAY_NAMES[day - 1] || `Day ${day}`;
+}
 
 type DraftRecord = {
   draftId: string;
@@ -409,12 +428,20 @@ export default function PuzzleEditor() {
     "Shared saving is connected. Load a puzzle to start a draft branch."
   );
   const [isSavingDraft, setIsSavingDraft] = useState(false);
+  const [draftsLoaded, setDraftsLoaded] = useState(false);
   const autosaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastSavedDraftSignatureRef = useRef("");
+  const initialRouteLoadedRef = useRef(false);
+  const [selectedWeek, setSelectedWeek] = useState(LATEST_WEEK);
+
+  const selectedWeekGames = GAMES.filter((game) => game.week === selectedWeek)
+    .slice()
+    .sort((a, b) => a.day - b.day);
 
   const loadGame = (gameId: number, options: { forceOriginal?: boolean } = {}) => {
     const game = GAMES.find((g) => g.id === gameId);
     if (!game) return;
+    setSelectedWeek(game.week);
     const savedRecord = options.forceOriginal ? undefined : draftBranches[String(game.id)];
     const editorGame = savedRecord?.draft || game;
     const review = editorGame.review || {};
@@ -720,6 +747,8 @@ export default function PuzzleEditor() {
       setSharedDraftStatus(
         "Shared drafts could not load. Local draft saving still works."
       );
+    } finally {
+      setDraftsLoaded(true);
     }
   };
 
@@ -735,6 +764,30 @@ export default function PuzzleEditor() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (!draftsLoaded || initialRouteLoadedRef.current) return;
+    if (typeof window === "undefined") return;
+
+    const params = new URLSearchParams(window.location.search);
+    const requestedGame = Number(params.get("game"));
+    const requestedWeek = Number(params.get("week"));
+    const requestedDay = Number(params.get("day"));
+
+    const routeGame = Number.isInteger(requestedGame)
+      ? GAMES.find((game) => game.id === requestedGame)
+      : Number.isInteger(requestedWeek) && Number.isInteger(requestedDay)
+      ? GAMES.find(
+          (game) => game.week === requestedWeek && game.day === requestedDay
+        )
+      : undefined;
+
+    if (!routeGame) return;
+
+    initialRouteLoadedRef.current = true;
+    loadGame(routeGame.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [draftsLoaded, draftBranches]);
 
   useEffect(() => {
     if (!originalPuzzle) return;
@@ -833,15 +886,24 @@ export default function PuzzleEditor() {
             </p>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setWorkflowGuideOpen((isOpen) => !isOpen)}
-            aria-controls="editor-workflow-guide"
-            aria-expanded={workflowGuideOpen}
-            className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Workflow Guide
-          </button>
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <a
+              href={COMMAND_CENTER_URL}
+              className="rounded-xl border border-neutral-300 bg-white px-4 py-2 text-center text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2"
+            >
+              Command Center
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setWorkflowGuideOpen((isOpen) => !isOpen)}
+              aria-controls="editor-workflow-guide"
+              aria-expanded={workflowGuideOpen}
+              className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              Workflow Guide
+            </button>
+          </div>
         </div>
 
         {workflowGuideOpen && (
@@ -878,30 +940,85 @@ export default function PuzzleEditor() {
         )}
       </div>
 
-      <section className="bg-white p-5 rounded-2xl shadow-sm space-y-4">
-        <h2 className="font-medium">Load Original Puzzle</h2>
+      <section className="rounded-2xl bg-white p-5 shadow-sm">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="space-y-2">
+            <p className="text-xs font-bold uppercase tracking-wide text-neutral-900">
+              Game Library
+            </p>
+            <p className="text-sm text-neutral-500">
+              {originalPuzzle
+                ? `Editing draft for Week ${originalPuzzle.week}, ${getDayName(
+                    originalPuzzle.day
+                  )} - Day ${originalPuzzle.day}. ${title}`
+                : "Choose the week, then open the day you want to review."}
+            </p>
+          </div>
 
-        <select
-          onChange={(e) => loadGame(Number(e.target.value))}
-          className="w-full border rounded px-3 py-2"
-          defaultValue=""
-        >
-          <option value="" disabled>
-            Select a puzzle
-          </option>
+          <label className="w-full space-y-2 sm:w-56">
+            <span className="text-xs font-bold uppercase tracking-wide text-neutral-500">
+              Week
+            </span>
+            <select
+              data-testid="game-library-week-select"
+              value={selectedWeek}
+              onChange={(event) => setSelectedWeek(Number(event.target.value))}
+              className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-base font-medium text-neutral-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+            >
+              {WEEK_OPTIONS.map((week) => (
+                <option key={week} value={week}>
+                  Week {week}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
 
-          {GAMES.map((g) => (
-            <option key={g.id} value={g.id}>
-              Week {g.week} — Day {g.day} (Difficulty {g.difficulty})
-            </option>
-          ))}
-        </select>
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
+          {selectedWeekGames.map((game) => {
+            const savedRecord = draftBranches[String(game.id)];
+            const isActive = originalPuzzle?.id === game.id;
+            const statusLabel = savedRecord
+              ? getDraftStatusLabel(savedRecord.status)
+              : "Original";
+
+            return (
+              <button
+                key={game.id}
+                data-testid={`game-library-day-${game.day}`}
+                type="button"
+                onClick={() => loadGame(game.id)}
+                className={
+                  isActive
+                    ? "min-h-28 rounded-xl border border-blue-600 bg-blue-50 p-3 text-left shadow-sm transition hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    : "min-h-28 rounded-xl border border-neutral-200 bg-neutral-50 p-3 text-left shadow-sm transition hover:border-blue-300 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                }
+              >
+                <span className="block text-base font-semibold text-neutral-950">
+                  {getDayName(game.day)}
+                </span>
+                <span className="mt-2 block text-sm text-neutral-600">
+                  Day {game.day} - Difficulty {game.difficulty}
+                </span>
+                <span
+                  className={
+                    savedRecord
+                      ? "mt-2 block text-xs font-semibold text-blue-700"
+                      : "mt-2 block text-xs text-neutral-500"
+                  }
+                >
+                  {statusLabel}
+                </span>
+              </button>
+            );
+          })}
+        </div>
 
         {originalPuzzle && (
-          <div className="bg-neutral-100 border border-neutral-200 rounded-xl p-4 text-sm space-y-1">
+          <div className="mt-4 rounded-xl border border-neutral-200 bg-neutral-100 p-4 text-sm">
             <p className="font-medium">Original puzzle preserved</p>
-            <p>
-              Week {originalPuzzle.week}, Day {originalPuzzle.day} · Difficulty{" "}
+            <p className="mt-1 text-neutral-600">
+              Week {originalPuzzle.week}, Day {originalPuzzle.day} - Difficulty{" "}
               {originalPuzzle.difficulty}
             </p>
           </div>

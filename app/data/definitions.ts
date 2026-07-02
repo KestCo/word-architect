@@ -1283,4 +1283,81 @@ Baritone: {
   extended:
     "Baritone sits in the middle-lower vocal range and often carries warmth and depth in choral or solo music.",
 },
+
+Dilettante: {
+  short:
+    "A person who takes up an art, subject, or activity casually rather than deeply.",
+  extended:
+    "Dilettante can be neutral, but it often carries a slightly critical sense of shallow or amateur interest.",
+},
+
+Lilt: {
+  short:
+    "A light rising-and-falling rhythm in speech, music, or movement.",
+  extended:
+    "A lilt can make a voice, melody, or line of speech feel buoyant, musical, or gently patterned.",
+},
+
+Emergent: {
+  short:
+    "Beginning to appear, develop, or become noticeable.",
+  extended:
+    "Emergent describes something that is still forming but is starting to become visible, important, or understood.",
+},
+
+Nascent: {
+  short:
+    "Just beginning to exist or develop.",
+  extended:
+    "Nascent describes something in its earliest stage, before it is fully formed, established, or widely visible.",
+},
+
+Paranoia: {
+  short:
+    "An intense or unreasonable fear that others may be threatening, watching, or plotting harm.",
+  extended:
+    "Paranoia involves distrust that can make ordinary signs feel suspicious or dangerous.",
+},
+
+Conspiracy: {
+  short:
+    "A secret plan by a group to do something harmful, unlawful, or deceptive.",
+  extended:
+    "Conspiracy often points to hidden coordination, where people work together out of public view.",
+},
+
+Supernatural: {
+  short:
+    "Beyond what can be explained by ordinary natural laws.",
+  extended:
+    "Supernatural is used for ghosts, spells, miracles, or mysterious forces that seem outside normal explanation.",
+},
+
+Innocuous: {
+  short:
+    "Not harmful, offensive, or likely to cause trouble.",
+  extended:
+    "Something innocuous may look ordinary, mild, or safe because it does not seem threatening.",
+},
+
+Reciprocate: {
+  short:
+    "To give, do, or feel something in return.",
+  extended:
+    "If someone reciprocates, they answer an action with a similar action, such as returning a favor or feeling.",
+},
+
+Pragmatic: {
+  short:
+    "Focused on what works in real situations.",
+  extended:
+    "A pragmatic choice may not be perfect or ideal, but it is practical, realistic, and useful.",
+},
+
+Incredulous: {
+  short:
+    "Unable or unwilling to believe something.",
+  extended:
+    "Someone incredulous reacts with doubt, surprise, or disbelief because a claim seems hard to accept.",
+},
 };
