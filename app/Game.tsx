@@ -252,7 +252,7 @@ function DraggableCard({
         } ${mobileTapMode ? "cursor-pointer" : "cursor-grab"}`}
     >
       <span
-        className={`block w-full whitespace-nowrap text-center font-bold leading-none tracking-normal ${getCardWordSizeClass(
+        className={`block w-full overflow-hidden text-ellipsis whitespace-nowrap text-center font-bold leading-none tracking-normal ${getCardWordSizeClass(
           id
         )}`}
         style={{
@@ -267,7 +267,7 @@ function DraggableCard({
       {hasDefinition && (
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-blue-600 ring-2 ring-white shadow-sm"
+          className="pointer-events-none absolute right-0 top-0 h-2 w-2 rounded-full bg-blue-600 ring-2 ring-white shadow-sm sm:-right-0.5 sm:-top-0.5 sm:h-2.5 sm:w-2.5"
         />
       )}
     </button>
@@ -776,6 +776,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       collapsed: false,
       fading: false,
       feedback: "",
+      hintLevel: 0,
     }))
   );
 
@@ -943,10 +944,16 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     const targetStack = stacks.find((s: any) => s.id === target);
     if (targetStack?.locked) return;
 
-    let newStacks = stacks.map((s: any) => ({
-      ...s,
-      cards: s.cards.filter((c: string) => c !== card),
-    }));
+    let newStacks = stacks.map((s: any) =>
+      s.locked
+        ? s
+        : {
+            ...s,
+            cards: s.cards.filter((c: string) => c !== card),
+            feedback: "",
+            hintLevel: 0,
+          }
+    );
 
     let newAvailable = availableCards.filter((c: string) => c !== card);
 
@@ -960,6 +967,8 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           return {
             ...s,
             cards: [...s.cards, card],
+            feedback: "",
+            hintLevel: 0,
           };
         }
 
@@ -1006,6 +1015,83 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     setActiveId(null);
   };
 
+  const getStackMatchDetails = (cards: string[]) => {
+    const set = new Set(cards);
+    let maxMatch = 0;
+    let closestGroup: any = null;
+
+    selectedGroups.forEach((group: any) => {
+      const matchCount = group.words.filter((word: string) =>
+        set.has(word)
+      ).length;
+
+      if (matchCount > maxMatch) {
+        maxMatch = matchCount;
+        closestGroup = group;
+      }
+    });
+
+    return { closestGroup, maxMatch };
+  };
+
+  const getStackHintText = (stack: any) => {
+    const hintLevel = stack.hintLevel || 0;
+    if (!hintLevel) return "";
+
+    const { closestGroup, maxMatch } = getStackMatchDetails(stack.cards);
+
+    if (hintLevel === 1) {
+      if (maxMatch === 0) {
+        return "Nudge: try building this group around one stronger shared idea.";
+      }
+
+      const wordLabel = maxMatch === 1 ? "word belongs" : "words belong";
+      return `Nudge: ${maxMatch} ${wordLabel} to the same connection.`;
+    }
+
+    if (!closestGroup) {
+      return "Try swapping in words that feel more connected.";
+    }
+
+    if (hintLevel === 2) {
+      return `Connection hint: think about ${closestGroup.correct}.`;
+    }
+
+    return `Full nudge: the set is ${closestGroup.words.join(", ")}.`;
+  };
+
+  const getStackHintButtonLabel = (stack: any) => {
+    const hintLevel = stack.hintLevel || 0;
+
+    if (hintLevel >= 2) return "Show the set";
+    if (hintLevel === 1) return "More help";
+    return "Need a nudge?";
+  };
+
+  const showStackHint = (stackId: string, currentLevel = 0) => {
+    const nextHintLevel = Math.min(currentLevel + 1, 3);
+
+    trackStudioEvent("group_nudge_used", {
+      game_id: selectedGame.id,
+      week: selectedGame.week,
+      day: selectedGame.day,
+      difficulty: selectedGame.difficulty,
+      group_slot: stackId,
+      hint_level: nextHintLevel,
+    });
+
+    setStacks((prev: any[]) =>
+      prev.map((stack: any) =>
+        stack.id === stackId
+          ? {
+              ...stack,
+              hintLevel: nextHintLevel,
+            }
+          : stack
+      )
+    );
+  };
+
   const checkGroups = () => {
     setStacks((prev: any[]) => {
       const usedGroups = new Set();
@@ -1044,6 +1130,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
             wrongSelection: "",
             answerFeedback: "",
             feedback: "",
+            hintLevel: 0,
           };
         }
 
@@ -1072,10 +1159,11 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           }
         }
 
-        if (maxMatch >= 2) {
+        if (stack.cards.length === 4 && maxMatch >= 2) {
+          const wordLabel = maxMatch === 1 ? "word belongs" : "words belong";
           return {
             ...stack,
-            feedback: "You’re close — some of these belong together.",
+            feedback: `You're close - ${maxMatch} ${wordLabel} together.`,
           };
         }
 
@@ -1220,13 +1308,30 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     stacks.every((stack: any) => stack.locked && stack.showAnswer);
   const canViewResults = resultsReady || allAnswersRevealed;
 
+  const openSelectedWordLens = () => {
+    if (!selectedCard) return;
+
+    const word = selectedCard;
+    setExploredLensWords((prev) =>
+      prev.includes(word) ? prev : [...prev, word]
+    );
+    trackStudioEvent("word_lens_opened", {
+      game_id: selectedGame.id,
+      week: selectedGame.week,
+      day: selectedGame.day,
+      difficulty: selectedGame.difficulty,
+      word,
+    });
+    setLensWord(word);
+  };
+
   return (
     <DndContext
       sensors={sensors}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
     >
-      <div className="game-scroll-guard max-w-2xl mx-auto space-y-5 sm:space-y-8 px-2 sm:px-3 pb-32 sm:pb-24 relative">
+      <div className="game-scroll-guard max-w-2xl mx-auto space-y-5 sm:space-y-8 px-2 sm:px-3 pb-52 sm:pb-24 relative">
         {showTutorial && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
             <div className="bg-white rounded-3xl border border-neutral-200 shadow-xl max-w-sm w-full p-6 space-y-5 text-center">
@@ -1279,42 +1384,88 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           </div>
         )}
 
-        {selectedCard && (
+        {!canViewResults && (
           <div
-            className="fixed bottom-3 left-1/2 z-50 w-[calc(100%-1rem)] max-w-md -translate-x-1/2 rounded-xl sm:rounded-2xl border border-white/15 bg-neutral-950 px-3 py-2.5 sm:px-4 sm:py-3 text-white shadow-xl"
+            className="fixed left-1/2 z-50 w-[calc(100%-1rem)] max-w-md -translate-x-1/2 rounded-2xl border border-neutral-200 bg-white px-3 py-3 text-neutral-950 shadow-[0_-16px_36px_rgba(0,0,0,0.18)] sm:hidden"
             style={{ bottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
           >
-            <div className="flex items-center justify-between gap-2 sm:gap-3">
+            {selectedCard ? (
+              <div className="rounded-xl bg-neutral-950 px-3 py-2.5 text-white">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="min-w-0">
+                    <p className="text-[10px] uppercase tracking-wide opacity-70">
+                      Selected Word
+                    </p>
+
+                    <p className="truncate text-base font-semibold sm:text-lg">
+                      {selectedCard}
+                    </p>
+                    <p className="text-xs text-white/70">
+                      Tap a group to place it.
+                    </p>
+                  </div>
+
+                  <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
+                    {selectedDefinition && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openSelectedWordLens();
+                        }}
+                        className="rounded-full bg-white px-2.5 py-2 text-xs font-semibold text-neutral-950"
+                      >
+                        Word Lens
+                      </button>
+                    )}
+
+                    <button
+                      onClick={() => setSelectedCard(null)}
+                      className="rounded-full border border-white/30 px-2.5 py-2 text-xs font-semibold text-white"
+                    >
+                      Clear
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="min-w-0">
+                  <p className="text-[10px] uppercase tracking-wide text-neutral-500">
+                    Selected Word / Word Lens
+                  </p>
+                  <p className="text-sm font-semibold">
+                    Tap a word to move it or define it.
+                  </p>
+                </div>
+
+                <span className="shrink-0 rounded-xl border border-neutral-200 bg-neutral-100 px-3 py-2 text-xs font-semibold text-neutral-500">
+                  Word Lens
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+
+        {selectedCard && (
+          <div className="hidden rounded-2xl border border-white/15 bg-neutral-950 px-4 py-3 text-white shadow-xl sm:block">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="min-w-0">
                 <p className="text-[10px] uppercase tracking-wide opacity-70">
                   Selected Word
                 </p>
 
-                <p className="truncate text-lg font-semibold">{selectedCard}</p>
+                <p className="truncate text-base font-semibold sm:text-lg">{selectedCard}</p>
                 <p className="text-xs text-white/70">Tap a group to place it.</p>
               </div>
 
-              <div className="flex shrink-0 items-center gap-2">
+              <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
                 {selectedDefinition && (
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      if (!selectedCard) return;
-
-                      const word = selectedCard;
-                      setExploredLensWords((prev) =>
-                        prev.includes(word) ? prev : [...prev, word]
-                      );
-                      trackStudioEvent("word_lens_opened", {
-                        game_id: selectedGame.id,
-                        week: selectedGame.week,
-                        day: selectedGame.day,
-                        difficulty: selectedGame.difficulty,
-                        word,
-                      });
-                      setLensWord(word);
+                      openSelectedWordLens();
                     }}
-                    className="rounded-full bg-white px-2.5 py-2 sm:px-3 text-xs font-semibold text-neutral-950"
+                    className="rounded-full bg-white px-3 py-2 text-xs font-semibold text-neutral-950"
                   >
                     Word Lens
                   </button>
@@ -1322,7 +1473,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
 
                 <button
                   onClick={() => setSelectedCard(null)}
-                  className="rounded-full border border-white/30 px-2.5 py-2 sm:px-3 text-xs font-semibold text-white"
+                  className="rounded-full border border-white/30 px-3 py-2 text-xs font-semibold text-white"
                 >
                   Clear
                 </button>
@@ -1378,7 +1529,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
               </div>
             ) : (
               <>
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <p className="text-sm text-neutral-500 font-medium">
                     Group {i + 1}
                   </p>
@@ -1405,9 +1556,31 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
                 </div>
 
                 {stack.feedback && (
-                  <p className="text-sm text-amber-900 bg-amber-100 border border-amber-300 px-3 py-2 rounded-lg">
+                  <p className="break-words rounded-lg border border-amber-300 bg-amber-100 px-3 py-2 text-xs leading-snug text-amber-900 sm:text-sm">
                     {stack.feedback}
                   </p>
+                )}
+
+                {!stack.locked && stack.cards.length === 4 && (
+                  <div className="rounded-xl border border-amber-200 bg-amber-50/80 px-3 py-2 space-y-2 sm:py-3">
+                    {getStackHintText(stack) && (
+                      <p className="break-words text-xs leading-snug text-amber-950 sm:text-sm">
+                        {getStackHintText(stack)}
+                      </p>
+                    )}
+                    {(stack.hintLevel || 0) < 3 && (
+                      <button
+                        type="button"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          showStackHint(stack.id, stack.hintLevel || 0);
+                        }}
+                        className="inline-flex min-h-9 items-center rounded-full border border-amber-300 bg-white/80 px-3 py-1.5 text-xs font-semibold text-amber-950 shadow-sm transition hover:text-amber-700 sm:text-sm"
+                      >
+                        {getStackHintButtonLabel(stack)}
+                      </button>
+                    )}
+                  </div>
                 )}
 
                 {stack.locked && (

@@ -4647,4 +4647,1067 @@ export const GAMES = [
   ],
 },
 
+{
+  id: 64,
+  difficulty: 1,
+  vocab: "mixed",
+  week: 10,
+  day: 1,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Benevolent", "Altruistic", "Humane", "Charitable"],
+      correct: "Wanting or trying to do good for others",
+      options: [
+        "Wanting or trying to do good for others",
+        "Seeking prey or advantage",
+        "Not fitting with surrounding details",
+        "Forms of shared government",
+      ],
+      insight: {
+        pattern: "Goodwill vocabulary",
+        explanation:
+          "Benevolent, altruistic, humane, and charitable all describe concern for the good or welfare of others.",
+        generalization:
+          "Language often treats goodness as an active force: care that moves outward toward someone else.",
+        adaptive: {
+          correct: "You recognized the goodwill pattern.",
+          wrong: "Think about words for kindness or care directed toward others.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Umbrella", "Crutch", "Raft", "Oasis"],
+      correct: "Images of help, relief, or protection",
+      options: [
+        "Images of help, relief, or protection",
+        "Images of fracture or separation",
+        "Emergency warning signals",
+        "Tools for making public decisions",
+      ],
+      insight: {
+        pattern: "Support imagery",
+        explanation:
+          "An umbrella, crutch, raft, and oasis can all suggest help, relief, protection, or survival when conditions are difficult.",
+        generalization:
+          "Helpful things often become symbols because they make a hard moment easier to endure.",
+        adaptive: {
+          correct: "You saw the help-and-protection imagery.",
+          wrong: "Think about things that support, shelter, or rescue.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Nurture", "Foster", "Bolster", "Uplift"],
+      correct: "Verbs for helping something or someone grow stronger",
+      options: [
+        "Verbs for helping something or someone grow stronger",
+        "Verbs for splitting something apart",
+        "Verbs for seeking prey",
+        "Verbs for causing panic",
+      ],
+      insight: {
+        pattern: "Strengthening actions",
+        explanation:
+          "Nurture, foster, bolster, and uplift describe actions that help a person, idea, or condition grow stronger.",
+        generalization:
+          "Support is not only a feeling; it can be a series of actions that help something become more whole.",
+        adaptive: {
+          correct: "You found the strengthening-action set.",
+          wrong: "Think about actions that help someone or something improve.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 65,
+  difficulty: 2,
+  vocab: "advanced",
+  week: 10,
+  day: 2,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Malevolent", "Malicious", "Sinister", "Malign"],
+      correct: "Intending or suggesting harm",
+      options: [
+        "Intending or suggesting harm",
+        "Overflowing with joy",
+        "Between one state and another",
+        "Joined under shared public authority",
+      ],
+      insight: {
+        pattern: "Harmful intent",
+        explanation:
+          "Malevolent, malicious, sinister, and malign all suggest harm, ill will, or a threatening purpose.",
+        generalization:
+          "Intent changes how we read an action: the same result can feel accidental, careless, or deliberately harmful.",
+        adaptive: {
+          correct: "You recognized the harmful-intent pattern.",
+          wrong: "Think about words that suggest ill will or danger.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Fang", "Talon", "Snare", "Maw"],
+      correct: "Images of attack, capture, or predation",
+      options: [
+        "Images of attack, capture, or predation",
+        "Images of civic agreement",
+        "Images of ecstatic celebration",
+        "Images of temporary transition",
+      ],
+      insight: {
+        pattern: "Threat imagery",
+        explanation:
+          "Fangs, talons, snares, and maws suggest biting, seizing, trapping, or consuming.",
+        generalization:
+          "Concrete images of danger make harm feel immediate before it becomes abstract.",
+        adaptive: {
+          correct: "You saw the attack-and-capture imagery.",
+          wrong: "Think about images connected to catching or hurting prey.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Threaten", "Menace", "Sabotage", "Intimidate"],
+      correct: "Verbs for trying to harm, frighten, or undermine",
+      options: [
+        "Verbs for trying to harm, frighten, or undermine",
+        "Verbs for making public decisions",
+        "Verbs for enjoying a joyful moment",
+        "Verbs for holding something at a threshold",
+      ],
+      insight: {
+        pattern: "Harmful actions",
+        explanation:
+          "Threaten, menace, sabotage, and intimidate describe actions meant to damage, frighten, weaken, or control.",
+        generalization:
+          "Harm can be physical, emotional, or strategic; language lets us name the method.",
+        adaptive: {
+          correct: "You found the harmful-action group.",
+          wrong: "Think about actions meant to hurt, scare, or weaken someone.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 66,
+  difficulty: 3,
+  vocab: "advanced",
+  week: 10,
+  day: 3,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Euphoria", "Elation", "Exhilaration", "Ecstasy"],
+      correct: "States of intense happiness or excitement",
+      options: [
+        "States of intense happiness or excitement",
+        "States of public disorder",
+        "States of mismatch or awkward fit",
+        "States of political union",
+      ],
+      insight: {
+        pattern: "Intense joy vocabulary",
+        explanation:
+          "Euphoria, elation, exhilaration, and ecstasy describe feelings of intense joy, excitement, or delight.",
+        generalization:
+          "Joy has degrees; some words name ordinary pleasure, while others name emotion that feels almost overflowing.",
+        adaptive: {
+          correct: "You recognized the intense-joy set.",
+          wrong: "Think about words for happiness that rises above ordinary pleasure.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Kite", "Tambourine", "Toast", "Firework"],
+      correct: "Images of celebration or lifted spirits",
+      options: [
+        "Images of celebration or lifted spirits",
+        "Images of disaster aftermath",
+        "Images of predatory danger",
+        "Images of formal government",
+      ],
+      insight: {
+        pattern: "Celebratory imagery",
+        explanation:
+          "A kite, tambourine, toast, and firework can all suggest celebration, high spirits, or a moment rising into joy.",
+        generalization:
+          "Celebration often turns feeling into visible motion, sound, ritual, or light.",
+        adaptive: {
+          correct: "You saw the celebration imagery.",
+          wrong: "Think about objects or gestures connected to festive moments.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Exult", "Revel", "Savor", "Thrill"],
+      correct: "Verbs for enjoying or expressing delight",
+      options: [
+        "Verbs for enjoying or expressing delight",
+        "Verbs for splitting apart",
+        "Verbs for plotting harm",
+        "Verbs for forming a public union",
+      ],
+      insight: {
+        pattern: "Delight actions",
+        explanation:
+          "Exult, revel, savor, and thrill describe enjoying, feeling, or expressing delight with intensity.",
+        generalization:
+          "Pleasure can be passive, but these words show joy becoming active in the body or mind.",
+        adaptive: {
+          correct: "You recognized the delight-action group.",
+          wrong: "Think about verbs connected to enjoying something deeply.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 67,
+  difficulty: 4,
+  vocab: "advanced",
+  week: 10,
+  day: 4,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Hysteria", "Frenzy", "Bedlam", "Pandemonium"],
+      correct: "States of wild confusion or public disorder",
+      options: [
+        "States of wild confusion or public disorder",
+        "States of intense happiness",
+        "States of shared civic order",
+        "States of quiet goodwill",
+      ],
+      insight: {
+        pattern: "Chaotic disorder",
+        explanation:
+          "Hysteria, frenzy, bedlam, and pandemonium describe moments where emotion, noise, or confusion feels uncontrolled.",
+        generalization:
+          "Some words name emotion, and some name the way emotion spreads through a group.",
+        adaptive: {
+          correct: "You recognized the disorder-and-frenzy pattern.",
+          wrong: "Think about words for chaos, confusion, or uncontrolled excitement.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Klaxon", "Airhorn", "Flare", "Strobe"],
+      correct: "Emergency warning signals",
+      options: [
+        "Emergency warning signals",
+        "Symbols of shared government",
+        "Images of generous care",
+        "Images of crossing a boundary",
+      ],
+      insight: {
+        pattern: "Warning imagery",
+        explanation:
+          "Klaxons, airhorns, flares, and strobes are used to call attention quickly, often during emergencies or danger.",
+        generalization:
+          "Warning signs are designed to interrupt ordinary attention before trouble gets worse.",
+        adaptive: {
+          correct: "You saw the emergency-signal group.",
+          wrong: "Think about things meant to get attention fast in a dangerous moment.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Calamity", "Catastrophe", "Disaster", "Cataclysm"],
+      correct: "Large-scale disasters or terrible events",
+      options: [
+        "Large-scale disasters or terrible events",
+        "Ceremonies for public agreement",
+        "People who casually study a subject",
+        "Actions that help someone grow stronger",
+      ],
+      insight: {
+        pattern: "Disaster vocabulary",
+        explanation:
+          "Calamity, catastrophe, disaster, and cataclysm all describe severe events that bring great damage, disruption, or loss.",
+        generalization:
+          "The scale of a word matters; some words are built for ordinary trouble, while others are built for ruin.",
+        adaptive: {
+          correct: "You recognized the disaster-vocabulary group.",
+          wrong: "Think about words for major destructive events.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 68,
+  difficulty: 5,
+  vocab: "advanced",
+  week: 10,
+  day: 5,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Predatory", "Rapacious", "Exploitative", "Opportunistic"],
+      correct: "Taking advantage of others for gain",
+      options: [
+        "Taking advantage of others for gain",
+        "Giving help without selfish motive",
+        "Not fitting the surrounding pattern",
+        "Breaking something into pieces",
+      ],
+      insight: {
+        pattern: "Exploitative appetite",
+        explanation:
+          "Predatory, rapacious, exploitative, and opportunistic can all describe behavior that takes advantage of weakness, need, or opportunity.",
+        generalization:
+          "Predation is not only physical; people can also prey through systems, timing, pressure, or need.",
+        adaptive: {
+          correct: "You recognized the exploitative pattern.",
+          wrong: "Think about words for taking advantage of someone else.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Predator", "Hunter", "Poacher", "Angler"],
+      correct: "Figures that pursue, catch, or take prey",
+      options: [
+        "Figures that pursue, catch, or take prey",
+        "Figures that manage a republic",
+        "Figures that bring public celebration",
+        "Figures that repair broken pieces",
+      ],
+      insight: {
+        pattern: "Pursuit roles",
+        explanation:
+          "Predators, hunters, poachers, and anglers all pursue, catch, or take living targets, though the setting and ethics differ.",
+        generalization:
+          "A role can reveal a pattern of action: watching, waiting, pursuing, and taking.",
+        adaptive: {
+          correct: "You saw the pursuit-role group.",
+          wrong: "Think about figures connected to catching prey.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Prowl", "Pounce", "Ambush", "Corner"],
+      correct: "Verbs for pursuing or trapping prey",
+      options: [
+        "Verbs for pursuing or trapping prey",
+        "Verbs for creating public law",
+        "Verbs for enjoying celebration",
+        "Verbs for easing distress",
+      ],
+      insight: {
+        pattern: "Hunting actions",
+        explanation:
+          "Prowl, pounce, ambush, and corner describe actions that help a pursuer stalk, surprise, or trap a target.",
+        generalization:
+          "The language of pursuit often moves in stages: search, approach, strike, and prevent escape.",
+        adaptive: {
+          correct: "You recognized the hunting-action set.",
+          wrong: "Think about actions used to pursue or trap.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 69,
+  difficulty: 6,
+  vocab: "advanced",
+  week: 10,
+  day: 6,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Incongruous", "Discordant", "Jarring", "Mismatched"],
+      correct: "Not fitting smoothly with the surroundings",
+      options: [
+        "Not fitting smoothly with the surroundings",
+        "Joined under shared public authority",
+        "Harmful or threatening in intent",
+        "Filled with intense joy",
+      ],
+      insight: {
+        pattern: "Awkward fit",
+        explanation:
+          "Incongruous, discordant, jarring, and mismatched describe things that do not fit smoothly with their context or with each other.",
+        generalization:
+          "Mismatch can be a clue: when something does not fit, attention naturally moves toward it.",
+        adaptive: {
+          correct: "You recognized the awkward-fit pattern.",
+          wrong: "Think about words for something that clashes with its surroundings.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Commonwealth", "Republic", "Federation", "Union"],
+      correct: "Political communities or shared forms of government",
+      options: [
+        "Political communities or shared forms of government",
+        "Emergency warning signals",
+        "Images of attack and capture",
+        "Places between one state and another",
+      ],
+      insight: {
+        pattern: "Shared civic structures",
+        explanation:
+          "Commonwealth, republic, federation, and union can all describe organized political communities or systems of shared public authority.",
+        generalization:
+          "Civic language turns many separate people into one public body.",
+        adaptive: {
+          correct: "You recognized the shared-government group.",
+          wrong: "Think about words for political communities or public structures.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Govern", "Elect", "Ratify", "Legislate"],
+      correct: "Civic actions that shape public authority",
+      options: [
+        "Civic actions that shape public authority",
+        "Actions that split something apart",
+        "Actions that create emotional frenzy",
+        "Actions that take advantage of weakness",
+      ],
+      insight: {
+        pattern: "Civic action verbs",
+        explanation:
+          "Govern, elect, ratify, and legislate are actions involved in choosing, approving, making, or directing public authority.",
+        generalization:
+          "Government is not only a structure; it is a set of repeated public actions.",
+        adaptive: {
+          correct: "You found the civic-action verbs.",
+          wrong: "Think about actions connected to public decision-making.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 70,
+  difficulty: 7,
+  vocab: "advanced",
+  week: 10,
+  day: 7,
+  groups: [
+    {
+      skill: "abstraction",
+      words: ["Liminal", "Transitional", "Interim", "In-between"],
+      correct: "Between one state, place, or stage and another",
+      options: [
+        "Between one state, place, or stage and another",
+        "Violently split or divided",
+        "Able to create public order",
+        "Eager to exploit weakness",
+      ],
+      insight: {
+        pattern: "Threshold states",
+        explanation:
+          "Liminal, transitional, interim, and in-between all describe a state that sits between what came before and what comes next.",
+        generalization:
+          "Threshold moments can feel uncertain because they are partly one thing and partly another.",
+        adaptive: {
+          correct: "You recognized the threshold-state pattern.",
+          wrong: "Think about words for being between stages or conditions.",
+        },
+      },
+    },
+    {
+      skill: "symbolic",
+      words: ["Faultline", "Fissure", "Cleft", "Rift"],
+      correct: "Images of division, fracture, or separation",
+      options: [
+        "Images of division, fracture, or separation",
+        "Images of generous protection",
+        "Images of ecstatic celebration",
+        "Images of public lawmaking",
+      ],
+      insight: {
+        pattern: "Fracture imagery",
+        explanation:
+          "Faultlines, fissures, clefts, and rifts are all openings, splits, or breaks that suggest separation.",
+        generalization:
+          "Physical breaks give language a way to picture division in relationships, ideas, and societies.",
+        adaptive: {
+          correct: "You saw the fracture imagery.",
+          wrong: "Think about images of cracks, splits, or gaps.",
+        },
+      },
+    },
+    {
+      skill: "linguistic",
+      words: ["Rive", "Cleave", "Split", "Sunder"],
+      correct: "Verbs meaning to split apart",
+      options: [
+        "Verbs meaning to split apart",
+        "Verbs for joining a government",
+        "Verbs for looking for prey",
+        "Verbs for feeling intense joy",
+      ],
+      insight: {
+        pattern: "Separation verbs",
+        explanation:
+          "Rive, cleave, split, and sunder all mean to divide, tear, or break something apart.",
+        generalization:
+          "Some words carry the force of the action inside them; they sound almost as sharp as the break they describe.",
+        adaptive: {
+          correct: "You recognized the splitting-apart verbs.",
+          wrong: "Think about verbs for tearing or dividing.",
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 71,
+  difficulty: 1,
+  vocab: 'mixed',
+  week: 11,
+  day: 1,
+  groups: [
+    {
+      skill: 'abstraction',
+      words: ['Prosperous', 'Thriving', 'Flourishing', 'Successful'],
+      correct: 'Doing well or enjoying success',
+      options: [
+        'Doing well or enjoying success',
+        'Signs of official control',
+        'Openly disrespectful behavior',
+        'The mood of a historical moment',
+      ],
+      insight: {
+        pattern: 'Success vocabulary',
+        explanation:
+          'Prosperous, thriving, flourishing, and successful all describe someone or something doing well.',
+        generalization:
+          'Some success words began with money or harvests, but they can also describe health, ideas, or communities.',
+        adaptive: {
+          correct: 'You found the success and flourishing words.',
+          wrong: 'Think about words for doing well or improving.',
+        },
+      },
+    },
+    {
+      skill: 'symbolic',
+      words: ['Trophy', 'Ribbon', 'Harvest', 'Gold'],
+      correct: 'Images of success, reward, or abundance',
+      options: [
+        'Images of success, reward, or abundance',
+        'Images of loud public warning',
+        'Images of awkward accidents',
+        'Images of cultural memory',
+      ],
+      insight: {
+        pattern: 'Success symbols',
+        explanation:
+          'A trophy, ribbon, harvest, and gold can all symbolize winning, reward, or abundance.',
+        generalization:
+          'Symbols often turn abstract achievement into something visible enough to hold, wear, or display.',
+        adaptive: {
+          correct: 'You recognized the reward and abundance symbols.',
+          wrong: 'Think about images people connect with winning or having plenty.',
+        },
+      },
+    },
+    {
+      skill: 'linguistic',
+      words: ['Respectable', 'Decent', 'Proper', 'Reputable'],
+      correct: 'Socially acceptable or worthy of regard',
+      options: [
+        'Socially acceptable or worthy of regard',
+        'Loud, rough, or disorderly',
+        'Large enough to hold a lot',
+        'Temporary popular fashions',
+      ],
+      insight: {
+        pattern: 'Reputation words',
+        explanation:
+          'Respectable, decent, proper, and reputable all describe conduct or standing that earns social approval.',
+        generalization:
+          'Reputation words are social measuring tools: they show how behavior is judged by a community.',
+        adaptive: {
+          correct: 'You found the words of good social standing.',
+          wrong: 'Think about words for being seen as proper or worthy of respect.',
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 72,
+  difficulty: 2,
+  vocab: 'mixed',
+  week: 11,
+  day: 2,
+  groups: [
+    {
+      skill: 'abstraction',
+      words: ['Obedience', 'Compliance', 'Submission', 'Deference'],
+      correct: 'Following authority or yielding to it',
+      options: [
+        'Following authority or yielding to it',
+        'Facial expressions of anger or contempt',
+        'Objects that capture an era',
+        'Words for taking up a lot of space',
+      ],
+      insight: {
+        pattern: 'Yielding to authority',
+        explanation:
+          'Obedience, compliance, submission, and deference all involve accepting, following, or yielding to authority.',
+        generalization:
+          'Authority words often differ in tone: obedience can sound neutral, while submission can feel more forceful.',
+        adaptive: {
+          correct: 'You recognized the authority-following words.',
+          wrong: 'Think about words for doing what a rule or authority asks.',
+        },
+      },
+    },
+    {
+      skill: 'symbolic',
+      words: ['Badge', 'Gavel', 'Rulebook', 'Uniform'],
+      correct: 'Symbols of authority, rules, or office',
+      options: [
+        'Symbols of authority, rules, or office',
+        'Symbols of falling or stumbling',
+        'Symbols of a noisy crowd',
+        'Symbols of a future trend',
+      ],
+      insight: {
+        pattern: 'Authority symbols',
+        explanation:
+          'A badge, gavel, rulebook, and uniform can all represent authority, rules, or official power.',
+        generalization:
+          'Authority often announces itself through objects, not just commands.',
+        adaptive: {
+          correct: 'You found the images of authority.',
+          wrong: 'Think about objects that suggest rules, office, or official power.',
+        },
+      },
+    },
+    {
+      skill: 'linguistic',
+      words: ['Defy', 'Resist', 'Rebel', 'Refuse'],
+      correct: 'Push back against authority or pressure',
+      options: [
+        'Push back against authority or pressure',
+        'Do well financially or socially',
+        'Sound loud and rough',
+        'Describe a cultural moment',
+      ],
+      insight: {
+        pattern: 'Resistance verbs',
+        explanation:
+          'Defy, resist, rebel, and refuse all describe pushing back against a demand, rule, or pressure.',
+        generalization:
+          'A puzzle can sharpen a contrast by placing obedience and resistance in the same day.',
+        adaptive: {
+          correct: 'You recognized the resistance words.',
+          wrong: 'Think about verbs for pushing back or saying no.',
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 73,
+  difficulty: 3,
+  vocab: 'mixed',
+  week: 11,
+  day: 3,
+  groups: [
+    {
+      skill: 'abstraction',
+      words: ['Glower', 'Scowl', 'Frown', 'Sneer'],
+      correct: 'Facial expressions showing anger or contempt',
+      options: [
+        'Facial expressions showing anger or contempt',
+        'Verbs for obeying a rule',
+        'Words for being honorable after failure',
+        'Objects used for measuring time',
+      ],
+      insight: {
+        pattern: 'Hostile expressions',
+        explanation:
+          'Glower, scowl, frown, and sneer all name facial expressions that can show anger, contempt, or displeasure.',
+        generalization:
+          'Expression words turn a look into a clue about mood, attitude, or social tension.',
+        adaptive: {
+          correct: 'You found the hostile facial expressions.',
+          wrong: 'Think about words for angry or contemptuous looks.',
+        },
+      },
+    },
+    {
+      skill: 'symbolic',
+      words: ['Siren', 'Cymbal', 'Bullhorn', 'Firecracker'],
+      correct: 'Images of loud or attention-grabbing sound',
+      options: [
+        'Images of loud or attention-grabbing sound',
+        'Images of hidden cultural memory',
+        'Images of strict obedience',
+        'Images of prosperity and reward',
+      ],
+      insight: {
+        pattern: 'Noise symbols',
+        explanation:
+          'A siren, cymbal, bullhorn, and firecracker all suggest loud sounds that demand attention.',
+        generalization:
+          'Sound images can change the emotional volume of a scene before anyone says a word.',
+        adaptive: {
+          correct: 'You spotted the loud-sound images.',
+          wrong: 'Think about objects that make noise or draw attention.',
+        },
+      },
+    },
+    {
+      skill: 'linguistic',
+      words: ['Raucous', 'Rowdy', 'Boisterous', 'Clamorous'],
+      correct: 'Loud, rough, or disorderly',
+      options: [
+        'Loud, rough, or disorderly',
+        'Large, roomy, or spacious',
+        'Socially proper or respectable',
+        'Famous for lasting many years',
+      ],
+      insight: {
+        pattern: 'Noisy disorder',
+        explanation:
+          'Raucous, rowdy, boisterous, and clamorous all describe loud or disorderly energy.',
+        generalization:
+          'Noise words can describe more than sound; they can also describe the behavior of a crowd.',
+        adaptive: {
+          correct: 'You found the loud disorder words.',
+          wrong: 'Think about adjectives for noisy, rough energy.',
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 74,
+  difficulty: 4,
+  vocab: 'mixed',
+  week: 11,
+  day: 4,
+  groups: [
+    {
+      skill: 'abstraction',
+      words: ['Clumsy', 'Awkward', 'Ungainly', 'Inept'],
+      correct: 'Lacking grace, skill, or coordination',
+      options: [
+        'Lacking grace, skill, or coordination',
+        'Disrespectful speech or behavior',
+        'The feeling of a particular era',
+        'Symbols of command and control',
+      ],
+      insight: {
+        pattern: 'Awkward motion',
+        explanation:
+          'Clumsy, awkward, ungainly, and inept all describe a lack of grace, skill, or coordination.',
+        generalization:
+          'Some words describe movement, but they can also judge how smoothly someone handles a situation.',
+        adaptive: {
+          correct: 'You recognized the awkwardness words.',
+          wrong: 'Think about words for being ungraceful or unskilled.',
+        },
+      },
+    },
+    {
+      skill: 'symbolic',
+      words: ['Banana Peel', 'Loose Shoelace', 'Spill', 'Tangle'],
+      correct: 'Images of mishap or awkward trouble',
+      options: [
+        'Images of mishap or awkward trouble',
+        'Images of legal authority',
+        'Images of cultural trends',
+        'Images of public honor',
+      ],
+      insight: {
+        pattern: 'Mishap symbols',
+        explanation:
+          'A banana peel, loose shoelace, spill, and tangle all suggest a stumble, mess, or awkward complication.',
+        generalization:
+          'Symbolic groups often use small physical details to point toward a larger kind of trouble.',
+        adaptive: {
+          correct: 'You found the mishap images.',
+          wrong: 'Think about images that suggest stumbling, mess, or awkward trouble.',
+        },
+      },
+    },
+    {
+      skill: 'linguistic',
+      words: ['Insolence', 'Impudence', 'Sass', 'Cheek'],
+      correct: 'Disrespectful speech or behavior',
+      options: [
+        'Disrespectful speech or behavior',
+        'Extreme confusion or frenzy',
+        'Doing well or flourishing',
+        'Items that preserve the past',
+      ],
+      insight: {
+        pattern: 'Disrespect words',
+        explanation:
+          'Insolence, impudence, sass, and cheek can all describe bold or disrespectful behavior.',
+        generalization:
+          'Tone matters: a word like cheek can sound playful in one context and disrespectful in another.',
+        adaptive: {
+          correct: 'You found the disrespectful-behavior words.',
+          wrong: 'Think about words for bold, rude, or disrespectful attitude.',
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 75,
+  difficulty: 5,
+  vocab: 'mixed',
+  week: 11,
+  day: 5,
+  groups: [
+    {
+      skill: 'abstraction',
+      words: ['Domineering', 'Overbearing', 'Bossy', 'Controlling'],
+      correct: 'Trying to control others too forcefully',
+      options: [
+        'Trying to control others too forcefully',
+        'Giving help without expecting reward',
+        'Moving without coordination',
+        'Showing temporary popularity',
+      ],
+      insight: {
+        pattern: 'Forceful control',
+        explanation:
+          'Domineering, overbearing, bossy, and controlling all describe someone who tries to control others too strongly.',
+        generalization:
+          'Control words often carry judgment: they do not just say someone leads, but that they push too hard.',
+        adaptive: {
+          correct: 'You recognized the forceful-control words.',
+          wrong: 'Think about words for pushing authority too far.',
+        },
+      },
+    },
+    {
+      skill: 'abstraction',
+      words: ['Engineer', 'Mastermind', 'Puppeteer', 'Manipulator'],
+      correct: 'People who direct, plan, or control outcomes',
+      options: [
+        'People who direct, plan, or control outcomes',
+        'People known for public celebration',
+        'People who move without coordination',
+        'People tied to wealth and growth',
+      ],
+      insight: {
+        pattern: 'Control roles',
+        explanation:
+          'An engineer, mastermind, puppeteer, and manipulator can all describe someone arranging or controlling what happens.',
+        generalization:
+          'Control can be obvious, but it can also happen through planning, designing, or quietly pulling strings.',
+        adaptive: {
+          correct: 'You found the roles connected to control and influence.',
+          wrong: 'Think about people who shape outcomes from behind the scenes.',
+        },
+      },
+    },
+    {
+      skill: 'linguistic',
+      words: ['Inglorious', 'Shameful', 'Disgraceful', 'Dishonorable'],
+      correct: 'Lacking honor, glory, or respect',
+      options: [
+        'Lacking honor, glory, or respect',
+        'Large enough to contain a lot',
+        'Facial signs of anger',
+        'Willing to follow authority',
+      ],
+      insight: {
+        pattern: 'Loss of honor',
+        explanation:
+          'Inglorious, shameful, disgraceful, and dishonorable all describe something lacking honor, glory, or respect.',
+        generalization:
+          'Honor words often work by contrast: they show what falls short of an admired standard.',
+        adaptive: {
+          correct: 'You found the words for loss of honor.',
+          wrong: 'Think about words for shame or dishonor.',
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 76,
+  difficulty: 6,
+  vocab: 'mixed',
+  week: 11,
+  day: 6,
+  groups: [
+    {
+      skill: 'abstraction',
+      words: ['Delirium', 'Frenzy', 'Hysteria', 'Mania'],
+      correct: 'States of intense confusion or excitement',
+      options: [
+        'States of intense confusion or excitement',
+        'Words for social respectability',
+        'Objects that mark official authority',
+        'Short-lived cultural trends',
+      ],
+      insight: {
+        pattern: 'Uncontrolled states',
+        explanation:
+          'Delirium, frenzy, hysteria, and mania all describe intense, uncontrolled states of mind or emotion.',
+        generalization:
+          'Some emotional words describe a person; others describe a whole room, crowd, or moment spinning out of control.',
+        adaptive: {
+          correct: 'You found the uncontrolled-state words.',
+          wrong: 'Think about words for intense confusion or excitement.',
+        },
+      },
+    },
+    {
+      skill: 'symbolic',
+      words: ['Whirlwind', 'Riot', 'Maelstrom', 'Stampede'],
+      correct: 'Images of chaotic or uncontrolled motion',
+      options: [
+        'Images of chaotic or uncontrolled motion',
+        'Images of success and reward',
+        'Images of respectful behavior',
+        'Images of official record keeping',
+      ],
+      insight: {
+        pattern: 'Chaos symbols',
+        explanation:
+          'A whirlwind, riot, maelstrom, and stampede all suggest chaotic or uncontrolled motion.',
+        generalization:
+          'When language needs to picture chaos, it often borrows from crowds, weather, and rushing movement.',
+        adaptive: {
+          correct: 'You spotted the chaotic-motion images.',
+          wrong: 'Think about images of things spinning or rushing out of control.',
+        },
+      },
+    },
+    {
+      skill: 'linguistic',
+      words: ['Capacious', 'Roomy', 'Spacious', 'Ample'],
+      correct: 'Large enough to hold a lot',
+      options: [
+        'Large enough to hold a lot',
+        'Disorderly and noisy',
+        'Disrespectful toward authority',
+        'Unworthy of honor',
+      ],
+      insight: {
+        pattern: 'Room and capacity',
+        explanation:
+          'Capacious, roomy, spacious, and ample all describe something with plenty of room or capacity.',
+        generalization:
+          'Capacity words can describe physical space, but also the size of an idea, imagination, or opportunity.',
+        adaptive: {
+          correct: 'You found the words for room and capacity.',
+          wrong: 'Think about words for having plenty of space.',
+        },
+      },
+    },
+  ],
+},
+
+{
+  id: 77,
+  difficulty: 7,
+  vocab: 'mixed',
+  week: 11,
+  day: 7,
+  groups: [
+    {
+      skill: 'abstraction',
+      words: ['Zeitgeist', 'Ethos', 'Climate', 'Mood'],
+      correct: 'The spirit or feeling of a time or culture',
+      options: [
+        'The spirit or feeling of a time or culture',
+        'A forceful desire to control others',
+        'A sign of loud public warning',
+        'A graceful way to follow authority',
+      ],
+      insight: {
+        pattern: 'Cultural atmosphere',
+        explanation:
+          'Zeitgeist, ethos, climate, and mood can all point to the feeling, spirit, or atmosphere of a time or culture.',
+        generalization:
+          'A single era has facts, but it also has a feeling. Words like zeitgeist try to name that larger atmosphere.',
+        adaptive: {
+          correct: 'You recognized the cultural-atmosphere words.',
+          wrong: 'Think about words for the feeling or spirit of a time.',
+        },
+      },
+    },
+    {
+      skill: 'symbolic',
+      words: ['Time Capsule', 'Newspaper', 'Poster', 'Billboard'],
+      correct: 'Objects or media that can capture an era',
+      options: [
+        'Objects or media that can capture an era',
+        'Objects that show awkward mishaps',
+        'Objects that enforce obedience',
+        'Objects that make rough noise',
+      ],
+      insight: {
+        pattern: 'Era artifacts',
+        explanation:
+          'A time capsule, newspaper, poster, and billboard can all preserve or display clues about a cultural moment.',
+        generalization:
+          'Culture leaves evidence behind in the things it saves, prints, posts, and advertises.',
+        adaptive: {
+          correct: 'You found the objects that capture an era.',
+          wrong: 'Think about things that preserve or display what a time period cared about.',
+        },
+      },
+    },
+    {
+      skill: 'linguistic',
+      words: ['Trend', 'Fad', 'Craze', 'Vogue'],
+      correct: 'Temporary popular styles or interests',
+      options: [
+        'Temporary popular styles or interests',
+        'States of uncontrolled excitement',
+        'Respectable public behavior',
+        'Plenty of physical space',
+      ],
+      insight: {
+        pattern: 'Passing popularity',
+        explanation:
+          'Trend, fad, craze, and vogue all describe something popular for a time, though not always permanently.',
+        generalization:
+          'The zeitgeist is the whole atmosphere; trends and fads are some of the moving pieces inside it.',
+        adaptive: {
+          correct: 'You found the temporary-popularity words.',
+          wrong: 'Think about words for what becomes popular for a while.',
+        },
+      },
+    },
+  ],
+},
 ];

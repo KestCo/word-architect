@@ -1360,4 +1360,192 @@ Incredulous: {
   extended:
     "Someone incredulous reacts with doubt, surprise, or disbelief because a claim seems hard to accept.",
 },
+
+Benevolent: {
+  short:
+    "Kind, generous, and wanting to do good for others.",
+  extended:
+    "Benevolent often describes a person, action, or power that is guided by goodwill rather than selfishness or harm.",
+},
+
+Malevolent: {
+  short:
+    "Having or showing a wish to do harm.",
+  extended:
+    "Malevolent suggests more than danger; it points to harmful intent, as if someone or something wants bad things to happen.",
+},
+
+Euphoria: {
+  short:
+    "A feeling of intense happiness, excitement, or well-being.",
+  extended:
+    "Euphoria is stronger than ordinary joy; it suggests an elevated emotional state that can feel almost overwhelming.",
+},
+
+Hysteria: {
+  short:
+    "Uncontrolled emotion, panic, or excitement, especially in a group.",
+  extended:
+    "Hysteria can describe a moment when fear, excitement, or confusion spreads until people lose calm judgment.",
+},
+
+Calamity: {
+  short:
+    "A serious disaster or terrible event.",
+  extended:
+    "Calamity suggests trouble on a large scale, often with loss, damage, or deep distress.",
+},
+
+Predatory: {
+  short:
+    "Seeking prey or taking advantage of weakness.",
+  extended:
+    "Predatory can describe animals that hunt, or people and systems that exploit others for gain.",
+},
+
+Rapacious: {
+  short:
+    "Greedy, grasping, or aggressively eager to take.",
+  extended:
+    "Rapacious often suggests appetite without restraint, especially when someone takes more than is fair.",
+},
+
+Incongruous: {
+  short:
+    "Not fitting with the surroundings or situation.",
+  extended:
+    "Something incongruous feels out of place because it clashes with the pattern, mood, or context around it.",
+},
+
+Commonwealth: {
+  short:
+    "A political community formed for the common good.",
+  extended:
+    "Commonwealth can refer to a nation, state, or organized community built around shared public interests.",
+},
+
+Liminal: {
+  short:
+    "At a threshold or in-between stage.",
+  extended:
+    "Liminal describes a state of transition, when something is no longer fully what it was but not yet what it will become.",
+},
+
+Rive: {
+  short:
+    "To split, tear, or break apart.",
+  extended:
+    "Rive is a forceful verb often used for something divided sharply, violently, or deeply.",
+},
+Zeitgeist: {
+  short:
+    'The spirit, mood, or defining ideas of a particular time.',
+  extended:
+    'Zeitgeist is often used for the larger feeling of an era, including its trends, fears, values, and cultural energy.',
+},
+
+Prosperous: {
+  short:
+    'Successful, flourishing, or doing well, especially financially.',
+  extended:
+    'Prosperous can describe a person, business, place, or period that is thriving and has enough resources to grow.',
+},
+
+Respectable: {
+  short:
+    'Seen as proper, decent, or worthy of respect.',
+  extended:
+    'Respectable often describes behavior or reputation that a community considers acceptable and honorable.',
+},
+
+Glower: {
+  short:
+    'To stare with anger or displeasure.',
+  extended:
+    'A glower is more intense than a frown; it suggests a dark, fixed look that shows anger or resentment.',
+},
+
+Cymbal: {
+  short:
+    'A round metal percussion instrument that makes a bright crashing or ringing sound.',
+  extended:
+    'Cymbals are often used in bands, orchestras, and drum kits to add sharp, shimmering accents or dramatic crashes.',
+},
+
+Raucous: {
+  short:
+    'Loud, rough, and disorderly.',
+  extended:
+    'Raucous is often used for noisy crowds, harsh laughter, or rowdy energy that feels hard to control.',
+},
+
+Insolence: {
+  short:
+    'Boldly rude or disrespectful behavior.',
+  extended:
+    'Insolence is more than simple rudeness; it often suggests defiance toward someone who expects respect.',
+},
+
+Impudence: {
+  short:
+    'Bold disrespect or shameless rudeness.',
+  extended:
+    'Impudence describes behavior that ignores expected politeness or respect, often with a confident edge.',
+},
+
+Domineering: {
+  short:
+    'Trying to control other people too forcefully.',
+  extended:
+    'A domineering person does not merely lead; they push, command, or pressure others in an overbearing way.',
+},
+
+Inglorious: {
+  short:
+    'Not honorable, admirable, or glorious.',
+  extended:
+    'Inglorious often describes an action, ending, or defeat that feels shameful rather than noble or impressive.',
+},
+
+Delirium: {
+  short:
+    'A state of extreme confusion, excitement, or disturbed thinking.',
+  extended:
+    'Delirium can describe a medical state of confusion, but it is also used more broadly for wild excitement or frenzy.',
+},
+
+Capacious: {
+  short:
+    'Roomy or able to hold a lot.',
+  extended:
+    'Capacious often describes physical space, such as a bag or room, but it can also describe a broad mind or imagination.',
+},
+
+Ungainly: {
+  short:
+    'Awkward, clumsy, or lacking grace.',
+  extended:
+    'Ungainly usually describes movement or shape that feels awkward, unbalanced, or not smoothly controlled.',
+},
+
+Maelstrom: {
+  short:
+    'A powerful whirlpool or a state of violent confusion.',
+  extended:
+    'Maelstrom began as a word for a dangerous whirlpool and now often describes any chaotic, overwhelming situation.',
+},
+
+Ethos: {
+  short:
+    'The guiding spirit, values, or character of a group or culture.',
+  extended:
+    'Ethos points to the shared values or attitude that shape how a community, era, or organization behaves.',
+},
+
+Vogue: {
+  short:
+    'A popular fashion, style, or trend.',
+  extended:
+    'Vogue describes something currently in style or widely admired, especially in culture, taste, or fashion.',
+},
 };
