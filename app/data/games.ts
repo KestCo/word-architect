@@ -5710,4 +5710,536 @@ export const GAMES = [
     },
   ],
 },
+  // WEEK 12
+  {
+    id: 78,
+    difficulty: 1,
+    vocab: "mixed",
+    week: 12,
+    day: 1,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Admiration", "Respect", "Esteem", "Regard"],
+        correct: "Positive regard for someone or something",
+        options: [
+          "Positive regard for someone or something",
+          "Warnings about the future",
+          "Kinds of public speeches",
+          "Forms of hidden dishonesty",
+        ],
+        insight: {
+          pattern: "Favorable feeling",
+          explanation:
+            "Admiration, respect, esteem, and regard all describe positive attention or approval.",
+          generalization:
+            "Some word groups share an emotional stance rather than a concrete category.",
+          adaptive: {
+            correct: "You found the words of positive regard.",
+            wrong: "Think about words for looking at someone or something favorably.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Trophy", "Medal", "Applause", "Bouquet"],
+        correct: "Symbols or gestures of praise",
+        options: [
+          "Symbols or gestures of praise",
+          "Objects used by travelers",
+          "Warnings before danger",
+          "Things that change shape",
+        ],
+        insight: {
+          pattern: "Praise made visible",
+          explanation:
+            "A trophy, medal, applause, and bouquet can all express honor, recognition, or admiration.",
+          generalization:
+            "Abstract feelings often become easier to see when they are turned into rituals or objects.",
+          adaptive: {
+            correct: "You spotted the praise symbols.",
+            wrong: "Think about things people give or do to show admiration.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Marvelous", "Wonderful", "Splendid", "Superb"],
+        correct: "Words for something impressively good",
+        options: [
+          "Words for something impressively good",
+          "Words for false statements",
+          "Words for gloomy endings",
+          "Words for public speakers",
+        ],
+        insight: {
+          pattern: "High praise",
+          explanation:
+            "Marvelous, wonderful, splendid, and superb all describe something excellent or delightful.",
+          generalization:
+            "Synonyms can vary in flavor while still pointing toward the same idea.",
+          adaptive: {
+            correct: "You found the high-praise words.",
+            wrong: "Think about words you might use when something is excellent.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 79,
+    difficulty: 2,
+    vocab: "mixed",
+    week: 12,
+    day: 2,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Wisdom", "Insight", "Judgment", "Discernment"],
+        correct: "Sound understanding or good judgment",
+        options: [
+          "Sound understanding or good judgment",
+          "Signs of future doom",
+          "Bold forms of courage",
+          "Ways of deceiving others",
+        ],
+        insight: {
+          pattern: "Knowing well",
+          explanation:
+            "Wisdom, insight, judgment, and discernment all involve understanding what matters and choosing well.",
+          generalization:
+            "Intelligence is not only facts; it can also mean knowing how to weigh meaning.",
+          adaptive: {
+            correct: "You found the good-judgment words.",
+            wrong: "Think about words for understanding deeply or choosing wisely.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Owl", "Lantern", "Compass", "Scroll"],
+        correct: "Symbols of wisdom or guidance",
+        options: [
+          "Symbols of wisdom or guidance",
+          "Objects used to hide a lie",
+          "Symbols of public applause",
+          "Things that appear ghostly",
+        ],
+        insight: {
+          pattern: "Guiding images",
+          explanation:
+            "Owls, lanterns, compasses, and scrolls can all suggest wisdom, learning, or guidance.",
+          generalization:
+            "Symbols often compress a large idea into an image people recognize quickly.",
+          adaptive: {
+            correct: "You found the wisdom symbols.",
+            wrong: "Think about images connected to learning, direction, or guidance.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Auspicious", "Promising", "Favorable", "Propitious"],
+        correct: "Suggesting a good future outcome",
+        options: [
+          "Suggesting a good future outcome",
+          "Refusing to be defeated",
+          "Speaking to a crowd",
+          "Hiding the truth",
+        ],
+        insight: {
+          pattern: "Good signs",
+          explanation:
+            "Auspicious, promising, favorable, and propitious all suggest that things may turn out well.",
+          generalization:
+            "Some future-looking words carry hope, while others carry warning.",
+          adaptive: {
+            correct: "You found the favorable-future words.",
+            wrong: "Think about words that make the future sound hopeful.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 80,
+    difficulty: 3,
+    vocab: "mixed",
+    week: 12,
+    day: 3,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Venerable", "Illustrious", "Respected", "Revered"],
+        correct: "Worthy of honor or deep respect",
+        options: [
+          "Worthy of honor or deep respect",
+          "Unable to be frightened",
+          "Able to change form",
+          "False in a hidden way",
+        ],
+        insight: {
+          pattern: "Elevated regard",
+          explanation:
+            "Venerable, illustrious, respected, and revered all describe someone or something held in high honor.",
+          generalization:
+            "Admiration can become more formal when it is connected to status, age, achievement, or history.",
+          adaptive: {
+            correct: "You found the deep-respect words.",
+            wrong: "Think about words that place someone high in public regard.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Laurel", "Monument", "Crown", "Pedestal"],
+        correct: "Symbols of honor or elevated status",
+        options: [
+          "Symbols of honor or elevated status",
+          "Symbols of warning or prediction",
+          "Objects used for concealment",
+          "Images of ghostly presence",
+        ],
+        insight: {
+          pattern: "Honor made visible",
+          explanation:
+            "Laurels, monuments, crowns, and pedestals can all mark public honor, achievement, or elevated status.",
+          generalization:
+            "Cultures build symbols to show who or what they want people to remember.",
+          adaptive: {
+            correct: "You found the status symbols.",
+            wrong: "Think about objects that lift someone into honor or memory.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Unrivaled", "Peerless", "Matchless", "Supreme"],
+        correct: "Having no equal",
+        options: [
+          "Having no equal",
+          "Speaking in front of others",
+          "Generous after conflict",
+          "Predicting future events",
+        ],
+        insight: {
+          pattern: "Beyond comparison",
+          explanation:
+            "Unrivaled, peerless, matchless, and supreme all suggest being unmatched or above the competition.",
+          generalization:
+            "The strongest praise sometimes works by saying there is nothing to compare.",
+          adaptive: {
+            correct: "You found the no-equal words.",
+            wrong: "Think about words that remove the idea of competition.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 81,
+    difficulty: 4,
+    vocab: "mixed",
+    week: 12,
+    day: 4,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Dauntless", "Indomitable", "Unflinching", "Resolute"],
+        correct: "Not easily frightened or defeated",
+        options: [
+          "Not easily frightened or defeated",
+          "Able to see the future",
+          "Honored by public memory",
+          "Generous toward an opponent",
+        ],
+        insight: {
+          pattern: "Steadfast courage",
+          explanation:
+            "Dauntless, indomitable, unflinching, and resolute all describe courage that does not easily give way.",
+          generalization:
+            "Courage can be shown as action, but it can also be shown as refusal to collapse.",
+          adaptive: {
+            correct: "You found the steadfast-courage words.",
+            wrong: "Think about words for staying firm under pressure.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Fortress", "Shield", "Mountain", "Oak"],
+        correct: "Symbols of strength or endurance",
+        options: [
+          "Symbols of strength or endurance",
+          "Symbols of public speech",
+          "Symbols of hidden falsehood",
+          "Signs of spiritual ruin",
+        ],
+        insight: {
+          pattern: "Enduring images",
+          explanation:
+            "A fortress, shield, mountain, and oak can all symbolize protection, strength, or endurance.",
+          generalization:
+            "When an abstract quality is hard to name, symbols can give it shape.",
+          adaptive: {
+            correct: "You found the endurance symbols.",
+            wrong: "Think about images that feel strong, protective, or hard to move.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Orator", "Speaker", "Lecturer", "Rhetorician"],
+        correct: "People who speak formally or publicly",
+        options: [
+          "People who speak formally or publicly",
+          "People believed to foretell the future",
+          "People known for generosity",
+          "People without equal",
+        ],
+        insight: {
+          pattern: "Public speech",
+          explanation:
+            "An orator, speaker, lecturer, and rhetorician are all connected to formal or persuasive speech.",
+          generalization:
+            "Language can be studied as meaning, but also as performance and persuasion.",
+          adaptive: {
+            correct: "You found the public-speaking words.",
+            wrong: "Think about people whose role is to speak to others.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 82,
+    difficulty: 5,
+    vocab: "advanced",
+    week: 12,
+    day: 5,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Magnanimous", "Gracious", "Noble", "Forgiving"],
+        correct: "Generous in spirit, especially after conflict",
+        options: [
+          "Generous in spirit, especially after conflict",
+          "Skilled at hiding the truth",
+          "Unable to be defeated",
+          "Connected to future warning",
+        ],
+        insight: {
+          pattern: "Large-heartedness",
+          explanation:
+            "Magnanimous, gracious, noble, and forgiving all suggest generosity of spirit rather than smallness or resentment.",
+          generalization:
+            "Some moral words describe what a person chooses not to do: not retaliate, not belittle, not cling to anger.",
+          adaptive: {
+            correct: "You found the generous-spirit words.",
+            wrong: "Think about words for being large-hearted after tension or conflict.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Mask", "Veil", "Smoke", "Mirror"],
+        correct: "Images of concealment or distortion",
+        options: [
+          "Images of concealment or distortion",
+          "Symbols of noble forgiveness",
+          "Images of fearless endurance",
+          "Objects used in public ceremony",
+        ],
+        insight: {
+          pattern: "Hidden or distorted truth",
+          explanation:
+            "Masks, veils, smoke, and mirrors can all suggest hiding, disguising, or distorting what is true.",
+          generalization:
+            "Deception often works by changing what can be seen clearly.",
+          adaptive: {
+            correct: "You found the concealment images.",
+            wrong: "Think about things that hide or distort what someone sees.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Duplicity", "Prevaricate", "Deceive", "Equivocate"],
+        correct: "Forms of dishonesty or evasive truth-telling",
+        options: [
+          "Forms of dishonesty or evasive truth-telling",
+          "Forms of admiration or praise",
+          "Forms of wisdom or guidance",
+          "Forms of ghostly appearance",
+        ],
+        insight: {
+          pattern: "Evasive truth",
+          explanation:
+            "Duplicity, prevaricate, deceive, and equivocate all involve dishonesty, misdirection, or avoiding plain truth.",
+          generalization:
+            "A lie is not the only way to dodge truth; some words describe slipperier forms of dishonesty.",
+          adaptive: {
+            correct: "You found the evasive-truth words.",
+            wrong: "Think about words for hiding, bending, or dodging the truth.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 83,
+    difficulty: 6,
+    vocab: "advanced",
+    week: 12,
+    day: 6,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Soothsayer", "Oracle", "Seer", "Prophet"],
+        correct: "People believed to foretell the future",
+        options: [
+          "People believed to foretell the future",
+          "People who speak in public",
+          "People who are deeply respected",
+          "People who show mercy",
+        ],
+        insight: {
+          pattern: "Future tellers",
+          explanation:
+            "Soothsayer, oracle, seer, and prophet all describe figures believed to see, receive, or announce future events.",
+          generalization:
+            "Stories often give the future a voice through a person who can read signs others miss.",
+          adaptive: {
+            correct: "You found the future-teller words.",
+            wrong: "Think about figures who predict or reveal what may come.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Prophecy", "Omen", "Portent", "Vision"],
+        correct: "Messages or signs about what may come",
+        options: [
+          "Messages or signs about what may come",
+          "Symbols of public honor",
+          "Forms of direct deception",
+          "Objects connected to formal speech",
+        ],
+        insight: {
+          pattern: "Future signs",
+          explanation:
+            "A prophecy, omen, portent, and vision can all suggest a message or sign about the future.",
+          generalization:
+            "Future-looking words can feel hopeful, threatening, mysterious, or sacred depending on context.",
+          adaptive: {
+            correct: "You found the future-sign words.",
+            wrong: "Think about messages or signs that point ahead.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Perdition", "Doom", "Damnation", "Ruin"],
+        correct: "Complete downfall or spiritual destruction",
+        options: [
+          "Complete downfall or spiritual destruction",
+          "A generous response to conflict",
+          "A respected public reputation",
+          "An ability to change form",
+        ],
+        insight: {
+          pattern: "Final ruin",
+          explanation:
+            "Perdition, doom, damnation, and ruin all point toward terrible downfall, destruction, or loss.",
+          generalization:
+            "Some words carry not just danger, but a sense of final consequence.",
+          adaptive: {
+            correct: "You found the downfall words.",
+            wrong: "Think about words for a dark or final ending.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 84,
+    difficulty: 7,
+    vocab: "advanced",
+    week: 12,
+    day: 7,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Omniscient", "All-Knowing", "Prescient", "Prophetic"],
+        correct: "Knowing or seeming to know beyond ordinary limits",
+        options: [
+          "Knowing or seeming to know beyond ordinary limits",
+          "Able to change shape or character",
+          "Ghostly or barely present",
+          "Generous after victory",
+        ],
+        insight: {
+          pattern: "Beyond ordinary knowledge",
+          explanation:
+            "Omniscient, all-knowing, prescient, and prophetic all suggest knowledge that reaches beyond ordinary awareness.",
+          generalization:
+            "The hardest knowledge words often blur the line between intelligence, prediction, and mystery.",
+          adaptive: {
+            correct: "You found the beyond-ordinary-knowledge words.",
+            wrong: "Think about words for knowing more than ordinary people can know.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Wraith", "Phantom", "Specter", "Apparition"],
+        correct: "Ghostly figures or presences",
+        options: [
+          "Ghostly figures or presences",
+          "Symbols of honor and status",
+          "Speakers before an audience",
+          "Words for hopeful signs",
+        ],
+        insight: {
+          pattern: "Uncanny presence",
+          explanation:
+            "Wraith, phantom, specter, and apparition all describe ghostly figures or presences.",
+          generalization:
+            "A word can name something seen, but also something half-seen, feared, or imagined.",
+          adaptive: {
+            correct: "You found the ghostly-presence words.",
+            wrong: "Think about words for something ghostlike or uncanny.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Protean", "Mutable", "Shifting", "Changeable"],
+        correct: "Able to change form or character",
+        options: [
+          "Able to change form or character",
+          "Famous for public honor",
+          "Certain to bring ruin",
+          "Truthful in every detail",
+        ],
+        insight: {
+          pattern: "Changing forms",
+          explanation:
+            "Protean, mutable, shifting, and changeable all describe something that can alter form, mood, or character.",
+          generalization:
+            "Some advanced words feel rich because they carry motion inside them.",
+          adaptive: {
+            correct: "You found the change-form words.",
+            wrong: "Think about words for things that do not stay fixed.",
+          },
+        },
+      },
+    ],
+  },
 ];

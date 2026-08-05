@@ -1548,4 +1548,158 @@ Vogue: {
   extended:
     'Vogue describes something currently in style or widely admired, especially in culture, taste, or fashion.',
 },
+
+Auspicious: {
+  short:
+    'Suggesting that something good is likely to happen.',
+  extended:
+    'Auspicious describes a favorable sign, beginning, or moment that seems to point toward success.',
+},
+
+Venerable: {
+  short:
+    'Worthy of deep respect because of age, character, or history.',
+  extended:
+    'Venerable often describes people, institutions, or traditions that have earned honor over time.',
+},
+
+Duplicity: {
+  short:
+    'Deceitfulness, especially by pretending one thing while doing another.',
+  extended:
+    'Duplicity suggests double-dealing or a hidden difference between what someone presents and what they intend.',
+},
+
+Magnanimous: {
+  short:
+    'Generous, forgiving, or noble in spirit.',
+  extended:
+    'A magnanimous person rises above pettiness, especially after winning, being wronged, or holding power.',
+},
+
+Soothsayer: {
+  short:
+    'A person believed to predict the future.',
+  extended:
+    'Soothsayer is an old word for someone who foretells events, often in myth, legend, or dramatic storytelling.',
+},
+
+Prophecy: {
+  short:
+    'A prediction or revealed message about the future.',
+  extended:
+    'Prophecy can mean a sacred or mysterious announcement of what is to come, especially in stories or religion.',
+},
+
+Orator: {
+  short:
+    'A skilled public speaker.',
+  extended:
+    'An orator uses speech to persuade, inspire, explain, or move an audience.',
+},
+
+Perdition: {
+  short:
+    'Complete ruin or spiritual destruction.',
+  extended:
+    'Perdition often has a grave or religious tone, suggesting final loss, doom, or damnation.',
+},
+
+Illustrious: {
+  short:
+    'Famous, admired, and highly respected.',
+  extended:
+    'Illustrious is often used for people, careers, or histories marked by distinction and honor.',
+},
+
+Unrivaled: {
+  short:
+    'Having no equal or competitor.',
+  extended:
+    'Unrivaled describes something so excellent or dominant that no rival seems to match it.',
+},
+
+Dauntless: {
+  short:
+    'Fearless or not easily discouraged.',
+  extended:
+    'Dauntless describes courage that stays steady even when the situation is dangerous, difficult, or intimidating.',
+},
+
+Indomitable: {
+  short:
+    'Impossible or very difficult to defeat or subdue.',
+  extended:
+    'Indomitable describes a spirit, will, or courage that refuses to be overcome.',
+},
+
+Prevaricate: {
+  short:
+    'To avoid telling the truth directly.',
+  extended:
+    'Prevaricate means to dodge, mislead, or speak evasively rather than give a clear truthful answer.',
+},
+
+Omniscient: {
+  short:
+    'Knowing everything.',
+  extended:
+    'Omniscient is often used for a divine being or a narrator who knows all thoughts, events, and hidden facts.',
+},
+
+Protean: {
+  short:
+    'Able to change shape, form, or character easily.',
+  extended:
+    'Protean comes from Proteus, a mythic figure who could change form, and now describes remarkable flexibility or variety.',
+},
+
+Wraith: {
+  short:
+    'A ghostlike figure or shadowy apparition.',
+  extended:
+    'Wraith suggests something eerie, insubstantial, or haunting, often seen as a ghost or sign of death.',
+},
+
+Propitious: {
+  short:
+    'Favorable or likely to lead to success.',
+  extended:
+    'Propitious is close to auspicious; it describes conditions or signs that seem promising.',
+},
+
+Rhetorician: {
+  short:
+    'A person skilled in the art of persuasive speech or writing.',
+  extended:
+    'A rhetorician studies or uses language carefully, especially to persuade or move an audience.',
+},
+
+Prescient: {
+  short:
+    'Seeming to know what will happen before it does.',
+  extended:
+    'Prescient describes unusually accurate foresight, as if someone sensed future events in advance.',
+},
+
+Equivocate: {
+  short:
+    'To speak vaguely or ambiguously to avoid the truth.',
+  extended:
+    'Equivocate means to dodge a clear answer by using language that can be interpreted more than one way.',
+},
+
+Apparition: {
+  short:
+    'A ghostly figure or unexpected appearance.',
+  extended:
+    'Apparition often describes something that appears suddenly or eerily, especially a ghost.',
+},
+
+Specter: {
+  short:
+    'A ghost or haunting presence.',
+  extended:
+    'Specter can mean an apparition, but it also describes a feared possibility that seems to hang over a situation.',
+},
 };
