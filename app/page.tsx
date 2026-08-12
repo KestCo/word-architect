@@ -18,13 +18,15 @@ export default function Home() {
   const todayGame = getDailyGame();
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("wordArchitectUser");
+    queueMicrotask(() => {
+      const savedUser = localStorage.getItem("wordArchitectUser");
 
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    }
+      if (savedUser) {
+        setUser(JSON.parse(savedUser));
+      }
 
-    setLoaded(true);
+      setLoaded(true);
+    });
   }, []);
 
   const createUser = (name: string) => {

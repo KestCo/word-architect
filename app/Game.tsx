@@ -300,113 +300,6 @@ function DroppableArea({
   );
 }
 
-function ResultsDashboard({
-  selectedGame,
-  result,
-  history,
-}: {
-  selectedGame: any;
-  result: any;
-  history: any[];
-}) {
-  const currentHistory = [
-    ...history.filter((r) => r.date !== result.date),
-    result,
-  ];
-
-  const avgMistakes =
-    currentHistory.length > 0
-      ? (
-          currentHistory.reduce((sum, r) => sum + r.mistakes, 0) /
-          currentHistory.length
-        ).toFixed(1)
-      : "0";
-
-  const fastest =
-    currentHistory.length > 0
-      ? Math.min(...currentHistory.map((r) => r.timeMs))
-      : null;
-
-  const streak = calculateStreak(currentHistory);
-  const skillStats = bestAndWeakestSkill(currentHistory);
-
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
-      <div className="w-full max-w-md bg-white border border-neutral-200 p-6 rounded-3xl shadow space-y-6">
-        <div className="text-center space-y-1">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">
-            Daily puzzle complete
-          </p>
-
-          <h1 className="text-3xl font-semibold">Complete!</h1>
-
-          <p className="text-sm text-neutral-600">
-            Week {selectedGame.week}, Day {selectedGame.day}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 text-center">
-          <div className="bg-amber-100 border border-amber-300 rounded-2xl p-4">
-            <p className="text-xs text-neutral-600">Today’s time</p>
-            <p className="text-xl font-semibold">{formatTime(result.timeMs)}</p>
-          </div>
-
-          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
-            <p className="text-xs text-neutral-600">Mistakes</p>
-            <p className="text-xl font-semibold">{result.mistakes}</p>
-          </div>
-
-          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
-            <p className="text-xs text-neutral-600">Current streak</p>
-            <p className="text-xl font-semibold">{streak} days</p>
-          </div>
-
-          <div className="bg-neutral-100 border border-neutral-200 rounded-2xl p-4">
-            <p className="text-xs text-neutral-600">Performance</p>
-            <p className="text-xl font-semibold">
-              {result.mistakes === 0
-                ? "Excellent"
-                : result.mistakes <= 2
-                ? "Strong"
-                : result.mistakes <= 4
-                ? "Good"
-                : "Keep practicing"}
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-neutral-950 text-white rounded-2xl p-4 space-y-2">
-          <p className="text-sm font-semibold">Thinking profile</p>
-
-          <p className="text-sm">
-            Strongest area:{" "}
-            <span className="font-semibold">
-              {getSkillLabel(skillStats.best)}
-            </span>
-          </p>
-
-          <p className="text-sm">
-            Area to strengthen:{" "}
-            <span className="font-semibold">
-              {getSkillLabel(skillStats.weakest)}
-            </span>
-          </p>
-        </div>
-
-        <div className="text-sm text-neutral-700 space-y-1">
-          <p>Average mistakes: {avgMistakes}</p>
-          <p>Fastest time: {fastest ? formatTime(fastest) : "—"}</p>
-          <p>Total completed: {currentHistory.length}</p>
-        </div>
-
-        <p className="text-center text-xs text-neutral-500">
-          Come back tomorrow for the next puzzle.
-        </p>
-      </div>
-    </div>
-  );
-}
-
 function RichResultsDashboard({
   selectedGame,
   result,
@@ -480,7 +373,7 @@ function RichResultsDashboard({
 
         <div className="grid grid-cols-2 gap-3 text-center">
           <div className="bg-amber-100 border border-amber-300 rounded-2xl p-4">
-            <p className="text-xs text-neutral-600">Today's time</p>
+            <p className="text-xs text-neutral-600">Today&apos;s time</p>
             <p className="text-xl font-semibold">{formatTime(result.timeMs)}</p>
           </div>
 
@@ -501,9 +394,7 @@ function RichResultsDashboard({
         </div>
 
         <div className="bg-neutral-950 text-white rounded-2xl p-4 space-y-2">
-          <p className="text-xs uppercase tracking-wide text-white/60">
-            Today's thinking style
-          </p>
+          <p className="text-xs uppercase tracking-wide text-white/60">Today&apos;s thinking style</p>
 
           <p className="text-2xl font-semibold">{thinkingStyle}</p>
 
@@ -745,7 +636,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const [lensWord, setLensWord] = useState<string | null>(null);
   const [exploredLensWords, setExploredLensWords] = useState<string[]>([]);
-  const [startTime] = useState<number>(Date.now());
+  const [startTime] = useState<number>(() => Date.now());
   const [completedResult, setCompletedResult] = useState<any | null>(null);
   const [mistakes, setMistakes] = useState<number>(0);
   const [history, setHistory] = useState<any[]>([]);
@@ -911,7 +802,14 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     if (!localStorage.getItem("wordArchitectTutorialSeen")) {
       setShowTutorial(true);
     }
-  }, [isEditorPreview, isPlaytestMode, selectedGame.id]);
+  }, [
+    isEditorPreview,
+    isPlaytestMode,
+    selectedGame.day,
+    selectedGame.difficulty,
+    selectedGame.id,
+    selectedGame.week,
+  ]);
 
   useEffect(() => {
     if (completedResult || stacks.length === 0 || completionTimerRef.current)
@@ -925,6 +823,9 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       prepareCompletedResult();
       scheduleCompletion();
     }
+  // This effect intentionally observes stack completion without rescheduling when
+  // helper function identities change between renders.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [completedResult, stacks]);
 
   useEffect(() => {
@@ -955,7 +856,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
           }
     );
 
-    let newAvailable = availableCards.filter((c: string) => c !== card);
+    const newAvailable = availableCards.filter((c: string) => c !== card);
 
     if (target === "available") {
       newAvailable.push(card);

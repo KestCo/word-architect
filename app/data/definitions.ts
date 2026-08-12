@@ -1702,4 +1702,137 @@ Specter: {
   extended:
     'Specter can mean an apparition, but it also describes a feared possibility that seems to hang over a situation.',
 },
+Forlorn: {
+  short:
+    "Lonely, abandoned, or deeply sad.",
+  extended:
+    "Forlorn often suggests a sorrow that feels isolated, hopeless, or left without comfort.",
+},
+
+Afflicted: {
+  short:
+    "Troubled, harmed, or burdened by pain or hardship.",
+  extended:
+    "Afflicted can describe someone suffering from illness, grief, misfortune, or another heavy difficulty.",
+},
+
+Avidity: {
+  short:
+    "Intense eagerness, appetite, or desire.",
+  extended:
+    "Avidity suggests more than casual interest; it is a strong hunger to have, know, or do something.",
+},
+
+Supercilious: {
+  short:
+    "Acting as if one is superior to others.",
+  extended:
+    "Supercilious describes a proud, dismissive attitude that looks down on other people.",
+},
+
+Aegis: {
+  short:
+    "Protection, support, or sponsorship from a powerful source.",
+  extended:
+    "Aegis originally referred to a protective shield in myth, and now often means being under someone's protection or authority.",
+},
+
+Dexterity: {
+  short:
+    "Skill and ease in using the hands or body.",
+  extended:
+    "Dexterity can describe physical skill, especially quick, precise handling, and sometimes mental quickness too.",
+},
+
+Adroitness: {
+  short:
+    "Skillful ease, cleverness, or deft handling.",
+  extended:
+    "Adroitness can describe physical dexterity, social tact, or mental quickness in handling a situation well.",
+},
+
+Throng: {
+  short:
+    "A large, dense crowd of people.",
+  extended:
+    "Throng can be a noun for a crowd or a verb meaning to gather or press closely together.",
+},
+
+Ingenuity: {
+  short:
+    "Cleverness in solving problems or inventing solutions.",
+  extended:
+    "Ingenuity suggests resourceful, creative thinking, especially when ordinary methods are not enough.",
+},
+
+Inventiveness: {
+  short:
+    "The ability to create new ideas or solutions.",
+  extended:
+    "Inventiveness emphasizes creative problem-solving, especially when someone finds an original way through a constraint.",
+},
+
+Reverence: {
+  short:
+    "Deep respect mixed with awe.",
+  extended:
+    "Reverence is often directed toward something sacred, admirable, ancient, or morally important.",
+},
+
+Outwit: {
+  short:
+    "To defeat or get around someone by cleverness.",
+  extended:
+    "Outwit emphasizes mental advantage: winning by strategy, timing, or a smarter plan.",
+},
+
+Cunning: {
+  short:
+    "Cleverness used skillfully, sometimes deceptively.",
+  extended:
+    "Cunning can admire strategy or warn of slyness, depending on whether the cleverness feels fair or manipulative.",
+},
+
+Obstinate: {
+  short:
+    "Stubbornly refusing to change or yield.",
+  extended:
+    "Obstinate describes firm resistance, often when someone will not be persuaded even by good reasons.",
+},
+
+Dissuade: {
+  short:
+    "To persuade someone not to do something.",
+  extended:
+    "Dissuade means to steer a person away from an action, plan, or belief, usually by warning or reasoning.",
+},
+
+Reconnoiter: {
+  short:
+    "To inspect or scout an area before acting.",
+  extended:
+    "Reconnoiter is often used for military or strategic scouting, but it can also mean checking a situation carefully in advance.",
+},
+
+Catastrophe: {
+  short:
+    "A sudden disaster or terrible failure.",
+  extended:
+    "Catastrophe suggests a major harmful event, from personal disaster to large-scale destruction.",
+},
+
+Bombarded: {
+  short:
+    "Hit or overwhelmed repeatedly.",
+  extended:
+    "Bombarded can describe literal attack, but also being flooded with questions, messages, criticism, or demands.",
+},
+
+Enchantment: {
+  short:
+    "A magical spell or a feeling of deep fascination.",
+  extended:
+    "Enchantment can mean literal magic in stories, or the captivating charm that makes something feel wondrous.",
+},
+
 };

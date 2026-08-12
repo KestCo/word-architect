@@ -6242,4 +6242,537 @@ export const GAMES = [
       },
     ],
   },
+
+  // WEEK 13
+  {
+    id: 85,
+    difficulty: 1,
+    vocab: "mixed",
+    week: 13,
+    day: 1,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Forlorn", "Afflicted", "Stricken", "Bereft"],
+        correct: "Deeply troubled or sorrowful",
+        options: [
+          "Deeply troubled or sorrowful",
+          "Skilled with hands or tools",
+          "Excessively proud or superior",
+          "Protected by a powerful force",
+        ],
+        insight: {
+          pattern: "Sorrow and distress",
+          explanation:
+            "Forlorn, afflicted, stricken, and bereft all suggest sadness, hardship, or a feeling of being deeply troubled.",
+          generalization:
+            "Emotional vocabulary often marks both the feeling itself and the condition that produced it.",
+          adaptive: {
+            correct: "You found the sorrow-and-distress words.",
+            wrong: "Think about words for someone weighed down by loss, pain, or trouble.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Aegis", "Shield", "Refuge", "Haven"],
+        correct: "Images of protection or shelter",
+        options: [
+          "Images of protection or shelter",
+          "Signs of lonely sorrow",
+          "Tools for clever invention",
+          "Crowds gathered in one place",
+        ],
+        insight: {
+          pattern: "Protection",
+          explanation:
+            "An aegis, shield, refuge, and haven all suggest protection, shelter, or safety under cover.",
+          generalization:
+            "Protection can be physical, but the same images often carry emotional or political meaning.",
+          adaptive: {
+            correct: "You found the protection images.",
+            wrong: "Think about things or places that keep someone safe.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Comfort", "Console", "Soothe", "Relieve"],
+        correct: "Verbs for easing distress",
+        options: [
+          "Verbs for easing distress",
+          "Verbs for tricking an opponent",
+          "Verbs for scouting ahead",
+          "Verbs for warning someone away",
+        ],
+        insight: {
+          pattern: "Easing pain",
+          explanation:
+            "Comfort, console, soothe, and relieve all describe actions that lessen distress or pain.",
+          generalization:
+            "Some action words are forms of repair: they do not erase hardship, but they lessen its force.",
+          adaptive: {
+            correct: "You found the easing-distress verbs.",
+            wrong: "Think about what someone does for a person who is hurting.",
+          },
+        },
+      }
+    ],
+  },
+
+  {
+    id: 86,
+    difficulty: 2,
+    vocab: "mixed",
+    week: 13,
+    day: 2,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Avidity", "Eagerness", "Hunger", "Zeal"],
+        correct: "Intense desire or enthusiasm",
+        options: [
+          "Intense desire or enthusiasm",
+          "Quiet respect or awe",
+          "A large public gathering",
+          "A sudden terrible event",
+        ],
+        insight: {
+          pattern: "Strong wanting",
+          explanation:
+            "Avidity, eagerness, hunger, and zeal all suggest strong desire, appetite, or enthusiasm.",
+          generalization:
+            "Desire words can range from simple interest to a force that seems to pull someone forward.",
+          adaptive: {
+            correct: "You found the strong-wanting words.",
+            wrong: "Think about words for wanting something with unusual intensity.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Reverence", "Awe", "Veneration", "Homage"],
+        correct: "Deep respect or honor",
+        options: [
+          "Deep respect or honor",
+          "Quick skillful movement",
+          "Stubborn refusal to change",
+          "Cleverness used to deceive",
+        ],
+        insight: {
+          pattern: "Respect and awe",
+          explanation:
+            "Reverence, awe, veneration, and homage all point toward deep respect, honor, or wonder before something important.",
+          generalization:
+            "Respect words often carry posture: they imply how a person stands before what they value.",
+          adaptive: {
+            correct: "You found the deep-respect words.",
+            wrong: "Think about words for honoring something or treating it as worthy of awe.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Admire", "Honor", "Esteem", "Cherish"],
+        correct: "Verbs for valuing highly",
+        options: [
+          "Verbs for valuing highly",
+          "Verbs for gathering in a crowd",
+          "Verbs for recovering from disaster",
+          "Verbs for checking a route",
+        ],
+        insight: {
+          pattern: "Valuing",
+          explanation:
+            "Admire, honor, esteem, and cherish all involve valuing someone or something highly.",
+          generalization:
+            "Language can show value through feeling, ceremony, memory, or care.",
+          adaptive: {
+            correct: "You found the valuing verbs.",
+            wrong: "Think about verbs for treating someone or something as important.",
+          },
+        },
+      }
+    ],
+  },
+
+  {
+    id: 87,
+    difficulty: 3,
+    vocab: "mixed",
+    week: 13,
+    day: 3,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Dexterity", "Agility", "Aptitude", "Adroitness"],
+        correct: "Skillful ease in movement or handling",
+        options: [
+          "Skillful ease in movement or handling",
+          "Grief after a loss",
+          "Protection from harm",
+          "Too much pride in oneself",
+        ],
+        insight: {
+          pattern: "Physical or practical skill",
+          explanation:
+            "Dexterity, agility, aptitude, and adroitness all suggest skillful, graceful, or effective handling.",
+          generalization:
+            "Skill words often combine ability with control; they describe how well action is carried out.",
+          adaptive: {
+            correct: "You found the skillful-handling words.",
+            wrong: "Think about words for moving or handling something with practiced skill.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Ingenuity", "Inventiveness", "Resourcefulness", "Cleverness"],
+        correct: "Creative problem-solving ability",
+        options: [
+          "Creative problem-solving ability",
+          "Respect shown through ritual",
+          "Resistance to persuasion",
+          "People gathered together",
+        ],
+        insight: {
+          pattern: "Inventive thinking",
+          explanation:
+            "Ingenuity, inventiveness, resourcefulness, and cleverness all point toward finding smart or creative solutions.",
+          generalization:
+            "Problem-solving words often praise the mind for making a new path when the obvious one is blocked.",
+          adaptive: {
+            correct: "You found the inventive-thinking words.",
+            wrong: "Think about words for cleverness that helps solve a problem.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Devise", "Fashion", "Improvise", "Engineer"],
+        correct: "Verbs for making a workable solution",
+        options: [
+          "Verbs for making a workable solution",
+          "Verbs for refusing to yield",
+          "Verbs for overwhelming with attacks",
+          "Verbs for showing sorrow",
+        ],
+        insight: {
+          pattern: "Constructive action",
+          explanation:
+            "Devise, fashion, improvise, and engineer can all mean to create or shape a solution.",
+          generalization:
+            "Creative action often means building with the materials, limits, and time available.",
+          adaptive: {
+            correct: "You found the solution-making verbs.",
+            wrong: "Think about verbs for creating a useful answer to a problem.",
+          },
+        },
+      }
+    ],
+  },
+
+  {
+    id: 88,
+    difficulty: 4,
+    vocab: "mixed",
+    week: 13,
+    day: 4,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Throng", "Crowd", "Multitude", "Assembly"],
+        correct: "A large group gathered together",
+        options: [
+          "A large group gathered together",
+          "A sheltering force",
+          "A feeling of magical wonder",
+          "A secret plan to gain advantage",
+        ],
+        insight: {
+          pattern: "Gathered people",
+          explanation:
+            "Throng, crowd, multitude, and assembly all describe many people gathered in one place.",
+          generalization:
+            "Crowd words differ in tone, from neutral gathering to pressure, noise, or spectacle.",
+          adaptive: {
+            correct: "You found the gathered-group words.",
+            wrong: "Think about words for many people collected together.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Hail", "Drumfire", "Torrent", "Barrage"],
+        correct: "Images of repeated force from many directions",
+        options: [
+          "Images of repeated force from many directions",
+          "Images of careful scouting",
+          "Symbols of deep respect",
+          "Tools used for precise work",
+        ],
+        insight: {
+          pattern: "Overwhelming impact",
+          explanation:
+            "Hail, drumfire, torrent, and barrage can all suggest repeated force or pressure arriving in rapid succession.",
+          generalization:
+            "Images of physical attack often become metaphors for mental or emotional overload.",
+          adaptive: {
+            correct: "You found the repeated-force images.",
+            wrong: "Think about images where many blows or impacts arrive quickly.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Bombarded", "Besieged", "Deluged", "Pelted"],
+        correct: "Overwhelmed by repeated attacks or demands",
+        options: [
+          "Overwhelmed by repeated attacks or demands",
+          "Praised with deep respect",
+          "Made stubborn by refusal",
+          "Protected from harm",
+        ],
+        insight: {
+          pattern: "Being overwhelmed",
+          explanation:
+            "Bombarded, besieged, deluged, and pelted can all describe being hit or overwhelmed repeatedly.",
+          generalization:
+            "The same verb can move from physical force to information, questions, criticism, or emotion.",
+          adaptive: {
+            correct: "You found the overwhelmed-by-force words.",
+            wrong: "Think about words for having too much come at you at once.",
+          },
+        },
+      }
+    ],
+  },
+
+  {
+    id: 89,
+    difficulty: 5,
+    vocab: "advanced",
+    week: 13,
+    day: 5,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Supercilious", "Haughty", "Arrogant", "Disdainful"],
+        correct: "Proudly looking down on others",
+        options: [
+          "Proudly looking down on others",
+          "Firmly refusing to change",
+          "Deeply eager for something",
+          "Skillful with the hands",
+        ],
+        insight: {
+          pattern: "Condescending pride",
+          explanation:
+            "Supercilious, haughty, arrogant, and disdainful all suggest pride that looks down on other people.",
+          generalization:
+            "Attitude words often describe not only what someone thinks, but how they make others feel around them.",
+          adaptive: {
+            correct: "You found the condescending-pride words.",
+            wrong: "Think about words for acting superior to other people.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Obstinate", "Stubborn", "Adamant", "Intractable"],
+        correct: "Refusing to change or yield",
+        options: [
+          "Refusing to change or yield",
+          "Guarded by shelter",
+          "Filled with magical delight",
+          "Able to solve problems cleverly",
+        ],
+        insight: {
+          pattern: "Unyielding resistance",
+          explanation:
+            "Obstinate, stubborn, adamant, and intractable all describe refusing to change, move, or be persuaded.",
+          generalization:
+            "Persistence becomes stubbornness when refusal matters more than judgment.",
+          adaptive: {
+            correct: "You found the unyielding-resistance words.",
+            wrong: "Think about words for refusing to bend or be moved.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Dissuade", "Deter", "Discourage", "Warn"],
+        correct: "Verbs for steering someone away",
+        options: [
+          "Verbs for steering someone away",
+          "Verbs for honoring someone publicly",
+          "Verbs for scouting a place",
+          "Verbs for defeating by cleverness",
+        ],
+        insight: {
+          pattern: "Persuasion away from action",
+          explanation:
+            "Dissuade, deter, discourage, and warn all involve pushing someone away from a choice or action.",
+          generalization:
+            "Persuasion is not always toward something; it can also redirect someone away from risk.",
+          adaptive: {
+            correct: "You found the steering-away verbs.",
+            wrong: "Think about verbs for trying to stop someone from doing something.",
+          },
+        },
+      }
+    ],
+  },
+
+  {
+    id: 90,
+    difficulty: 6,
+    vocab: "advanced",
+    week: 13,
+    day: 6,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Cunning", "Wily", "Crafty", "Shrewd"],
+        correct: "Clever in strategy or deception",
+        options: [
+          "Clever in strategy or deception",
+          "Overwhelmed by many demands",
+          "Sorrowful after hardship",
+          "Deeply respectful or reverent",
+        ],
+        insight: {
+          pattern: "Strategic cleverness",
+          explanation:
+            "Cunning, wily, crafty, and shrewd all suggest cleverness used strategically, sometimes with a deceptive edge.",
+          generalization:
+            "Cleverness changes moral color depending on whether it solves, deceives, or exploits.",
+          adaptive: {
+            correct: "You found the strategic-cleverness words.",
+            wrong: "Think about words for cleverness that can be sly or tactical.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Reconnoiter", "Scout", "Survey", "Inspect"],
+        correct: "Check an area before acting",
+        options: [
+          "Check an area before acting",
+          "Make a disaster less severe",
+          "Gather in a dense crowd",
+          "Refuse to change course",
+        ],
+        insight: {
+          pattern: "Advance observation",
+          explanation:
+            "Reconnoiter, scout, survey, and inspect all involve looking carefully before deciding what to do next.",
+          generalization:
+            "Strategy often begins before action, with attention to terrain, risk, and position.",
+          adaptive: {
+            correct: "You found the scouting-before-action words.",
+            wrong: "Think about verbs for checking a place or situation before moving in.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Outwit", "Outmaneuver", "Outsmart", "Circumvent"],
+        correct: "Defeat by cleverness or strategy",
+        options: [
+          "Defeat by cleverness or strategy",
+          "Ease sadness or pain",
+          "Show excessive pride",
+          "Value something highly",
+        ],
+        insight: {
+          pattern: "Clever victory",
+          explanation:
+            "Outwit, outmaneuver, outsmart, and circumvent all suggest getting past an obstacle or opponent through clever strategy.",
+          generalization:
+            "Some victory words emphasize intelligence more than strength.",
+          adaptive: {
+            correct: "You found the clever-victory words.",
+            wrong: "Think about verbs for winning by thinking around an obstacle.",
+          },
+        },
+      }
+    ],
+  },
+
+  {
+    id: 91,
+    difficulty: 7,
+    vocab: "advanced",
+    week: 13,
+    day: 7,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Enchantment", "Spell", "Charm", "Glamour"],
+        correct: "Magical attraction or fascination",
+        options: [
+          "Magical attraction or fascination",
+          "A terrible destructive event",
+          "A force that protects someone",
+          "A crowd pressing forward",
+        ],
+        insight: {
+          pattern: "Magical fascination",
+          explanation:
+            "Enchantment, spell, charm, and glamour can all suggest magical attraction, wonder, or fascination.",
+          generalization:
+            "Words for magic often drift into everyday language for beauty, persuasion, and attention.",
+          adaptive: {
+            correct: "You found the magical-fascination words.",
+            wrong: "Think about words that can mean magic or captivating appeal.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Catastrophe", "Disaster", "Calamity", "Cataclysm"],
+        correct: "Severe destructive events",
+        options: [
+          "Severe destructive events",
+          "Forms of reverent praise",
+          "Methods of clever escape",
+          "Kinds of careful inspection",
+        ],
+        insight: {
+          pattern: "Large-scale ruin",
+          explanation:
+            "Catastrophe, disaster, calamity, and cataclysm all describe severe events that bring damage, disruption, or loss.",
+          generalization:
+            "Ruin words differ by scale and tone, from personal misfortune to world-shaking collapse.",
+          adaptive: {
+            correct: "You found the severe-event words.",
+            wrong: "Think about words for events that cause major damage or upheaval.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Avert", "Mitigate", "Withstand", "Recover"],
+        correct: "Verbs for facing or reducing disaster",
+        options: [
+          "Verbs for facing or reducing disaster",
+          "Verbs for making someone feel enchanted",
+          "Verbs for acting superior",
+          "Verbs for desiring intensely",
+        ],
+        insight: {
+          pattern: "Disaster response",
+          explanation:
+            "Avert, mitigate, withstand, and recover all describe ways of preventing, reducing, enduring, or coming back from disaster.",
+          generalization:
+            "Response words can trace a whole arc: before harm, during harm, and after harm.",
+          adaptive: {
+            correct: "You found the disaster-response verbs.",
+            wrong: "Think about verbs for dealing with danger before, during, or after it arrives.",
+          },
+        },
+      }
+    ],
+  },
 ];
