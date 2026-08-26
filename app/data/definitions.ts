@@ -1835,4 +1835,151 @@ Enchantment: {
     "Enchantment can mean literal magic in stories, or the captivating charm that makes something feel wondrous.",
 },
 
+Contrive: {
+  short:
+    "To plan, invent, or arrange something with cleverness.",
+  extended:
+    "Contrive can suggest resourceful creation, but it can also carry a hint of artificial or manipulative planning.",
+},
+
+Stratagem: {
+  short:
+    "A clever plan or trick used to gain an advantage.",
+  extended:
+    "Stratagem often appears in contexts of conflict, strategy, persuasion, or survival.",
+},
+
+Murky: {
+  short:
+    "Dark, cloudy, unclear, or hard to understand.",
+  extended:
+    "Murky can describe muddy water, dim light, uncertain facts, or motives that are difficult to see clearly.",
+},
+
+Profusion: {
+  short:
+    "A large, abundant, or overflowing amount.",
+  extended:
+    "Profusion suggests plenty, richness, or excess, often with a sense that something spills beyond normal limits.",
+},
+
+Surfeit: {
+  short:
+    "An excessive amount or overabundance.",
+  extended:
+    "Surfeit suggests more than enough, often to the point where abundance becomes excess or discomfort.",
+},
+
+Miraculous: {
+  short:
+    "So extraordinary that it seems impossible or divinely caused.",
+  extended:
+    "Miraculous can describe literal miracles, unlikely rescues, or events that feel beyond ordinary explanation.",
+},
+
+Flotsam: {
+  short:
+    "Floating wreckage or debris found in water.",
+  extended:
+    "Flotsam originally refers to wreckage from a ship or cargo floating at sea, and can also suggest discarded remnants.",
+},
+
+Jetsam: {
+  short:
+    "Goods or debris deliberately thrown from a ship and later found floating or ashore.",
+  extended:
+    "Jetsam is paired with flotsam, but traditionally means material cast overboard on purpose, often to lighten a vessel in trouble.",
+},
+
+Miscreants: {
+  short:
+    "People who behave badly or break rules.",
+  extended:
+    "Miscreants is a judgmental word for wrongdoers, troublemakers, or people blamed for misconduct.",
+},
+
+Squeal: {
+  short:
+    "A sharp, high-pitched cry or sound.",
+  extended:
+    "Squeal can describe a sound of fear, excitement, pain, metal, tires, or an animal-like cry.",
+},
+
+Abyss: {
+  short:
+    "A deep or seemingly bottomless space.",
+  extended:
+    "Abyss can describe a physical depth, but also a frightening emptiness, separation, or emotional descent.",
+},
+
+Ravenous: {
+  short:
+    "Extremely hungry or eager to consume.",
+  extended:
+    "Ravenous often describes intense physical hunger, but it can also describe greed, appetite, or desire.",
+},
+
+Jargon: {
+  short:
+    "Specialized language used by a particular group or profession.",
+  extended:
+    "Jargon can make communication precise among insiders, but confusing or excluding to outsiders.",
+},
+
+Argot: {
+  short:
+    "Specialized slang or vocabulary used by a particular group.",
+  extended:
+    "Argot often points to insider language, especially speech that marks membership in a profession, subculture, or social circle.",
+},
+
+Murmur: {
+  short:
+    "A low, soft, or indistinct sound.",
+  extended:
+    "Murmur can describe quiet speech, a gentle background sound, or a subdued expression of feeling.",
+},
+
+Whisper: {
+  short:
+    "To speak very softly, often using breath more than voice.",
+  extended:
+    "Whisper suggests privacy, secrecy, tenderness, fear, or a sound kept deliberately low.",
+},
+
+Shout: {
+  short:
+    "To call out loudly.",
+  extended:
+    "Shout can express command, excitement, anger, warning, or urgency through raised volume.",
+},
+
+Scream: {
+  short:
+    "A loud, sharp cry, often from fear, pain, or strong emotion.",
+  extended:
+    "Scream can describe a human cry, an intense sound, or a visual effect that demands attention.",
+},
+
+Concussion: {
+  short:
+    "A violent shock, impact, or brain injury caused by a blow.",
+  extended:
+    "Concussion can describe medical injury, but also the force or shock wave of an explosion or collision.",
+},
+
+Cacophony: {
+  short:
+    "A harsh, jarring mixture of sounds.",
+  extended:
+    "Cacophony suggests noise that feels confused, unpleasant, or overwhelming rather than harmonious.",
+},
+
+Pantomime: {
+  short:
+    "Performance or communication through gesture without speech.",
+  extended:
+    "Pantomime uses movement, facial expression, and action to convey meaning without ordinary spoken language.",
+},
+
 };

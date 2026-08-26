@@ -6775,4 +6775,537 @@ export const GAMES = [
       }
     ],
   },
+
+  // WEEK 14
+  {
+    id: 92,
+    difficulty: 1,
+    vocab: "mixed",
+    week: 14,
+    day: 1,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Murmur", "Whisper", "Mutter", "Mumble"],
+        correct: "Quiet or indistinct speech",
+        options: [
+          "Quiet or indistinct speech",
+          "Loud cries of alarm",
+          "Specialized technical language",
+          "Crowds pressing together",
+        ],
+        insight: {
+          pattern: "Low voices",
+          explanation:
+            "Murmur, whisper, mutter, and mumble all describe speech that is quiet, softened, or not fully clear.",
+          generalization:
+            "Speech words often name not just what is said, but how much of it reaches another person.",
+          adaptive: {
+            correct: "You found the low-voice words.",
+            wrong: "Think about speech that stays quiet, blurred, or partly hidden.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Shout", "Scream", "Bellow", "Yell"],
+        correct: "Loud vocal outbursts",
+        options: [
+          "Loud vocal outbursts",
+          "Quiet speech under breath",
+          "Clever secret plans",
+          "Deep empty spaces",
+        ],
+        insight: {
+          pattern: "Raised voices",
+          explanation:
+            "Shout, scream, bellow, and yell all describe forceful vocal sounds made loudly or intensely.",
+          generalization:
+            "Volume can change language into alarm, command, fear, anger, or urgency.",
+          adaptive: {
+            correct: "You found the raised-voice words.",
+            wrong: "Think about words for voices pushed out loudly.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Squeal", "Shriek", "Screech", "Yelp"],
+        correct: "Sharp high-pitched cries",
+        options: [
+          "Sharp high-pitched cries",
+          "Soft private speech",
+          "Language used by experts",
+          "Debris floating after a wreck",
+        ],
+        insight: {
+          pattern: "High cries",
+          explanation:
+            "Squeal, shriek, screech, and yelp all suggest sharp, high-pitched sounds or cries.",
+          generalization:
+            "Sound words can carry emotion through pitch before meaning even arrives.",
+          adaptive: {
+            correct: "You found the high-cry words.",
+            wrong: "Think about cries that sound sharp, sudden, or high.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 93,
+    difficulty: 2,
+    vocab: "mixed",
+    week: 14,
+    day: 2,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Murky", "Gloomy", "Dusky", "Obscure"],
+        correct: "Dark, unclear, or hard to see",
+        options: [
+          "Dark, unclear, or hard to see",
+          "Famous and highly respected",
+          "Hungry beyond satisfaction",
+          "Created through careful planning",
+        ],
+        insight: {
+          pattern: "Unclear darkness",
+          explanation:
+            "Murky, gloomy, dusky, and obscure all suggest dimness, darkness, or unclear visibility.",
+          generalization:
+            "Words for darkness often become words for uncertainty, confusion, or hidden meaning.",
+          adaptive: {
+            correct: "You found the unclear-darkness words.",
+            wrong: "Think about words for something dim, shadowed, or difficult to make out.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Fog", "Haze", "Smoke", "Shadow"],
+        correct: "Images that obscure what can be seen",
+        options: [
+          "Images that obscure what can be seen",
+          "Images of sea wreckage",
+          "Noises made by a crowd",
+          "Signs of miraculous rescue",
+        ],
+        insight: {
+          pattern: "Obscured sight",
+          explanation:
+            "Fog, haze, smoke, and shadow can all interfere with clear sight or understanding.",
+          generalization:
+            "When vision is blocked, symbols can also point toward doubt, secrecy, or danger.",
+          adaptive: {
+            correct: "You found the obscuring images.",
+            wrong: "Think about things that make a scene harder to see clearly.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Clarify", "Reveal", "Illuminate", "Dispel"],
+        correct: "Verbs for making confusion clear",
+        options: [
+          "Verbs for making confusion clear",
+          "Verbs for speaking softly",
+          "Verbs for eating greedily",
+          "Verbs for performing without speech",
+        ],
+        insight: {
+          pattern: "Clearing uncertainty",
+          explanation:
+            "Clarify, reveal, illuminate, and dispel all suggest removing confusion or bringing something into clearer view.",
+          generalization:
+            "Understanding often feels like light because it changes what can be seen.",
+          adaptive: {
+            correct: "You found the clearing-confusion verbs.",
+            wrong: "Think about actions that make something less hidden or unclear.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 94,
+    difficulty: 3,
+    vocab: "mixed",
+    week: 14,
+    day: 3,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Profusion", "Abundance", "Plenty", "Surfeit"],
+        correct: "A large or overflowing amount",
+        options: [
+          "A large or overflowing amount",
+          "A deceptive plan",
+          "A harsh mixture of sounds",
+          "A hollow depth",
+        ],
+        insight: {
+          pattern: "Overflowing quantity",
+          explanation:
+            "Profusion, abundance, plenty, and surfeit all describe having a great amount, sometimes more than needed.",
+          generalization:
+            "Quantity words can feel generous, excessive, overwhelming, or luxurious depending on context.",
+          adaptive: {
+            correct: "You found the overflowing-amount words.",
+            wrong: "Think about words for having a lot, or even too much, of something.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Flood", "Gush", "Cascade", "Spill"],
+        correct: "Images of overflowing quantity",
+        options: [
+          "Images of overflowing quantity",
+          "Images of silent performance",
+          "Images of hidden darkness",
+          "Images of protective honor",
+        ],
+        insight: {
+          pattern: "Too much arriving",
+          explanation:
+            "A flood, gush, cascade, and spill all suggest liquid or forceful overflow moving beyond its bounds.",
+          generalization:
+            "Water and overflow images become useful metaphors for information, emotion, motion, and memory.",
+          adaptive: {
+            correct: "You found the overflow images.",
+            wrong: "Think about images where liquid or force pours, rushes, or spills over.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Jargon", "Argot", "Lingo", "Terminology"],
+        correct: "Specialized language used by a group",
+        options: [
+          "Specialized language used by a group",
+          "Quiet speech kept low",
+          "Floating remains after disaster",
+          "People who do wrong",
+        ],
+        insight: {
+          pattern: "Insider language",
+          explanation:
+            "Jargon, argot, lingo, and terminology all describe language associated with a field, group, or specialized context.",
+          generalization:
+            "Specialized language can create precision, but it can also mark who is inside or outside a group.",
+          adaptive: {
+            correct: "You found the insider-language words.",
+            wrong: "Think about words for vocabulary that belongs to a profession, group, or subculture.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 95,
+    difficulty: 4,
+    vocab: "advanced",
+    week: 14,
+    day: 4,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Contrive", "Devise", "Scheme", "Engineer"],
+        correct: "Create or arrange through clever planning",
+        options: [
+          "Create or arrange through clever planning",
+          "Make a loud confused noise",
+          "Sink beneath the surface",
+          "Show respect publicly",
+        ],
+        insight: {
+          pattern: "Clever construction",
+          explanation:
+            "Contrive, devise, scheme, and engineer can all mean to plan, arrange, or create something with deliberate cleverness.",
+          generalization:
+            "Planning words often sit between invention and manipulation, depending on motive.",
+          adaptive: {
+            correct: "You found the clever-planning verbs.",
+            wrong: "Think about verbs for making a plan or arranging a result carefully.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Stratagem", "Ploy", "Ruse", "Tactic"],
+        correct: "Clever plans used to gain advantage",
+        options: [
+          "Clever plans used to gain advantage",
+          "Sharp high-pitched cries",
+          "Deep empty places",
+          "Overflowing quantities",
+        ],
+        insight: {
+          pattern: "Strategic deception",
+          explanation:
+            "A stratagem, ploy, ruse, and tactic can all describe a planned move used to gain advantage, sometimes by deception.",
+          generalization:
+            "Strategy words often ask whether cleverness is honorable, necessary, or manipulative.",
+          adaptive: {
+            correct: "You found the advantage-seeking plans.",
+            wrong: "Think about words for a calculated move in a contest or conflict.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Concussion", "Impact", "Jolt", "Shock"],
+        correct: "Forceful blows or sudden disturbances",
+        options: [
+          "Forceful blows or sudden disturbances",
+          "Soft sounds under the breath",
+          "Language for experts",
+          "Famous and admired people",
+        ],
+        insight: {
+          pattern: "Sudden force",
+          explanation:
+            "Concussion, impact, jolt, and shock all suggest a sudden forceful blow, disturbance, or physical effect.",
+          generalization:
+            "Force words can describe bodies, machines, crowds, or minds being struck out of ordinary rhythm.",
+          adaptive: {
+            correct: "You found the sudden-force words.",
+            wrong: "Think about words for a blow, jar, or abrupt disturbance.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 96,
+    difficulty: 5,
+    vocab: "advanced",
+    week: 14,
+    day: 5,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Flotsam", "Jetsam", "Driftwood", "Wreckage"],
+        correct: "Floating remains after a wreck",
+        options: [
+          "Floating remains after a wreck",
+          "People guilty of wrongdoing",
+          "Language used by specialists",
+          "Awe-inspiring events",
+        ],
+        insight: {
+          pattern: "Sea-borne remnants",
+          explanation:
+            "Flotsam, jetsam, driftwood, and wreckage can all suggest floating remains left by damage, travel, or disaster at sea.",
+          generalization:
+            "Objects left behind can tell a story of movement, loss, and survival.",
+          adaptive: {
+            correct: "You found the floating-remains words.",
+            wrong: "Think about things left drifting after a shipwreck or damage at sea.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Abyss", "Chasm", "Gulf", "Void"],
+        correct: "Deep or seemingly bottomless spaces",
+        options: [
+          "Deep or seemingly bottomless spaces",
+          "Clever plans for advantage",
+          "Quiet forms of speech",
+          "Loud public outbursts",
+        ],
+        insight: {
+          pattern: "Unfathomable depth",
+          explanation:
+            "An abyss, chasm, gulf, and void all suggest vast emptiness, depth, or separation.",
+          generalization:
+            "Depth words often become images for fear, mystery, distance, or despair.",
+          adaptive: {
+            correct: "You found the deep-space words.",
+            wrong: "Think about words for empty spaces that feel vast or bottomless.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Drift", "Founder", "Sink", "Submerge"],
+        correct: "Verbs for losing position in water",
+        options: [
+          "Verbs for losing position in water",
+          "Verbs for making speech louder",
+          "Verbs for showing without words",
+          "Verbs for creating abundance",
+        ],
+        insight: {
+          pattern: "Losing buoyancy",
+          explanation:
+            "Drift, founder, sink, and submerge all describe ways something can lose control, direction, or position in water.",
+          generalization:
+            "Sea verbs easily become emotional verbs because being unmoored or submerged feels human too.",
+          adaptive: {
+            correct: "You found the water-loss verbs.",
+            wrong: "Think about what happens when something stops holding its place on the water.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 97,
+    difficulty: 6,
+    vocab: "advanced",
+    week: 14,
+    day: 6,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Illustrious", "Eminent", "Renowned", "Celebrated"],
+        correct: "Famous and highly respected",
+        options: [
+          "Famous and highly respected",
+          "Hungry in an intense way",
+          "Guilty of bad behavior",
+          "Hard to see clearly",
+        ],
+        insight: {
+          pattern: "Public distinction",
+          explanation:
+            "Illustrious, eminent, renowned, and celebrated all describe people or reputations marked by honor, fame, or distinction.",
+          generalization:
+            "Status words often blend achievement with public memory: what someone has done and how others hold it.",
+          adaptive: {
+            correct: "You found the public-distinction words.",
+            wrong: "Think about words for someone widely admired or honored.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Ravenous", "Famished", "Voracious", "Starved"],
+        correct: "Extremely hungry or eager to consume",
+        options: [
+          "Extremely hungry or eager to consume",
+          "Able to perform silently",
+          "Full of reverent praise",
+          "Floating after a wreck",
+        ],
+        insight: {
+          pattern: "Intense hunger",
+          explanation:
+            "Ravenous, famished, voracious, and starved all suggest severe hunger or an appetite that feels urgent.",
+          generalization:
+            "Hunger words can describe the body, but also ambition, attention, power, or desire.",
+          adaptive: {
+            correct: "You found the intense-hunger words.",
+            wrong: "Think about words for needing or wanting to consume something strongly.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Miscreants", "Culprits", "Rogues", "Wrongdoers"],
+        correct: "People who do wrong or cause trouble",
+        options: [
+          "People who do wrong or cause trouble",
+          "People who speak in jargon",
+          "People known for public honor",
+          "People lost at sea",
+        ],
+        insight: {
+          pattern: "Wrongdoers",
+          explanation:
+            "Miscreants, culprits, rogues, and wrongdoers all describe people connected to bad behavior, guilt, or troublemaking.",
+          generalization:
+            "Words for wrongdoing carry judgment; they say what someone did and how a community sees them.",
+          adaptive: {
+            correct: "You found the wrongdoer words.",
+            wrong: "Think about words for people blamed for bad acts or trouble.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 98,
+    difficulty: 7,
+    vocab: "advanced",
+    week: 14,
+    day: 7,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Miraculous", "Marvelous", "Wondrous", "Prodigious"],
+        correct: "Extraordinary or beyond ordinary explanation",
+        options: [
+          "Extraordinary or beyond ordinary explanation",
+          "Harsh confused noise",
+          "Silent theatrical expression",
+          "A sudden physical blow",
+        ],
+        insight: {
+          pattern: "Beyond the ordinary",
+          explanation:
+            "Miraculous, marvelous, wondrous, and prodigious all suggest something extraordinary, astonishing, or beyond ordinary expectation.",
+          generalization:
+            "Wonder words mark the edge where explanation gives way to amazement.",
+          adaptive: {
+            correct: "You found the extraordinary-wonder words.",
+            wrong: "Think about words for something that feels astonishing or almost impossible.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Cacophony", "Clamor", "Din", "Racket"],
+        correct: "Harsh confused noise",
+        options: [
+          "Harsh confused noise",
+          "Deep respectful silence",
+          "Secret strategic planning",
+          "A beautiful magical event",
+        ],
+        insight: {
+          pattern: "Disordered sound",
+          explanation:
+            "Cacophony, clamor, din, and racket all describe loud, harsh, or confused noise.",
+          generalization:
+            "Noise words can make disorder feel physical, as if sound itself has weight and pressure.",
+          adaptive: {
+            correct: "You found the harsh-noise words.",
+            wrong: "Think about words for sound that feels loud, mixed, and unpleasant.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Pantomime", "Mime", "Gesture", "Charade"],
+        correct: "Expression or performance without speech",
+        options: [
+          "Expression or performance without speech",
+          "Specialized language for insiders",
+          "A huge overflowing amount",
+          "Floating pieces after a wreck",
+        ],
+        insight: {
+          pattern: "Meaning without words",
+          explanation:
+            "Pantomime, mime, gesture, and charade all involve communicating or performing through action rather than ordinary speech.",
+          generalization:
+            "Language is not only spoken; bodies, movements, and scenes can carry meaning too.",
+          adaptive: {
+            correct: "You found the wordless-expression words.",
+            wrong: "Think about performance or communication that happens without speaking.",
+          },
+        },
+      },
+    ],
+  },
 ];
