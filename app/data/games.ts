@@ -7308,4 +7308,537 @@ export const GAMES = [
       },
     ],
   },
+
+  // WEEK 15
+  {
+    id: 99,
+    difficulty: 1,
+    vocab: "mixed",
+    week: 15,
+    day: 1,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Thought", "Mind", "Idea", "Imagination"],
+        correct: "Inner mental life",
+        options: [
+          "Inner mental life",
+          "Public official speech",
+          "Secretive behavior",
+          "Language with many syllables",
+        ],
+        insight: {
+          pattern: "Mental interior",
+          explanation:
+            "Thought, mind, idea, and imagination all point toward inner mental activity and the private life of thinking.",
+          generalization:
+            "Some of the most ordinary words become powerful when a story treats the mind as a contested place.",
+          adaptive: {
+            correct: "You found the inner-mental-life words.",
+            wrong: "Think about words connected to what happens inside a person's mind.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Imagine", "Conceive", "Envision", "Suppose"],
+        correct: "Verbs for forming ideas mentally",
+        options: [
+          "Verbs for forming ideas mentally",
+          "Verbs for hiding true feelings",
+          "Verbs for removing forbidden material",
+          "Verbs for making someone obey",
+        ],
+        insight: {
+          pattern: "Making thought",
+          explanation:
+            "Imagine, conceive, envision, and suppose all describe forming a possibility or idea in the mind.",
+          generalization:
+            "Imagination is not just escape; it is a way to test what reality could become.",
+          adaptive: {
+            correct: "You found the idea-forming verbs.",
+            wrong: "Think about verbs for creating or holding a possibility in thought.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Sanguine", "Hopeful", "Optimistic", "Bright"],
+        correct: "Expecting or suggesting a good outcome",
+        options: [
+          "Expecting or suggesting a good outcome",
+          "Hard to understand clearly",
+          "Lower in rank or quality",
+          "Troubled or irritated",
+        ],
+        insight: {
+          pattern: "Positive expectation",
+          explanation:
+            "Sanguine, hopeful, optimistic, and bright can all suggest confidence that things may turn out well.",
+          generalization:
+            "Hopeful words can sound simple, but in dark stories they can become a form of resistance.",
+          adaptive: {
+            correct: "You found the hopeful-outcome words.",
+            wrong: "Think about words that point toward confidence, hope, or a positive future.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 100,
+    difficulty: 2,
+    vocab: "mixed",
+    week: 15,
+    day: 2,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Dictum", "Declaration", "Proclamation", "Edict"],
+        correct: "Formal statements or commands",
+        options: [
+          "Formal statements or commands",
+          "Mental acts of imagining",
+          "People who evaluate culture",
+          "Signs of innocent character",
+        ],
+        insight: {
+          pattern: "Official speech",
+          explanation:
+            "A dictum, declaration, proclamation, and edict can all be formal statements, pronouncements, or commands.",
+          generalization:
+            "Public language can describe reality, but it can also try to control what reality is allowed to mean.",
+          adaptive: {
+            correct: "You found the formal-statement words.",
+            wrong: "Think about words for official, public, or authoritative speech.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Reference", "Citation", "Allusion", "Source"],
+        correct: "Ways of pointing to another text or idea",
+        options: [
+          "Ways of pointing to another text or idea",
+          "Forms of forced obedience",
+          "Noisy or violent disturbances",
+          "Kinds of secret movement",
+        ],
+        insight: {
+          pattern: "Pointing beyond the page",
+          explanation:
+            "Reference, citation, allusion, and source all connect one text, claim, or idea to another.",
+          generalization:
+            "A reference can preserve memory by showing that an idea has roots outside the present moment.",
+          adaptive: {
+            correct: "You found the text-pointing words.",
+            wrong: "Think about words that send a reader toward another work, source, or idea.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Literary", "Poetic", "Narrative", "Textual"],
+        correct: "Connected to writing or literature",
+        options: [
+          "Connected to writing or literature",
+          "Hidden from public view",
+          "Full of excess quantity",
+          "Restored with energy",
+        ],
+        insight: {
+          pattern: "Text and literature",
+          explanation:
+            "Literary, poetic, narrative, and textual all describe qualities or forms connected to writing and literature.",
+          generalization:
+            "Literary language notices not only what a text says, but how it is built and remembered.",
+          adaptive: {
+            correct: "You found the literature-connected words.",
+            wrong: "Think about words that belong to books, writing, stories, or texts.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 101,
+    difficulty: 3,
+    vocab: "mixed",
+    week: 15,
+    day: 3,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Censorship", "Suppression", "Redaction", "Erasure"],
+        correct: "Controlling or removing expression",
+        options: [
+          "Controlling or removing expression",
+          "Making a plan seem natural",
+          "Feeling cheerful about the future",
+          "Judging a work of art",
+        ],
+        insight: {
+          pattern: "Restricted expression",
+          explanation:
+            "Censorship, suppression, redaction, and erasure all involve limiting, hiding, or removing expression or information.",
+          generalization:
+            "Control over language can become control over memory, imagination, and public thought.",
+          adaptive: {
+            correct: "You found the restricted-expression words.",
+            wrong: "Think about words for blocking, hiding, or removing what can be said.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Burned", "Charred", "Scorched", "Singed"],
+        correct: "Damaged by fire",
+        options: [
+          "Damaged by fire",
+          "Made stronger or livelier",
+          "Difficult to understand",
+          "Obedient to authority",
+        ],
+        insight: {
+          pattern: "Fire damage",
+          explanation:
+            "Burned, charred, scorched, and singed all describe different degrees of damage caused by fire.",
+          generalization:
+            "Fire can symbolize destruction, cleansing, punishment, warning, or forbidden knowledge depending on the story.",
+          adaptive: {
+            correct: "You found the fire-damaged words.",
+            wrong: "Think about words for what fire does to a surface or object.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Unintelligible", "Incoherent", "Indecipherable", "Illegible"],
+        correct: "Hard or impossible to understand",
+        options: [
+          "Hard or impossible to understand",
+          "Overfilled with abundance",
+          "Falsely performed or pretended",
+          "Officially declared in public",
+        ],
+        insight: {
+          pattern: "Blocked understanding",
+          explanation:
+            "Unintelligible, incoherent, indecipherable, and illegible all describe language or signs that cannot be understood clearly.",
+          generalization:
+            "Meaning can be blocked by damage, complexity, confusion, secrecy, or deliberate control.",
+          adaptive: {
+            correct: "You found the hard-to-understand words.",
+            wrong: "Think about words for speech or writing that cannot be made sense of.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 102,
+    difficulty: 4,
+    vocab: "mixed",
+    week: 15,
+    day: 4,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Examiners", "Critics", "Reviewers", "Inspectors"],
+        correct: "People who evaluate or judge closely",
+        options: [
+          "People who evaluate or judge closely",
+          "People who create books or art",
+          "People who obey without resistance",
+          "People who hide from view",
+        ],
+        insight: {
+          pattern: "Close judgment",
+          explanation:
+            "Examiners, critics, reviewers, and inspectors all look closely in order to evaluate, judge, or assess.",
+          generalization:
+            "Evaluation can protect quality, but it can also become surveillance when judgment serves control.",
+          adaptive: {
+            correct: "You found the evaluator words.",
+            wrong: "Think about people whose role is to inspect, review, or judge closely.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Knowers", "Scholars", "Sages", "Intellectual"],
+        correct: "People associated with knowledge or thought",
+        options: [
+          "People associated with knowledge or thought",
+          "People who enforce censorship",
+          "People blamed for bad acts",
+          "People who speak official orders",
+        ],
+        insight: {
+          pattern: "Knowledge keepers",
+          explanation:
+            "Knowers, scholars, sages, and intellectual all suggest people associated with knowledge, study, or thought.",
+          generalization:
+            "Stories about control often reveal who is allowed to know, question, and remember.",
+          adaptive: {
+            correct: "You found the knowledge-person words.",
+            wrong: "Think about people connected to learning, wisdom, or intellectual life.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Creators", "Makers", "Authors", "Artists"],
+        correct: "People who bring works into being",
+        options: [
+          "People who bring works into being",
+          "People who evaluate work",
+          "People who surrender power",
+          "People who speak in many syllables",
+        ],
+        insight: {
+          pattern: "Creative agency",
+          explanation:
+            "Creators, makers, authors, and artists all describe people who make, shape, or bring works into being.",
+          generalization:
+            "Creation is an act of agency: someone chooses what did not exist yet and gives it form.",
+          adaptive: {
+            correct: "You found the creator words.",
+            wrong: "Think about people who make or author something new.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 103,
+    difficulty: 5,
+    vocab: "advanced",
+    week: 15,
+    day: 5,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Exploitation", "Abuse", "Predation", "Manipulation"],
+        correct: "Using others unfairly for gain",
+        options: [
+          "Using others unfairly for gain",
+          "Lower in rank or quality",
+          "Lacking courage under pressure",
+          "Full of literary reference",
+        ],
+        insight: {
+          pattern: "Extractive power",
+          explanation:
+            "Exploitation, abuse, predation, and manipulation all suggest using others unfairly, often for power or gain.",
+          generalization:
+            "Power becomes corrupt when people are treated as resources instead of full human beings.",
+          adaptive: {
+            correct: "You found the unfair-use words.",
+            wrong: "Think about words for taking advantage of someone or using them as a means.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Submission", "Compliance", "Subordination", "Inferior"],
+        correct: "Lowered power or obedience under authority",
+        options: [
+          "Lowered power or obedience under authority",
+          "Speaking with many syllables",
+          "Restoring energy or courage",
+          "Imagining a possible world",
+        ],
+        insight: {
+          pattern: "Yielded or lowered status",
+          explanation:
+            "Submission, compliance, subordination, and inferior all point toward yielded power, obedience, or lowered status under authority.",
+          generalization:
+            "Obedience and hierarchy words show how power can arrange people into higher and lower positions.",
+          adaptive: {
+            correct: "You found the yielded-status words.",
+            wrong: "Think about words for giving way, obeying, or being placed lower in a hierarchy.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Cowardice", "Timidity", "Cravenness", "Fearfulness"],
+        correct: "Lack of courage under pressure",
+        options: [
+          "Lack of courage under pressure",
+          "Secretly carried out",
+          "Formally announced",
+          "Overabundant or excessive",
+        ],
+        insight: {
+          pattern: "Failed courage",
+          explanation:
+            "Cowardice, timidity, cravenness, and fearfulness all suggest fear or a lack of courage when pressure rises.",
+          generalization:
+            "Courage words and fear words often carry moral judgment, especially when a story asks what resistance costs.",
+          adaptive: {
+            correct: "You found the failed-courage words.",
+            wrong: "Think about words for fearfulness when courage is expected.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 104,
+    difficulty: 6,
+    vocab: "advanced",
+    week: 15,
+    day: 6,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Feign", "Pretend", "Simulate", "Affect"],
+        correct: "Put on a false appearance",
+        options: [
+          "Put on a false appearance",
+          "Resist accepted doctrine",
+          "Speak in official language",
+          "Create a large abundance",
+        ],
+        insight: {
+          pattern: "Performed falseness",
+          explanation:
+            "Feign, pretend, simulate, and affect all describe putting on an appearance that may not match reality.",
+          generalization:
+            "False appearance can be playful, protective, manipulative, or necessary for survival.",
+          adaptive: {
+            correct: "You found the false-appearance verbs.",
+            wrong: "Think about verbs for acting as if something is true when it may not be.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Furtively", "Stealthily", "Secretly", "Covertly"],
+        correct: "Done in a hidden or secretive way",
+        options: [
+          "Done in a hidden or secretive way",
+          "Done with hopeful confidence",
+          "Done by literary critics",
+          "Done through open declaration",
+        ],
+        insight: {
+          pattern: "Hidden action",
+          explanation:
+            "Furtively, stealthily, secretly, and covertly all describe actions carried out in a hidden or concealed way.",
+          generalization:
+            "In a watched world, how openly someone acts can matter as much as what they do.",
+          adaptive: {
+            correct: "You found the hidden-action words.",
+            wrong: "Think about words for doing something quietly, secretly, or out of sight.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Bothered", "Troubled", "Vexed", "Disturbed"],
+        correct: "Mentally unsettled or irritated",
+        options: [
+          "Mentally unsettled or irritated",
+          "Famous for intellectual achievement",
+          "Burned by fire",
+          "Hard to read or decode",
+        ],
+        insight: {
+          pattern: "Uneasy disturbance",
+          explanation:
+            "Bothered, troubled, vexed, and disturbed all suggest unease, irritation, or mental unrest.",
+          generalization:
+            "Unease can be the first signal that a person still notices what is wrong.",
+          adaptive: {
+            correct: "You found the unsettled-feeling words.",
+            wrong: "Think about words for being irritated, uneasy, or mentally disturbed.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 105,
+    difficulty: 7,
+    vocab: "advanced",
+    week: 15,
+    day: 7,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Unorthodoxy", "Heresy", "Dissent", "Deviation"],
+        correct: "Departure from accepted belief or practice",
+        options: [
+          "Departure from accepted belief or practice",
+          "A large excessive amount",
+          "Cowardly failure to act",
+          "A hopeful state of mind",
+        ],
+        insight: {
+          pattern: "Against orthodoxy",
+          explanation:
+            "Unorthodoxy, heresy, dissent, and deviation all suggest leaving, challenging, or resisting accepted belief or practice.",
+          generalization:
+            "A system reveals itself by what it calls error, rebellion, or forbidden thought.",
+          adaptive: {
+            correct: "You found the anti-orthodoxy words.",
+            wrong: "Think about words for departing from accepted rules, beliefs, or doctrine.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Polysyllabic", "Multisyllabic", "Sesquipedalian", "Grandiloquent"],
+        correct: "Using long or many-syllabled words",
+        options: [
+          "Using long or many-syllabled words",
+          "Removing language from a text",
+          "Judging art or writing closely",
+          "Hiding in a secretive way",
+        ],
+        insight: {
+          pattern: "Large language",
+          explanation:
+            "Polysyllabic, multisyllabic, sesquipedalian, and grandiloquent all point toward long, elevated, or many-syllabled language.",
+          generalization:
+            "Big words can clarify, perform status, create beauty, or hide meaning behind verbal smoke.",
+          adaptive: {
+            correct: "You found the large-language words.",
+            wrong: "Think about words for language that is long, elevated, or full of syllables.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Invigorate", "Energize", "Revive", "Animate"],
+        correct: "Give new energy or life",
+        options: [
+          "Give new energy or life",
+          "Accept control or defeat",
+          "Exploit someone for gain",
+          "Pretend falsely",
+        ],
+        insight: {
+          pattern: "Restored vitality",
+          explanation:
+            "Invigorate, energize, revive, and animate all describe giving renewed energy, life, or force.",
+          generalization:
+            "Renewal words matter in bleak worlds because they name the possibility of becoming alive again.",
+          adaptive: {
+            correct: "You found the renewed-energy verbs.",
+            wrong: "Think about verbs for giving someone or something new life, strength, or energy.",
+          },
+        },
+      },
+    ],
+  },
 ];

@@ -1982,4 +1982,214 @@ Pantomime: {
     "Pantomime uses movement, facial expression, and action to convey meaning without ordinary spoken language.",
 },
 
+Feign: {
+  short:
+    "To pretend or give a false appearance.",
+  extended:
+    "Feign often means acting as though a feeling, condition, or intention is real when it is not.",
+},
+
+Imagine: {
+  short:
+    "To form an idea, image, or possibility in the mind.",
+  extended:
+    "Imagine can mean picturing something unreal, possible, remembered, feared, or hoped for.",
+},
+
+Burned: {
+  short:
+    "Damaged, marked, or consumed by fire or heat.",
+  extended:
+    "Burned can describe physical fire damage, emotional injury, or something destroyed by intense force.",
+},
+
+Thought: {
+  short:
+    "An idea, act of thinking, or mental reflection.",
+  extended:
+    "Thought can mean a single idea, the process of thinking, or the private mental life behind speech and action.",
+},
+
+Bothered: {
+  short:
+    "Troubled, annoyed, disturbed, or concerned.",
+  extended:
+    "Bothered can describe mild irritation or deeper unease that something is not right.",
+},
+
+Reference: {
+  short:
+    "A mention or pointer to another source, text, or idea.",
+  extended:
+    "A reference connects one thing to another, helping preserve context, authority, memory, or meaning.",
+},
+
+Innocence: {
+  short:
+    "Freedom from guilt, blame, corruption, or harmful knowledge.",
+  extended:
+    "Innocence can describe legal guiltlessness, moral purity, naivete, or a state before experience changes someone.",
+},
+
+Mind: {
+  short:
+    "The part of a person that thinks, feels, remembers, and imagines.",
+  extended:
+    "Mind can describe intellect, consciousness, attention, opinion, or the private space where thought happens.",
+},
+
+Dictum: {
+  short:
+    "A formal pronouncement, saying, or authoritative statement.",
+  extended:
+    "Dictum can mean a maxim, a judge-like statement, or an official-sounding declaration of what is true or required.",
+},
+
+Declaration: {
+  short:
+    "A clear, formal, or public statement.",
+  extended:
+    "Declaration emphasizes open announcement, especially when a statement is meant to be official or decisive.",
+},
+
+Censorship: {
+  short:
+    "The suppression or removal of speech, writing, images, or information.",
+  extended:
+    "Censorship controls what can be seen, said, published, remembered, or publicly discussed.",
+},
+
+Exploitation: {
+  short:
+    "Using someone or something unfairly for benefit or gain.",
+  extended:
+    "Exploitation often implies taking advantage of vulnerability, labor, trust, resources, or power imbalance.",
+},
+
+Examiners: {
+  short:
+    "People who inspect, test, or evaluate closely.",
+  extended:
+    "Examiners may assess knowledge, evidence, quality, or conduct, depending on the setting.",
+},
+
+Critics: {
+  short:
+    "People who judge, analyze, or evaluate works, actions, or ideas.",
+  extended:
+    "Critics can offer careful interpretation and standards, though criticism can also become harsh judgment.",
+},
+
+Knowers: {
+  short:
+    "People who know, understand, or possess knowledge.",
+  extended:
+    "Knowers is a broad word for those who hold knowledge, especially when knowledge itself is being emphasized.",
+},
+
+Creators: {
+  short:
+    "People who make, invent, author, or bring something into being.",
+  extended:
+    "Creators may produce art, systems, stories, tools, ideas, or worlds that did not exist before.",
+},
+
+Intellectual: {
+  short:
+    "Related to thought, reasoning, knowledge, or educated inquiry.",
+  extended:
+    "Intellectual can describe a person devoted to ideas, or anything involving careful thought and learning.",
+},
+
+Inferior: {
+  short:
+    "Lower in rank, quality, status, or value.",
+  extended:
+    "Inferior can describe something judged lower, weaker, less powerful, or less respected than something else.",
+},
+
+Submission: {
+  short:
+    "The act of yielding to authority, control, pressure, or defeat.",
+  extended:
+    "Submission can be voluntary, forced, strategic, obedient, or humiliating depending on the context.",
+},
+
+Literary: {
+  short:
+    "Connected with literature, books, writing, or style.",
+  extended:
+    "Literary can describe written works, artistic language, or the study and interpretation of texts.",
+},
+
+Cowardice: {
+  short:
+    "A lack of courage when courage is expected.",
+  extended:
+    "Cowardice is a moral judgment word, often used when fear leads someone to avoid duty, danger, or truth.",
+},
+
+Cravenness: {
+  short:
+    "A shameful or contemptible lack of courage.",
+  extended:
+    "Cravenness is stronger than simple fear; it judges a failure of nerve, duty, or moral courage when courage is expected.",
+},
+
+Invigorate: {
+  short:
+    "To give energy, strength, or life to someone or something.",
+  extended:
+    "Invigorate suggests renewal, as if tiredness, weakness, or dullness has been replaced by fresh force.",
+},
+
+Sanguine: {
+  short:
+    "Optimistic, cheerful, or confident about the future.",
+  extended:
+    "Sanguine often describes a hopeful temperament or outlook, sometimes despite reasons for doubt.",
+},
+
+Unintelligible: {
+  short:
+    "Impossible or very difficult to understand.",
+  extended:
+    "Unintelligible can describe speech, writing, signs, or ideas that cannot be clearly interpreted.",
+},
+
+Furtively: {
+  short:
+    "In a secretive, stealthy, or hidden way.",
+  extended:
+    "Furtively suggests trying not to be noticed, often because an action is forbidden, risky, or suspicious.",
+},
+
+Unorthodoxy: {
+  short:
+    "A departure from accepted beliefs, customs, or practices.",
+  extended:
+    "Unorthodoxy challenges what a group treats as correct, normal, official, or permitted.",
+},
+
+Sesquipedalian: {
+  short:
+    "Using very long words, or describing a very long word.",
+  extended:
+    "Sesquipedalian often has a playful tone, pointing to language that is impressively long, learned, or a little showy.",
+},
+
+Grandiloquent: {
+  short:
+    "Using language that sounds lofty, elaborate, or pompous.",
+  extended:
+    "Grandiloquent speech aims for grandeur, but it can also feel inflated when big language is used to impress rather than clarify.",
+},
+
+Polysyllabic: {
+  short:
+    "Having many syllables.",
+  extended:
+    "Polysyllabic describes long words made of several syllables, often in contrast with short or plain language.",
+},
+
 };
