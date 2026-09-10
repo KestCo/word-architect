@@ -7841,4 +7841,537 @@ export const GAMES = [
       },
     ],
   },
+
+  // WEEK 16
+  {
+    id: 106,
+    difficulty: 1,
+    vocab: "mixed",
+    week: 16,
+    day: 1,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Anonymous", "Nameless", "Unknown", "Unidentified"],
+        correct: "Without a known name or identity",
+        options: [
+          "Without a known name or identity",
+          "Aware of one's own thoughts",
+          "Useful for teaching or improving",
+          "Too difficult to endure",
+        ],
+        insight: {
+          pattern: "Hidden identity",
+          explanation:
+            "Anonymous, nameless, unknown, and unidentified all describe someone or something whose name or identity is not known.",
+          generalization:
+            "Identity words can reveal how much a person is seen, named, hidden, or protected by the surrounding world.",
+          adaptive: {
+            correct: "You found the hidden-identity words.",
+            wrong: "Think about words for someone whose name or identity is not available.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Conscious", "Aware", "Awake", "Sentient"],
+        correct: "Able to notice, think, or feel",
+        options: [
+          "Able to notice, think, or feel",
+          "Publicly visible or obvious",
+          "Given power over others",
+          "Filled with many different kinds",
+        ],
+        insight: {
+          pattern: "Awareness",
+          explanation:
+            "Conscious, aware, awake, and sentient all suggest the ability to notice, experience, think, or feel.",
+          generalization:
+            "Awareness words can describe simple perception, but also moral attention: knowing what is happening and not looking away.",
+          adaptive: {
+            correct: "You found the awareness words.",
+            wrong: "Think about words for being awake to experience or thought.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Edify", "Teach", "Instruct", "Enlighten"],
+        correct: "Help someone learn or improve",
+        options: [
+          "Help someone learn or improve",
+          "Make a mistake through poor skill",
+          "Echo after a sound",
+          "Fight eagerly or aggressively",
+        ],
+        insight: {
+          pattern: "Instruction and improvement",
+          explanation:
+            "Edify, teach, instruct, and enlighten all describe helping someone learn, understand, or become better informed.",
+          generalization:
+            "Teaching words often carry values: they imply what kind of knowledge is worth passing on.",
+          adaptive: {
+            correct: "You found the learning-help words.",
+            wrong: "Think about verbs for giving knowledge or improving someone's understanding.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 107,
+    difficulty: 2,
+    vocab: "mixed",
+    week: 16,
+    day: 2,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Multifarious", "Varied", "Diverse", "Manifold"],
+        correct: "Made of many different kinds",
+        options: [
+          "Made of many different kinds",
+          "Correcting what went wrong",
+          "Lacking ability or skill",
+          "Hidden from identification",
+        ],
+        insight: {
+          pattern: "Many kinds",
+          explanation:
+            "Multifarious, varied, diverse, and manifold all describe something made up of many kinds, forms, or elements.",
+          generalization:
+            "Variety words help us notice difference inside what first appears to be one thing.",
+          adaptive: {
+            correct: "You found the many-kinds words.",
+            wrong: "Think about words for something with lots of different forms or parts.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Rectification", "Correction", "Amendment", "Remedy"],
+        correct: "Fixing an error or wrong condition",
+        options: [
+          "Fixing an error or wrong condition",
+          "Many voices vibrating together",
+          "Power to rule a territory",
+          "A confusing path or structure",
+        ],
+        insight: {
+          pattern: "Making right",
+          explanation:
+            "Rectification, correction, amendment, and remedy all suggest fixing an error, wrong, or flawed condition.",
+          generalization:
+            "Correction words matter because they assume change is still possible after something has gone wrong.",
+          adaptive: {
+            correct: "You found the making-right words.",
+            wrong: "Think about words for fixing, correcting, or repairing a mistake.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Incompetence", "Ineptness", "Clumsiness", "Awkwardness"],
+        correct: "Lack of ability or effective skill",
+        options: [
+          "Lack of ability or effective skill",
+          "Openly noticeable behavior",
+          "A paid role with little work",
+          "A change in vocal tone",
+        ],
+        insight: {
+          pattern: "Failed capability",
+          explanation:
+            "Incompetence, ineptness, clumsiness, and awkwardness all suggest a lack of ability, ease, effectiveness, or skill.",
+          generalization:
+            "Ability words can describe a person, but they can also expose whether a system is built to work well.",
+          adaptive: {
+            correct: "You found the lack-of-skill words.",
+            wrong: "Think about words for not being able to do something well.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 108,
+    difficulty: 3,
+    vocab: "mixed",
+    week: 16,
+    day: 3,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Corruption", "Bribery", "Graft", "Venality"],
+        correct: "Dishonest use of power for gain",
+        options: [
+          "Dishonest use of power for gain",
+          "Territory or authority under rule",
+          "Sounds that continue after impact",
+          "Ideas meant to educate",
+        ],
+        insight: {
+          pattern: "Rotten power",
+          explanation:
+            "Corruption, bribery, graft, and venality all suggest dishonest or self-serving misuse of power.",
+          generalization:
+            "Corruption words often describe moral decay as if public trust were something that could spoil.",
+          adaptive: {
+            correct: "You found the dishonest-power words.",
+            wrong: "Think about words for public or personal power being used dishonestly.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Dominion", "Rule", "Sovereignty", "Authority"],
+        correct: "Power or control over a place or people",
+        options: [
+          "Power or control over a place or people",
+          "A visible mark of identity",
+          "A failure of practical skill",
+          "A hidden or nameless condition",
+        ],
+        insight: {
+          pattern: "Power to govern",
+          explanation:
+            "Dominion, rule, sovereignty, and authority all suggest power or control over a place, people, or domain.",
+          generalization:
+            "Power words differ by legitimacy: some sound lawful, some expansive, and some oppressive.",
+          adaptive: {
+            correct: "You found the governing-power words.",
+            wrong: "Think about words for control, rule, or authority over others.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Sinecure", "Cushy Post", "No-Show Job", "Figurehead Role"],
+        correct: "Positions with pay or status but little work",
+        options: [
+          "Positions with pay or status but little work",
+          "Forms of honest correction",
+          "Ways to teach a lesson",
+          "Sounds made softly in the throat",
+        ],
+        insight: {
+          pattern: "Reward without labor",
+          explanation:
+            "A sinecure, cushy post, no-show job, and figurehead role can all suggest a position with pay or status but little real work.",
+          generalization:
+            "A role can reveal a system's values when reward and responsibility become separated.",
+          adaptive: {
+            correct: "You found the low-work-position words.",
+            wrong: "Think about paid or honored positions where little real work is required.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 109,
+    difficulty: 4,
+    vocab: "mixed",
+    week: 16,
+    day: 4,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Inflection", "Intonation", "Cadence", "Emphasis"],
+        correct: "Changes in how a voice carries meaning",
+        options: [
+          "Changes in how a voice carries meaning",
+          "Aggressive readiness to fight",
+          "A confusing maze-like path",
+          "A condition too bad to bear",
+        ],
+        insight: {
+          pattern: "Meaning in voice",
+          explanation:
+            "Inflection, intonation, cadence, and emphasis all describe ways a voice can shape or carry meaning.",
+          generalization:
+            "Meaning is not only in words; it also lives in pitch, rhythm, stress, and delivery.",
+          adaptive: {
+            correct: "You found the voice-meaning words.",
+            wrong: "Think about features of speech that change how words sound or land.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Humming", "Buzzing", "Droning", "Thrumming"],
+        correct: "Low continuous vibrating sounds",
+        options: [
+          "Low continuous vibrating sounds",
+          "Obvious things that stand out",
+          "Different kinds gathered together",
+          "Corrections after a wrong action",
+        ],
+        insight: {
+          pattern: "Continuous vibration",
+          explanation:
+            "Humming, buzzing, droning, and thrumming all suggest low, continuous, vibrating sound.",
+          generalization:
+            "Background sound can become atmosphere, pressure, warning, or rhythm before anyone names it directly.",
+          adaptive: {
+            correct: "You found the continuous-sound words.",
+            wrong: "Think about low sounds that continue or vibrate in the background.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Reverberate", "Echo", "Resound", "Ring"],
+        correct: "Continue or return as sound",
+        options: [
+          "Continue or return as sound",
+          "Rule over a place",
+          "Become clearly visible",
+          "Fix a flawed condition",
+        ],
+        insight: {
+          pattern: "Sound after sound",
+          explanation:
+            "Reverberate, echo, resound, and ring all describe sound continuing, returning, or filling a space after it begins.",
+          generalization:
+            "Some sounds outlast their source, which makes them useful images for memory and consequence.",
+          adaptive: {
+            correct: "You found the continuing-sound words.",
+            wrong: "Think about what sound does when it keeps going or comes back.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 110,
+    difficulty: 5,
+    vocab: "advanced",
+    week: 16,
+    day: 5,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Intolerable", "Unbearable", "Insufferable", "Unendurable"],
+        correct: "Too difficult or painful to endure",
+        options: [
+          "Too difficult or painful to endure",
+          "Easy to see or notice",
+          "Known through touch or direct feeling",
+          "Secretly lacking a name",
+        ],
+        insight: {
+          pattern: "Beyond endurance",
+          explanation:
+            "Intolerable, unbearable, insufferable, and unendurable all describe something too painful, difficult, or offensive to put up with.",
+          generalization:
+            "Endurance words mark the boundary where patience, comfort, or moral tolerance gives out.",
+          adaptive: {
+            correct: "You found the beyond-endurance words.",
+            wrong: "Think about words for something too bad to accept or bear.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Palpable", "Tangible", "Perceptible", "Evident"],
+        correct: "Noticeable or almost physically felt",
+        options: [
+          "Noticeable or almost physically felt",
+          "Dishonest use of public power",
+          "Long and confusing paths",
+          "Low continuous sounds",
+        ],
+        insight: {
+          pattern: "Felt evidence",
+          explanation:
+            "Palpable, tangible, perceptible, and evident all suggest something noticeable, clear, or almost physically felt.",
+          generalization:
+            "Some truths feel strong because they seem available not only to thought, but to the senses.",
+          adaptive: {
+            correct: "You found the noticeable-and-felt words.",
+            wrong: "Think about words for something clear enough to perceive or almost touch.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Conspicuous", "Obvious", "Prominent", "Noticeable"],
+        correct: "Easy to see or attract attention",
+        options: [
+          "Easy to see or attract attention",
+          "Too painful to tolerate",
+          "Able to instruct morally",
+          "Made of many different kinds",
+        ],
+        insight: {
+          pattern: "Standing out",
+          explanation:
+            "Conspicuous, obvious, prominent, and noticeable all describe something easy to see or likely to attract attention.",
+          generalization:
+            "Visibility can protect, expose, embarrass, announce, or accuse depending on the situation.",
+          adaptive: {
+            correct: "You found the standing-out words.",
+            wrong: "Think about words for something that catches attention or cannot easily be missed.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 111,
+    difficulty: 6,
+    vocab: "advanced",
+    week: 16,
+    day: 6,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Pugnacious", "Belligerent", "Combative", "Quarrelsome"],
+        correct: "Eager or ready to fight",
+        options: [
+          "Eager or ready to fight",
+          "Unclear because of many paths",
+          "Protected by official power",
+          "Useful for correcting mistakes",
+        ],
+        insight: {
+          pattern: "Aggressive readiness",
+          explanation:
+            "Pugnacious, belligerent, combative, and quarrelsome all suggest a readiness or eagerness to argue, fight, or clash.",
+          generalization:
+            "Aggression words differ in scale, from argumentative temperament to open hostility.",
+          adaptive: {
+            correct: "You found the fight-ready words.",
+            wrong: "Think about words for someone inclined to argue, clash, or fight.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Labyrinth", "Maze", "Tangle", "Warren"],
+        correct: "Complex confusing structures or paths",
+        options: [
+          "Complex confusing structures or paths",
+          "Sounds that return after impact",
+          "Paid roles requiring little labor",
+          "Openly visible signs",
+        ],
+        insight: {
+          pattern: "Confusing paths",
+          explanation:
+            "A labyrinth, maze, tangle, and warren can all suggest a complex structure that is difficult to navigate or understand.",
+          generalization:
+            "A confusing path can be physical, intellectual, political, or emotional.",
+          adaptive: {
+            correct: "You found the confusing-path words.",
+            wrong: "Think about structures where finding the way through is difficult.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Confront", "Provoke", "Challenge", "Defy"],
+        correct: "Verbs for opposing or inviting conflict",
+        options: [
+          "Verbs for opposing or inviting conflict",
+          "Verbs for making a sound linger",
+          "Verbs for educating someone",
+          "Verbs for hiding identity",
+        ],
+        insight: {
+          pattern: "Conflict action",
+          explanation:
+            "Confront, provoke, challenge, and defy all involve opposition, resistance, or the possibility of conflict.",
+          generalization:
+            "Conflict verbs can describe courage, aggression, rebellion, or recklessness depending on motive.",
+          adaptive: {
+            correct: "You found the conflict-action verbs.",
+            wrong: "Think about verbs for pushing against someone or something.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 112,
+    difficulty: 7,
+    vocab: "advanced",
+    week: 16,
+    day: 7,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Accountability", "Audit", "Oversight", "Inquiry"],
+        correct: "Ways of checking power or performance",
+        options: [
+          "Ways of checking power or performance",
+          "Kinds of low vibrating sound",
+          "Different forms mixed together",
+          "Aggressive arguments",
+        ],
+        insight: {
+          pattern: "Checking systems",
+          explanation:
+            "Accountability, audit, oversight, and inquiry all suggest examining power, conduct, or performance so it can be judged or corrected.",
+          generalization:
+            "Rectification after corruption or incompetence often begins with the ability to ask what happened and who is responsible.",
+          adaptive: {
+            correct: "You found the checking-power words.",
+            wrong: "Think about words for examining whether people or systems have acted properly.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Fingerprint", "Signature", "Badge", "Byline"],
+        correct: "Marks that connect identity to action",
+        options: [
+          "Marks that connect identity to action",
+          "Signs of many kinds at once",
+          "Images of painful endurance",
+          "Places with confusing paths",
+        ],
+        insight: {
+          pattern: "Named responsibility",
+          explanation:
+            "A fingerprint, signature, badge, and byline can all connect a person or identity to an action, role, or work.",
+          generalization:
+            "The opposite of anonymity is not just being named; it is being connected to what one has done.",
+          adaptive: {
+            correct: "You found the identity-mark words.",
+            wrong: "Think about marks that attach a person, role, or name to an action.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Reform", "Repair", "Correct", "Restore"],
+        correct: "Verbs for fixing what has gone wrong",
+        options: [
+          "Verbs for fixing what has gone wrong",
+          "Verbs for making sound continue",
+          "Verbs for seeking a fight",
+          "Verbs for becoming visible",
+        ],
+        insight: {
+          pattern: "Restorative action",
+          explanation:
+            "Reform, repair, correct, and restore all describe actions that try to fix damage, error, or disorder.",
+          generalization:
+            "The hardest repairs are not only technical; they are moral, social, and structural.",
+          adaptive: {
+            correct: "You found the fixing-what-went-wrong verbs.",
+            wrong: "Think about verbs for making a damaged or flawed situation right again.",
+          },
+        },
+      },
+    ],
+  },
 ];

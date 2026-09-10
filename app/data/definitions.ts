@@ -2192,4 +2192,144 @@ Polysyllabic: {
     "Polysyllabic describes long words made of several syllables, often in contrast with short or plain language.",
 },
 
+Anonymous: {
+  short:
+    "Without a known or stated name.",
+  extended:
+    "Anonymous can describe a person, message, source, or work whose identity is hidden, unknown, or deliberately withheld.",
+},
+
+Multifarious: {
+  short:
+    "Made up of many different kinds or parts.",
+  extended:
+    "Multifarious suggests rich variety, complexity, or diversity within a larger whole.",
+},
+
+Rectification: {
+  short:
+    "The act of correcting, fixing, or making something right.",
+  extended:
+    "Rectification often implies that an error, wrong, or imbalance has been recognized and needs repair.",
+},
+
+Corruption: {
+  short:
+    "Dishonest, decayed, or improper use of power or trust.",
+  extended:
+    "Corruption can describe bribery and abuse of office, but also moral decay, damaged data, or spoiled integrity.",
+},
+
+Venality: {
+  short:
+    "Willingness to be bribed or bought.",
+  extended:
+    "Venality suggests a corrupt readiness to trade judgment, duty, or public trust for money, favor, or personal gain.",
+},
+
+Incompetence: {
+  short:
+    "Lack of the ability, skill, or effectiveness needed to do something well.",
+  extended:
+    "Incompetence may describe personal inability, poor management, or a system that fails through bad execution.",
+},
+
+Ineptness: {
+  short:
+    "A lack of skill, judgment, or effectiveness.",
+  extended:
+    "Ineptness is the noun form of inept; the suffix -ness turns the quality of being inept into a state or condition.",
+},
+
+Clumsiness: {
+  short:
+    "Awkwardness or lack of graceful, skillful control.",
+  extended:
+    "Clumsiness can describe physical awkwardness, but it can also describe a poorly handled action, plan, or response.",
+},
+
+Awkwardness: {
+  short:
+    "A lack of ease, grace, or smoothness.",
+  extended:
+    "Awkwardness can be physical, social, or practical; the suffix -ness turns awkward into the condition of being awkward.",
+},
+
+Edify: {
+  short:
+    "To teach, improve, or uplift someone intellectually or morally.",
+  extended:
+    "Edify suggests instruction that builds understanding, character, or moral insight rather than merely passing along facts.",
+},
+
+Dominion: {
+  short:
+    "Power, rule, or control over a place, people, or domain.",
+  extended:
+    "Dominion can sound legal, political, spiritual, or oppressive depending on who holds power and how it is used.",
+},
+
+Inflection: {
+  short:
+    "A change in voice, pitch, or word form that affects meaning.",
+  extended:
+    "Inflection can describe vocal tone, grammatical endings, or the subtle shift that changes how a phrase is understood.",
+},
+
+Conscious: {
+  short:
+    "Aware, awake, or able to think and perceive.",
+  extended:
+    "Conscious can mean physically awake, mentally aware, deliberate, or morally attentive to what is happening.",
+},
+
+Humming: {
+  short:
+    "Making a low, steady, wordless sound.",
+  extended:
+    "Humming can describe a voice, machine, crowd, or background vibration that quietly fills a space.",
+},
+
+Reverberate: {
+  short:
+    "To echo, resound, or continue after an original sound or event.",
+  extended:
+    "Reverberate can describe sound bouncing through a space, or an action whose effects continue over time.",
+},
+
+Intolerable: {
+  short:
+    "Too unpleasant, painful, or wrong to endure.",
+  extended:
+    "Intolerable marks a limit: the point where discomfort, injustice, or pressure can no longer be accepted.",
+},
+
+Sinecure: {
+  short:
+    "A paid position requiring little or no real work.",
+  extended:
+    "Sinecure often suggests privilege, patronage, or reward separated from meaningful responsibility.",
+},
+
+Palpable: {
+  short:
+    "Clear enough to be felt, touched, or strongly perceived.",
+  extended:
+    "Palpable can describe something physically touchable or an emotion, tension, or truth that feels almost physical.",
+},
+
+Pugnacious: {
+  short:
+    "Eager or quick to argue, fight, or clash.",
+  extended:
+    "Pugnacious describes a combative temperament, from verbal aggressiveness to a readiness for physical conflict.",
+},
+
+Conspicuous: {
+  short:
+    "Easily seen, noticed, or attracting attention.",
+  extended:
+    "Conspicuous can describe something that stands out because it is obvious, unusual, public, or hard to ignore.",
+},
+
 };
