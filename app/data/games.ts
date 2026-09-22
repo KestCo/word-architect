@@ -8374,4 +8374,537 @@ export const GAMES = [
       },
     ],
   },
+
+  // WEEK 17
+  {
+    id: 113,
+    difficulty: 1,
+    vocab: "mixed",
+    week: 17,
+    day: 1,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Iniquity", "Wickedness", "Sin", "Evil"],
+        correct: "Serious moral wrong",
+        options: [
+          "Serious moral wrong",
+          "Too willing to believe",
+          "Bright or glowing",
+          "An objection to unfairness",
+        ],
+        insight: {
+          pattern: "Moral wrong",
+          explanation:
+            "Iniquity, wickedness, sin, and evil all name serious wrongdoing or moral corruption.",
+          generalization:
+            "Moral vocabulary often does more than describe an action; it judges the condition of a person, system, or world.",
+          adaptive: {
+            correct: "You found the serious-wrongdoing words.",
+            wrong: "Think about words that judge something as morally wrong.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Credulity", "Gullibility", "Trustfulness", "Naivete"],
+        correct: "Too ready to believe",
+        options: [
+          "Too ready to believe",
+          "Lacking energy or spirit",
+          "Clever at solving problems",
+          "Overheated or agitated",
+        ],
+        insight: {
+          pattern: "Overready belief",
+          explanation:
+            "Credulity, gullibility, trustfulness, and naivete all suggest a readiness to believe without enough caution.",
+          generalization:
+            "Belief words often ask whether openness is wisdom, innocence, or vulnerability.",
+          adaptive: {
+            correct: "You found the too-ready-to-believe words.",
+            wrong: "Think about a mind that accepts things too easily.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Luminous", "Radiant", "Gleaming", "Brilliant"],
+        correct: "Giving off or filled with light",
+        options: [
+          "Giving off or filled with light",
+          "Acting without good judgment",
+          "Helping someone do wrong",
+          "Begging earnestly",
+        ],
+        insight: {
+          pattern: "Light and brightness",
+          explanation:
+            "Luminous, radiant, gleaming, and brilliant all suggest brightness, glow, or light.",
+          generalization:
+            "Light words often become images for knowledge, hope, clarity, or revelation.",
+          adaptive: {
+            correct: "You found the brightness words.",
+            wrong: "Think about words for something shining or full of light.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 114,
+    difficulty: 2,
+    vocab: "mixed",
+    week: 17,
+    day: 2,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Indignation", "Outrage", "Resentment", "Umbrage"],
+        correct: "Anger at insult or injustice",
+        options: [
+          "Anger at insult or injustice",
+          "Formal disagreement",
+          "Dim or exhausted feeling",
+          "Clever invention",
+        ],
+        insight: {
+          pattern: "Offended justice",
+          explanation:
+            "Indignation, outrage, resentment, and umbrage all suggest anger at being wronged, insulted, or treated unjustly.",
+          generalization:
+            "Anger words differ by cause: some burn from injury, some from pride, and some from moral judgment.",
+          adaptive: {
+            correct: "You found the offended-anger words.",
+            wrong: "Think about anger that rises when something feels insulting or unjust.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Beseech", "Implore", "Entreat", "Beg"],
+        correct: "Ask with urgency or pleading",
+        options: [
+          "Ask with urgency or pleading",
+          "Help commit wrongdoing",
+          "Shine with brightness",
+          "Act without caution",
+        ],
+        insight: {
+          pattern: "Urgent pleading",
+          explanation:
+            "Beseech, implore, entreat, and beg all describe asking urgently, humbly, or desperately.",
+          generalization:
+            "Pleading words reveal power: they often appear when need is strong and control is weak.",
+          adaptive: {
+            correct: "You found the urgent-asking verbs.",
+            wrong: "Think about verbs for asking with deep need.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Spiritless", "Listless", "Lethargic", "Dejected"],
+        correct: "Low in energy or hope",
+        options: [
+          "Low in energy or hope",
+          "Too willing to trust",
+          "Morally corrupt",
+          "Unsettling or disturbing",
+        ],
+        insight: {
+          pattern: "Drained vitality",
+          explanation:
+            "Spiritless, listless, lethargic, and dejected all suggest low energy, low hope, or a lack of inner force.",
+          generalization:
+            "Energy words can describe the body, but they also describe morale, courage, and the will to keep going.",
+          adaptive: {
+            correct: "You found the drained-energy words.",
+            wrong: "Think about words for someone without much energy, hope, or animation.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 115,
+    difficulty: 3,
+    vocab: "mixed",
+    week: 17,
+    day: 3,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Imprudent", "Rash", "Reckless", "Unwise"],
+        correct: "Lacking good judgment or caution",
+        options: [
+          "Lacking good judgment or caution",
+          "Taking part in wrongdoing",
+          "Too easily believed",
+          "Bright with light",
+        ],
+        insight: {
+          pattern: "Poor caution",
+          explanation:
+            "Imprudent, rash, reckless, and unwise all describe choices made without enough judgment, care, or foresight.",
+          generalization:
+            "Prudence words measure the space between courage and foolish risk.",
+          adaptive: {
+            correct: "You found the poor-judgment words.",
+            wrong: "Think about words for acting without enough caution.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Accomplice", "Accessory", "Abettor", "Collaborator"],
+        correct: "Someone who helps wrongdoing",
+        options: [
+          "Someone who helps wrongdoing",
+          "Someone who pleads for mercy",
+          "Someone who glows with confidence",
+          "Someone who objects formally",
+        ],
+        insight: {
+          pattern: "Shared guilt",
+          explanation:
+            "An accomplice, accessory, abettor, and collaborator can all be someone who helps another person do wrong.",
+          generalization:
+            "Wrongdoing often spreads through cooperation; language has many ways to name the helper beside the main actor.",
+          adaptive: {
+            correct: "You found the helping-wrongdoing words.",
+            wrong: "Think about people who assist a bad act.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Ingenious", "Inventive", "Resourceful", "Clever"],
+        correct: "Skillful at making or solving",
+        options: [
+          "Skillful at making or solving",
+          "Morally outraged",
+          "Low in spirit",
+          "Overheated or restless",
+        ],
+        insight: {
+          pattern: "Clever making",
+          explanation:
+            "Ingenious, inventive, resourceful, and clever all suggest skill at finding smart solutions or making something work.",
+          generalization:
+            "Cleverness can rescue, deceive, build, or manipulate; the word changes color with the purpose behind it.",
+          adaptive: {
+            correct: "You found the creative-skill words.",
+            wrong: "Think about words for smart, inventive problem-solving.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 116,
+    difficulty: 4,
+    vocab: "mixed",
+    week: 17,
+    day: 4,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Febrile", "Turbulent", "Agitated", "Restless"],
+        correct: "Heated, agitated, or unsettled",
+        options: [
+          "Heated, agitated, or unsettled",
+          "Begging with urgency",
+          "Morally wrong",
+          "Bright and shining",
+        ],
+        insight: {
+          pattern: "Overheated intensity",
+          explanation:
+            "Febrile, turbulent, agitated, and restless all suggest heat, nervous energy, or unsettled intensity.",
+          generalization:
+            "Heat words often move from the body to the mind, describing moods, crowds, and moments that feel overheated.",
+          adaptive: {
+            correct: "You found the overheated-intensity words.",
+            wrong: "Think about words for heat, agitation, or restless intensity.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Disconcerting", "Unsettling", "Disturbing", "Jarring"],
+        correct: "Making someone uneasy",
+        options: [
+          "Making someone uneasy",
+          "Acting with poor judgment",
+          "Helping commit wrongdoing",
+          "Lacking energy",
+        ],
+        insight: {
+          pattern: "Loss of composure",
+          explanation:
+            "Disconcerting, unsettling, disturbing, and jarring all describe something that throws a person off or makes them uneasy.",
+          generalization:
+            "Unease words often mark the moment when ordinary confidence is interrupted.",
+          adaptive: {
+            correct: "You found the unsettling-effect words.",
+            wrong: "Think about words for something that makes a person feel off balance.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Remonstrance", "Protest", "Objection", "Complaint"],
+        correct: "A spoken or formal objection",
+        options: [
+          "A spoken or formal objection",
+          "An overly trusting habit",
+          "A clever solution",
+          "A shining appearance",
+        ],
+        insight: {
+          pattern: "Voiced objection",
+          explanation:
+            "A remonstrance, protest, objection, and complaint can all name a voiced disagreement or objection.",
+          generalization:
+            "Objection words range from private complaint to public resistance, depending on the power being challenged.",
+          adaptive: {
+            correct: "You found the objection words.",
+            wrong: "Think about nouns for saying that something is wrong or unacceptable.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 117,
+    difficulty: 5,
+    vocab: "advanced",
+    week: 17,
+    day: 5,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Transgression", "Offense", "Misdeed", "Trespass"],
+        correct: "An act of wrongdoing",
+        options: [
+          "An act of wrongdoing",
+          "A light used as guidance",
+          "A state of being deceived",
+          "A formal plea",
+        ],
+        insight: {
+          pattern: "Crossing a moral line",
+          explanation:
+            "A transgression, offense, misdeed, and trespass all suggest an act that crosses a rule, boundary, or moral line.",
+          generalization:
+            "Wrongdoing words often imagine morality as a boundary that can be crossed.",
+          adaptive: {
+            correct: "You found the wrongdoing-act words.",
+            wrong: "Think about nouns for doing something wrong.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Beacon", "Lantern", "Halo", "Flare"],
+        correct: "Images of light or guidance",
+        options: [
+          "Images of light or guidance",
+          "Images of moral decay",
+          "Images of exhaustion",
+          "Images of legal guilt",
+        ],
+        insight: {
+          pattern: "Guiding light",
+          explanation:
+            "A beacon, lantern, halo, and flare are all images of light, signal, visibility, or guidance.",
+          generalization:
+            "Light images can guide, warn, sanctify, expose, or call attention in darkness.",
+          adaptive: {
+            correct: "You found the guiding-light images.",
+            wrong: "Think about objects or signs associated with visible light.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Duped", "Misled", "Deceived", "Taken In"],
+        correct: "Tricked into believing",
+        options: [
+          "Tricked into believing",
+          "Angry at injustice",
+          "Clever at invention",
+          "Restless with fever",
+        ],
+        insight: {
+          pattern: "Credulous result",
+          explanation:
+            "Duped, misled, deceived, and taken in all describe being tricked into believing something false.",
+          generalization:
+            "Credulity describes the vulnerability; deception names what someone else does with it.",
+          adaptive: {
+            correct: "You found the tricked-belief words.",
+            wrong: "Think about words for being fooled into belief.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 118,
+    difficulty: 6,
+    vocab: "advanced",
+    week: 17,
+    day: 6,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Petition", "Appeal", "Supplication", "Plea"],
+        correct: "Earnest requests or appeals",
+        options: [
+          "Earnest requests or appeals",
+          "Objections made from anger",
+          "Choices made from caution",
+          "Actions made from corruption",
+        ],
+        insight: {
+          pattern: "Earnest asking",
+          explanation:
+            "A petition, appeal, supplication, and plea are all ways of asking earnestly, often by seeking help, action, mercy, or a decision from someone else.",
+          generalization:
+            "Requests reveal relationships of power: who can ask, who can grant, and who must wait.",
+          adaptive: {
+            correct: "You found the earnest-request words.",
+            wrong: "Think about nouns for asking earnestly or formally for something.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Fervor", "Ardor", "Zeal", "Passion"],
+        correct: "Heated intensity of feeling",
+        options: [
+          "Heated intensity of feeling",
+          "Careful practical wisdom",
+          "Formal legal participation",
+          "Dim lack of vitality",
+        ],
+        insight: {
+          pattern: "Inner heat",
+          explanation:
+            "Fervor, ardor, zeal, and passion all suggest strong, heated intensity of feeling or commitment.",
+          generalization:
+            "Heat can describe illness, anger, devotion, or conviction; context decides whether intensity is dangerous or alive.",
+          adaptive: {
+            correct: "You found the heated-feeling words.",
+            wrong: "Think about words for powerful inner intensity.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Folly", "Impulse", "Haste", "Temerity"],
+        correct: "Reckless or unwise action",
+        options: [
+          "Reckless or unwise action",
+          "Earnest moral objection",
+          "Creative problem-solving",
+          "Overready belief",
+        ],
+        insight: {
+          pattern: "Judgment outrun",
+          explanation:
+            "Folly, impulse, haste, and temerity all suggest acting before judgment, caution, or humility catches up.",
+          generalization:
+            "Imprudence can look like speed, boldness, confidence, or foolishness depending on what follows.",
+          adaptive: {
+            correct: "You found the reckless-action words.",
+            wrong: "Think about words for action that outruns good judgment.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 119,
+    difficulty: 7,
+    vocab: "advanced",
+    week: 17,
+    day: 7,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Conscience", "Scruple", "Principle", "Duty"],
+        correct: "Inner checks on wrongdoing",
+        options: [
+          "Inner checks on wrongdoing",
+          "Outward signs of fever",
+          "Methods of public deception",
+          "Forms of glowing light",
+        ],
+        insight: {
+          pattern: "Moral restraint",
+          explanation:
+            "Conscience, scruple, principle, and duty can all restrain action by reminding a person what they owe to right conduct.",
+          generalization:
+            "A week about iniquity needs its counterforce: the inward language that says no before harm becomes action.",
+          adaptive: {
+            correct: "You found the moral-restraint words.",
+            wrong: "Think about inner or ethical checks that stop a person from doing wrong.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Testimony", "Witness", "Confession", "Alibi"],
+        correct: "Speech tied to guilt or innocence",
+        options: [
+          "Speech tied to guilt or innocence",
+          "Objects that shine in darkness",
+          "People who help wrongdoing",
+          "States of weary discouragement",
+        ],
+        insight: {
+          pattern: "Account-giving",
+          explanation:
+            "Testimony, witness, confession, and alibi all connect speech or evidence to questions of guilt, innocence, and responsibility.",
+          generalization:
+            "When wrongdoing is disputed, language itself becomes evidence.",
+          adaptive: {
+            correct: "You found the guilt-and-innocence speech words.",
+            wrong: "Think about words used when people account for what happened.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Stupor", "Malaise", "Enervation", "Dispiritedness"],
+        correct: "States of drained vitality",
+        options: [
+          "States of drained vitality",
+          "States of moral anger",
+          "States of clever invention",
+          "States of trusting belief",
+        ],
+        insight: {
+          pattern: "Vitality diminished",
+          explanation:
+            "Stupor, malaise, enervation, and dispiritedness all suggest reduced energy, alertness, or spirit.",
+          generalization:
+            "A spiritless state can be physical, emotional, or moral: the self feels dimmed.",
+          adaptive: {
+            correct: "You found the drained-vitality words.",
+            wrong: "Think about words for low energy, dullness, or a weakened spirit.",
+          },
+        },
+      },
+    ],
+  },
 ];

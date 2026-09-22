@@ -2332,4 +2332,137 @@ Conspicuous: {
     "Conspicuous can describe something that stands out because it is obvious, unusual, public, or hard to ignore.",
 },
 
+Iniquity: {
+  short:
+    "Serious wickedness, injustice, or moral wrong.",
+  extended:
+    "Iniquity is heavier than a simple mistake; it suggests deep wrongdoing, corruption, or a violation of what is morally right.",
+},
+
+Credulity: {
+  short:
+    "A readiness to believe too easily.",
+  extended:
+    "Credulity can sound innocent or foolish depending on context; it names belief that has not been guarded by enough doubt.",
+},
+
+Febrile: {
+  short:
+    "Feverish, heated, or intensely restless.",
+  extended:
+    "Febrile can describe a literal fever, but it is often used figuratively for an excited, agitated, or overheated mood.",
+},
+
+Indignation: {
+  short:
+    "Anger at something felt to be unfair, insulting, or wrong.",
+  extended:
+    "Indignation is often moral anger: the feeling that a line of justice, dignity, or proper treatment has been crossed.",
+},
+
+Umbrage: {
+  short:
+    "Offense, resentment, or anger at a slight or insult.",
+  extended:
+    "Umbrage often means taking offense; it suggests wounded dignity, irritation, or resentment when someone feels insulted or unfairly treated.",
+},
+
+Imprudent: {
+  short:
+    "Not wise, cautious, or careful in judgment.",
+  extended:
+    "An imprudent choice may be bold, quick, or tempting, but it ignores risks that wiser judgment would notice.",
+},
+
+Disconcerting: {
+  short:
+    "Unsettling or disturbing in a way that throws someone off balance.",
+  extended:
+    "Disconcerting things interrupt composure; they make a person feel uneasy, confused, or less sure of what is happening.",
+},
+
+Accomplice: {
+  short:
+    "A person who helps someone commit wrongdoing.",
+  extended:
+    "Accomplice often carries legal or moral blame because the helper shares responsibility for the harmful act.",
+},
+
+Ingenious: {
+  short:
+    "Clever, inventive, and skillful at solving problems.",
+  extended:
+    "Ingenious praises the mind for finding an effective or original way through a difficulty.",
+},
+
+Luminous: {
+  short:
+    "Giving off light, glowing, or brightly clear.",
+  extended:
+    "Luminous can describe physical brightness, but also an idea, face, or piece of writing that seems full of clarity or radiance.",
+},
+
+Spiritless: {
+  short:
+    "Lacking energy, courage, liveliness, or hope.",
+  extended:
+    "Spiritless suggests that animation has gone out of someone or something, leaving a dull, weary, or discouraged state.",
+},
+
+Beseech: {
+  short:
+    "To ask urgently, earnestly, or pleadingly.",
+  extended:
+    "Beseech is stronger than ask; it suggests need, humility, desperation, or deep emotional pressure behind the request.",
+},
+
+Supplication: {
+  short:
+    "A humble, earnest plea or request.",
+  extended:
+    "Supplication suggests asking from a position of need, dependence, or reverence, often with deep urgency or humility.",
+},
+
+Ardor: {
+  short:
+    "Intense warmth of feeling, enthusiasm, or passion.",
+  extended:
+    "Ardor treats emotion like heat: it can suggest devotion, eagerness, romantic passion, or a fervent commitment to something.",
+},
+
+Temerity: {
+  short:
+    "Reckless boldness or nerve.",
+  extended:
+    "Temerity often criticizes courage that has outrun judgment; it suggests daring that feels rash, presumptuous, or unwise.",
+},
+
+Scruple: {
+  short:
+    "A moral hesitation or principle that restrains action.",
+  extended:
+    "A scruple is an inner check: the small but serious feeling that something may be wrong, improper, or against one's conscience.",
+},
+
+Malaise: {
+  short:
+    "A vague feeling of illness, unease, or low energy.",
+  extended:
+    "Malaise can describe physical unwellness, but also a social or emotional sense that something feels generally wrong or depleted.",
+},
+
+Enervation: {
+  short:
+    "A state of being weakened, drained, or deprived of energy.",
+  extended:
+    "Enervation suggests more than tiredness; it is a loss of vitality, force, or capacity to act.",
+},
+
+Remonstrance: {
+  short:
+    "An earnest protest, objection, or complaint.",
+  extended:
+    "A remonstrance is usually more formal or serious than casual disagreement; it is a spoken or written protest against something judged wrong.",
+},
+
 };
