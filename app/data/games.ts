@@ -8907,4 +8907,537 @@ export const GAMES = [
       },
     ],
   },
+
+  // WEEK 18
+  {
+    id: 120,
+    difficulty: 1,
+    vocab: "mixed",
+    week: 18,
+    day: 1,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Demur", "Object", "Dissent", "Balk"],
+        correct: "Hesitate or object",
+        options: [
+          "Hesitate or object",
+          "Produce abundantly",
+          "Belong to future generations",
+          "Lie by avoiding the truth",
+        ],
+        insight: {
+          pattern: "Reluctant objection",
+          explanation:
+            "Demur, object, dissent, and balk all suggest hesitating, resisting, or raising an objection.",
+          generalization:
+            "Objection words differ in force, from a quiet hesitation to open refusal.",
+          adaptive: {
+            correct: "You found the hesitation-and-objection words.",
+            wrong: "Think about words for resisting or not agreeing at once.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Fecundity", "Fertility", "Fruitfulness", "Productivity"],
+        correct: "Abundant power to produce",
+        options: [
+          "Abundant power to produce",
+          "Loss in size or amount",
+          "Mocking light conversation",
+          "Exhausted thinness",
+        ],
+        insight: {
+          pattern: "Generative abundance",
+          explanation:
+            "Fecundity, fertility, fruitfulness, and productivity all suggest the ability to produce, create, or multiply abundantly.",
+          generalization:
+            "Generative words can describe bodies, land, minds, cultures, or systems that keep producing more.",
+          adaptive: {
+            correct: "You found the generative-abundance words.",
+            wrong: "Think about words for producing richly or abundantly.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Posterity", "Descendants", "Heirs", "Future Generations"],
+        correct: "People who come after",
+        options: [
+          "People who come after",
+          "People who flatter authority",
+          "People who hoard wealth",
+          "People who avoid clear answers",
+        ],
+        insight: {
+          pattern: "Future inheritance",
+          explanation:
+            "Posterity, descendants, heirs, and future generations all refer to people who come later and inherit what the present leaves behind.",
+          generalization:
+            "Posterity words make the future feel personal: someone will receive the consequences of today's choices.",
+          adaptive: {
+            correct: "You found the future-people words.",
+            wrong: "Think about people who come after the current generation.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 121,
+    difficulty: 2,
+    vocab: "mixed",
+    week: 18,
+    day: 2,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Persiflage", "Banter", "Raillery", "Badinage"],
+        correct: "Light teasing conversation",
+        options: [
+          "Light teasing conversation",
+          "Rigid or hardened thinking",
+          "Harmful opposition",
+          "Bodily release",
+        ],
+        insight: {
+          pattern: "Playful verbal sparring",
+          explanation:
+            "Persiflage, banter, raillery, and badinage all suggest light, playful, teasing conversation.",
+          generalization:
+            "Light speech can entertain, deflect, conceal discomfort, or test social boundaries.",
+          adaptive: {
+            correct: "You found the playful-talk words.",
+            wrong: "Think about witty or teasing conversation.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Diminution", "Reduction", "Decrease", "Shrinkage"],
+        correct: "Becoming less or smaller",
+        options: [
+          "Becoming less or smaller",
+          "Speaking evasively",
+          "Growing abundantly",
+          "Working without tiring",
+        ],
+        insight: {
+          pattern: "Lessening",
+          explanation:
+            "Diminution, reduction, decrease, and shrinkage all suggest something becoming smaller, weaker, or less in amount.",
+          generalization:
+            "Lessening words can describe numbers, power, dignity, health, or hope.",
+          adaptive: {
+            correct: "You found the becoming-less words.",
+            wrong: "Think about words for decline in size, amount, or force.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Indefatigable", "Tireless", "Unflagging", "Unwearying"],
+        correct: "Not giving in to fatigue",
+        options: [
+          "Not giving in to fatigue",
+          "Thin from wasting away",
+          "Greedy for gain",
+          "Submissive to power",
+        ],
+        insight: {
+          pattern: "Enduring energy",
+          explanation:
+            "Indefatigable, tireless, unflagging, and unwearying all describe continuing with energy despite effort or strain.",
+          generalization:
+            "Endurance words can praise heroic persistence, but in a harsh world they can also sound like survival under pressure.",
+          adaptive: {
+            correct: "You found the tireless-energy words.",
+            wrong: "Think about words for not wearing out.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 122,
+    difficulty: 3,
+    vocab: "mixed",
+    week: 18,
+    day: 3,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Inimical", "Hostile", "Adverse", "Antagonistic"],
+        correct: "Opposed or harmful",
+        options: [
+          "Opposed or harmful",
+          "Playfully mocking",
+          "Lying indirectly",
+          "Collapsed face down",
+        ],
+        insight: {
+          pattern: "Active opposition",
+          explanation:
+            "Inimical, hostile, adverse, and antagonistic all suggest opposition, harm, or an unfriendly force.",
+          generalization:
+            "Opposition words can describe people, policies, conditions, or systems that work against something.",
+          adaptive: {
+            correct: "You found the opposed-and-harmful words.",
+            wrong: "Think about words for forces that are unfriendly or against something.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Avaricious", "Greedy", "Covetous", "Rapacious"],
+        correct: "Excessively hungry for gain",
+        options: [
+          "Excessively hungry for gain",
+          "Hesitant to agree",
+          "Tireless under strain",
+          "Randomly wandering",
+        ],
+        insight: {
+          pattern: "Grasping desire",
+          explanation:
+            "Avaricious, greedy, covetous, and rapacious all suggest an excessive desire to get, possess, or consume.",
+          generalization:
+            "Greed words often turn appetite into moral judgment: wanting becomes taking too much.",
+          adaptive: {
+            correct: "You found the grasping-desire words.",
+            wrong: "Think about words for wanting more than is fair or enough.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Servile", "Submissive", "Obsequious", "Fawning"],
+        correct: "Overly submissive to power",
+        options: [
+          "Overly submissive to power",
+          "Hardened into rigidity",
+          "Able to produce abundantly",
+          "Reduced in size",
+        ],
+        insight: {
+          pattern: "Self-lowering obedience",
+          explanation:
+            "Servile, submissive, obsequious, and fawning all describe lowering oneself too much before authority or power.",
+          generalization:
+            "Submission words can reveal how power trains people to perform obedience, fear, or flattery.",
+          adaptive: {
+            correct: "You found the submissive-to-power words.",
+            wrong: "Think about words for excessive obedience or flattery toward power.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 123,
+    difficulty: 4,
+    vocab: "mixed",
+    week: 18,
+    day: 4,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Ossified", "Rigid", "Hardened", "Inflexible"],
+        correct: "Hardened and resistant to change",
+        options: [
+          "Hardened and resistant to change",
+          "Lightly teasing in speech",
+          "Thin from deprivation",
+          "Hostile or opposed",
+        ],
+        insight: {
+          pattern: "Set into rigidity",
+          explanation:
+            "Ossified, rigid, hardened, and inflexible all suggest something that has become stiff, fixed, or resistant to change.",
+          generalization:
+            "Rigidity words often describe institutions and habits as if living movement had turned to bone.",
+          adaptive: {
+            correct: "You found the hardened-and-inflexible words.",
+            wrong: "Think about words for something no longer flexible or able to change.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Desultory", "Aimless", "Random", "Haphazard"],
+        correct: "Lacking steady direction",
+        options: [
+          "Lacking steady direction",
+          "Greedy for possession",
+          "Speaking a clear protest",
+          "Producing many descendants",
+        ],
+        insight: {
+          pattern: "Unsettled movement",
+          explanation:
+            "Desultory, aimless, random, and haphazard all suggest movement, effort, or thought without steady direction or plan.",
+          generalization:
+            "Direction words matter because disorder can be accidental, weary, playful, or deliberately imposed.",
+          adaptive: {
+            correct: "You found the lacking-direction words.",
+            wrong: "Think about words for scattered or unplanned movement.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Prevaricate", "Equivocate", "Dodge", "Evade"],
+        correct: "Avoid telling the truth directly",
+        options: [
+          "Avoid telling the truth directly",
+          "Work without tiring",
+          "Release from the body",
+          "Bow down or lie flat",
+        ],
+        insight: {
+          pattern: "Evasive truth",
+          explanation:
+            "Prevaricate, equivocate, dodge, and evade all describe avoiding a direct, truthful answer.",
+          generalization:
+            "Evasion words show that falsehood is not always a blunt lie; sometimes it hides in careful slipperiness.",
+          adaptive: {
+            correct: "You found the truth-dodging words.",
+            wrong: "Think about verbs for avoiding a clear answer.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 124,
+    difficulty: 5,
+    vocab: "advanced",
+    week: 18,
+    day: 5,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Excrete", "Expel", "Discharge", "Eliminate"],
+        correct: "Release waste or material",
+        options: [
+          "Release waste or material",
+          "Become morally obedient",
+          "Shrink in influence",
+          "Joke with light irony",
+        ],
+        insight: {
+          pattern: "Bodily release",
+          explanation:
+            "Excrete, expel, discharge, and eliminate can all describe releasing or removing waste, fluid, or unwanted material.",
+          generalization:
+            "Bodily words often become political or social images for what a system rejects, purges, or casts out.",
+          adaptive: {
+            correct: "You found the release-and-removal words.",
+            wrong: "Think about verbs for sending out or getting rid of waste or material.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Emaciation", "Wasting", "Gauntness", "Atrophy"],
+        correct: "Severe thinning or wasting away",
+        options: [
+          "Severe thinning or wasting away",
+          "Excessive hunger for wealth",
+          "Future descendants",
+          "Hostile opposition",
+        ],
+        insight: {
+          pattern: "Body diminished",
+          explanation:
+            "Emaciation, wasting, gauntness, and atrophy all suggest severe thinning, weakening, or loss of bodily substance.",
+          generalization:
+            "Physical decline can become a visible record of deprivation, fear, illness, or neglect.",
+          adaptive: {
+            correct: "You found the wasting-away words.",
+            wrong: "Think about words for a body losing flesh, strength, or substance.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Prostrate", "Prone", "Collapsed", "Recumbent"],
+        correct: "Lying flat or brought low",
+        options: [
+          "Lying flat or brought low",
+          "Mocking with witty chatter",
+          "Fixed into old habits",
+          "Resisting an idea",
+        ],
+        insight: {
+          pattern: "Lowered body",
+          explanation:
+            "Prostrate, prone, collapsed, and recumbent all suggest a body lying low, flat, or overcome.",
+          generalization:
+            "Posture words can describe more than position; they can suggest defeat, submission, exhaustion, or reverence.",
+          adaptive: {
+            correct: "You found the lying-low words.",
+            wrong: "Think about words for a body brought down or lying flat.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 125,
+    difficulty: 6,
+    vocab: "advanced",
+    week: 18,
+    day: 6,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Objection", "Reservation", "Protest", "Demurral"],
+        correct: "Forms of saying no",
+        options: [
+          "Forms of saying no",
+          "Forms of future memory",
+          "Forms of bodily weakness",
+          "Forms of greedy appetite",
+        ],
+        insight: {
+          pattern: "Refusal voiced",
+          explanation:
+            "An objection, reservation, protest, and demurral are all ways of expressing refusal, disagreement, or hesitation.",
+          generalization:
+            "The right to object matters because power often prefers silence to even the smallest no.",
+          adaptive: {
+            correct: "You found the voiced-refusal words.",
+            wrong: "Think about nouns for saying no or withholding agreement.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Legacy", "Inheritance", "Lineage", "Aftermath"],
+        correct: "What remains for the future",
+        options: [
+          "What remains for the future",
+          "What turns rigid with age",
+          "What wanders without plan",
+          "What flatters authority",
+        ],
+        insight: {
+          pattern: "Handed forward",
+          explanation:
+            "Legacy, inheritance, lineage, and aftermath all point toward what remains, descends, or is handed forward into the future.",
+          generalization:
+            "Posterity is not abstract; it lives inside what the present leaves behind.",
+          adaptive: {
+            correct: "You found the handed-forward words.",
+            wrong: "Think about words for what later people receive from earlier ones.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Flattery", "Compliance", "Deference", "Subservience"],
+        correct: "Behaviors of submission",
+        options: [
+          "Behaviors of submission",
+          "Behaviors of playful wit",
+          "Behaviors of direct honesty",
+          "Behaviors of tireless work",
+        ],
+        insight: {
+          pattern: "Performed obedience",
+          explanation:
+            "Flattery, compliance, deference, and subservience can all describe behaviors that submit to, appease, or lower oneself before power.",
+          generalization:
+            "Servility is not only a trait; it can become a performance people learn under pressure.",
+          adaptive: {
+            correct: "You found the submission-behavior words.",
+            wrong: "Think about behaviors that show yielding to power.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 126,
+    difficulty: 7,
+    vocab: "advanced",
+    week: 18,
+    day: 7,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Petrified", "Calcified", "Fossilized", "Sclerotic"],
+        correct: "Made rigid over time",
+        options: [
+          "Made rigid over time",
+          "Made playful through talk",
+          "Made smaller by loss",
+          "Made hungry by greed",
+        ],
+        insight: {
+          pattern: "Life turned rigid",
+          explanation:
+            "Petrified, calcified, fossilized, and sclerotic all suggest something once flexible becoming hard, fixed, or lifelessly rigid.",
+          generalization:
+            "A society can become rigid the way tissue or bone does: slowly, materially, and with less room to move.",
+          adaptive: {
+            correct: "You found the rigid-over-time words.",
+            wrong: "Think about words for hardening into a fixed state.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Doubletalk", "Circumlocution", "Hedging", "Stonewalling"],
+        correct: "Language that avoids truth",
+        options: [
+          "Language that avoids truth",
+          "Language that praises posterity",
+          "Language that expresses refusal",
+          "Language that describes fertility",
+        ],
+        insight: {
+          pattern: "Evasion by language",
+          explanation:
+            "Doubletalk, circumlocution, hedging, and stonewalling all use language to avoid clarity, responsibility, or truth.",
+          generalization:
+            "Evasive language can become a tool of control when it keeps listeners from finding the solid ground of fact.",
+          adaptive: {
+            correct: "You found the truth-avoiding language words.",
+            wrong: "Think about language that delays, dodges, or obscures a clear answer.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Penury", "Starvation", "Depletion", "Attenuation"],
+        correct: "States of severe deprivation",
+        options: [
+          "States of severe deprivation",
+          "States of cheerful teasing",
+          "States of eager production",
+          "States of proud resistance",
+        ],
+        insight: {
+          pattern: "Life reduced",
+          explanation:
+            "Penury, starvation, depletion, and attenuation all suggest deprivation, thinning, or reduction of what life needs to flourish.",
+          generalization:
+            "Diminution becomes political when bodies, resources, language, and choices are all made smaller.",
+          adaptive: {
+            correct: "You found the severe-deprivation words.",
+            wrong: "Think about states where strength, resources, or substance have been reduced.",
+          },
+        },
+      },
+    ],
+  },
 ];

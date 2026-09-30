@@ -2465,4 +2465,137 @@ Remonstrance: {
     "A remonstrance is usually more formal or serious than casual disagreement; it is a spoken or written protest against something judged wrong.",
 },
 
+Demur: {
+  short:
+    "To hesitate, object, or raise doubts.",
+  extended:
+    "Demur often suggests a restrained objection or hesitation rather than a loud refusal.",
+},
+
+Demurral: {
+  short:
+    "An objection, hesitation, or refusal.",
+  extended:
+    "A demurral is the noun form of demur: a stated objection or reluctance, often restrained rather than openly defiant.",
+},
+
+Persiflage: {
+  short:
+    "Light, teasing, or witty talk.",
+  extended:
+    "Persiflage is playful verbal sparring; it can feel charming, evasive, mocking, or socially polished depending on tone.",
+},
+
+Raillery: {
+  short:
+    "Good-humored teasing or playful mockery.",
+  extended:
+    "Raillery is joking criticism or teasing that is usually light rather than cruel, though it can still sting if the tone turns sharp.",
+},
+
+Badinage: {
+  short:
+    "Light, playful, and witty conversation.",
+  extended:
+    "Badinage is easy verbal play: banter that feels graceful, amused, and socially nimble rather than serious or hostile.",
+},
+
+Fecundity: {
+  short:
+    "The ability to produce abundantly.",
+  extended:
+    "Fecundity can describe biological fertility, but also the richness of a mind, culture, field, or system that produces much.",
+},
+
+Diminution: {
+  short:
+    "A reduction in size, amount, strength, or importance.",
+  extended:
+    "Diminution names a lessening: something becomes smaller, weaker, quieter, or less powerful than before.",
+},
+
+Indefatigable: {
+  short:
+    "Tireless; not easily exhausted.",
+  extended:
+    "Indefatigable describes someone or something that keeps going with remarkable energy despite work, pressure, or difficulty.",
+},
+
+Excrete: {
+  short:
+    "To discharge waste from the body or a living system.",
+  extended:
+    "Excrete is usually biological, referring to the removal of waste products, but it can also feel stark or bodily in figurative writing.",
+},
+
+Inimical: {
+  short:
+    "Hostile, harmful, or opposed.",
+  extended:
+    "Inimical describes something actively unfriendly or damaging to a person, goal, condition, or way of life.",
+},
+
+Avaricious: {
+  short:
+    "Extremely greedy for wealth or gain.",
+  extended:
+    "Avaricious is a moral judgment word: it suggests grasping desire that wants more than is fair, humane, or enough.",
+},
+
+Ossified: {
+  short:
+    "Hardened, rigid, or resistant to change.",
+  extended:
+    "Ossified literally means turned into bone; figuratively, it describes habits, institutions, or beliefs that have become stiff and lifeless.",
+},
+
+Sclerotic: {
+  short:
+    "Hardened, rigid, or unable to adapt.",
+  extended:
+    "Sclerotic originally suggests hardening in the body; figuratively, it describes systems, habits, or thinking that have become stiff and resistant to change.",
+},
+
+Desultory: {
+  short:
+    "Lacking a plan, order, or steady direction.",
+  extended:
+    "Desultory can describe conversation, effort, movement, or thought that jumps around without sustained focus.",
+},
+
+Servile: {
+  short:
+    "Too submissive or eager to serve authority.",
+  extended:
+    "Servile often criticizes obedience that has become degrading, fawning, or shaped by fear of power.",
+},
+
+Emaciation: {
+  short:
+    "Severe thinness or wasting away.",
+  extended:
+    "Emaciation usually points to a body reduced by hunger, illness, deprivation, or long suffering.",
+},
+
+Penury: {
+  short:
+    "Extreme poverty or severe lack.",
+  extended:
+    "Penury names deprivation that is more than mere scarcity: a condition of hardship where money, resources, or necessities are painfully absent.",
+},
+
+Posterity: {
+  short:
+    "Future generations; people who come after the present.",
+  extended:
+    "Posterity asks what later people will inherit, remember, or suffer because of choices made now.",
+},
+
+Prostrate: {
+  short:
+    "Lying flat, especially face down, or overcome.",
+  extended:
+    "Prostrate can describe a physical posture, but also defeat, exhaustion, submission, grief, or reverence.",
+},
+
 };
