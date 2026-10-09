@@ -644,6 +644,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     useState<any | null>(null);
   const [resultsReady, setResultsReady] = useState(false);
   const completionTimerRef = useRef<number | null>(null);
+  const groupTimerRefs = useRef<Set<number>>(new Set());
   const preparedResultRef = useRef<any | null>(null);
   const dashboardShownRef = useRef(false);
   const startTrackedRef = useRef(false);
@@ -754,14 +755,6 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     setCompletedResult(prepareCompletedResult());
   };
 
-  const scheduleCompletion = () => {
-    if (dashboardShownRef.current || completionTimerRef.current) return;
-
-    completionTimerRef.current = window.setTimeout(() => {
-      completePuzzle();
-    }, 7000);
-  };
-
   useEffect(() => {
     const parsed = readSavedResults();
 
@@ -811,30 +804,53 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
     selectedGame.week,
   ]);
 
-  useEffect(() => {
-    if (completedResult || stacks.length === 0 || completionTimerRef.current)
-      return;
-
-    const puzzleAnswered = stacks.every(
-      (stack: any) => stack.locked && stack.showAnswer
-    );
-
-    if (puzzleAnswered) {
-      prepareCompletedResult();
-      scheduleCompletion();
-    }
-  // This effect intentionally observes stack completion without rescheduling when
-  // helper function identities change between renders.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [completedResult, stacks]);
+  const puzzleAnswered =
+    stacks.length > 0 &&
+    stacks.every((stack: any) => stack.locked && stack.showAnswer);
 
   useEffect(() => {
+    if (completedResult || !puzzleAnswered) return;
+
+    // Record the finish time immediately; delay only the completion reveal.
+    prepareCompletedResult();
+    const timer = window.setTimeout(() => {
+      completionTimerRef.current = null;
+      completePuzzle();
+    }, 8000);
+    completionTimerRef.current = timer;
+
     return () => {
-      if (completionTimerRef.current) {
+      window.clearTimeout(timer);
+      completionTimerRef.current = null;
+    };
+    // Group animations must not restart the final reveal countdown.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [completedResult, puzzleAnswered]);
+
+  useEffect(() => {
+    const clearTimers = () => {
+      if (completionTimerRef.current !== null) {
         window.clearTimeout(completionTimerRef.current);
+        completionTimerRef.current = null;
       }
+      groupTimerRefs.current.forEach((timer) => window.clearTimeout(timer));
+      groupTimerRefs.current.clear();
+    };
+
+    window.addEventListener("pagehide", clearTimers);
+    return () => {
+      window.removeEventListener("pagehide", clearTimers);
+      clearTimers();
     };
   }, []);
+
+  const scheduleGroupUpdate = (update: () => void, delay: number) => {
+    const timer = window.setTimeout(() => {
+      groupTimerRefs.current.delete(timer);
+      update();
+    }, delay);
+    groupTimerRefs.current.add(timer);
+  };
 
   const closeTutorial = () => {
     localStorage.setItem("wordArchitectTutorialSeen", "true");
@@ -1102,7 +1118,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       )
     );
 
-    setTimeout(() => {
+    scheduleGroupUpdate(() => {
       setStacks((prev: any[]) =>
         prev.map((s: any) =>
           s.id === stackId ? { ...s, fading: true } : s
@@ -1110,7 +1126,7 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
       );
     }, 6500);
 
-    setTimeout(() => {
+    scheduleGroupUpdate(() => {
       setStacks((prev: any[]) =>
         prev.map((s: any) =>
           s.id === stackId
@@ -1119,7 +1135,6 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         )
       );
 
-      if (isFinalAnswer) completePuzzle();
     }, 7000);
   };
 
@@ -1614,25 +1629,13 @@ export default function Game({ overrideGame }: { overrideGame?: any }) {
         ))}
 
         {canViewResults && (
-          <div className="bg-neutral-950 text-white rounded-2xl p-4 text-center space-y-3">
-            <p className="text-sm opacity-80">All insights are unlocked.</p>
-
-            <button
-              onClick={completePuzzle}
-              className="bg-white text-neutral-950 px-4 py-2 rounded-full text-sm font-semibold"
-            >
-              View Results
-            </button>
-          </div>
-        )}
-
-        {canViewResults && (
-          <button
-            onClick={completePuzzle}
-            className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 bg-neutral-950 text-white px-5 py-3 rounded-full text-sm font-semibold shadow-lg border border-white/20"
+          <div
+            role="status"
+            className="bg-neutral-950 text-white rounded-2xl p-4 text-center space-y-3"
           >
-            View Results
-          </button>
+            <p className="text-sm opacity-80">All insights are unlocked.</p>
+            <p className="text-sm">Your results will appear shortly.</p>
+          </div>
         )}
 
         {!selectedCard && (

@@ -2598,4 +2598,179 @@ Prostrate: {
     "Prostrate can describe a physical posture, but also defeat, exhaustion, submission, grief, or reverence.",
 },
 
+Melancholy: {
+  short:
+    "A lingering sadness or thoughtful gloom.",
+  extended:
+    "Melancholy often suggests a quiet, sustained mood rather than a brief burst of grief. It can describe a person, a tone, or a landscape that seems to share that sadness.",
+},
+
+Pervade: {
+  short:
+    "To spread throughout or be present in every part of something.",
+  extended:
+    "A scent can pervade a room, just as dread can pervade a story. The word suggests a presence that reaches through the whole rather than staying in one spot.",
+},
+
+Poetic: {
+  short:
+    "Having the expressive, imaginative, or rhythmic qualities of poetry.",
+  extended:
+    "Poetic can describe verse, but also prose, an image, or an experience rich in beauty or suggestion. It need not mean that words rhyme.",
+},
+
+Sedge: {
+  short:
+    "A grasslike plant, often found in wet or marshy ground.",
+  extended:
+    "Sedges are distinct from grasses and rushes; many have solid, triangular stems. In a landscape description, sedge can evoke damp ground and the margins of water.",
+},
+
+Sensation: {
+  short:
+    "An experience received through the senses, or a bodily feeling.",
+  extended:
+    "Sensation can name warmth, pressure, pain, or another felt experience. It can also mean something that causes widespread excitement; the surrounding words determine the sense.",
+},
+
+Sublime: {
+  short:
+    "Inspiring awe through extraordinary greatness, beauty, or power.",
+  extended:
+    "The sublime goes beyond simple prettiness. A vast mountain or violent storm may inspire both admiration and fear, making someone feel small before what they witness.",
+},
+
+Unnerve: {
+  short:
+    "To disturb someone's courage, confidence, or composure.",
+  extended:
+    "Unnerve suggests shaking a person's steadiness. An unexplained sound or troubling discovery may unnerve someone before there is any clear danger.",
+},
+
+Ponder: {
+  short:
+    "To think carefully and at length about something.",
+  extended:
+    "Ponder suggests lingering over a question or turning it over in the mind, rather than reaching an immediate conclusion.",
+},
+
+Precipitous: {
+  short:
+    "Very steep; also, dangerously hasty or sudden.",
+  extended:
+    "A precipitous cliff drops sharply, while a precipitous decision rushes ahead without enough care. Context distinguishes the physical slope from the figurative sense of reckless haste.",
+},
+
+Munificent: {
+  short:
+    "Extremely generous, especially in giving money or gifts.",
+  extended:
+    "Munificent suggests generosity on an impressive scale. It can describe a benefactor, a donation, or support that provides far more than a modest contribution.",
+},
+
+Superstition: {
+  short:
+    "A belief that supernatural forces, signs, or rituals influence events or luck.",
+  extended:
+    "Superstition connects events to supposed powers beyond ordinary explanation. A coincidence may become an omen, or an object may be treated as protection against misfortune.",
+},
+
+Gossamer: {
+  short:
+    "Very fine spider silk; also, something exceptionally thin or delicate.",
+  extended:
+    "As a noun, gossamer can name fine strands of spider silk. As an adjective, it describes fabric or other material that seems almost weightless; figuratively, it can suggest fragile or insubstantial things.",
+},
+
+Arabesque: {
+  short:
+    "An ornamental design of flowing, interlaced lines, often with leaf or vine forms.",
+  extended:
+    "Arabesque can name intricate surface decoration. It also has meanings in ballet and music; in an ornamental context, the emphasis is on curling, interwoven patterns.",
+},
+
+Insipid: {
+  short:
+    "Lacking flavor, liveliness, or interest.",
+  extended:
+    "Insipid can describe bland food, but also dull conversation, weak writing, or an experience without character. It turns an absence of taste into an absence of force or appeal.",
+},
+
+Cataleptic: {
+  short:
+    "Relating to a state of muscular rigidity and reduced responsiveness.",
+  extended:
+    "Cataleptic describes features of catalepsy, in which the body may remain rigid and maintain a posture. In Gothic fiction, such stillness can make a living person appear dead.",
+},
+
+Miasma: {
+  short:
+    "A foul or oppressive atmosphere, especially of unpleasant vapors.",
+  extended:
+    "Miasma once referred to bad air believed to cause disease, an obsolete explanation of illness. Figuratively, it can describe an atmosphere of corruption, confusion, or dread.",
+},
+
+Doughty: {
+  short:
+    "Brave, determined, and persistent in facing difficulty.",
+  extended:
+    "Doughty is an old-fashioned word of praise for a fighter, defender, or other resolute person. It emphasizes sturdy courage and determination under pressure.",
+},
+
+Diaphanous: {
+  short:
+    "Light, delicate, and translucent.",
+  extended:
+    "Diaphanous usually describes fabric or another thin material that lets light pass through. It can give an image a gauzy, dreamlike quality.",
+},
+
+Effluvium: {
+  short:
+    "An emission or emanation, especially an unpleasant smell or vapor.",
+  extended:
+    "Effluvium usually suggests something given off by a substance or body. In descriptive writing, it can make foul air seem to have a definite source.",
+},
+
+Filigree: {
+  short:
+    "Delicate ornamental work made from fine, interwoven threads or wires.",
+  extended:
+    "Filigree often refers to intricate metalwork, especially in jewelry. By extension, it can describe any fine, lace-like pattern of decoration.",
+},
+
+Tracery: {
+  short:
+    "Ornamental lines or interlacing patterns, especially in Gothic windows.",
+  extended:
+    "Architectural tracery is the decorative framework dividing a window into patterned openings. The word can also describe fine branching or interwoven lines elsewhere.",
+},
+
+Pervasive: {
+  short:
+    "Present or spreading throughout something.",
+  extended:
+    "Pervasive is an adjective related to pervade. A pervasive mood, influence, or problem reaches widely through a place or situation.",
+},
+
+Permeable: {
+  short:
+    "Allowing fluids, gases, or other things to pass through.",
+  extended:
+    "Permeable describes a material or boundary that permits passage. Figuratively, a community or mind can be permeable to outside influences.",
+},
+
+Foreboding: {
+  short:
+    "A troubled feeling that something bad may happen.",
+  extended:
+    "Foreboding anticipates danger before there is a clear explanation. In a suspenseful story, it lets fear arrive before the event that seems to justify it.",
+},
+
+Vapid: {
+  short:
+    "Lacking liveliness, flavor, spirit, or interesting substance.",
+  extended:
+    "Vapid can describe writing, talk, or ideas that feel dull and empty, as well as taste that lacks flavor or character. It suggests an absence of energy or substance that might hold someone's interest.",
+},
+
 };

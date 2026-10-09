@@ -9440,4 +9440,537 @@ export const GAMES = [
       },
     ],
   },
+  // WEEK 19
+  {
+    id: 127,
+    difficulty: 1,
+    vocab: "mixed",
+    week: 19,
+    day: 1,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Melancholy", "Sadness", "Sorrow", "Gloom"],
+        correct: "Feelings of deep sadness",
+        options: [
+          "Feelings of deep sadness",
+          "Acts of generous giving",
+          "Patterns of decoration",
+          "Plants beside water",
+        ],
+        insight: {
+          pattern: "A shadow on feeling",
+          explanation:
+            "Melancholy, sadness, sorrow, and gloom all name feelings of sadness or emotional heaviness.",
+          generalization:
+            "Mood words can color a whole scene: a landscape may seem to carry the sadness of the person looking at it.",
+          adaptive: {
+            correct: "You found the sorrow-and-gloom words.",
+            wrong: "Think about feelings that make the world seem heavy or dim.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Sensation", "Feeling", "Impression", "Perception"],
+        correct: "Experiences of sensing or feeling",
+        options: [
+          "Experiences of sensing or feeling",
+          "Signs of future misfortune",
+          "Forms of physical courage",
+          "Kinds of steep terrain",
+        ],
+        insight: {
+          pattern: "The world felt inwardly",
+          explanation:
+            "Sensation, feeling, impression, and perception all describe ways the world is sensed or experienced.",
+          generalization:
+            "A sensation is an experience; the meaning we attach to it may come from memory, expectation, or fear.",
+          adaptive: {
+            correct: "You found the sensing-and-feeling words.",
+            wrong: "Think about how something reaches the senses or leaves a felt impression.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Ponder", "Reflect", "Consider", "Contemplate"],
+        correct: "Think carefully about something",
+        options: [
+          "Think carefully about something",
+          "Spread throughout a place",
+          "Shake someone's confidence",
+          "Give with great generosity",
+        ],
+        insight: {
+          pattern: "Thought that lingers",
+          explanation:
+            "Ponder, reflect, consider, and contemplate all describe giving something careful or sustained thought.",
+          generalization:
+            "Thinking verbs suggest different tempos: pondering slows the mind down and lets a question remain open.",
+          adaptive: {
+            correct: "You found the careful-thinking verbs.",
+            wrong: "Think about verbs for turning an idea over in the mind.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 128,
+    difficulty: 2,
+    vocab: "mixed",
+    week: 19,
+    day: 2,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Pervade", "Permeate", "Suffuse", "Penetrate"],
+        correct: "Spread into or through something",
+        options: [
+          "Spread into or through something",
+          "Remain completely motionless",
+          "Offer lavish gifts",
+          "Lose all flavor or interest",
+        ],
+        insight: {
+          pattern: "Atmosphere spreading",
+          explanation:
+            "Pervade, permeate, suffuse, and penetrate can all describe entering or spreading into something, though penetrate need not imply filling it throughout.",
+          generalization:
+            "Writers let scents, light, moods, and fears spread through a setting until atmosphere feels almost physical.",
+          adaptive: {
+            correct: "You found the spreading-through words.",
+            wrong: "Think about something entering a place or reaching through its parts.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Poetic", "Lyrical", "Evocative", "Expressive"],
+        correct: "Rich in expression or suggestion",
+        options: [
+          "Rich in expression or suggestion",
+          "Rigid and unresponsive",
+          "Faintly poisonous in the air",
+          "Steep and dangerous underfoot",
+        ],
+        insight: {
+          pattern: "Language beyond the literal",
+          explanation:
+            "Poetic, lyrical, evocative, and expressive can all describe language or art rich in feeling, imagery, or suggestion.",
+          generalization:
+            "Poetic language invites a reader to feel and imagine as well as understand; rhythm and imagery help carry its meaning.",
+          adaptive: {
+            correct: "You found the rich-expression words.",
+            wrong: "Think about language or art that calls up feelings and images.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Unnerve", "Unsettle", "Disconcert", "Rattle"],
+        correct: "Disturb confidence or composure",
+        options: [
+          "Disturb confidence or composure",
+          "Study a question patiently",
+          "Decorate with curling patterns",
+          "Spread gently through a room",
+        ],
+        insight: {
+          pattern: "Composure shaken",
+          explanation:
+            "Unnerve, unsettle, disconcert, and rattle all suggest disturbing someone's confidence, calm, or composure.",
+          generalization:
+            "Fear can begin as a small loss of steadiness before it becomes panic; these verbs catch that first disturbance.",
+          adaptive: {
+            correct: "You found the shaken-composure verbs.",
+            wrong: "Think about verbs for making someone uneasy or less sure of themselves.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 129,
+    difficulty: 3,
+    vocab: "mixed",
+    week: 19,
+    day: 3,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Sedge", "Rush", "Reed", "Cattail"],
+        correct: "Plants associated with wet ground",
+        options: [
+          "Plants associated with wet ground",
+          "Materials woven into lace",
+          "Emotions stirred by terror",
+          "Forms of elaborate decoration",
+        ],
+        insight: {
+          pattern: "Life at the water's edge",
+          explanation:
+            "Sedge, rush, reed, and cattail are different kinds of plants often found in marshes or beside water; they are not names for the same plant.",
+          generalization:
+            "A precise plant name can make a setting tangible: wet ground, still water, and rustling stems become part of the scene.",
+          adaptive: {
+            correct: "You found the wet-ground plants.",
+            wrong: "Think about plants that grow in marshes or along the water's edge.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Superstition", "Omen", "Talisman", "Jinx"],
+        correct: "Beliefs and signs of supernatural influence",
+        options: [
+          "Beliefs and signs of supernatural influence",
+          "Ways to describe generous gifts",
+          "Plants rooted in marshland",
+          "Patterns formed by curling lines",
+        ],
+        insight: {
+          pattern: "Fear gives signs a meaning",
+          explanation:
+            "Superstition is belief in supernatural influence; an omen is a supposed sign, a talisman an object believed to have power, and a jinx a supposed source of bad luck.",
+          generalization:
+            "In a fearful mind, a coincidence can become a warning and an ordinary object can seem to hold power.",
+          adaptive: {
+            correct: "You found the supernatural-belief connection.",
+            wrong: "Think about supposed signs, objects, or forces that bring luck or predict events.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Insipid", "Bland", "Vapid", "Dull"],
+        correct: "Lacking flavor, energy, or interest",
+        options: [
+          "Lacking flavor, energy, or interest",
+          "Filled with solemn grandeur",
+          "Thin and delicately woven",
+          "Brave in the face of danger",
+        ],
+        insight: {
+          pattern: "Vigor drained away",
+          explanation:
+            "Insipid, bland, vapid, and dull can all describe something lacking flavor, liveliness, or interest.",
+          generalization:
+            "Taste becomes a metaphor for judgment: writing or conversation can feel flavorless just as food can.",
+          adaptive: {
+            correct: "You found the lacking-interest words.",
+            wrong: "Think about descriptions of something flat, lifeless, or without much appeal.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 130,
+    difficulty: 4,
+    vocab: "mixed",
+    week: 19,
+    day: 4,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Sublime", "Majestic", "Grand", "Awe-inspiring"],
+        correct: "Inspiring awe through greatness",
+        options: [
+          "Inspiring awe through greatness",
+          "Lacking all emotional force",
+          "Marked by excessive haste",
+          "Delicate enough to see through",
+        ],
+        insight: {
+          pattern: "Grandeur beyond the ordinary",
+          explanation:
+            "Sublime, majestic, grand, and awe-inspiring can all describe greatness or beauty that produces admiration and awe.",
+          generalization:
+            "In Gothic writing, the sublime can mingle wonder with fear when a sight feels too vast or powerful to master.",
+          adaptive: {
+            correct: "You found the awe-and-grandeur words.",
+            wrong: "Think about a sight whose greatness makes someone feel small or astonished.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Precipitous", "Sheer", "Steep", "Abrupt"],
+        correct: "Sharply sloping or falling away",
+        options: [
+          "Sharply sloping or falling away",
+          "Generous beyond expectation",
+          "Filled with lingering sadness",
+          "Ornamented with flowing lines",
+        ],
+        insight: {
+          pattern: "The edge of a drop",
+          explanation:
+            "Precipitous, sheer, steep, and abrupt can all describe terrain that rises or falls sharply; abrupt can describe a sudden change in slope.",
+          generalization:
+            "Words for steep ground can make danger spatial: a character reaches an edge where firm footing disappears.",
+          adaptive: {
+            correct: "You found the sharply-sloping words.",
+            wrong: "Think about a cliff or slope with a sudden, sharp drop.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Munificent", "Generous", "Lavish", "Bountiful"],
+        correct: "Giving or providing abundantly",
+        options: [
+          "Giving or providing abundantly",
+          "Thinking with deep attention",
+          "Spreading through every corner",
+          "Remaining stiff and unresponsive",
+        ],
+        insight: {
+          pattern: "Abundance offered",
+          explanation:
+            "Munificent, generous, lavish, and bountiful can all describe giving or providing in large, abundant measure.",
+          generalization:
+            "Generosity words vary in scale: munificent suggests an impressive gift, while generous can describe a small act of kindness.",
+          adaptive: {
+            correct: "You found the abundant-giving words.",
+            wrong: "Think about words for giving freely and in large measure.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 131,
+    difficulty: 5,
+    vocab: "advanced",
+    week: 19,
+    day: 5,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Gossamer", "Filmy", "Diaphanous", "Sheer"],
+        correct: "Thin, delicate, and often translucent",
+        options: [
+          "Thin, delicate, and often translucent",
+          "Sturdy under prolonged attack",
+          "Heavy with stagnant fumes",
+          "Sudden and dangerously steep",
+        ],
+        insight: {
+          pattern: "Almost without substance",
+          explanation:
+            "Gossamer, filmy, diaphanous, and sheer can all describe material so thin or delicate that light seems to pass through it.",
+          generalization:
+            "Fragile textures can make a scene feel dreamlike: what can barely be seen may also seem ready to vanish.",
+          adaptive: {
+            correct: "You found the delicate-material words.",
+            wrong: "Think about fine fabric or threads that seem almost weightless.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Arabesque", "Scrollwork", "Filigree", "Tracery"],
+        correct: "Intricate ornamental patterns",
+        options: [
+          "Intricate ornamental patterns",
+          "States of motionless rigidity",
+          "Acts of lavish generosity",
+          "Feelings of lingering sorrow",
+        ],
+        insight: {
+          pattern: "Lines that curl and interlace",
+          explanation:
+            "An arabesque uses flowing, interlaced ornament; scrollwork, filigree, and tracery also create intricate decoration through shaped or interwoven lines.",
+          generalization:
+            "Ornament can guide the eye through curves and repetitions, making a surface feel richly patterned or maze-like.",
+          adaptive: {
+            correct: "You found the intricate-ornament connection.",
+            wrong: "Think about decoration made from delicate, curling, or interlacing lines.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Miasma", "Fumes", "Stench", "Effluvium"],
+        correct: "Unpleasant emissions or polluted air",
+        options: [
+          "Unpleasant emissions or polluted air",
+          "Signs believed to bring good luck",
+          "Fine threads and transparent cloth",
+          "Sights that inspire admiration",
+        ],
+        insight: {
+          pattern: "Air made oppressive",
+          explanation:
+            "Miasma, fumes, stench, and effluvium can all suggest unpleasant emissions or foul air; stench names the smell rather than a visible cloud.",
+          generalization:
+            "Air can become an image of corruption: a foul atmosphere seems to surround people before they know its source.",
+          adaptive: {
+            correct: "You found the foul-air words.",
+            wrong: "Think about unpleasant smells, vapors, or emissions hanging in the air.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 132,
+    difficulty: 6,
+    vocab: "advanced",
+    week: 19,
+    day: 6,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Cataleptic", "Rigid", "Immobile", "Unresponsive"],
+        correct: "Bodily stillness and loss of response",
+        options: [
+          "Bodily stillness and loss of response",
+          "Restless and scattered thinking",
+          "Rich and flowing ornament",
+          "Openhanded and lavish giving",
+        ],
+        insight: {
+          pattern: "Stillness mistaken for death",
+          explanation:
+            "Cataleptic describes a state associated with muscular rigidity and reduced responsiveness; rigid, immobile, and unresponsive describe aspects of that stillness, not equivalent diagnoses.",
+          generalization:
+            "In Gothic fiction, a body that appears lifeless can disturb the boundary between seeming and being.",
+          adaptive: {
+            correct: "You found the rigidity-and-stillness words.",
+            wrong: "Think about a body that remains stiff, still, and difficult to rouse.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Doughty", "Valiant", "Stouthearted", "Intrepid"],
+        correct: "Resolute courage in difficulty",
+        options: [
+          "Resolute courage in difficulty",
+          "Deep sadness without relief",
+          "Dreamlike delicacy of texture",
+          "A flat lack of interest",
+        ],
+        insight: {
+          pattern: "Courage holds its ground",
+          explanation:
+            "Doughty, valiant, stouthearted, and intrepid all describe courage or determination in the face of danger or difficulty.",
+          generalization:
+            "Courage need not mean freedom from fear; it can be the resolve that lets someone act while afraid.",
+          adaptive: {
+            correct: "You found the resolute-courage words.",
+            wrong: "Think about words for someone who faces danger with determination.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Foreboding", "Apprehension", "Dread", "Unease"],
+        correct: "Feelings that trouble may be coming",
+        options: [
+          "Feelings that trouble may be coming",
+          "Confident delight in a gift",
+          "Careful attention to ornament",
+          "Complete absence of sensation",
+        ],
+        insight: {
+          pattern: "Fear arrives before the event",
+          explanation:
+            "Foreboding, apprehension, dread, and unease can all describe troubled feelings about what may happen next.",
+          generalization:
+            "Suspense grows when a feeling comes before its explanation: the reader senses danger before seeing it.",
+          adaptive: {
+            correct: "You found the anticipated-danger words.",
+            wrong: "Think about feelings of worry or fear about what might happen.",
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: 133,
+    difficulty: 7,
+    vocab: "advanced",
+    week: 19,
+    day: 7,
+    groups: [
+      {
+        skill: "abstraction",
+        words: ["Precipitous", "Hasty", "Headlong", "Rash"],
+        correct: "Acting with dangerous haste",
+        options: [
+          "Acting with dangerous haste",
+          "Giving in abundant measure",
+          "Thinking with deliberate care",
+          "Remaining bodily motionless",
+        ],
+        insight: {
+          pattern: "A steep drop becomes a rushed act",
+          explanation:
+            "Precipitous can mean dangerously hasty; hasty, headlong, and rash likewise describe action that rushes ahead without enough care.",
+          generalization:
+            "A word can carry a physical image into behavior: a precipitous decision feels like plunging over an edge.",
+          adaptive: {
+            correct: "You found the reckless-haste meaning.",
+            wrong: "Think about actions taken too quickly, before their consequences are considered.",
+          },
+        },
+      },
+      {
+        skill: "symbolic",
+        words: ["Gossamer", "Wisp", "Shadow", "Mirage"],
+        correct: "Images of fragile or elusive presence",
+        options: [
+          "Images of fragile or elusive presence",
+          "Images of sturdy resistance",
+          "Images of generous abundance",
+          "Images of elaborate craftsmanship",
+        ],
+        insight: {
+          pattern: "Presence almost disappearing",
+          explanation:
+            "Gossamer suggests extreme delicacy, a wisp is a thin fragment, a shadow lacks solid substance, and a mirage is an optical appearance that may mislead.",
+          generalization:
+            "A writer can connect unlike things through an image: each may suggest a presence that is difficult to hold or trust.",
+          adaptive: {
+            correct: "You found the fragile-or-elusive imagery.",
+            wrong: "Think about what seems faint, insubstantial, or hard to grasp.",
+          },
+        },
+      },
+      {
+        skill: "linguistic",
+        words: ["Pervade", "Permeate", "Permeable", "Pervasive"],
+        correct: "Words about spreading through",
+        options: [
+          "Words about spreading through",
+          "Words about withholding gifts",
+          "Words about rigid posture",
+          "Words about fearless resolve",
+        ],
+        insight: {
+          pattern: "From action to quality",
+          explanation:
+            "Pervade and permeate name spreading through; permeable describes what allows passage through, while pervasive describes what is widespread throughout.",
+          generalization:
+            "Related meanings can cross grammatical roles: verbs name an action, while adjectives name a capacity or a resulting quality.",
+          adaptive: {
+            correct: "You found the spreading-through word family.",
+            wrong: "Think about both the action of spreading through and qualities that allow or describe it.",
+          },
+        },
+      },
+    ],
+  },
+
 ];

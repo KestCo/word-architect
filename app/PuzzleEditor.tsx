@@ -419,6 +419,7 @@ export default function PuzzleEditor() {
   const [suggestedChanges, setSuggestedChanges] = useState("");
 
   const [previewGame, setPreviewGame] = useState<any>(null);
+  const [previewRun, setPreviewRun] = useState(0);
   const [finalJSON, setFinalJSON] = useState("");
   const [draftBranches, setDraftBranches] = useState<Record<string, DraftRecord>>(
     {}
@@ -825,6 +826,7 @@ export default function PuzzleEditor() {
 
   const preview = () => {
     const game = buildDraftObject();
+    setPreviewRun((run) => run + 1);
     setPreviewGame(game);
     void saveDraftBranch("draft", "Saved draft for preview", game);
   };
@@ -1384,7 +1386,7 @@ export default function PuzzleEditor() {
       {previewGame && (
         <section className="border-t pt-8 space-y-4">
           <h2 className="text-xl font-semibold">Draft Preview</h2>
-          <Game overrideGame={previewGame} />
+          <Game key={previewRun} overrideGame={previewGame} />
         </section>
       )}
     </main>
